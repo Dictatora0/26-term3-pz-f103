@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>开发板环境数据实时仪表盘</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header card">
+      <div class="title-block">
+        <h1>开发板环境数据实时仪表盘</h1>
+        <div class="author-info">姓名：李富麟 ｜ 学号：2023302111204</div>
+      </div>
+      <div class="clock-block">
+        <div id="now-date" class="now-date">--</div>
+        <div id="now-time" class="now-time">--</div>
+      </div>
+    </header>
+
+    <section class="status-row">
+      <div class="card status-card">
+        <div class="label">设备状态</div>
+        <div id="device-status" class="status waiting">等待数据</div>
+      </div>
+      <div class="card status-card">
+        <div class="label">最后更新时间</div>
+        <div id="last-update" class="value">--</div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="card metric-card">
+        <div class="label">温度</div>
+        <div id="temperature" class="metric-value">--</div>
+        <div class="unit">°C</div>
+      </div>
+      <div class="card metric-card">
+        <div class="label">光照</div>
+        <div id="light" class="metric-value">--</div>
+        <div class="unit">%</div>
+      </div>
+      <div class="card metric-card muted">
+        <div class="label">湿度</div>
+        <div id="humidity" class="metric-value">暂无数据</div>
+        <div class="unit">%RH</div>
+      </div>
+    </section>
+
+    <section class="analysis-grid">
+      <div class="card panel chart-panel">
+        <h2>趋势分析图（最近 40 条）</h2>
+        <div class="legend-row">
+          <span class="legend-item"><i class="dot dot-temp"></i>温度(°C)</span>
+          <span class="legend-item"><i class="dot dot-light"></i>光照(%)</span>
+        </div>
+        <canvas id="trend-canvas" width="520" height="300"></canvas>
+      </div>
+
+      <div class="card panel table-panel">
+        <h2>最近数据（最新 100 条）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>温度(°C)</th>
+                <th>光照(%)</th>
+                <th>湿度(%RH)</th>
+              </tr>
+            </thead>
+            <tbody id="history-body">
+              <tr><td colspan="4" class="placeholder">等待串口数据...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

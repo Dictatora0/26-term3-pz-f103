@@ -1,0 +1,103 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.28.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: x xj, x, LIC=BUURY-IDJS3-X7YRZ-JUZMR-YHSE3-SJ8M4
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.28.0.0
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.28.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.31.18.0
+Dialog DLL:      TCM.DLL V1.36.2.0
+ 
+<h2>Project:</h2>
+D:\jd\testwifi\Template.uvprojx
+Project File Date:  05/26/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'd:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_pwr.c...
+compiling main.c...
+User\main.c(14): warning:  #177-D: variable "cCh"  was declared but never referenced
+  	char cCh;	
+User\main.c: 1 warning, 0 errors
+compiling stm32f10x_adc.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_exti.c...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_it.c...
+compiling stm32f10x_wwdg.c...
+compiling stm32f10x_dac.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_tim.c...
+compiling core_cm3.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_fsmc.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_can.c...
+compiling led.c...
+compiling system.c...
+compiling SysTick.c...
+compiling wifi_config.c...
+compiling usart.c...
+Public\usart.c(171): warning:  #1-D: last line of file ends without a newline
+  }
+Public\usart.c: 1 warning, 0 errors
+compiling wifi_function.c...
+APP\esp8266\wifi_function.c(278): warning:  #177-D: variable "cStr"  was declared but never referenced
+  	char cStr [100] = { 0 }, cCmd [120];
+APP\esp8266\wifi_function.c(295): warning:  #177-D: variable "cStr"  was declared but never referenced
+  	char cStr [100] = { 0 }, cCmd [120];
+APP\esp8266\wifi_function.c(305): warning:  #177-D: variable "cStr"  was declared but never referenced
+  	char cStr [100] = { 0 }, cCmd [120];
+APP\esp8266\wifi_function.c(590): warning:  #188-D: enumerated type mixed with another type
+          server_connected = ESP8266_Link_Server((uint8_t)enumTCP, (char*)server_ip, (char*)server_port, 9); // 假设Single_ID=0
+APP\esp8266\wifi_function.c(590): warning:  #188-D: enumerated type mixed with another type
+          server_connected = ESP8266_Link_Server((uint8_t)enumTCP, (char*)server_ip, (char*)server_port, 9); // 假设Single_ID=0
+APP\esp8266\wifi_function.c(602): warning:  #188-D: enumerated type mixed with another type
+      if (ESP8266_SendString(DISABLE, (char*)test_data, data_len, 0)) { // 假设Single_ID=0
+APP\esp8266\wifi_function.c(695): warning:  #188-D: enumerated type mixed with another type
+  		server_connected = ESP8266_Link_MQTT((char*)server_ip, (char*)server_port, 9); // 假设Single_ID=0
+APP\esp8266\wifi_function.c(655): warning:  #177-D: variable "test_data"  was declared but never referenced
+      const char* test_data;
+APP\esp8266\wifi_function.c(656): warning:  #177-D: variable "data_len"  was declared but never referenced
+      u32 data_len;
+APP\esp8266\wifi_function.c: 9 warnings, 0 errors
+linking...
+Program Size: Code=6108 RO-data=336 RW-data=32 ZI-data=2256  
+FromELF: creating hex file...
+".\Obj\Template.axf" - 0 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
+                Keil.STM32F1xx_DFP.2.2.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  d:\Users\xj\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

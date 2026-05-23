@@ -1,0 +1,37 @@
+FILE: ESP8266_用户手册_V0.3.pdf
+PAGES: 47
+
+[P10] 14 GPIO2 可用作烧写 Flash 时 UART Tx；GPIO2 | 15 GPIO0 GPIO0;SPICS2 | 16 GPIO4 GPIO4
+[P10] 32 EXT_RSTB 外部 reset 信号(低电平有效) | 注：GPIO2、GPIO0、MTDO 构成 3bit 可进行 SDIO 模式的选择。
+[P14] (PIN 12) MTCK---复位按键 (按住复位按键重新上电，可完成复位)； | (PIN 15) GPIO0---wifi 工作状态指示灯； | (PIN 10) MTDI--- 与服务器通信的指示灯；
+[P14] (PIN 25) U0RXD---Button，暂未定义功能； | (PIN 13) MTDO---LED，暂未定义功能。
+[P15] (PIN 13) MTDO---控制继电器，可高低电平控制； | (PIN 15) GPIO0--- 指示 wifi 工作状态； | (PIN 12) MTCK---接复位按键(长按 5s 可完成复位功能);
+[P31] 2）后文指令中[ ]内数据为缺省值，不必填写或可能不显示。 | 3）波特率 115200。 | 4）参数为字符串的，需要加上双引号。例如：
+[P32] AT 测试 AT 启动 | AT+RST 重启模块 | AT+GMR 查看版本信息
+[P32] wifi 功能指令 | AT+CWMODE 选择 WIFI 应用模式 | AT+CWJAP 加入 AP
+[P32] AT+CWMODE 选择 WIFI 应用模式 | AT+CWJAP 加入 AP | AT+CWLAP 列出当前可用 AP
+[P32] AT+CWJAP 加入 AP | AT+CWLAP 列出当前可用 AP | AT+CWQAP 退出与 AP 的连接
+[P32] AT+CIPSTATUS 获得连接状态 | AT+CIPSTART 建立 TCP 连接或注册 UDP 端口号 | AT+CIPSEND 发送数据
+[P33] 说明 None | 4.1.2.2. AT+RST | AT+RST：重启模块
+[P33] 4.1.2.2. AT+RST | AT+RST：重启模块 | 执行指令：
+[P33] 执行指令： | AT+RST | 响应 OK
+[P33] 4.1.2.4. AT+CWMODE | AT+CWMODE：选择 WIFI 应用模式
+[P33] 4.1.2.4. AT+CWMODE | AT+CWMODE：选择 WIFI 应用模式
+[P33] 测试指令： | AT+CWMODE=?
+[P34] 查询命令： | AT+CWMODE?
+[P34] 设置指令： | AT+CWMODE=<mode> | 响应 OK
+[P34] 此指令需重启后生效(AT+RST)。
+[P34] 4.1.2.5. AT+CWJAP | AT+CWJAP：加入 AP
+[P34] 4.1.2.5. AT+CWJAP | AT+CWJAP：加入 AP
+[P35] 4.1.2.6. AT+CWLAP | AT+CWLAP：列出当前可用 AP
+[P35] 4.1.2.6. AT+CWLAP | AT+CWLAP：列出当前可用 AP
+[P35] 执行指令： | AT+CWLAP
+[P38] 4.1.2.11. AT+CIPSTART | AT+CIPSTART：建立 TCP 连接或注册 UDP 端口号
+[P38] 4.1.2.11. AT+CIPSTART | AT+CIPSTART：建立 TCP 连接或注册 UDP 端口号
+[P38] 测试指令 | AT+CIPSTART=?
+[P38] 1) 若设置 AT+CIPMUX=0 | +CIPSTART:(<type>取值列表),(<IP | address>范围),(<port>范围)
+[P38] address>范围),(<port>范围) | +CIPSTART:(<type>取值列表),(<domain | name>范围),(<port>范围)
+[P38] 2) 若设置 AT+CIPMUX=1 | +CIPSTART:(id),(<type>取值列表),(<IP | address>范围),(<port>范围)
+[P38] address>范围),(<port>范围) | +CIPSTART: (id), (<type>取值列 | 表),(<domain name>范围),(<port>范
+[P38] (+CIPMUX=0) | AT+CIPSTART= | <type>,<addr>,<port>
+[P39] (+CIPMUX=1) | AT+CIPSTART= | <id><type>,<addr>,
