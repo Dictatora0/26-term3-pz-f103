@@ -231,13 +231,13 @@ def main() -> int:
         pass
 
     time.sleep(1.0)
+
+    print(f"[serial] open port={args.port} baud={args.baud}")
+    read_serial_logs(ser, args.boot_log_seconds, "boot-log")
     try:
         ser.reset_input_buffer()
     except Exception:
         pass
-
-    print(f"[serial] open port={args.port} baud={args.baud}")
-    read_serial_logs(ser, args.boot_log_seconds, "boot-log")
 
     if args.listen_only:
         print("[serial] listen-only mode")

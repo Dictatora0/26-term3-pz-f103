@@ -1,6 +1,6 @@
 Dependencies for Project 'Template', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\User\camera_main.c)(0x6A1121CB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\User -I .\Libraries\CMSIS -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\led -I .\Public -I .\APP\beep -I .\APP\smg -I .\APP\key -I .\APP\exti -I .\APP\time -I .\APP\pwm -I .\APP\iwdg -I .\APP\wwdg -I .\APP\input -I .\APP\touch_key -I .\APP\wkup -I .\APP\adc -I .\APP\adc_temp -I .\APP\dac -I .\APP\pwm_dac -I .\APP\dma -I .\APP\rtc -I .\APP\24Cxx -I .\APP\iic -I .\APP\ds18b20 -I .\APP\hwjs -I .\APP\rs485 -I .\APP\can -I .\APP\tftlcd -I .\APP\spi -I .\APP\nrf24l01 -I .\APP\dht11 -I .\APP\esp8266 -I .\APP\usart3-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o .\obj\camera_main.o --omf_browse .\obj\camera_main.crf --depend .\obj\camera_main.d)
+F (.\User\camera_main.c)(0x6A114572)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\User -I .\Libraries\CMSIS -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\led -I .\Public -I .\APP\beep -I .\APP\smg -I .\APP\key -I .\APP\exti -I .\APP\time -I .\APP\pwm -I .\APP\iwdg -I .\APP\wwdg -I .\APP\input -I .\APP\touch_key -I .\APP\wkup -I .\APP\adc -I .\APP\adc_temp -I .\APP\dac -I .\APP\pwm_dac -I .\APP\dma -I .\APP\rtc -I .\APP\24Cxx -I .\APP\iic -I .\APP\ds18b20 -I .\APP\hwjs -I .\APP\rs485 -I .\APP\can -I .\APP\tftlcd -I .\APP\spi -I .\APP\nrf24l01 -I .\APP\dht11 -I .\APP\esp8266 -I .\APP\usart3-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o .\obj\camera_main.o --omf_browse .\obj\camera_main.crf --depend .\obj\camera_main.d)
 I (.\Public\system.h)(0x5DBBF701)
 I (.\User\stm32f10x.h)(0x4D783CB4)
 I (.\Libraries\CMSIS\core_cm3.h)(0x4D523B58)
@@ -32,7 +32,7 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
 I (.\Public\SysTick.h)(0x5DF3522A)
 I (.\APP\led\led.h)(0x5DBBE458)
-I (User\usart.h)(0x6A1120E6)
+I (User\usart.h)(0x6A11368C)
 I (C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (.\APP\tftlcd\tftlcd.h)(0x64D191D3)
 F (.\User\stm32f10x_it.c)(0x5DF3522A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\User -I .\Libraries\CMSIS -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\led -I .\Public -I .\APP\beep -I .\APP\smg -I .\APP\key -I .\APP\exti -I .\APP\time -I .\APP\pwm -I .\APP\iwdg -I .\APP\wwdg -I .\APP\input -I .\APP\touch_key -I .\APP\wkup -I .\APP\adc -I .\APP\adc_temp -I .\APP\dac -I .\APP\pwm_dac -I .\APP\dma -I .\APP\rtc -I .\APP\24Cxx -I .\APP\iic -I .\APP\ds18b20 -I .\APP\hwjs -I .\APP\rs485 -I .\APP\can -I .\APP\tftlcd -I .\APP\spi -I .\APP\nrf24l01 -I .\APP\dht11 -I .\APP\esp8266 -I .\APP\usart3-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o .\obj\stm32f10x_it.o --omf_browse .\obj\stm32f10x_it.crf --depend .\obj\stm32f10x_it.d)
@@ -655,7 +655,7 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
 I (C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
 I (APP\tftlcd\font.h)(0x5D6C6A34)
-I (.\User\usart.h)(0x6A1120E6)
+I (.\User\usart.h)(0x6A11368C)
 I (C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (.\Public\SysTick.h)(0x5DF3522A)
 F (.\Public\system.c)(0x5DBBF701)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\User -I .\Libraries\CMSIS -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\led -I .\Public -I .\APP\beep -I .\APP\smg -I .\APP\key -I .\APP\exti -I .\APP\time -I .\APP\pwm -I .\APP\iwdg -I .\APP\wwdg -I .\APP\input -I .\APP\touch_key -I .\APP\wkup -I .\APP\adc -I .\APP\adc_temp -I .\APP\dac -I .\APP\pwm_dac -I .\APP\dma -I .\APP\rtc -I .\APP\24Cxx -I .\APP\iic -I .\APP\ds18b20 -I .\APP\hwjs -I .\APP\rs485 -I .\APP\can -I .\APP\tftlcd -I .\APP\spi -I .\APP\nrf24l01 -I .\APP\dht11 -I .\APP\esp8266 -I .\APP\usart3-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o .\obj\system.o --omf_browse .\obj\system.crf --depend .\obj\system.d)
@@ -719,8 +719,8 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
-F (.\User\usart_app.c)(0x6A1120E6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\User -I .\Libraries\CMSIS -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\led -I .\Public -I .\APP\beep -I .\APP\smg -I .\APP\key -I .\APP\exti -I .\APP\time -I .\APP\pwm -I .\APP\iwdg -I .\APP\wwdg -I .\APP\input -I .\APP\touch_key -I .\APP\wkup -I .\APP\adc -I .\APP\adc_temp -I .\APP\dac -I .\APP\pwm_dac -I .\APP\dma -I .\APP\rtc -I .\APP\24Cxx -I .\APP\iic -I .\APP\ds18b20 -I .\APP\hwjs -I .\APP\rs485 -I .\APP\can -I .\APP\tftlcd -I .\APP\spi -I .\APP\nrf24l01 -I .\APP\dht11 -I .\APP\esp8266 -I .\APP\usart3-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o .\obj\usart_app.o --omf_browse .\obj\usart_app.crf --depend .\obj\usart_app.d)
-I (User\usart.h)(0x6A1120E6)
+F (.\User\usart_app.c)(0x6A11456D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\User -I .\Libraries\CMSIS -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\APP\led -I .\Public -I .\APP\beep -I .\APP\smg -I .\APP\key -I .\APP\exti -I .\APP\time -I .\APP\pwm -I .\APP\iwdg -I .\APP\wwdg -I .\APP\input -I .\APP\touch_key -I .\APP\wkup -I .\APP\adc -I .\APP\adc_temp -I .\APP\dac -I .\APP\pwm_dac -I .\APP\dma -I .\APP\rtc -I .\APP\24Cxx -I .\APP\iic -I .\APP\ds18b20 -I .\APP\hwjs -I .\APP\rs485 -I .\APP\can -I .\APP\tftlcd -I .\APP\spi -I .\APP\nrf24l01 -I .\APP\dht11 -I .\APP\esp8266 -I .\APP\usart3-IC:\Users\admin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="540" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD-o .\obj\usart_app.o --omf_browse .\obj\usart_app.crf --depend .\obj\usart_app.d)
+I (User\usart.h)(0x6A11368C)
 I (.\Public\system.h)(0x5DBBF701)
 I (.\User\stm32f10x.h)(0x4D783CB4)
 I (.\Libraries\CMSIS\core_cm3.h)(0x4D523B58)

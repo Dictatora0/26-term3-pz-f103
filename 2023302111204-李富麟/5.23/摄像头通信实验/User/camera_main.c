@@ -17,7 +17,7 @@
 #define LCD_LINEBUF_PIXELS  800
 #define DEBUG_BAR_HEIGHT    40U
 #define FRAME_AREA_TOP      (DEBUG_BAR_HEIGHT + 4U)
-#define UART_RX_TIMEOUT_MS  300U
+#define UART_RX_TIMEOUT_MS  1000U
 
 typedef struct
 {
@@ -30,6 +30,7 @@ typedef struct
 typedef enum
 {
 	FRAME_STATUS_WAIT = 0,
+	FRAME_STATUS_IDLE,
 	FRAME_STATUS_SYNC_TIMEOUT,
 	FRAME_STATUS_HEADER_ERROR,
 	FRAME_STATUS_HEADER_TIMEOUT,
@@ -39,6 +40,20 @@ typedef enum
 	FRAME_STATUS_CRC_ERROR,
 	FRAME_STATUS_OK
 } frame_status_t;
+
+typedef enum
+{
+	FRAME_RESULT_IDLE = 0,
+	FRAME_RESULT_ERROR,
+	FRAME_RESULT_OK
+} frame_result_t;
+
+typedef enum
+{
+	SYNC_RESULT_IDLE = 0,
+	SYNC_RESULT_OK,
+	SYNC_RESULT_ERROR
+} sync_result_t;
 
 static u16 g_frame_buffer[MAX_FRAME_PIXELS];
 static u16 g_line_buffer[LCD_LINEBUF_PIXELS];
@@ -54,11 +69,19 @@ static u16 g_last_crc_expected = 0;
 static u16 g_last_crc_received = 0;
 static frame_status_t g_last_status = FRAME_STATUS_WAIT;
 static u16 g_last_detail = 0;
+static u8 g_active_uart = UART_PORT_USART1;
+static u8 g_last_uart = UART_PORT_NONE;
+static u32 g_rx_count_uart1 = 0;
+static u32 g_rx_count_uart3 = 0;
+static u8 g_last_rx_byte = 0;
+static u8 g_last_rx_byte_uart = UART_PORT_NONE;
 
 static const char *frame_status_text(frame_status_t status)
 {
 	switch (status)
 	{
+	case FRAME_STATUS_IDLE:
+		return "IDLE";
 	case FRAME_STATUS_SYNC_TIMEOUT:
 		return "SYNC";
 	case FRAME_STATUS_HEADER_ERROR:
@@ -107,6 +130,14 @@ static void lcd_show_status(void)
 		(unsigned int)g_last_payload_len,
 		(unsigned int)g_last_detail);
 	LCD_ShowString(180, 2, tftlcd_data.width, 16, 16, (u8 *)line);
+
+	sprintf(line, "U:%u B:%02X@%u R1:%lu R3:%lu",
+		(unsigned int)g_last_uart,
+		(unsigned int)g_last_rx_byte,
+		(unsigned int)g_last_rx_byte_uart,
+		(unsigned long)g_rx_count_uart1,
+		(unsigned long)g_rx_count_uart3);
+	LCD_ShowString(180, 20, tftlcd_data.width, 16, 16, (u8 *)line);
 }
 
 static u16 crc16_ccitt_update(u16 crc, u8 data)
@@ -130,7 +161,7 @@ static u16 crc16_ccitt_update(u16 crc, u8 data)
 
 static void send_control_byte(u8 value)
 {
-	USART1_SendByte(value);
+	USART_SendByteOn(g_active_uart, value);
 }
 
 static void send_debug_packet(frame_status_t status)
@@ -147,7 +178,21 @@ static void send_debug_packet(frame_status_t status)
 	packet[7] = (u8)(g_last_detail & 0xFFU);
 	packet[8] = (u8)(g_last_detail >> 8);
 	packet[9] = '\n';
-	USART1_SendBuffer(packet, sizeof(packet));
+	USART_SendBufferOn(g_active_uart, packet, sizeof(packet));
+}
+
+static void note_rx_byte(u8 uart_port, u8 value)
+{
+	g_last_rx_byte = value;
+	g_last_rx_byte_uart = uart_port;
+	if (uart_port == UART_PORT_USART3)
+	{
+		g_rx_count_uart3++;
+	}
+	else if (uart_port == UART_PORT_USART1)
+	{
+		g_rx_count_uart1++;
+	}
 }
 
 static void report_failure(frame_status_t status, u16 detail)
@@ -162,21 +207,31 @@ static void report_failure(frame_status_t status, u16 detail)
 
 static u8 uart_read_or_timeout(u8 *data)
 {
-	return USART1_ReadByteTimeout(data, UART_RX_TIMEOUT_MS);
+	if (USART_ReadByteTimeoutOn(g_active_uart, data, UART_RX_TIMEOUT_MS) == 0U)
+	{
+		return 0U;
+	}
+	note_rx_byte(g_active_uart, *data);
+	return 1U;
 }
 
-static u8 wait_for_sync(void)
+static sync_result_t wait_for_sync(void)
 {
 	u8 byte0 = 0;
 	u8 byte1 = 0;
 	u16 skipped = 0;
+	u8 detected_uart = UART_PORT_NONE;
 
 	for (;;)
 	{
-		if (uart_read_or_timeout(&byte0) == 0U)
+		if (USART_ReadByteAnyTimeout(&byte0, UART_RX_TIMEOUT_MS, &detected_uart) == 0U)
 		{
-			return 0U;
+			g_last_uart = UART_PORT_NONE;
+			return SYNC_RESULT_IDLE;
 		}
+		g_active_uart = detected_uart;
+		g_last_uart = detected_uart;
+		note_rx_byte(detected_uart, byte0);
 		if (byte0 != FRAME_SYNC0)
 		{
 			skipped++;
@@ -186,18 +241,18 @@ static u8 wait_for_sync(void)
 		if (uart_read_or_timeout(&byte1) == 0U)
 		{
 			g_last_detail = 0xA500U;
-			return 0U;
+			return SYNC_RESULT_ERROR;
 		}
 		if (byte1 == FRAME_SYNC1)
 		{
 			g_last_detail = skipped;
-			return 1U;
+			return SYNC_RESULT_OK;
 		}
 		skipped++;
 	}
 }
 
-static u8 receive_frame(frame_header_t *header)
+static frame_result_t receive_frame(frame_header_t *header)
 {
 	u16 pixel_count;
 	u16 expected_crc = 0xFFFFU;
@@ -205,37 +260,46 @@ static u8 receive_frame(frame_header_t *header)
 	u16 index;
 	u8 low_byte;
 	u8 high_byte;
+	sync_result_t sync_result;
 
-	if (wait_for_sync() == 0U)
+	sync_result = wait_for_sync();
+	if (sync_result == SYNC_RESULT_IDLE)
+	{
+		g_last_status = FRAME_STATUS_IDLE;
+		g_last_detail = 0U;
+		lcd_show_status();
+		return FRAME_RESULT_IDLE;
+	}
+	if (sync_result == SYNC_RESULT_ERROR)
 	{
 		report_failure(FRAME_STATUS_SYNC_TIMEOUT, g_last_detail);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 
 	if (uart_read_or_timeout(&header->width) == 0U)
 	{
 		report_failure(FRAME_STATUS_HEADER_TIMEOUT, 1U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	if (uart_read_or_timeout(&header->height) == 0U)
 	{
 		report_failure(FRAME_STATUS_HEADER_TIMEOUT, 2U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	if (uart_read_or_timeout(&header->seq) == 0U)
 	{
 		report_failure(FRAME_STATUS_HEADER_TIMEOUT, 3U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	if (uart_read_or_timeout(&low_byte) == 0U)
 	{
 		report_failure(FRAME_STATUS_HEADER_TIMEOUT, 4U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	if (uart_read_or_timeout(&high_byte) == 0U)
 	{
 		report_failure(FRAME_STATUS_HEADER_TIMEOUT, 5U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	header->payload_len = (u16)low_byte | ((u16)high_byte << 8);
 	g_last_seq = header->seq;
@@ -252,14 +316,14 @@ static u8 receive_frame(frame_header_t *header)
 		(header->height > MAX_FRAME_HEIGHT))
 	{
 		report_failure(FRAME_STATUS_HEADER_ERROR, ((u16)header->width << 8) | header->height);
-		return 0;
+		return FRAME_RESULT_ERROR;
 	}
 
 	pixel_count = (u16)header->width * (u16)header->height;
 	if (header->payload_len != (u16)(pixel_count * 2U))
 	{
 		report_failure(FRAME_STATUS_LENGTH_ERROR, (u16)(pixel_count * 2U));
-		return 0;
+		return FRAME_RESULT_ERROR;
 	}
 
 	for (index = 0; index < pixel_count; index++)
@@ -267,12 +331,12 @@ static u8 receive_frame(frame_header_t *header)
 		if (uart_read_or_timeout(&low_byte) == 0U)
 		{
 			report_failure(FRAME_STATUS_PAYLOAD_TIMEOUT, (u16)(index * 2U));
-			return 0U;
+			return FRAME_RESULT_ERROR;
 		}
 		if (uart_read_or_timeout(&high_byte) == 0U)
 		{
 			report_failure(FRAME_STATUS_PAYLOAD_TIMEOUT, (u16)(index * 2U + 1U));
-			return 0U;
+			return FRAME_RESULT_ERROR;
 		}
 		expected_crc = crc16_ccitt_update(expected_crc, low_byte);
 		expected_crc = crc16_ccitt_update(expected_crc, high_byte);
@@ -282,12 +346,12 @@ static u8 receive_frame(frame_header_t *header)
 	if (uart_read_or_timeout(&low_byte) == 0U)
 	{
 		report_failure(FRAME_STATUS_CRC_TIMEOUT, 0U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	if (uart_read_or_timeout(&high_byte) == 0U)
 	{
 		report_failure(FRAME_STATUS_CRC_TIMEOUT, 1U);
-		return 0U;
+		return FRAME_RESULT_ERROR;
 	}
 	received_crc = (u16)low_byte | ((u16)high_byte << 8);
 	g_last_crc_expected = expected_crc;
@@ -296,13 +360,13 @@ static u8 receive_frame(frame_header_t *header)
 	if (received_crc != expected_crc)
 	{
 		report_failure(FRAME_STATUS_CRC_ERROR, expected_crc ^ received_crc);
-		return 0;
+		return FRAME_RESULT_ERROR;
 	}
 
 	g_last_status = FRAME_STATUS_OK;
 	g_last_detail = 0U;
 	g_frame_ok++;
-	return 1;
+	return FRAME_RESULT_OK;
 }
 
 static void build_scaled_row(u8 src_width, const u16 *src_row, u16 scale_x, u16 draw_width)
@@ -393,6 +457,7 @@ static void lcd_show_boot_text(void)
 	LCD_ShowString(12, 12, tftlcd_data.width, 24, 16, (u8 *)"PZ103 Camera LCD");
 	LCD_ShowString(12, 40, tftlcd_data.width, 24, 16, (u8 *)"UART frame receiver");
 	LCD_ShowString(12, 68, tftlcd_data.width, 24, 16, (u8 *)"Waiting for PC camera...");
+	LCD_ShowString(12, 96, tftlcd_data.width, 24, 16, (u8 *)"UART1/USART3 auto detect");
 }
 
 static void lcd_show_self_test(void)
@@ -400,20 +465,21 @@ static void lcd_show_self_test(void)
 	u16 block_w;
 
 	block_w = tftlcd_data.width / 4U;
-	LCD_Fill(0, 100, block_w - 1U, 179, RED);
-	LCD_Fill(block_w, 100, block_w * 2U - 1U, 179, GREEN);
-	LCD_Fill(block_w * 2U, 100, block_w * 3U - 1U, 179, BLUE);
-	LCD_Fill(block_w * 3U, 100, tftlcd_data.width - 1U, 179, WHITE);
-	LCD_ShowString(12, 190, tftlcd_data.width, 24, 16, (u8 *)"Self-test: RGBW bars");
+	LCD_Fill(0, 130, block_w - 1U, 219, RED);
+	LCD_Fill(block_w, 130, block_w * 2U - 1U, 219, GREEN);
+	LCD_Fill(block_w * 2U, 130, block_w * 3U - 1U, 219, BLUE);
+	LCD_Fill(block_w * 3U, 130, tftlcd_data.width - 1U, 219, WHITE);
+	LCD_ShowString(12, 230, tftlcd_data.width, 24, 16, (u8 *)"Self-test: RGBW bars");
 }
 
 int main(void)
 {
 	frame_header_t header;
+	frame_result_t result;
 
 	SysTick_Init(72);
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
-	USART1_Init(UART_BAUDRATE);
+	USART_All_Init(UART_BAUDRATE);
 	LED_Init();
 	TFTLCD_Init();
 	LCD_Display_Dir(1);
@@ -425,14 +491,21 @@ int main(void)
 	lcd_show_self_test();
 	lcd_show_status();
 
-	printf("CAMLCD READY\r\n");
+	USART_SendStringAll("CAMLCD READY\r\n");
 	printf("baud=%lu\r\n", (unsigned long)UART_BAUDRATE);
 	printf("lcd=%ux%u id=0x%04X\r\n", tftlcd_data.width, tftlcd_data.height, tftlcd_data.id);
 	printf("frame_max=%ux%u rgb565\r\n", MAX_FRAME_WIDTH, MAX_FRAME_HEIGHT);
+	USART3_SendString("baud=460800\r\n");
+	USART3_SendString("frame_max=80x60 rgb565\r\n");
 
 	for (;;)
 	{
-		if (receive_frame(&header) == 0U)
+		result = receive_frame(&header);
+		if (result == FRAME_RESULT_IDLE)
+		{
+			continue;
+		}
+		if (result == FRAME_RESULT_ERROR)
 		{
 			LED2 = !LED2;
 			continue;
