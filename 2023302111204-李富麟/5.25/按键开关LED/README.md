@@ -35,6 +35,7 @@ Default values are placeholders and must be changed for your own network.
 
 ## Topics
 - Publish data: `puzhong/f103/data`
+- Publish temperature: `puzhong/f103/temperature`
 - Receive commands: `puzhong/f103/cmd`
 - Publish ack: `puzhong/f103/ack`
 
@@ -42,6 +43,7 @@ Default values are placeholders and must be changed for your own network.
 - 手机通过 MQTT 发布命令到 `puzhong/f103/cmd`
 - 开发板通过 ESP8266 订阅命令并控制 `LED1`
 - 本地按键也可以直接控制 LED，同时把状态回传到 `puzhong/f103/ack`
+- 温度会额外发布到 `puzhong/f103/temperature`，方便手机单独显示
 - LCD 页面实时显示：
   - MQTT 在线状态
   - LED 当前状态
@@ -82,6 +84,12 @@ Expected ack messages on `puzhong/f103/ack`:
 
 ```text
 LED=ON;MQTT=ON;SRC=MQTT;ACT=LED_ON;LOCAL=1;REMOTE=3;T=30.25;H=null
+```
+
+Temperature topic payload example:
+
+```text
+30.25
 ```
 
 ## Local Keys

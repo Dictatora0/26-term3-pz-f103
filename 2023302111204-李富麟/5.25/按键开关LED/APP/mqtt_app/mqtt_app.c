@@ -28,6 +28,7 @@ bool MQTT_App_PublishAck(const char *payload)
 static void mqtt_publish_sensor_data(void)
 {
     char payload[220];
+    char temp_payload[32];
     sensor_temp_hum_data_t data;
 #if SENSOR_ENABLE_DHT11
     dht11_diag_t dht_diag;
@@ -94,6 +95,18 @@ static void mqtt_publish_sensor_data(void)
         printf("[MQTT] publish OK: %s\r\n", MQTT_TOPIC_DATA);
     } else {
         printf("[MQTT] publish failed: %s\r\n", MQTT_TOPIC_DATA);
+    }
+
+    if (data.temperature_valid) {
+        sprintf(temp_payload, "%.2f", data.temperature_c);
+    } else {
+        strcpy(temp_payload, "null");
+    }
+
+    if (ESP8266_Set_MQTT_Public(MQTT_TOPIC_TEMP, temp_payload)) {
+        printf("[MQTT] publish OK: %s => %s\r\n", MQTT_TOPIC_TEMP, temp_payload);
+    } else {
+        printf("[MQTT] publish failed: %s\r\n", MQTT_TOPIC_TEMP);
     }
 
     s_publish_seq++;

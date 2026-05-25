@@ -19,6 +19,7 @@
 #define MQTT_CLIENT_ID   "puzhong_f103_esp8266"
 
 #define MQTT_TOPIC_DATA  "puzhong/f103/data"
+#define MQTT_TOPIC_TEMP  "puzhong/f103/temperature"
 #define MQTT_TOPIC_CMD   "puzhong/f103/cmd"
 #define MQTT_TOPIC_ACK   "puzhong/f103/ack"
 
