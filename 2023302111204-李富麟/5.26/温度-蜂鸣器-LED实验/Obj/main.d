@@ -35,3 +35,6 @@
 .\obj\main.o: .\Public\usart.h
 .\obj\main.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\main.o: .\APP\adc_temp\adc_temp.h
+.\obj\main.o: .\APP\key\key.h
+.\obj\main.o: .\APP\tftlcd\tftlcd.h
+.\obj\main.o: .\APP\stm32_flash\stm32_flash.h

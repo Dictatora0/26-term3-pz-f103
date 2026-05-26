@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\APP\led;.\Public;.\APP\key;.\APP\exti;.\APP\time;.\APP\pwm;.\APP\iwdg;.\APP\wwdg;.\APP\input;.\APP\wkup;.\APP\adc;.\APP\adc_temp;.\APP\beep;.\APP\touch_key</IncludePath>
+              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\APP\led;.\Public;.\APP\key;.\APP\exti;.\APP\time;.\APP\pwm;.\APP\iwdg;.\APP\wwdg;.\APP\input;.\APP\wkup;.\APP\adc;.\APP\adc_temp;.\APP\beep;.\APP\touch_key;.\APP\tftlcd;.\APP\stm32_flash</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -464,6 +464,16 @@
               <FileType>1</FileType>
               <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_fsmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_fsmc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -495,9 +505,24 @@
               <FilePath>.\APP\beep\beep.c</FilePath>
             </File>
             <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\key\key.c</FilePath>
+            </File>
+            <File>
               <FileName>adc_temp.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\APP\adc_temp\adc_temp.c</FilePath>
+            </File>
+            <File>
+              <FileName>tftlcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\tftlcd\tftlcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\stm32_flash\stm32_flash.c</FilePath>
             </File>
           </Files>
         </Group>
