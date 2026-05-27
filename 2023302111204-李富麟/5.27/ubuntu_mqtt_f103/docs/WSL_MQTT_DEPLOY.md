@@ -2,11 +2,16 @@
 
 ## 1. Target Topology
 
-Phone MQTT App  
+Ubuntu/WSL Mosquitto  
 -> Windows host LAN IP `:1883`  
 -> `netsh interface portproxy` forwards to Ubuntu/WSL Mosquitto  
 -> ESP8266 AT MQTT client  
 -> STM32F103 board
+
+Optional only:
+
+- a phone MQTT app can also attach to this broker later
+- it is not required for the current experiment
 
 Use this IP split consistently:
 
@@ -19,7 +24,6 @@ Use this IP split consistently:
 For this lab:
 
 - `MQTT_HOST` in `User/esp8266_mqtt_config.h` must be the Windows LAN IP.
-- Phone MQTT app host must also be the Windows LAN IP.
 - Do not set the broker host to `127.0.0.1`.
 - Do not set the broker host to the changing WSL2 NAT IP unless all clients run on the same PC.
 
@@ -30,7 +34,7 @@ Current machine-specific hotspot values:
 - Windows hotspot adapter IP: `192.168.137.1`
 - Current WSL IP: `172.29.37.36`
 
-If phone and ESP8266 join this hotspot, both of them must use `192.168.137.1` as the MQTT host.
+If the ESP8266 joins this hotspot, it must use `192.168.137.1` as the MQTT host.
 
 ## 2. Install Mosquitto in Ubuntu/WSL
 
@@ -88,7 +92,7 @@ Expected result in Terminal A:
 test/ping hello
 ```
 
-## 4. Expose WSL Mosquitto to Phone and ESP8266
+## 4. Expose WSL Mosquitto to ESP8266
 
 ### Option A: WSL2 default NAT mode
 
@@ -97,6 +101,18 @@ This is the common case. LAN devices cannot directly reach the WSL2 IP, so forwa
 Run PowerShell as Administrator:
 
 ```powershell
+.\scripts\windows\setup_wsl_mqtt_portproxy.ps1
+```
+
+Important conflict check:
+
+- If Windows also runs a native `Mosquitto Broker` service on port `1883`, ESP8266 may connect to the Windows broker instead of the WSL broker.
+- In that case, STM32 logs may show publish success, but `mosquitto_sub` inside WSL will still see nothing.
+
+Stop the Windows broker first:
+
+```powershell
+.\scripts\windows\stop_windows_mosquitto.ps1
 .\scripts\windows\setup_wsl_mqtt_portproxy.ps1
 ```
 
@@ -116,7 +132,7 @@ Verify on Windows:
 Test-NetConnection 127.0.0.1 -Port 1883
 ```
 
-Then find the Windows LAN IP with `ipconfig` and use that IP on the phone and ESP8266.
+Then find the Windows LAN IP with `ipconfig` and use that IP on the ESP8266.
 
 ### Option B: WSL mirrored networking
 
@@ -154,7 +170,33 @@ Notes:
 - Default auth is anonymous for fast bring-up.
 - DHT11 is optional. If not wired, keep `SENSOR_ENABLE_DHT11 0`.
 
-## 6. Phone MQTT App Setup
+## 6. Ubuntu-to-Board MQTT Test
+
+The current experiment can be completed without any phone app.
+
+Terminal A:
+
+```bash
+mosquitto_sub -h 127.0.0.1 -p 1883 -t "pz103/#" -v
+```
+
+Terminal B:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "pz103/control" -m '{"cmd":"ping"}'
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "pz103/control" -m '{"led":1}'
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "pz103/control" -m '{"led":0}'
+```
+
+Expected:
+
+- telemetry appears on `pz103/telemetry`
+- replies appear on `pz103/status`
+- board logs show the received control payload
+
+## 7. Phone MQTT App Setup
+
+This section is optional now.
 
 Any of these apps can be used:
 
@@ -199,7 +241,7 @@ Legacy raw text commands are also accepted:
 - `LED_OFF`
 - `PING`
 
-## 7. Expected Board Logs
+## 8. Expected Board Logs
 
 Typical USART1 logs after power-up:
 
@@ -217,28 +259,29 @@ On publish:
 [MQTT] publish topic=pz103/telemetry payload={"device":"pz103-f103","seq":1,"temperature_c":25.40}
 ```
 
-On phone control:
+On control message:
 
 ```text
 [MQTT] recv topic=pz103/control payload={"led":1}
 [MQTT] control result: LED ON
 ```
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 
 | Symptom | Check |
 | --- | --- |
-| Phone cannot connect to broker | Confirm phone uses Windows LAN IP, not `127.0.0.1`; verify Windows firewall rule and `Test-NetConnection` |
-| WSL works locally but LAN cannot access | `portproxy` missing, wrong WSL IP after reboot, or firewall blocked |
+| Optional phone cannot connect to broker | Confirm it uses Windows LAN IP, not `127.0.0.1`; verify Windows firewall rule and `Test-NetConnection` |
+| WSL works locally but board cannot access | `portproxy` missing, wrong WSL IP after reboot, or firewall blocked |
+| STM32 shows publish OK but WSL subscriber sees nothing | Windows native `mosquitto.exe` is likely listening on `1883`; stop it and reapply `portproxy` |
 | ESP8266 AT no response | This is upstream of WiFi/MQTT/phone. Verify power supply, baud rate, TX/RX wiring, common GND, EN high, RST high, and ESP-AT firmware |
 | WiFi join fails | SSID must be 2.4 GHz; verify password and signal strength |
 | MQTT connect fails | `MQTT_HOST` may still point to wrong IP; broker may not be listening on `0.0.0.0:1883` |
-| Subscribe succeeds but no control message arrives | Phone published to wrong topic, wrong broker IP, or phone and ESP8266 are not on reachable networks |
+| Subscribe succeeds but no control message arrives | `mosquitto_pub` published to wrong topic, wrong broker IP, or ESP8266 is not on a reachable network |
 | Telemetry payload looks wrong | Check USART1 logs; current firmware publishes JSON and omits unsupported light data |
 | `portproxy` stops working after reboot | WSL2 IP changed; rerun `scripts/windows/setup_wsl_mqtt_portproxy.ps1` |
 | `MQTTDISCONNECTED` appears repeatedly | Broker unstable, Wi-Fi dropped, or Windows forwarding broke |
 
-## 9. Remove the Port Forward
+## 10. Remove the Port Forward
 
 If you want to clean up the Windows forwarding rule:
 

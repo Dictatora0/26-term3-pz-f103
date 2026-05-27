@@ -2,26 +2,19 @@
 
 ## 1. What This Project Now Does
 
-This repository has been refit from the old:
+This repository now focuses on:
 
-Phone  
--> Windows hotspot / Windows broker  
--> ESP8266  
--> STM32F103
-
-into:
-
-Phone MQTT app  
+Ubuntu/WSL Mosquitto  
 -> Windows LAN IP `:1883`  
--> Ubuntu/WSL Mosquitto  
 -> ESP8266 AT firmware  
 -> STM32F103 board
 
 Important:
 
-- The board and the phone do **not** connect to WSL `localhost`.
+- The board does **not** connect to WSL `localhost`.
 - In the default WSL2 NAT mode they should connect to the **Windows host LAN IP**.
 - Windows forwards TCP `1883` to the Ubuntu/WSL Mosquitto service.
+- A phone MQTT app is optional and not required for the current experiment.
 
 ## 2. Current Repository Structure
 
@@ -64,7 +57,7 @@ Current runtime behavior:
 - optional DHT11 humidity can be enabled
 - board publishes JSON telemetry to `pz103/telemetry`
 - board subscribes `pz103/control`
-- phone can send raw text commands or JSON commands
+- Ubuntu can send raw text commands or JSON commands with `mosquitto_pub`
 - board publishes status/ack to `pz103/status`
 
 ## 4. Firmware Configuration
@@ -109,8 +102,8 @@ Current Ubuntu/WSL broker IP on this machine:
 Note:
 
 - The Windows hotspot adapter on this machine currently uses `192.168.137.1`.
-- Phone and ESP8266 should both join hotspot `DESKTOP-6NM70T`.
-- When they are on that hotspot, the MQTT broker host must be `192.168.137.1`.
+- ESP8266 should join hotspot `DESKTOP-6NM70T`.
+- When it is on that hotspot, the MQTT broker host must be `192.168.137.1`.
 - The upstream campus WLAN address `10.128.138.121` is not the address hotspot clients should use.
 
 ## 5. Ubuntu/WSL Deployment
@@ -147,6 +140,12 @@ mosquitto_sub -h 127.0.0.1 -p 1883 -t "test/#" -v
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "test/ping" -m "hello"
 ```
 
+Board topic monitor:
+
+```bash
+mosquitto_sub -h 127.0.0.1 -p 1883 -t "pz103/#" -v
+```
+
 ## 6. Windows Port Forwarding to WSL
 
 Run PowerShell as Administrator:
@@ -155,46 +154,40 @@ Run PowerShell as Administrator:
 .\scripts\windows\setup_wsl_mqtt_portproxy.ps1
 ```
 
+If Windows itself also has a `Mosquitto Broker` service installed and running, stop it first or let the setup script warn you. Otherwise the board may connect to the Windows broker instead of the WSL broker.
+
+Admin helper:
+
+```powershell
+.\scripts\windows\stop_windows_mosquitto.ps1
+.\scripts\windows\setup_wsl_mqtt_portproxy.ps1
+```
+
 This script:
 
 - reads the current WSL IP
 - recreates the `netsh interface portproxy` rule for `1883`
 - creates or reuses a Windows firewall allow rule
-- prints the Windows LAN IP candidates for phone and ESP8266
+- prints the Windows LAN IP candidates for ESP8266 and any optional external MQTT client
 
 If WSL IP changes after reboot, run the script again.
 
-## 7. Phone MQTT App Setup
+## 7. Ubuntu-to-Board MQTT Test
 
-Use MQTTX, MQTT Dash or IoT MQTT Panel with:
+Use WSL directly for the required experiment.
 
-- Host: Windows hotspot IP `192.168.137.1`
-- Port: `1883`
-- Client ID: `phone_client`
-- Username: empty
-- Password: empty
+Terminal A:
 
-Subscribe:
-
-- `pz103/telemetry`
-- `pz103/status`
-
-Publish:
-
-- Topic: `pz103/control`
-
-Payload examples:
-
-```json
-{"led":1}
+```bash
+mosquitto_sub -h 127.0.0.1 -p 1883 -t "pz103/#" -v
 ```
 
-```json
-{"led":0}
-```
+Terminal B:
 
-```json
-{"cmd":"ping"}
+```bash
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "pz103/control" -m '{"cmd":"ping"}'
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "pz103/control" -m '{"led":1}'
+mosquitto_pub -h 127.0.0.1 -p 1883 -t "pz103/control" -m '{"led":0}'
 ```
 
 Legacy raw text is also accepted:
@@ -202,6 +195,10 @@ Legacy raw text is also accepted:
 - `LED_ON`
 - `LED_OFF`
 - `PING`
+
+Optional later:
+
+- you can still attach a phone MQTT app to `192.168.137.1:1883`
 
 ## 8. Build and Flash
 
@@ -233,10 +230,11 @@ Hardware wiring:
 3. On Windows run the portproxy setup script.
 4. Confirm Windows port `1883` is reachable.
 5. Flash the board and open USART1 logs.
-6. Connect the phone app to the Windows LAN IP.
-7. Publish `{"cmd":"ping"}` to `pz103/control` and confirm the board logs the message and replies on `pz103/status`.
-8. Publish `{"led":1}` / `{"led":0}` and confirm LED changes.
-9. Observe periodic JSON telemetry on `pz103/telemetry`.
+6. In WSL run `mosquitto_sub -h 127.0.0.1 -p 1883 -t "pz103/#" -v`.
+7. Wait for the board MQTT init log and first telemetry frame.
+8. In another WSL terminal publish `{"cmd":"ping"}` to `pz103/control` and confirm the board logs the message and replies on `pz103/status`.
+9. Publish `{"led":1}` / `{"led":0}` and confirm LED changes.
+10. Observe periodic JSON telemetry on `pz103/telemetry`.
 
 Expected telemetry example:
 
@@ -256,16 +254,23 @@ Expected status example:
 - ESP8266 must stay on a reachable `2.4 GHz` network.
 - Light sensor data is not implemented in this repo, so telemetry no longer sends fake `light` values.
 - DHT11 is optional and disabled by default for faster bring-up.
+- If the board uses the Windows hotspot path, `MQTT_HOST` must stay `192.168.137.1`.
 
 ## 11. Troubleshooting
 
 Short version:
 
-- Phone cannot connect: wrong host IP, firewall blocked, or `portproxy` missing
-- WSL local test works but phone fails: Windows forwarding or firewall issue
+- Optional external client cannot connect: wrong host IP, firewall blocked, or `portproxy` missing
+- WSL local test works but board fails: Windows forwarding or firewall issue
+- Board publishes successfully but WSL `mosquitto_sub` sees nothing: Windows native `mosquitto.exe` is probably still occupying `1883`
 - ESP8266 AT fails: stop checking phone topics first; fix power, baud, TX/RX, GND, EN, RST, and AT firmware
 - MQTT connect fails: `MQTT_HOST` still wrong or broker not listening on `0.0.0.0:1883`
 - Messages not received: wrong topic, wrong broker IP, or network isolation
+
+For the current experiment, the direct path is:
+
+- WSL `mosquitto_sub` sees no `pz103/telemetry`: board did not reach MQTT ready state
+- board log shows repeated `AT` timeout: fix ESP8266 power/wiring/firmware first
 
 Detailed troubleshooting is in:
 

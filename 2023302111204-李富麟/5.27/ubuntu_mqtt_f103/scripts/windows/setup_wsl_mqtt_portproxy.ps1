@@ -4,10 +4,25 @@ param(
     [string]$DistroName = "Ubuntu",
     [int]$ListenPort = 1883,
     [string]$ListenAddress = "0.0.0.0",
-    [string]$FirewallRuleName = "WSL MQTT 1883 Portproxy"
+    [string]$FirewallRuleName = "WSL MQTT 1883 Portproxy",
+    [switch]$StopWindowsMosquitto
 )
 
 $ErrorActionPreference = "Stop"
+
+$winMosquittoService = Get-Service mosquitto -ErrorAction SilentlyContinue
+if ($null -ne $winMosquittoService -and $winMosquittoService.Status -eq 'Running') {
+    if ($StopWindowsMosquitto) {
+        Write-Host "[INFO] Stopping Windows mosquitto service so portproxy can own port $ListenPort"
+        Stop-Service mosquitto -Force
+        $winMosquittoService = Get-Service mosquitto -ErrorAction SilentlyContinue
+        Write-Host "[INFO] Windows mosquitto service status: $($winMosquittoService.Status)"
+    } else {
+        Write-Warning "Windows mosquitto service is running. It can occupy TCP $ListenPort and prevent WSL portproxy from being used."
+        Write-Warning "If your STM32 publishes successfully but WSL mosquitto_sub sees nothing, stop the Windows broker first:"
+        Write-Warning "  powershell -ExecutionPolicy Bypass -File .\\scripts\\windows\\stop_windows_mosquitto.ps1"
+    }
+}
 
 Write-Host "[INFO] Querying WSL IP from distro: $DistroName"
 $wslIpRaw = wsl -d $DistroName -- hostname -I
@@ -55,6 +70,15 @@ if ($null -eq $fwRule) {
 
 Write-Host "[INFO] Current portproxy rules:"
 & netsh interface portproxy show v4tov4
+
+$listenOwners = Get-NetTCPConnection -LocalPort $ListenPort -ErrorAction SilentlyContinue |
+    Where-Object { $_.State -eq 'Listen' } |
+    Select-Object -ExpandProperty OwningProcess -Unique
+if ($listenOwners) {
+    $listenProcesses = Get-Process -Id $listenOwners -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, Path
+    Write-Host "[INFO] Current Windows listen owner(s) for TCP $ListenPort:"
+    $listenProcesses | Format-Table -AutoSize | Out-String | Write-Host
+}
 
 Write-Host "[INFO] Windows-side quick test:"
 Write-Host "  Test-NetConnection 127.0.0.1 -Port $ListenPort"

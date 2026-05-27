@@ -3,9 +3,9 @@
 
 /*
  * Centralized lab configuration for:
- * phone MQTT app -> Windows LAN IP:1883 -> WSL Mosquitto -> ESP8266 -> STM32F103
+ * Ubuntu/WSL Mosquitto -> Windows LAN IP:1883 -> ESP8266 -> STM32F103
  *
- * Keep real WiFi credentials out of version control.
+ * A phone MQTT app can still be added later, but it is optional now.
  * Modify ONLY this file when WiFi/Broker/topic changes.
  */
 

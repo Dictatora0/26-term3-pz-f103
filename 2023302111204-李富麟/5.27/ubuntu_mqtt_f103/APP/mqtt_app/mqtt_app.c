@@ -189,7 +189,7 @@ void MQTT_App_Init(void)
     Sensor_TempHum_Init();
     printf("[SENSOR] init done\r\n");
     printf("[MQTT] broker target=%s:%s\r\n", MQTT_HOST, MQTT_PORT_STR);
-    printf("[MQTT] phone/ESP must use the Windows LAN IP forwarded to WSL, not localhost\r\n");
+    printf("[MQTT] ESP8266 must use the Windows LAN IP forwarded to WSL, not localhost\r\n");
     printf("[MQTT] init start\r\n");
     s_mqtt_connected = ESP8266_STA_TCP_Client_MQTT();
     if (!s_mqtt_connected) {
