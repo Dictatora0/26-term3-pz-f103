@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ProtocolAttrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.ProtocolAttr">
+        <result column="id" property="id" />
+        <result column="field" property="field" />
+        <result column="name" property="name" />
+        <result column="data_type" property="type" />
+        <result column="remark" property="remark" />
+        <result column="attr_type" property="attrType" />
+        <result column="create_time" property="createTime" />
+        <result column="protocol_code" property="protocolCode" />
+    </resultMap>
+
+    <select id="listByProtocolCode" resultMap="BaseResultMap">
+        select * from iot_protocol_attr where protocol_code = #{protocolCode}
+    </select>
+</mapper>

@@ -1,0 +1,107 @@
+{
+  "serverUrl": "http://127.0.0.1:8085/api",
+  "isStrict": false,
+  "allInOne": true,
+  "outPath": "target/classes/static/doc",
+  "coverOld": true,
+  "inlineEnum": true,
+  "createDebugPage": true,
+  "md5EncryptedHtmlName": false,
+  "style": "xt256",
+  "projectName": "创源物联网关",
+  "customRequestFields": [{
+    "name":"optimizeCountSql",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"searchCount",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"hitCount",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"countId",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"maxLimit",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"pages",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.core.metadata.IPage"
+  },{
+    "name":"records",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"total",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"orders",
+    "ignore":true,
+    "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+  },{
+    "name":"section",
+    "ignore":true,
+    "ownerClassName":"com.iteaj.framework.BaseEntity"
+  }],
+  "customResponseFields": [
+    {
+      "name":"optimizeCountSql",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"searchCount",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"isSearchCount",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"hitCount",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"countId",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"maxLimit",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"orders",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+    },{
+      "name":"pages",
+      "ignore":true,
+      "ownerClassName":"com.baomidou.mybatisplus.core.metadata.IPage"
+    },{
+      "name":"section",
+      "ignore":true,
+      "ownerClassName":"com.iteaj.framework.BaseEntity"
+    }
+  ],
+  "packageFilters": "com.iteaj.iboot.module.core.controller.*,com.iteaj.iboot.module.iot.controller.*,com.iteaj.framework.autoconfigure.CaptchaAutoConfiguration,com.iteaj.iboot.plugin.gbs.controller.*,com.iteaj.iboot.plugin.quartz.controller.*",
+  "groups": [
+    {
+      "name": "系统管理",
+      "apis": "com.iteaj.iboot.module.core.controller.*,com.iteaj.framework.autoconfigure.CaptchaAutoConfiguration"
+    },
+    {
+      "name": "物联网模块",
+      "apis": "com.iteaj.iboot.module.iot.controller.*"
+    },
+    {
+      "name": "gb28181监控模块",
+      "apis": "com.iteaj.iboot.plugin.gbs.controller.*"
+    }
+  ]
+}

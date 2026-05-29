@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.core.mapper.PostMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.core.entity.Post">
+        <result column="id" property="id" />
+        <result column="sort" property="sort" />
+        <result column="name" property="name" />
+        <result column="org_id" property="orgId" />
+        <result column="remark" property="remark" />
+        <result column="org_name" property="orgName" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <select id="pageDetail" resultMap="BaseResultMap">
+        select a.*, o.name org_name from sys_post a
+            left join sys_org o on a.org_id = o.id
+        <where>
+            <if test="entity.orgId != null">
+                and find_in_set(#{entity.orgId}, o.path)
+            </if>
+            <if test="entity.name != null and entity.name != ''">
+                and a.name like '%${entity.name}%'
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

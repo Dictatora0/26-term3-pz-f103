@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.DeviceMobilePositionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.MobilePosition">
+        <result column="id" property="id" />
+        <result column="time" property="time" />
+        <result column="speed" property="speed" />
+        <result column="latitude" property="latitude" />
+        <result column="longitude" property="longitude" />
+        <result column="altitude" property="altitude" />
+        <result column="channel_id" property="channelId" />
+        <result column="device_id" property="deviceId" />
+        <result column="direction" property="direction" />
+        <result column="device_name" property="deviceName" />
+        <result column="report_source" property="reportSource" />
+        <result column="longitude_gcj02" property="longitudeGcj02" />
+        <result column="latitude_gcj02" property="latitudeGcj02" />
+        <result column="longitude_wgs84" property="longitudeWgs84" />
+        <result column="latitude_wgs84" property="latitudeWgs84" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+
+
+</mapper>

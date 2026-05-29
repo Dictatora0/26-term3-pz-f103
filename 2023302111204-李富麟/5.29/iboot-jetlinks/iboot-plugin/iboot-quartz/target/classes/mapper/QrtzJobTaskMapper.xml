@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.plugin.quartz.mapper.JobTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="OriMap" type="com.iteaj.iboot.plugin.quartz.entity.JobTask">
+        <id property="id" column="id" />
+        <result property="cron" column="cron" />
+        <result property="jobName" column="job_name" />
+        <result property="status" column="state" />
+        <result property="remark" column="remark" />
+        <result property="params" column="params" />
+        <result property="method" column="method" />
+        <result property="concurrent" column="concurrent" />
+        <result property="createTime" column="createTime" />
+        <result property="updateTime" column="updateTime" />
+    </resultMap>
+
+    <select id="selectPage" resultMap="OriMap">
+        select a.*, b.TRIGGER_STATE state from qrtz_job_task a
+            left join qrtz_triggers b on a.job_name=b.JOB_NAME
+        <where>
+            <if test="ew.entity != null and ew.entity.name != null and ew.entity.name != ''">
+                a.name like '%${ew.entity.name}%'
+            </if>
+        </where>
+    </select>
+</mapper>

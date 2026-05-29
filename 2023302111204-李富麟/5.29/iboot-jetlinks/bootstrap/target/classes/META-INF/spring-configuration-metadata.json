@@ -1,0 +1,60 @@
+{
+  "groups": [
+    {
+      "name": "msn.core",
+      "type": "com.iteaj.iboot.module.core.CoreProperties",
+      "sourceType": "com.iteaj.iboot.module.core.CoreProperties"
+    },
+    {
+      "name": "msn.iot",
+      "type": "com.iteaj.iboot.module.iot.IotMsnProperties",
+      "sourceType": "com.iteaj.iboot.module.iot.IotMsnProperties"
+    },
+    {
+      "name": "msn.iot.task",
+      "type": "com.iteaj.iboot.module.iot.IotMsnProperties$CollectTask",
+      "sourceType": "com.iteaj.iboot.module.iot.IotMsnProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "msn.core.captcha-type",
+      "type": "java.lang.String",
+      "description": "验证码类型, 默认数字相加 e.g. 3+3",
+      "sourceType": "com.iteaj.iboot.module.core.CoreProperties",
+      "defaultValue": "math"
+    },
+    {
+      "name": "msn.core.login-url",
+      "type": "java.lang.String",
+      "description": "登录页的url(GET)和提交的url(POST)必须相同",
+      "sourceType": "com.iteaj.iboot.module.core.CoreProperties"
+    },
+    {
+      "name": "msn.core.success-url",
+      "type": "java.lang.String",
+      "description": "认证成功后要跳转的Url",
+      "sourceType": "com.iteaj.iboot.module.core.CoreProperties"
+    },
+    {
+      "name": "msn.core.unauthorized-url",
+      "type": "java.lang.String",
+      "description": "认证失败后要跳转的Url",
+      "sourceType": "com.iteaj.iboot.module.core.CoreProperties"
+    },
+    {
+      "name": "msn.iot.task.pool-size",
+      "type": "java.lang.Integer",
+      "description": "核心线程池大小",
+      "sourceType": "com.iteaj.iboot.module.iot.IotMsnProperties$CollectTask"
+    },
+    {
+      "name": "msn.iot.task.thread-name-prefix",
+      "type": "java.lang.String",
+      "description": "线程池前缀",
+      "sourceType": "com.iteaj.iboot.module.iot.IotMsnProperties$CollectTask",
+      "defaultValue": "ICT-"
+    }
+  ],
+  "hints": []
+}

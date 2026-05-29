@@ -1,0 +1,11 @@
+com\iteaj\iboot\plugin\shiro\ShiroSecurityService.class
+com\iteaj\iboot\plugin\shiro\ShiroSecurityToken.class
+com\iteaj\iboot\plugin\shiro\online\ShiroOnlineListener.class
+com\iteaj\iboot\plugin\shiro\AccessFilterWrapper.class
+com\iteaj\iboot\plugin\shiro\online\OnlineSessionDAO.class
+com\iteaj\iboot\plugin\shiro\ShiroAdminRealm.class
+com\iteaj\iboot\plugin\shiro\redis\ShiroRedisSessionCacheManager$RedisSessionCache.class
+com\iteaj\iboot\plugin\shiro\OnlineSessionManager.class
+com\iteaj\iboot\plugin\shiro\redis\ShiroRedisSessionCacheManager.class
+com\iteaj\iboot\plugin\shiro\ShiroAdminFilter.class
+com\iteaj\iboot\plugin\shiro\ShiroAutoConfiguration.class

@@ -1,0 +1,93 @@
+package ${package.Controller};
+
+import java.util.List;
+import com.iteaj.framework.logger.Logger;
+import com.iteaj.framework.result.Result;
+import com.iteaj.framework.security.Logical;
+import org.springframework.web.bind.annotation.*;
+import com.iteaj.framework.security.CheckPermission;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${package.Entity}.${entity};
+import ${package.Service}.${table.serviceName};
+#if(${restControllerStyle})
+#else
+import org.springframework.stereotype.Controller;
+#end
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * $!{cfg.moduleName}管理
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+
+    private final ${table.serviceName} ${cfg.serviceName};
+
+    public ${table.controllerName}(${table.serviceName} ${cfg.serviceName}) {
+        this.${cfg.serviceName} = ${cfg.serviceName};
+    }
+
+    /**
+    * 列表查询
+    * @param page 分页
+    * @param entity 搜索条件
+    */
+    @GetMapping("/view")
+    @Logger("浏览$!{cfg.moduleName}功能")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:view"})
+    public Result<IPage<${entity}>> list(Page<${entity}> page, ${entity} entity) {
+        return this.${cfg.serviceName}.page(page, entity);
+    }
+
+    /**
+    * 获取编辑记录
+    * @param id 记录id
+    */
+    @GetMapping("/edit")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:edit"})
+    public Result<${entity}> getById(Long id) {
+        return this.${cfg.serviceName}.getById(id);
+    }
+
+    /**
+    * 新增或者更新记录
+    * @param entity
+    */
+    @PostMapping("/saveOrUpdate")
+    @Logger("新增或者更新$!{cfg.moduleName}记录")
+    @CheckPermission(value = {"${package.ModuleName}:${table.entityPath}:edit", "${package.ModuleName}:${table.entityPath}:add"}, logical = Logical.OR)
+    public Result<Boolean> saveOrUpdate(@RequestBody ${entity} entity) {
+        return this.${cfg.serviceName}.saveOrUpdate(entity);
+    }
+
+    /**
+    * 删除指定记录
+    * @param idList
+    */
+    @PostMapping("/del")
+    @Logger("删除$!{cfg.moduleName}记录")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:del"})
+    public Result<Boolean> remove(@RequestBody List<Long> idList) {
+        return this.${cfg.serviceName}.removeByIds(idList);
+    }
+}
+
+#end

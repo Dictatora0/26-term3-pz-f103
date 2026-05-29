@@ -1,0 +1,1 @@
+INSERT INTO `sys_menu` (`id`, `name`, `pid`, `sort`, `url`, `msn`, `type`, `status`, `perms`, `icon`, `remark`, `target`, `create_time`, `update_time`) VALUES (1480, 'Mqtt子设备', 1411, 68, '/iot/mqttDevice', 'iot', 'V', 'enabled', NULL, 'iz-icon-jindu', '', '_self', '2025-05-20 06:31:24', NULL);

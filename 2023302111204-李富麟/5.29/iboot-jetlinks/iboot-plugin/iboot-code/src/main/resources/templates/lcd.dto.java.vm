@@ -1,0 +1,100 @@
+package ${package.Dto};
+
+import ${package.Entity}.${entity};
+#foreach($pkg in ${table.dtoImportPackages})
+import ${pkg};
+#end
+#if(${swagger2})
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+#end
+#if(${entityLombokModel})
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+#if(${chainModel})
+import lombok.experimental.Accessors;
+#end
+#end
+
+/**
+ *
+ * $!{table.comment}DTO
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${entityLombokModel})
+@Data
+  #if(${chainModel})
+@Accessors(chain = true)
+  #end
+@EqualsAndHashCode(callSuper = true)
+#end
+#if(${swagger2})
+@ApiModel(value="${entity}数据传输对象", description="$!{table.comment}")
+#end
+public class ${dto} extends ${entity} {
+
+#if(${entitySerialVersionUID})
+    private static final long serialVersionUID = 1L;
+#end
+## ----------  BEGIN 字段循环遍历  ----------
+#foreach($field in ${table.dtoFields})
+
+#if("$!field.comment" != "")
+  #if(${swagger2})
+    @ApiModelProperty(value = "${field.comment}")
+  #else
+    /**
+     * ${field.comment}
+     */
+  #end
+#end
+    private ${field.propertyType} ${field.propertyName};
+#end
+## ----------  END 字段循环遍历  ----------
+
+#if(!${entityLombokModel})
+#foreach($field in ${table.dtoFields})
+  #if(${field.propertyType.equals("boolean")})
+    #set($getprefix="is")
+  #else
+    #set($getprefix="get")
+  #end
+
+    public ${field.propertyType} ${getprefix}${field.capitalName}() {
+        return ${field.propertyName};
+    }
+
+  #if(${chainModel})
+    public ${dto} set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
+  #else
+    public void set${field.capitalName}(${field.propertyType} ${field.propertyName}) {
+  #end
+        this.${field.propertyName} = ${field.propertyName};
+  #if(${chainModel})
+        return this;
+  #end
+    }
+#end
+## --foreach end---
+#end
+## --end of #if(!${entityLombokModel})--
+
+#if(${entityColumnConstant})
+  #foreach($field in ${table.fields})
+    public static final String ${field.name.toUpperCase()} = "${field.name}";
+
+  #end
+#end
+#if(${activeRecord})
+    @Override
+    protected Serializable pkVal() {
+  #if(${keyPropertyName})
+        return this.${keyPropertyName};
+  #else
+        return null;
+  #end
+    }
+
+#end
+}

@@ -1,0 +1,49 @@
+#############################                iot配置               ################################
+msn:
+  iot:
+    task:
+      pool-size: 3 # 采集任务线程池
+---
+spring:
+  config:
+    activate:
+      on-profile: dev #开发环境配置
+iot:
+  server:
+    proxy:
+      start: false
+    websocket:
+      start: true
+      port: 8087
+  mqtt:
+    default:
+      host: broker-cn.emqx.io
+  protocol:
+    jarDir: D:\IdeaProjects\gitee\iboot\iboot-plugin\iboot-protocol\protocol-modbus\target
+---
+spring:
+  config:
+    activate:
+      on-profile: test #测试环境配置
+iot:
+  server:
+    proxy:
+      start: false
+    websocket:
+      start: true
+      port: 8087
+  mqtt:
+    default:
+      host: broker-cn.emqx.io
+---
+spring:
+  config:
+    activate:
+      on-profile: prod # 正式环境配置
+iot:
+  server:
+    proxy:
+      start: false
+    websocket:
+      start: true
+      port: 8170

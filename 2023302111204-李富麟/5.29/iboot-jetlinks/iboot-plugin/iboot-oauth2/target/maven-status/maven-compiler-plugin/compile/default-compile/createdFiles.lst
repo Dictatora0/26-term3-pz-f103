@@ -1,0 +1,13 @@
+com\iteaj\iboot\plugin\oauth2\mapper\Oauth2AppMapper.class
+com\iteaj\iboot\plugin\oauth2\controller\SaOAuth2ServerController.class
+com\iteaj\iboot\plugin\oauth2\controller\Oauth2UserController.class
+com\iteaj\iboot\plugin\oauth2\controller\Oauth2AppController.class
+com\iteaj\iboot\plugin\oauth2\sa\SaOAuth2TemplateImpl.class
+com\iteaj\iboot\plugin\oauth2\service\impl\Oauth2UserServiceImpl.class
+com\iteaj\iboot\plugin\oauth2\entity\Oauth2App.class
+com\iteaj\iboot\plugin\oauth2\service\impl\Oauth2AppServiceImpl.class
+com\iteaj\iboot\plugin\oauth2\mapper\Oauth2UserMapper.class
+com\iteaj\iboot\plugin\oauth2\entity\Oauth2User.class
+com\iteaj\iboot\plugin\oauth2\service\Oauth2UserService.class
+com\iteaj\iboot\plugin\oauth2\service\Oauth2AppService.class
+com\iteaj\iboot\plugin\oauth2\Oauth2AutoConfiguration.class

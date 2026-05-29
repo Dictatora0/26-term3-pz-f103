@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ModelApiConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.ModelApiConfig">
+        <result column="id" property="id" />
+        <result column="sort" property="sort" />
+        <result column="value" property="value" />
+        <result column="remark" property="remark" />
+        <result column="api_code" property="apiCode" />
+        <result column="accuracy" property="accuracy" />
+        <result property="gain" column="gain" />
+        <result property="script" column="script" />
+        <result property="resolver" column="resolver" />
+        <result column="attr_field" property="attrField" />
+        <result column="data_type" property="dataType" />
+        <result column="func_type" property="funcType" />
+        <result column="attr_name" property="attrName" />
+        <result column="field_type" property="fieldType" />
+        <result column="product_id" property="productId" />
+        <result column="attr_default_value" property="attrDefaultValue" />
+        <result column="model_attr_id" property="modelAttrId" />
+        <result column="protocol_data_type" property="protocolDataType" />
+        <result column="protocol_attr_name" property="protocolAttrName" />
+        <result column="protocol_attr_field" property="protocolAttrField" />
+        <result column="direction" property="direction" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <resultMap id="JoinModelAttrDictMap" type="com.iteaj.iboot.module.iot.entity.ModelApiConfig" extends="BaseResultMap">
+        <collection property="dicts" foreignColumn="{dict_model_attr_id=model_attr_id}"
+                    ofType="com.iteaj.iboot.module.iot.entity.ModelAttrDict" columnPrefix="ad_">
+            <result property="path" column="path" />
+            <result property="attrField" column="attr_field" />
+            <result property="dataType" column="data_type" />
+            <result property="dictName" column="dict_name" />
+            <result property="dictValue" column="dict_value" />
+            <result property="accuracy" column="accuracy" />
+            <result property="gain" column="gain" />
+            <result property="script" column="script" />
+            <result property="resolver" column="resolver" />
+            <result property="modelAttrId" column="model_attr_id" />
+        </collection>
+    </resultMap>
+
+    <select id="listUpByApiCode" resultMap="JoinModelAttrDictMap">
+        select a.*, pa.attr_type func_type, pa.accuracy, pa.script, pa.gain, pa.resolver, ad.model_attr_id ad_model_attr_id, ad.dict_name ad_dict_name, ad.dict_value ad_dict_value
+             , jpa.field ad_attr_field, jpa.data_type ad_data_type, jpa.accuracy ad_accuracy, jpa.gain ad_gain, jpa.resolver ad_resolver
+             , jpa.script ad_script, ad.path ad_path from iot_model_api_config a
+            left join iot_model_attr_dict ad on a.model_attr_id=ad.model_attr_id
+            left join iot_model_attr pa on a.model_attr_id=pa.id
+            left join iot_model_attr jpa on a.protocol_data_type = 'json' and jpa.id=ad.dict_value
+        where api_code=#{apiCode} and a.direction='UP' order by sort
+    </select>
+
+    <select id="listDownByApiCode" resultMap="JoinModelAttrDictMap">
+        select a.*, pa.attr_type func_type, pa.accuracy, pa.script, pa.gain, pa.resolver, ad.model_attr_id ad_model_attr_id, ad.dict_name ad_dict_name, ad.dict_value ad_dict_value
+             , pa.default_value attr_default_value, jpa.accuracy ad_accuracy, jpa.gain ad_gain, jpa.resolver ad_resolver
+                  , jpa.script ad_script, ad.path ad_path from iot_model_api_config a
+            left join iot_model_attr_dict ad on a.model_attr_id=ad.model_attr_id
+            left join iot_model_attr pa on a.model_attr_id=pa.id
+            left join iot_model_attr jpa on a.protocol_data_type = 'json' and jpa.id=ad.dict_value
+        where api_code=#{apiCode} and a.direction='DOWN' order by sort
+    </select>
+
+    <select id="joinDictListUpByApiCode" resultMap="JoinModelAttrDictMap">
+        select a.* from iot_model_api_config a
+          left join iot_model_attr_dict ad on a.id=ad.model_attr_id
+        where api_code=#{apiCode} and a.direction='UP' order by sort
+    </select>
+
+    <select id="joinDictListDownByApiCode" resultMap="JoinModelAttrDictMap">
+        select a.* from iot_model_api_config a
+          left join iot_model_attr_dict ad on a.id=ad.model_attr_id
+        where api_code=#{apiCode} and a.direction='DOWN' order by sort
+    </select>
+</mapper>

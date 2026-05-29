@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.PlatformGbStreamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.PlatformGbStream">
+        <result column="platform_id" property="platformId" />
+        <result column="catalog_id" property="catalogId" />
+        <result column="gb_stream_id" property="gbStreamId" />
+    </resultMap>
+
+    <insert id="batchAdd">
+        INSERT into wvp_platform_gb_stream (gb_stream_id, platform_id, catalog_id) values
+        <foreach collection='streamPushItems' index='index' item='item' separator=','>
+            (#{item.gbStreamId}, #{item.platform_id}, #{item.catalogId})
+        </foreach>
+    </insert>
+
+    <delete id="delByAppAndStream">
+        DELETE from wvp_platform_gb_stream WHERE gb_stream_id = (select gb_stream_id from wvp_gb_stream where app=#{app} AND stream=#{stream})
+    </delete>
+
+    <delete id="delByPlatformId">
+        DELETE from wvp_platform_gb_stream WHERE platform_id=#{platformId}
+    </delete>
+
+    <delete id="delByGbStreams">
+        DELETE from wvp_platform_gb_stream where gb_stream_id in
+        <foreach collection='gbStreams' item='item' open='(' separator=',' close=')' >
+            #{item.gbStreamId}
+        </foreach>
+    </delete>
+
+    <delete id="delByAppAndStreamsByPlatformId">
+        DELETE from wvp_platform_gb_stream where platform_id=#{platformId} and gb_stream_id in
+        <foreach collection='gbStreams' item='item' open='(' separator=',' close=')'>
+            #{item.gbStreamId}
+        </foreach>
+    </delete>
+
+    <delete id="delByPlatformAndCatalogId">
+        DELETE from wvp_platform_gb_stream WHERE platform_id=#{platformId} and catalog_id=#{catalogId}
+    </delete>
+
+    <select id="selectByAppAndStream" resultType="com.genersoft.iot.vmp.gb28181.bean.ParentPlatform">
+        SELECT pp.* FROM wvp_platform_gb_stream pgs
+            LEFT JOIN wvp_platform pp ON pp.server_gb_id = pgs.platform_id
+            LEFT join wvp_gb_stream gs ON gs.gb_stream_id = pgs.gb_stream_id
+        WHERE gs.app =#{app} AND gs.stream =#{stream}
+    </select>
+
+    <select id="selectOne" resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT pgs.*, gs.gb_id  from wvp_platform_gb_stream pgs
+            LEFT join wvp_gb_stream gs ON pgs.gb_stream_id = gs.gb_stream_id
+        WHERE gs.app=#{app} AND gs.stream=#{stream} AND pgs.platform_id=#{platformId}
+    </select>
+
+    <select id="queryChannelInParentPlatformAndCatalog"
+            resultType="com.genersoft.iot.vmp.gb28181.bean.GbStream">
+        select gs.* from wvp_gb_stream gs
+            left join wvp_platform_gb_stream pgs on gs.gb_stream_id = pgs.gb_stream_id
+        where pgs.platform_id=#{platformId} and pgs.catalog_id=#{catalogId}
+    </select>
+
+    <select id="queryChannelInParentPlatformAndCatalogForCatalog"
+            resultType="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        select gs.gb_id as id, gs.name as name, pgs.platform_id as platform_id, pgs.catalog_id as catalog_id , 0 as children_count, 2 as type from wvp_gb_stream gs
+            left join wvp_platform_gb_stream pgs on gs.gb_stream_id = pgs.gb_stream_id
+        where pgs.platform_id=#{platformId} and pgs.catalog_id=#{catalogId}
+    </select>
+
+    <select id="queryPlatFormListForGBWithGBId" resultType="com.genersoft.iot.vmp.gb28181.bean.ParentPlatform">
+        SELECT pp.* FROM wvp_platform pp
+            left join wvp_platform_gb_stream pgs on pp.server_gb_id = pgs.platform_id
+            left join wvp_gb_stream gs on gs.gb_stream_id = pgs.gb_stream_id
+        WHERE gs.app = #{app} AND gs.stream = #{stream} AND pp.server_gb_id IN
+        <foreach collection='platforms'  item='item'  open='(' separator=',' close=')' > #{item}</foreach>
+    </select>
+
+
+</mapper>

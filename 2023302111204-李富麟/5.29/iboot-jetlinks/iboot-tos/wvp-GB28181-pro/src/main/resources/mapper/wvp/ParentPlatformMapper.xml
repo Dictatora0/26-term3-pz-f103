@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.ParentPlatformMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.ParentPlatform">
+        <result column="id" property="id" />
+        <result column="ptz" property="ptz" />
+        <result column="rtcp" property="rtcp" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="enable" property="enable" />
+        <result column="password" property="password" />
+        <result column="expires" property="expires" />
+        <result column="device_ip" property="deviceIp" />
+        <result column="server_ip" property="serverIP" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="transport" property="transport" />
+        <result column="catalog_id" property="catalogId" />
+        <result column="server_gb_id" property="serverGBId" />
+        <result column="device_gb_id" property="deviceGBId" />
+        <result column="server_port" property="serverPort" />
+        <result column="device_port" property="devicePort" />
+        <result column="server_gb_domain" property="serverGBDomain" />
+        <result column="alarm_subscribe" property="alarmSubscribe" />
+        <result column="catalog_subscribe" property="catalogSubscribe" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="expires" property="expires" />
+        <result column="keep_timeout" property="keepTimeout" />
+        <result column="catalog_group" property="catalogGroup" />
+        <result column="character_set" property="characterSet" />
+        <result column="channel_count" property="channelCount" />
+        <result column="auto_push_channel" property="autoPushChannel" />
+        <result column="start_offline_push" property="startOfflinePush" />
+        <result column="as_message_channel" property="asMessageChannel" />
+        <result column="administrative_division" property="administrativeDivision" />
+        <result column="mobile_position_subscribe" property="mobilePositionSubscribe" />
+    </resultMap>
+
+    <select id="getParentPlatformList" resultMap="BasicMap">
+        SELECT *, (
+            (SELECT count(0) FROM wvp_platform_gb_channel pc WHERE pc.platform_id = pp.server_gb_id) +
+            (SELECT count(0) FROM wvp_platform_gb_stream pgs WHERE pgs.platform_id = pp.server_gb_id) +
+            (SELECT count(0) FROM wvp_platform_catalog pgc WHERE pgc.platform_id = pp.server_gb_id)
+        ) as channel_count
+        FROM wvp_platform pp
+    </select>
+
+    <select id="getChannelSource" resultType="com.genersoft.iot.vmp.storager.dao.dto.ChannelSourceInfo">
+        select 'channel' as name, count(pgc.platform_id) count from wvp_platform_gb_channel pgc
+            left join wvp_device_channel dc on dc.id = pgc.device_channel_id where  pgc.platform_id=#{platform_id} and dc.channel_id =#{gbId}
+        union
+        select 'stream' as name, count(pgs.platform_id) count from wvp_platform_gb_stream pgs
+            left join wvp_gb_stream gs on pgs.gb_stream_id = gs.gb_stream_id where  pgs.platform_id=#{platform_id} and gs.gb_id =#{gbId}
+    </select>
+
+    <select id="parentPlatformByPage" resultMap="BasicMap">
+
+    </select>
+
+
+</mapper>

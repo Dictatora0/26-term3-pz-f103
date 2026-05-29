@@ -1,0 +1,1 @@
+import{aa as a}from"./@jetlinks-web/core.1780024609588.js";const s=(e,t,d)=>{const o=document.createElement("a");o.download=`${t?"":e?.name}${t}-${a(new Date).format("YYYY_MM_DD")}.json`,o.style.display="none";const n=new Blob([JSON.stringify(e)]);o.href=URL.createObjectURL(n),document.body.appendChild(o),o.click(),document.body.removeChild(o)};export{s as d};

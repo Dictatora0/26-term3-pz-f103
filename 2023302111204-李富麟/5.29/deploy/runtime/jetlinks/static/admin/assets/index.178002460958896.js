@@ -1,0 +1,1 @@
+import{i as e}from"./vue-router.1780024609588.js";import o from"./index.1780024609588106.js";const{defineComponent:t}=await e("vue"),{openBlock:n,createBlock:r}=await e("vue"),m=t({__name:"index",setup(a){return(c,i)=>(n(),r(o,{provider:"MODBUS_TCP"}))}});export{m as default};

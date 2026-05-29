@@ -1,0 +1,1 @@
+import{i as o}from"./vue-router.1780024609588.js";import{_ as t}from"./index.1780024609588.js";const r={},{resolveComponent:c,openBlock:n,createBlock:s}=await o("vue");function _(a,l){const e=c("a-result");return n(),s(e,{status:"404",title:"404"})}const i=t(r,[["render",_]]);export{i as default};

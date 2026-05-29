@@ -1,0 +1,4 @@
+org.springframework.boot.SpringBootExceptionReporter=\
+com.iteaj.framework.spring.boot.FrameworkExceptionReporter
+org.springframework.context.ApplicationListener=\
+com.iteaj.framework.spring.boot.FrameworkEnvironmentListener

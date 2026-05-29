@@ -1,0 +1,4 @@
+com\iteaj\plugin\protocol\mqtt\DefaultMqttProtocolSupplierAutoConfiguration.class
+com\iteaj\plugin\protocol\mqtt\impl\DefaultMqttPublishProtocolModelApi.class
+com\iteaj\plugin\protocol\mqtt\impl\DefaultMqttProtocolSupplier.class
+com\iteaj\plugin\protocol\mqtt\impl\DefaultMqttSubscribeProtocolModelApi.class

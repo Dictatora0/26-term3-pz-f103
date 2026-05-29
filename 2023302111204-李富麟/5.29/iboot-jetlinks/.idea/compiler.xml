@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="iboot-shiro" />
+        <module name="wvp-GB28181-pro" />
+        <module name="iboot-oauth2" />
+        <module name="modbus-tcp" />
+        <module name="iboot-file" />
+        <module name="bootstrap" />
+        <module name="jetlinks-spring-boot-starter" />
+        <module name="iboot-quartz" />
+        <module name="iboot-SaToken" />
+        <module name="framework" />
+        <module name="modbus-common" />
+        <module name="protocol-mqtt" />
+        <module name="iboot-knife4j" />
+        <module name="iboot-message" />
+        <module name="protocol-dtu" />
+        <module name="iboot-code" />
+        <module name="modbus-rtu" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bootstrap" options="-parameters -parameters" />
+      <module name="framework" options="-parameters -parameters" />
+      <module name="iboot" options="-parameters -parameters" />
+      <module name="iboot-SaToken" options="-parameters -parameters" />
+      <module name="iboot-code" options="-parameters -parameters" />
+      <module name="iboot-file" options="-parameters -parameters" />
+      <module name="iboot-knife4j" options="-parameters -parameters" />
+      <module name="iboot-message" options="-parameters -parameters" />
+      <module name="iboot-oauth2" options="-parameters -parameters" />
+      <module name="iboot-plugin" options="-parameters -parameters" />
+      <module name="iboot-protocol" options="-parameters -parameters" />
+      <module name="iboot-quartz" options="-parameters -parameters" />
+      <module name="iboot-shiro" options="-parameters -parameters" />
+      <module name="iboot-tos" options="-parameters -parameters" />
+      <module name="modbus-common" options="-parameters -parameters" />
+      <module name="modbus-rtu" options="-parameters -parameters" />
+      <module name="modbus-tcp" options="-parameters -parameters" />
+      <module name="protocol-dtu" options="-parameters -parameters" />
+      <module name="protocol-modbus" options="-parameters -parameters" />
+      <module name="protocol-mqtt" options="-parameters -parameters" />
+      <module name="wvp-GB28181-pro" options="-parameters -parameters" />
+    </option>
+  </component>
+</project>

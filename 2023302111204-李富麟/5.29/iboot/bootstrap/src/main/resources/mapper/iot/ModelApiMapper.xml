@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ModelApiMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.ModelApi">
+        <result column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="debug" property="debug" />
+        <result column="status" property="status" />
+        <result column="remark" property="remark" />
+        <result column="direct" property="direct" />
+        <result column="protocol" property="protocol" />
+        <result column="as_status" property="asStatus" />
+        <result column="func_type" property="funcType" />
+        <result column="product_id" property="productId" />
+        <result column="trigger_mode" property="triggerMode" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <resultMap id="DetailResultMap" type="com.iteaj.iboot.module.iot.entity.ModelApi" extends="BaseResultMap">
+        <collection property="upConfig" column="{apiCode=code}" ofType="ModelApiConfig"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelApiConfigMapper.listUpByApiCode" />
+        <collection property="downConfig" column="{apiCode=code}" ofType="ModelApiConfig"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelApiConfigMapper.listDownByApiCode" />
+    </resultMap>
+    <update id="updateAsStatus">
+        update iot_model_api set as_status = false where product_id=#{productId} and func_type=#{funcType};
+        update iot_model_api set as_status=true where product_id=#{productId} and func_type=#{funcType} and trigger_mode='passive' and code=#{code}
+    </update>
+
+    <select id="listFuncByProductId" resultMap="DetailResultMap">
+        select * from iot_model_api where product_id = #{productId} and type='func' order by create_time desc
+    </select>
+
+    <select id="listEventByProductId" resultMap="DetailResultMap">
+        select * from iot_model_api where product_id = #{productId} and type='event' order by as_status desc, create_time desc
+    </select>
+
+    <select id="getCtrlStatusByProductId" resultMap="DetailResultMap">
+        select * from iot_model_api where product_id = #{productId} and type='func' and func_type='W' and as_status=true
+    </select>
+
+    <select id="detailById" resultMap="DetailResultMap">
+        select * from iot_model_api where id=#{id}
+    </select>
+
+    <select id="detailsOfProductId" resultMap="DetailResultMap">
+        select * from iot_model_api where product_id=#{productId}
+    </select>
+
+    <select id="getProtocolCtrlModelByProductId" resultType="com.iteaj.framework.spi.iot.consts.CtrlMode">
+        select p.ctrl_mode from iot_product pt left join iot_protocol p on pt.protocol_id=p.id where pt.id=#{productId}
+    </select>
+
+    <select id="hasSameAddress" resultType="java.lang.Boolean">
+        select count(*) > 0 from iot_model_api a
+            left join iot_model_api_config b on a.code=b.api_code and b.product_id=#{productId}
+        where a.product_id=#{productId} and b.protocol_attr_field=#{pointAddress} and a.type=#{type} and b.value=#{value}
+        <if test="modelApiConfigId != null">
+            and b.id != #{modelApiConfigId}
+        </if>
+        limit 1
+    </select>
+    <select id="isEnabled" resultType="java.lang.Boolean">
+        select status='enabled' from iot_product where id = #{productId}
+    </select>
+
+    <select id="listAsStatusModelApi" resultMap="DetailResultMap">
+        select a.*, p.code product_code from iot_model_api a
+            inner join iot_product p on a.product_id = p.id
+        where p.status = 'enabled' and a.func_type='R' and a.as_status=true and a.trigger_mode='passive'
+    </select>
+    <select id="getAsStatusModelApi" resultMap="DetailResultMap">
+        select a.*, p.code product_code from iot_model_api a
+             inner join iot_product p on a.product_id = p.id
+        where a.product_id=#{productId} and a.func_type='R' and a.as_status=true and a.trigger_mode='passive'
+    </select>
+
+    <select id="detailByCode" resultMap="DetailResultMap">
+        select * from iot_model_api where code=#{modelApiCode}
+    </select>
+
+    <select id="isEnabledOfProduct" resultType="java.lang.Boolean">
+        select count(id) > 0 from iot_product where id=#{productId} and status='enabled'
+    </select>
+    <select id="hasCtrlStatus" resultType="java.lang.Boolean">
+        select count(a.id) > 0 from iot_model_api_config a
+            inner join iot_model_attr ma on a.model_attr_id=ma.id and ma.ctrl_status=true
+        where a.api_code=#{code} and a.product_id=#{productId} and a.direction='DOWN' limit 1
+    </select>
+</mapper>

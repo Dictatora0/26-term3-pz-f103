@@ -1,0 +1,1 @@
+import{i as e}from"./vue-router.1780024609588.js";const{request:o}=await e("@jetlinks-web/core"),c=t=>o.post("/data-collect/collector/_detail",t),l=t=>o.get(`/data-collect/collector/${t}/_detail`),r=t=>o.post("/data-collect/point/convert/_query/no-paging",t);export{c as a,r as b,l as q};

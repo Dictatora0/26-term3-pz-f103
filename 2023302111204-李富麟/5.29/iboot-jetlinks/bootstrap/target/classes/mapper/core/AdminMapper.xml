@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.core.mapper.IAdminDao">
+
+    <resultMap type="com.iteaj.iboot.module.core.entity.Admin" id="OriMap">
+        <id property="id"    column="id"  />
+        <result property="sex" column="sex" />
+<!--        <result property="sort" column="sort" />-->
+        <result property="email" column="email" />
+        <result property="phone" column="phone" />
+        <result property="name"    column="name"  />
+        <result property="avatar" column="avatar" />
+        <result property="status" column="status" />
+        <result property="remark" column="remark" />
+        <result property="orgId"    column="org_id"  />
+        <result property="postId"    column="post_id"  />
+        <result property="account"    column="account"  />
+        <result property="createTime"    column="create_time"  />
+        <result property="updateTime"    column="update_time"  />
+    </resultMap>
+    <resultMap id="JoinAdminRoleMap" type="com.iteaj.iboot.module.core.dto.AdminDto" extends="OriMap">
+        <collection property="roleIds" ofType="long">
+            <result property="roleIds" column="rid" />
+        </collection>
+    </resultMap>
+    <insert id="createAdmin">
+        insert into sys_admin (name, org_id, post_id, account, email, phone, sex, avatar, password, status, remark, create_time) value
+        (#{name},#{orgId}, #{postId}, #{account},#{email},#{phone},#{sex},#{avatar},#{password},#{status}, #{remark}, now());
+        set @lastId=LAST_INSERT_ID();
+        <if test="roleIds != null">
+            insert into sys_admin_role (aid, rid) values
+            <foreach collection="roleIds" item="item" separator=",">
+                (@lastId, #{item})
+            </foreach>
+        </if>
+    </insert>
+    <update id="updateAdminRole">
+        delete from sys_admin_role where aid=#{id};
+        <if test="roleIds != null and roleIds.size() > 0">
+            insert into sys_admin_role (aid, rid) values
+            <foreach collection="roleIds" item="item" separator=",">
+                (#{id}, #{item})
+            </foreach>
+        </if>
+    </update>
+    <update id="updatePwdById">
+        update sys_admin set password=#{password}, update_time=now() where id=#{id}
+    </update>
+    <delete id="deleteAllJoinByIds">
+        delete from sys_admin where id in (
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>);
+        delete from sys_admin_role where aid in (
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>
+        );
+    </delete>
+    <select id="getAdminDetailById" resultMap="JoinAdminRoleMap">
+        select a.*, ar.aid aid, ar.rid rid from sys_admin a
+           left join sys_admin_role ar on a.id = ar.aid
+        where a.id=#{id}
+    </select>
+    <!--查询指定用户下拥有的权限-->
+    <select id="selectPermsById" resultType="java.lang.String">
+        select m.perms from sys_role_menu a
+            left join sys_menu m on a.mid = m.id
+            left join sys_admin_role ar on a.rid=ar.rid
+        where ar.aid=#{id}
+    </select>
+    <select id="getAdminCenter" resultType="com.iteaj.iboot.module.core.dto.AdminDto">
+        select a.*, o.name orgName, group_concat(r.name) roleNames, p.name postName from sys_admin a
+            left join sys_admin_role ar on a.id = ar.aid
+            left join sys_role r on r.id=ar.rid
+            left join sys_org o on o.id=a.org_id
+            left join sys_post p on p.id = a.post_id
+        where a.id=#{id} group by a.id
+    </select>
+    <select id="getAdminPassword" resultType="java.lang.String">
+        select password from sys_admin where id=#{id}
+    </select>
+    <select id="pageDetail" resultType="com.iteaj.iboot.module.core.dto.AdminDto">
+        select a.*, o.name org_name, p.name post_name from sys_admin a
+            left join sys_org o on a.org_id=o.id
+            left join sys_post p on a.post_id = p.id
+        <where>
+            <if test="entity.postId != null">
+                and a.post_id=#{entity.postId}
+            </if>
+            <if test="entity.status != null">
+                and a.status=#{entity.status}
+            </if>
+            <if test="entity.orgId!=null">
+                and find_in_set(#{entity.orgId}, o.path)
+            </if>
+            <if test="entity.account!=null and entity.account!=''">
+                and a.account like '%${entity.account}%'
+            </if>
+            <if test="entity.name!=null and entity.name!=''">
+                and a.name like '%${entity.name}%'
+            </if>
+            <if test="entity.phone!=null and entity.phone!=''">
+                and a.phone like '%${entity.phone}%'
+            </if>
+        </where>
+        order by a.create_time desc, a.org_id
+    </select>
+</mapper>

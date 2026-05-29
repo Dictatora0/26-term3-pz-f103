@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ProtocolApiConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.ProtocolApiConfig">
+        <result column="id" property="id" />
+        <result column="sort" property="sort" />
+        <result column="length" property="length" />
+        <result column="remark" property="remark" />
+        <result column="position" property="position" />
+        <result column="attrName" property="attrName" />
+        <result column="attrType" property="attrType" />
+        <result column="attrRemark" property="attrRemark" />
+        <result column="field_type" property="fieldType" />
+        <result column="create_time" property="createTime" />
+        <result column="protocol_api_code" property="protocolApiCode" />
+        <result column="protocol_attr_field" property="protocolAttrField" />
+    </resultMap>
+
+    <select id="listByApiCode" resultMap="BaseResultMap">
+        select a.*, pa.name attrName, pa.data_type attrType, pa.remark attrRemark from iot_protocol_api_config a
+            left join iot_protocol_attr pa on a.protocol_attr_field=pa.field and a.protocol_api_code=#{protocolApiCode}
+        where protocol_api_code=#{protocolApiCode} and a.direction=#{direction} order by sort
+    </select>
+
+    <select id="listUpByApiCode" resultMap="BaseResultMap">
+        select a.*, pa.name attrName, pa.data_type attrType, pa.remark attrRemark from iot_protocol_api_config a
+            left join iot_protocol_attr pa on a.protocol_attr_field=pa.field and a.protocol_api_code=#{protocolApiCode}
+        where protocol_api_code=#{protocolApiCode} and a.direction='UP' order by sort
+    </select>
+
+    <select id="listDownByApiCode" resultMap="BaseResultMap">
+        select a.*, pa.name attrName, pa.data_type attrType, pa.remark attrRemark from iot_protocol_api_config a
+            left join iot_protocol_attr pa on a.protocol_attr_field=pa.field and a.protocol_api_code=#{protocolApiCode}
+        where protocol_api_code=#{protocolApiCode} and a.direction='DOWN' order by sort
+    </select>
+</mapper>

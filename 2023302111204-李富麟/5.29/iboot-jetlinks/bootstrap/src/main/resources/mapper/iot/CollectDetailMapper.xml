@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.CollectDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.CollectDetail">
+        <result column="id" property="id" />
+        <result property="extend" column="extend"/>
+        <result property="signalNum" column="signal_num" />
+        <result property="storeAction" column="store_action" />
+        <result property="collectTaskId" column="collect_task_id" />
+        <result property="collectTaskName" column="collect_task_name" />
+        <result property="pointGroupId" column="point_group_id" />
+        <result property="pointGroupName" column="point_group_name" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <select id="detailPage" resultMap="BaseResultMap">
+        select a.*, pg.name collect_task_name, pg.name point_group_name, pg.signal_num from iot_collect_detail a
+            left join iot_collect_task ct on a.collect_task_id=ct.id
+            left join iot_point_group pg on a.point_group_id=pg.id
+        <where>
+            <if test="entity.pointGroupId != null">
+                and a.point_group_id=#{entity.pointGroupId}
+            </if>
+            <if test="entity.collectTaskId != null">
+                and a.collect_task_id=#{entity.collectTaskId}
+            </if>
+        </where>
+    </select>
+
+    <select id="detailById" resultMap="BaseResultMap">
+        select a.*, pg.name collect_task_name, pg.name point_group_name, pg.signal_num  from iot_collect_detail a
+           left join iot_collect_task ct on a.collect_task_id=ct.id
+           left join iot_point_group pg on a.point_group_id=pg.id
+        where a.id=#{id}
+    </select>
+
+    <select id="hasTaskRunning" resultType="java.lang.Boolean">
+        select count(if(status='run', 1, null)) > 0 from iot_collect_task where id=#{collectTaskId}
+    </select>
+
+</mapper>

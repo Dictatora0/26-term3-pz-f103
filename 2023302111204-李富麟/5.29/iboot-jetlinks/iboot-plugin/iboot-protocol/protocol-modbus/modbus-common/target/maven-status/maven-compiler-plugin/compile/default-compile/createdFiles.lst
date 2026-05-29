@@ -1,0 +1,7 @@
+com\iteaj\iboot\plugin\protocol\modbus\AbstractModbusFuncProtocolModelApi.class
+com\iteaj\iboot\plugin\protocol\modbus\ModbusProtocolSupplierAutoConfiguration.class
+com\iteaj\iboot\plugin\protocol\modbus\AbstractModbusProtocolSupplier.class
+com\iteaj\iboot\plugin\protocol\modbus\AbstractModbusFuncProtocolModelApi$1.class
+com\iteaj\iboot\plugin\protocol\modbus\AbstractModbusEventProtocolModelApi$1.class
+com\iteaj\iboot\plugin\protocol\modbus\AbstractModbusEventProtocolModelApi.class
+com\iteaj\iboot\plugin\protocol\modbus\ModbusProtocolConsts.class

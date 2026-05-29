@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.MediaServerItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.media.zlm.dto.MediaServerItem">
+        <result column="id" property="id" />
+        <result column="ip" property="ip" />
+        <result column="sdp_ip" property="sdpIp" />
+        <result column="hook_ip" property="hookIp" />
+        <result column="stream_ip" property="streamIp" />
+        <result column="http_port" property="httpPort" />
+        <result column="rtmp_port" property="rtmpPort" />
+        <result column="rtmp_ssl_port" property="rtmpSSlPort" />
+        <result column="rtp_proxy_port" property="rtpProxyPort" />
+        <result column="rtsp_port" property="rtspPort" />
+        <result column="rtsp_ssl_port" property="rtspSSLPort" />
+        <result column="auto_config" property="autoConfig" />
+        <result column="status" property="status" />
+        <result column="secret" property="secret" />
+        <result column="rtp_enable" property="rtpEnable" />
+        <result column="hook_alive_interval" property="hookAliveInterval" />
+        <result column="rtp_port_range" property="rtpPortRange" />
+        <result column="send_rtp_port_range" property="sendRtpPortRange" />
+        <result column="record_assist_port" property="recordAssistPort" />
+        <result column="last_keepalive_time" property="lastKeepaliveTime" />
+        <result column="default_server" property="defaultServer" />
+        <result column="current_port" property="currentPort" />
+        <result column="http_ssl_port" property="httpSSlPort" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <select id="getDevices" resultMap="BasicMap">
+        select a.*, count(a.device_id) channel_count from wvp_device a
+            left join wvp_device_channel wdc on a.device_id=wdc.device_id
+        <where>
+            <if test="onLine != null">
+                a.on_line=${onLine}
+            </if>
+        </where>
+        group by a.device_id order by a.create_time desc
+    </select>
+
+    <select id="getDeviceByDeviceId" resultMap="BasicMap">
+        select a.*, count(a.device_id) channel_count from wvp_device a
+            left join wvp_device_channel wdc on a.device_id=wdc.device_id
+        WHERE a.device_id = #{deviceId} group by a.device_id
+    </select>
+
+</mapper>

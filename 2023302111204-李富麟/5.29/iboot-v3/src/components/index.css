@@ -1,0 +1,9 @@
+/*功能按钮样式*/
+.u-func {
+    cursor: pointer;
+}
+
+/* ant-vue style */
+.u-form-modal .ant-modal-footer {
+    text-align: center;
+}

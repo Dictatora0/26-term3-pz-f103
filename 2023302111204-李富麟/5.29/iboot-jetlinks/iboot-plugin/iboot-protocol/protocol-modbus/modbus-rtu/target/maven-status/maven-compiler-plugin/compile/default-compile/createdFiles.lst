@@ -1,0 +1,3 @@
+com\iteaj\iboot\plugin\protocol\modbus\rtu\ModbusRtuProtocolSupplier.class
+com\iteaj\iboot\plugin\protocol\modbus\rtu\ModbusRtuFuncProtocolModelApi.class
+com\iteaj\iboot\plugin\protocol\modbus\rtu\ModbusRtuEventProtocolModeApi.class

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.CollectTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.CollectTask">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="cron" property="cron" />
+        <result column="reason" property="reason" />
+        <result column="status" property="status" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+    <resultMap id="CollectTaskDtoMap" type="com.iteaj.iboot.module.iot.dto.CollectTaskDto" extends="BaseResultMap">
+
+    </resultMap>
+    <resultMap id="CollectDetailMap" type="com.iteaj.iboot.module.iot.entity.CollectDetail">
+        <result property="id" column="did" />
+        <result property="extend" column="extend"/>
+        <result property="storeAction" column="store_action" />
+        <result property="collectTaskId" column="collect_task_id" />
+        <result property="pointGroupId" column="point_group_id" />
+<!--        <collection property="devices" ofType="com.iteaj.iboot.module.iot.collect.CollectDevice"/>-->
+    </resultMap>
+
+    <resultMap id="collectDetailDtoMap" type="com.iteaj.iboot.module.iot.dto.CollectTaskDto" extends="CollectTaskDtoMap">
+        <collection property="details" ofType="com.iteaj.iboot.module.iot.entity.CollectDetail" resultMap="CollectDetailMap" foreignColumn="collect_task_id"/>
+    </resultMap>
+
+    <delete id="removeTaskAndDetail">
+        delete from iot_collect_detail where collect_task_id in (
+            <foreach collection="list" separator="," item="taskId">
+                #{taskId}
+            </foreach> );
+        delete from iot_collect_task where id in (
+            <foreach collection="list" separator="," item="taskId">
+                #{taskId}
+            </foreach> );
+    </delete>
+
+    <select id="detailOfPage" resultMap="BaseResultMap">
+        select a.* from iot_collect_task a
+            left join iot_collect_detail cd on cd.collect_task_id = a.id
+        <where>
+            <if test="entity.status!=null and entity.status!=''">
+                and a.status=#{entity.status}
+            </if>
+            <if test="entity.name!=null and entity.name!=''">
+                and a.name like '%${entity.name}%'
+            </if>
+            <if test="entity.pointGroupId!=null">
+                and cd.point_group_id=#{entity.pointGroupId}
+            </if>
+        </where>
+        group by a.id order by a.create_time desc
+    </select>
+    <select id="detailById" resultMap="CollectTaskDtoMap">
+        select a.id, a.name, a.cron, a.status, a.remark, a.create_time, a.update_time from iot_collect_task a
+        where a.id=#{id}
+    </select>
+
+    <select id="collectDetailById" resultMap="collectDetailDtoMap">
+        select a.*, d.id did, d.point_group_id, d.extend, d.collect_task_id, d.store_action from iot_collect_task a
+             left join iot_collect_detail d on a.id=d.collect_task_id
+        where a.id=#{id}
+    </select>
+
+    <select id="collectDetailPageById" resultType="com.iteaj.iboot.module.iot.entity.CollectDetail">
+        select a.*, ct.name deviceName, pg.name collectTaskName, dc.name childName from iot_collect_detail a
+            left join iot_collect_task ct on a.collect_task_id=ct.id
+            left join iot_device_child dc on dc.uid=a.uid
+            left join iot_point_group pg on a.point_group_id=pg.id
+        where a.collect_task_id=#{id}
+    </select>
+
+    <select id="listRunningCollectTaskDetail" resultMap="collectDetailDtoMap">
+        select a.*, d.id did, d.point_group_id, d.extend, d.collect_task_id, d.store_action from iot_collect_task a
+            left join iot_collect_detail d on a.id=d.collect_task_id
+        where a.status = 'run'
+    </select>
+
+    <select id="listCollectDeviceByGroupIds" resultType="com.iteaj.iboot.module.iot.collect.CollectDevice">
+        select pg.id point_group_id, id.uid, id.product_id, id.device_sn, pid.device_sn parent_device_sn, ip.code product_code
+             , id.uid, ip.name product_name, ipl.code protocol_code, ipl.name protocol_name from iot_point_group pg
+            left join iot_device id on json_contains(pg.product_ids, concat('', id.product_id))
+            left join iot_device pid on id.pid = pid.id
+            left join iot_product ip on id.product_id = ip.id
+            left join iot_protocol ipl on ipl.id = ip.protocol_id
+        where ip.device_type != 'Gateway' and pg.id in (<foreach collection="list" item="id" separator=",">
+        #{id}
+    </foreach> )
+    </select>
+
+    <select id="listCollectSignalByGroupIds" resultType="com.iteaj.iboot.module.iot.collect.CollectSignal">
+        select s.*, a.group_id pointGroupId from iot_group_point a
+            left join iot_signal s on a.signal_id=s.id
+        where a.group_id in (<foreach collection="list" separator="," item="groupId">
+        #{groupId}
+    </foreach> )
+    </select>
+
+</mapper>

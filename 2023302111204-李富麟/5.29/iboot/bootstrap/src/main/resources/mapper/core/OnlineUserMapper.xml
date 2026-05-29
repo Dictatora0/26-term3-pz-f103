@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.core.mapper.IOnlineUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="OriMap" type="com.iteaj.iboot.module.core.entity.OnlineUser">
+        <id column="id" property="id" />
+        <result column="browse" property="browse" />
+        <result column="account" property="account" />
+        <result column="expire_time" property="expireTime" />
+        <result column="location" property="location" />
+        <result column="login_ip" property="accessIp" />
+        <result column="login_time" property="loginTime" />
+        <result column="os" property="os" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="user_nick" property="userNick" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 表字段列表 -->
+    <sql id="OriSql">
+         a.create_time, a.id, a.update_time, a.browse, a.account, a.expire_time, a.location, a.login_ip
+            , a.login_time, a.os, a.status, a.user_nick, a.type
+    </sql>
+    <!-- 表字段关联列表 -->
+    <sql id="OriJoinSql">
+         our.create_time our_create_time, our.id our_id, our.update_time our_update_time, our.browse our_browse, our.account our_account, our.expire_time our_expire_time,
+		 our.location our_location, our.login_ip our_login_ip, our.login_time our_login_time, our.os our_os, our.status our_status, our.user_nick our_user_nick,
+         our.app_type our_app_type
+    </sql>
+    <!-- 批量插入 -->
+    <insert id="insertAsBatch">
+        insert into sys_online_user (browse, account, expire_time, location, access_ip, login_time, os, status, user_nick, type) VALUES
+        <foreach collection="list" separator="," item="item">
+            (#{item.browse},#{item.account},#{item.expireTime},#{item.location},#{item.loginIp},#{item.loginTime},#{item.os},
+		#{item.status},#{item.userNick},#{item.appType})
+        </foreach>
+    </insert>
+
+    <!--  统计当天在线和当前在线人数  -->
+    <select id="countCurrentOnline" resultType="com.iteaj.iboot.module.core.dto.OnlineCountDto">
+        select count(if(status='online', 1, null)) currentOnline
+             , count(distinct account) loginAccount
+             , count(distinct access_ip) todayAccess
+        from sys_online_user where date(create_time) = date(now())
+    </select>
+
+    <!--  统计当天访问人数  -->
+    <select id="countTodayAccess" resultType="java.lang.Long">
+
+    </select>
+</mapper>

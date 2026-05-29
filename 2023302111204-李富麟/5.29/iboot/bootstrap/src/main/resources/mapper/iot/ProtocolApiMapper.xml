@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ProtocolApiMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.ProtocolApi">
+        <result column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="remark" property="remark" />
+        <result column="func_type" property="funcType" />
+        <result column="create_time" property="createTime" />
+        <result column="protocol_code" property="protocolCode" />
+    </resultMap>
+
+    <resultMap id="DetailResultMap" type="com.iteaj.iboot.module.iot.entity.ProtocolApi">
+        <collection property="upConfigs" column="{protocolApiCode=code}" ofType="ProtocolApiConfig"
+                    select="com.iteaj.iboot.module.iot.mapper.ProtocolApiConfigMapper.listUpByApiCode" />
+        <collection property="downConfigs" column="{protocolApiCode=code}" ofType="ProtocolApiConfig"
+                    select="com.iteaj.iboot.module.iot.mapper.ProtocolApiConfigMapper.listDownByApiCode" />
+    </resultMap>
+
+    <select id="listByProtocolCode" resultMap="DetailResultMap">
+        select * from iot_protocol_api where protocol_code = #{protocolCode}
+    </select>
+
+    <select id="listFuncByProtocolCode" resultMap="DetailResultMap">
+        select * from iot_protocol_api where protocol_code = #{protocolCode} and type='func'
+    </select>
+
+    <select id="listEventByProtocolCode" resultMap="DetailResultMap">
+        select * from iot_protocol_api where protocol_code = #{protocolCode} and type='event'
+    </select>
+</mapper>

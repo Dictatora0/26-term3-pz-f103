@@ -1,0 +1,1 @@
+11:30:42 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: I/O error on POST request for "http://127.0.0.1:8848/online": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect

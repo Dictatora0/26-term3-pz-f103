@@ -1,0 +1,43 @@
+server:
+  port: 8848
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 20s
+    lettuce:
+      pool:
+        max-active: 1024
+  r2dbc:
+    url: r2dbc:mysql://127.0.0.1:3306/jetlinks?sslMode=DISABLED&serverZoneId=Asia/Shanghai
+    username: root
+    password: 123456
+    pool:
+      max-size: 32
+      max-idle-time: 2m
+      max-life-time: 10m
+      acquire-retry: 3
+  elasticsearch:
+    uris: http://127.0.0.1:9200
+    socket-timeout: 10s
+    connection-timeout: 15s
+    webclient:
+      max-in-memory-size: 100MB
+
+easyorm:
+  default-schema: jetlinks
+  dialect: mysql
+
+elasticsearch:
+  embedded:
+    enabled: false
+
+hsweb:
+  file:
+    upload:
+      static-file-path: ./static/upload
+      static-location: http://127.0.0.1:9000/upload
+
+api:
+  base-path: http://127.0.0.1:9000

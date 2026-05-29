@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.core.mapper.IRoleDao">
+
+    <resultMap type="com.iteaj.iboot.module.core.entity.Role" id="OriMap">
+        <id property="id"    column="id"  />
+        <result property="name"    column="name"  />
+        <result property="sort" column="sort" />
+        <result property="status" column="status" />
+        <result property="remark" column="remark" />
+        <result property="createTime"    column="create_time"  />
+        <result property="updateTime"    column="update_time"  />
+    </resultMap>
+    <resultMap id="JoinRoleMenuMap" type="com.iteaj.iboot.module.core.dto.RoleDto" extends="OriMap">
+        <collection property="menuIds" ofType="long">
+<!--            <result property="menuIds" column="mid" />-->
+        </collection>
+    </resultMap>
+    <insert id="createRoleAndPerms">
+        insert into sys_role (name, status, remark, sort) value
+            (#{name},#{status},#{remark}, #{sort});
+        set @lastId=LAST_INSERT_ID();
+        <if test="menuIds != null and menuIds.size() > 0">
+            insert into sys_role_menu (rid,mid) values
+            <foreach collection="menuIds" item="item" separator=",">
+                (@lastId, #{item})
+            </foreach>
+        </if>
+    </insert>
+    <update id="updateRolePermsById">
+        delete from sys_role_menu where rid=#{id};
+        <if test="menuIds != null">
+            insert into sys_role_menu (rid,mid) values
+                <foreach collection="menuIds" item="item" separator=",">
+                    (#{id}, #{item})
+                </foreach>
+        </if>
+    </update>
+    <delete id="deleteAllJoinByIds">
+        delete from sys_role where id in (
+        <foreach collection="list" item="item" separator=",">
+            #{item}
+        </foreach>);
+        delete from sys_role_menu where rid in (
+            <foreach collection="list" item="item" separator=",">
+                #{item}
+            </foreach>
+        );
+    </delete>
+    <select id="joinRoleMenuById" resultMap="JoinRoleMenuMap">
+        select a.*, rm.mid mid,rm.rid aid from sys_role a
+            left join sys_role_menu rm on a.id = rm.rid
+        where a.id=#{id}
+    </select>
+    <select id="selectByAdminId" resultType="java.lang.Long">
+        select rid from sys_admin_role where aid=#{id}
+    </select>
+    <!--  获取指定角色下面的菜单列表(权限)  -->
+    <select id="listMenusOfRole" resultType="java.lang.Long">
+        select rm.mid from sys_role a left join sys_role_menu rm on a.id = rm.rid where a.id=#{id}
+    </select>
+    <!-- 获取指定角色绑定的管理员 -->
+    <select id="listBindAdminOfRole" resultType="java.lang.Long">
+        select ar.aid from sys_role a left join sys_admin_role ar on a.id = ar.rid
+        where a.id=#{id} and ar.aid is not null
+    </select>
+</mapper>

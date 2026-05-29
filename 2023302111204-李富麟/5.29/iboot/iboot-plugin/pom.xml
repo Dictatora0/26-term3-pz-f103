@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.iteaj</groupId>
+        <artifactId>iboot</artifactId>
+        <version>${reversion}</version>
+    </parent>
+
+    <packaging>pom</packaging>
+    <name>iboot:plugin</name>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>iboot-plugin</artifactId>
+
+    <modules>
+        <!--代码生成器插件-->
+        <module>iboot-code</module>
+        <!--shiro权限校验插件-->
+        <module>iboot-shiro</module>
+        <!--knife4j api文档插件-->
+        <module>iboot-knife4j</module>
+        <!--SaToken权限校验插件-->
+        <module>iboot-SaToken</module>
+        <!--SaToken Oauth2插件-->
+        <module>iboot-oauth2</module>
+        <!--quartz定时任务插件-->
+        <module>iboot-quartz</module>
+        <!--消息插件(Sms、Email、[...])-->
+        <module>iboot-message</module>
+        <!--文件管理插件-->
+        <module>iboot-file</module>
+        <!--物模型协议模块-->
+        <module>iboot-protocol</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.iteaj</groupId>
+            <artifactId>framework</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</project>

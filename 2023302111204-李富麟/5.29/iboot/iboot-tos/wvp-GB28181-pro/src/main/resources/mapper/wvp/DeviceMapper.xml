@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.DeviceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.Device">
+        <result column="id" property="id" />
+        <result column="ip" property="ip" />
+        <result column="model" property="model" />
+        <result column="device_id" property="deviceId" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="channel_count" property="channelCount" />
+        <result column="name" property="name" />
+        <result column="port" property="port" />
+        <result column="firmware" property="firmware" />
+        <result column="transport" property="transport" />
+        <result column="stream_mode" property="streamMode" />
+        <result column="host_address" property="hostAddress" />
+        <result column="on_line" property="onLine" />
+        <result column="password" property="password" />
+        <result column="register_time" property="registerTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="expires" property="expires" />
+        <result column="charset" property="charset" />
+        <result column="sdp_ip" property="sdpIp" />
+        <result column="local_ip" property="localIp" />
+        <result column="ssrc_check" property="ssrcCheck" />
+        <result column="geo_coord_sys" property="geoCoordSys" />
+        <result column="media_server_id" property="mediaServerId" />
+        <result column="as_message_channel" property="asMessageChannel" />
+        <result column="keepalive_time" property="keepaliveTime" />
+        <result column="keepalive_interval_time" property="keepaliveIntervalTime" />
+        <result column="subscribe_cycle_for_alarm" property="subscribeCycleForAlarm" />
+        <result column="switch_primary_sub_stream" property="switchPrimarySubStream" />
+        <result column="subscribe_cycle_for_catalog" property="subscribeCycleForCatalog" />
+        <result column="subscribe_cycle_for_mobile_position" property="subscribeCycleForMobilePosition" />
+        <result column="mobile_position_submission_interval" property="mobilePositionSubmissionInterval" />
+    </resultMap>
+
+    <select id="getDevices" resultMap="BasicMap">
+        select a.*, count(a.device_id) channel_count from wvp_device a
+            left join wvp_device_channel wdc on a.device_id=wdc.device_id
+        <where>
+            <if test="onLine != null">
+                a.on_line=#{onLine}
+            </if>
+        </where>
+        group by a.device_id order by a.create_time desc
+    </select>
+
+    <select id="getDeviceByDeviceId" resultMap="BasicMap">
+        select a.*, count(a.device_id) channel_count from wvp_device a
+            left join wvp_device_channel wdc on a.device_id=wdc.device_id
+        WHERE a.device_id = #{deviceId} group by a.device_id
+    </select>
+
+    <select id="detailByPage" resultMap="BasicMap">
+        select a.*, count(a.device_id) channel_count from wvp_device a
+            left join wvp_device_channel wdc on a.device_id=wdc.device_id
+        <where>
+            <if test="entity.onLine != null">
+                and a.on_line=#{entity.onLine}
+            </if>
+            <if test="entity.name != null and entity.name != ''">
+                and a.name like '%${entity.name}%'
+            </if>
+            <if test="entity.deviceId != null and entity.deviceId != ''">
+                and a.device_id like '%${entity.deviceId}%'
+            </if>
+        </where>
+        group by a.device_id order by a.create_time desc
+    </select>
+
+</mapper>

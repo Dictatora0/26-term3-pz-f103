@@ -1,0 +1,5 @@
+com\iteaj\iboot\plugin\satoken\SaTokenAutoConfiguration$1.class
+com\iteaj\iboot\plugin\satoken\impl\StpInterfaceImpl.class
+com\iteaj\iboot\plugin\satoken\impl\SaTokenSecurityService.class
+com\iteaj\iboot\plugin\satoken\listener\SaTokenOnlineListener.class
+com\iteaj\iboot\plugin\satoken\SaTokenAutoConfiguration.class

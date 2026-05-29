@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>iboot</artifactId>
+        <groupId>com.iteaj</groupId>
+        <version>${reversion}</version>
+    </parent>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <!--gb28181基于开源项目[wvp-GB28181-pro]修改而来-->
+        <module>wvp-GB28181-pro</module>
+    </modules>
+
+    <name>iboot:tos</name>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>iboot-tos</artifactId>
+
+    <description>引用的第三方开源项目</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.iteaj</groupId>
+            <artifactId>framework</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</project>
