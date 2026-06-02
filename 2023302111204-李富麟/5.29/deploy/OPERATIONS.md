@@ -1,25 +1,25 @@
-# Windows Local Deployment Notes
+# Windows 本地部署说明
 
-## 1. Deployment scope
+## 1. 部署内容
 
-This machine has been configured with:
+本机已完成以下组件部署：
 
 - MySQL
 - Redis
 - Elasticsearch
 - Nginx
-- iboot-jetlinks backend
-- JetLinks backend
-- iBoot frontend
-- JetLinks frontend
+- iboot-jetlinks 后端
+- JetLinks 后端
+- iBoot 前端
+- JetLinks 前端
 
-Project root:
+项目根目录：
 
 - `D:\Proj\5.29`
 
-## 2. Service status
+## 2. 服务情况
 
-Configured as Windows auto-start services:
+以下服务已注册为 Windows 开机自启服务：
 
 - `MySQL`
 - `redis-service`
@@ -28,143 +28,143 @@ Configured as Windows auto-start services:
 - `iboot-jetlinks-service`
 - `jetlinks-standalone-service`
 
-## 3. Access addresses
+## 3. 访问地址
 
-- iBoot homepage: `http://127.0.0.1/`
-- iBoot backend API root: `http://127.0.0.1:8085/api`
-- iBoot websocket: `ws://127.0.0.1/ws/`
-- JetLinks admin page: `http://127.0.0.1:9000/admin/index.html`
-- JetLinks backend port: `http://127.0.0.1:8848`
+- iBoot 首页：`http://127.0.0.1/`
+- iBoot 后端接口根路径：`http://127.0.0.1:8085/api`
+- iBoot WebSocket：`ws://127.0.0.1/ws/`
+- JetLinks 管理页面：`http://127.0.0.1:9000/admin/index.html`
+- JetLinks 后端端口：`http://127.0.0.1:8848`
 
-Notes:
+说明：
 
-- `http://127.0.0.1:8848/` returning `404` is normal.
-- JetLinks UI entry is `/admin/index.html`.
+- `http://127.0.0.1:8848/` 返回 `404` 属于正常现象。
+- JetLinks 前端入口是 `/admin/index.html`。
 
-## 4. Core configuration
+## 4. 核心配置
 
 ### 4.1 MySQL
 
-- Host: `127.0.0.1`
-- Port: `3306`
-- Username: `root`
-- Password: `123456`
-- Databases:
+- 地址：`127.0.0.1`
+- 端口：`3306`
+- 用户名：`root`
+- 密码：`123456`
+- 数据库：
   - `iboot`
   - `jetlinks`
 
 ### 4.2 Redis
 
-- Host: `127.0.0.1`
-- Port: `6379`
-- Password: empty
+- 地址：`127.0.0.1`
+- 端口：`6379`
+- 密码：空
 
 ### 4.3 Elasticsearch
 
-- Host: `127.0.0.1`
-- Port: `9200`
-- URI: `http://127.0.0.1:9200`
+- 地址：`127.0.0.1`
+- 端口：`9200`
+- 访问 URI：`http://127.0.0.1:9200`
 
-### 4.4 iBoot external config
+### 4.4 iBoot 外部配置
 
-Config file:
+配置文件：
 
 - `D:\Proj\5.29\deploy\iboot\config\application-prod.yml`
 
-Key settings:
+关键配置：
 
-- server port: `8085`
-- servlet context path: `/api`
-- MySQL database: `iboot`
-- Redis database: `0`
-- upload path: `D:/Proj/5.29/deploy/runtime/iboot/upload`
-- JetLinks integration:
+- 服务端口：`8085`
+- 接口上下文路径：`/api`
+- MySQL 数据库：`iboot`
+- Redis 数据库：`0`
+- 上传目录：`D:/Proj/5.29/deploy/runtime/iboot/upload`
+- JetLinks 对接配置：
   - `jetlinks.host=127.0.0.1`
   - `jetlinks.port=8848`
   - `autoConnect=false`
 
-### 4.5 JetLinks external config
+### 4.5 JetLinks 外部配置
 
-Config file:
+配置文件：
 
 - `D:\Proj\5.29\deploy\jetlinks\config\application-prod.yml`
 
-Key settings:
+关键配置：
 
-- server port: `8848`
-- MySQL database: `jetlinks`
-- R2DBC URL:
+- 服务端口：`8848`
+- MySQL 数据库：`jetlinks`
+- R2DBC 地址：
   - `r2dbc:mysql://127.0.0.1:3306/jetlinks?sslMode=DISABLED&serverZoneId=Asia/Shanghai`
-- Redis:
+- Redis：
   - `127.0.0.1:6379`
-- Elasticsearch URI:
+- Elasticsearch URI：
   - `http://127.0.0.1:9200`
-- EasyORM:
+- EasyORM：
   - `dialect: mysql`
   - `default-schema: jetlinks`
-- Static upload path:
+- 上传目录：
   - `./static/upload`
-- Static upload URL:
+- 上传文件访问地址：
   - `http://127.0.0.1:9000/upload`
-- API base path:
+- API 基础地址：
   - `http://127.0.0.1:9000`
 
-### 4.6 Nginx routes
+### 4.6 Nginx 路由配置
 
-Nginx site config files:
+Nginx 站点配置文件：
 
 - `D:\Proj\5.29\deploy\nginx\server.iboot.conf`
 - `D:\Proj\5.29\deploy\nginx\server.jetlinks.conf`
 
-Routing summary:
+路由说明：
 
-- Port `80`
-  - static root: `D:/Proj/5.29/iboot-v3/dist`
-  - `/api/` -> `127.0.0.1:8085`
-  - `/img/` -> `127.0.0.1:8085`
-  - `/ws/` -> `127.0.0.1:8170`
-- Port `9000`
-  - reverse proxy -> `127.0.0.1:8848`
+- 端口 `80`
+  - 静态目录：`D:/Proj/5.29/iboot-v3/dist`
+  - `/api/` 转发到 `127.0.0.1:8085`
+  - `/img/` 转发到 `127.0.0.1:8085`
+  - `/ws/` 转发到 `127.0.0.1:8170`
+- 端口 `9000`
+  - 整站反向代理到 `127.0.0.1:8848`
 
-## 5. Runtime paths
+## 5. 运行目录
 
-- iBoot logs:
+- iBoot 日志目录：
   - `D:\Proj\5.29\deploy\runtime\iboot\logs`
-- iBoot uploads:
+- iBoot 上传目录：
   - `D:\Proj\5.29\deploy\runtime\iboot\upload`
-- JetLinks logs:
+- JetLinks 日志目录：
   - `D:\Proj\5.29\deploy\runtime\jetlinks\logs`
-- JetLinks static admin files:
+- JetLinks 前端静态目录：
   - `D:\Proj\5.29\deploy\runtime\jetlinks\static\admin`
-- JetLinks uploads:
+- JetLinks 上传目录：
   - `D:\Proj\5.29\deploy\runtime\jetlinks\static\upload`
 
-## 6. Build artifacts
+## 6. 构建产物
 
-- iBoot backend JAR:
+- iBoot 后端 JAR：
   - `D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar`
-- JetLinks backend JAR:
+- JetLinks 后端 JAR：
   - `D:\Proj\5.29\jetlinks-community-master\jetlinks-community-master\jetlinks-standalone\target\jetlinks-standalone.jar`
-- iBoot frontend dist:
+- iBoot 前端构建目录：
   - `D:\Proj\5.29\iboot-v3\dist`
-- JetLinks frontend dist:
+- JetLinks 前端构建目录：
   - `D:\Proj\5.29\jetlinks-ui-vue\dist`
 
-## 7. Common operations
+## 7. 常用运维命令
 
-### 7.1 Check service status
+### 7.1 查看服务状态
 
 ```powershell
 Get-Service MySQL,redis-service,elasticsearch-service-x64,nginx-service,iboot-jetlinks-service,jetlinks-standalone-service | Select-Object Status,Name,StartType
 ```
 
-### 7.2 Start services
+### 7.2 启动全部服务
 
 ```powershell
 Start-Service MySQL,redis-service,elasticsearch-service-x64,nginx-service,jetlinks-standalone-service,iboot-jetlinks-service
 ```
 
-### 7.3 Restart services
+### 7.3 重启服务
 
 ```powershell
 Restart-Service MySQL
@@ -175,7 +175,7 @@ Restart-Service jetlinks-standalone-service
 Restart-Service iboot-jetlinks-service
 ```
 
-### 7.4 Stop services
+### 7.4 停止服务
 
 ```powershell
 Stop-Service iboot-jetlinks-service
@@ -186,16 +186,16 @@ Stop-Service redis-service
 Stop-Service MySQL
 ```
 
-Recommended stop/start order:
+建议启停顺序：
 
-- Stop order:
+- 停止顺序：
   - `iboot-jetlinks-service`
   - `jetlinks-standalone-service`
   - `nginx-service`
   - `elasticsearch-service-x64`
   - `redis-service`
   - `MySQL`
-- Start order:
+- 启动顺序：
   - `MySQL`
   - `redis-service`
   - `elasticsearch-service-x64`
@@ -203,13 +203,13 @@ Recommended stop/start order:
   - `iboot-jetlinks-service`
   - `nginx-service`
 
-### 7.5 Check listening ports
+### 7.5 查看监听端口
 
 ```powershell
 Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -in 80,9000,8085,8170,8848,3306,6379,9200 } | Select-Object LocalAddress,LocalPort,State
 ```
 
-### 7.6 Connectivity test
+### 7.6 端口连通性检查
 
 ```powershell
 Test-NetConnection 127.0.0.1 -Port 3306
@@ -222,7 +222,7 @@ Test-NetConnection 127.0.0.1 -Port 80
 Test-NetConnection 127.0.0.1 -Port 9000
 ```
 
-### 7.7 HTTP page checks
+### 7.7 页面状态检查
 
 ```powershell
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1/ | Select-Object StatusCode
@@ -230,7 +230,7 @@ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:9000/admin/index.html | Sele
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8085/api/doc.html | Select-Object StatusCode
 ```
 
-### 7.8 View logs
+### 7.8 查看日志
 
 ```powershell
 Get-Content D:\Proj\5.29\deploy\runtime\iboot\logs\stdout.log -Tail 100
@@ -239,9 +239,9 @@ Get-Content D:\Proj\5.29\deploy\runtime\jetlinks\logs\stdout.log -Tail 100
 Get-Content D:\Proj\5.29\deploy\runtime\jetlinks\logs\stderr.log -Tail 100
 ```
 
-### 7.9 Screenshot commands
+### 7.9 截图用命令
 
-Recommended screenshot commands:
+建议截图以下命令结果：
 
 ```powershell
 Get-Service MySQL,redis-service,elasticsearch-service-x64,nginx-service,iboot-jetlinks-service,jetlinks-standalone-service | Select-Object Status,Name,StartType
@@ -259,37 +259,37 @@ Invoke-WebRequest -UseBasicParsing http://127.0.0.1/ | Select-Object StatusCode
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1:9000/admin/index.html | Select-Object StatusCode
 ```
 
-## 8. Service registration details
+## 8. 服务注册详情
 
 ### 8.1 iboot-jetlinks-service
 
-- Executable:
+- 可执行文件：
   - `C:\Program Files\Zulu\zulu-8\bin\java.exe`
-- Working directory:
+- 工作目录：
   - `D:\Proj\5.29\iboot-jetlinks\bootstrap\target`
-- Start arguments:
+- 启动参数：
   - `-jar D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar --spring.config.additional-location=file:///D:/Proj/5.29/deploy/iboot/config/ --spring.profiles.active=prod`
 
 ### 8.2 jetlinks-standalone-service
 
-- Executable:
+- 可执行文件：
   - `C:\Program Files\Zulu\zulu-8\bin\java.exe`
-- Working directory:
+- 工作目录：
   - `D:\Proj\5.29\deploy\runtime\jetlinks`
-- Start arguments:
+- 启动参数：
   - `-jar D:\Proj\5.29\jetlinks-community-master\jetlinks-community-master\jetlinks-standalone\target\jetlinks-standalone.jar --spring.config.additional-location=file:///D:/Proj/5.29/deploy/jetlinks/config/ --spring.profiles.active=prod`
 
-## 9. Important notes
+## 9. 重要说明
 
-- JetLinks first startup will auto-create tables and initialize base data in `jetlinks`.
-- `iboot-jetlinks` can start even when JetLinks device binding parameters are empty because `autoConnect=false`.
-- If later you need iBoot to bind to a JetLinks device, fill these fields in `deploy\iboot\config\application-prod.yml`:
+- JetLinks 首次启动会自动在 `jetlinks` 数据库中建表并初始化基础数据。
+- `iboot-jetlinks` 当前可以在 JetLinks 设备绑定参数为空的情况下启动，因为配置为 `autoConnect=false`。
+- 如果后续需要让 iBoot 连接到 JetLinks 设备，需要在 `deploy\iboot\config\application-prod.yml` 中补充以下参数：
   - `token`
   - `productId`
   - `deviceId`
-- After modifying external config files, restart the related service to apply changes.
+- 修改外部配置文件后，需要重启对应服务才能生效。
 
-## 10. File index
+## 10. 相关文件索引
 
 - `D:\Proj\5.29\deploy\README.md`
 - `D:\Proj\5.29\deploy\OPERATIONS.md`
