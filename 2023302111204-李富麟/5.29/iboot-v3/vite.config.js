@@ -25,9 +25,6 @@ export default defineConfig((env)=>{
           // target: 'http://iot.iteaj.com/api',
           // 本地开发地址, 需要运行对应的java后端[https://gitee.com/iteaj/iboot]
           target: 'http://localhost:8085',
-          rewrite: (path) => {
-            return path.replace(/^\/api/, '')
-          }
         },
       },
       cors: true,
