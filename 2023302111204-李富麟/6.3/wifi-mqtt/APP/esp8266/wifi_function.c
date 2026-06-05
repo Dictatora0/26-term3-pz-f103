@@ -15,8 +15,12 @@ static bool s_driver_initialized = false;
 static bool s_wifi_connected = false;
 static bool s_tcp_connected = false;
 static bool s_mqtt_ready = false;
+static u32 s_async_frame_seq = 0U;
 static bool s_async_frame_ready = false;
 static char s_async_frame[RX_BUF_MAX_LEN];
+static char s_last_sync_reply[RX_BUF_MAX_LEN];
+static u8 s_async_frame_bytes[RX_BUF_MAX_LEN];
+static u16 s_async_frame_len = 0U;
 
 static char esp_ascii_upper(char c)
 {
@@ -87,6 +91,93 @@ static bool esp_is_sensitive_command(const char *cmd)
     return false;
 }
 
+static bool esp_is_async_payload_text(const char *text)
+{
+    if (text == 0)
+    {
+        return false;
+    }
+
+    return (strstr(text, "+IPD,") != 0) ||
+           (strstr(text, "+MQTTSUBRECV:") != 0);
+}
+
+static void esp_log_last_reply(const char *tag)
+{
+    if (tag == 0)
+    {
+        tag = "[ESP]";
+    }
+
+    if (s_last_sync_reply[0] != '\0')
+    {
+        PC_Usart("%s last reply: %s\r\n", tag, s_last_sync_reply);
+    }
+    else
+    {
+        PC_Usart("%s last reply: <empty>\r\n", tag);
+    }
+}
+
+static void esp_query_link_diag(void)
+{
+    PC_Usart("[ESP][DIAG] query link state\r\n");
+    (void)ESP8266_Cmd("AT+CWSTATE?", "+CWSTATE:", "OK", 1500U);
+    (void)ESP8266_Cmd("AT+CIFSR", "STAIP", "OK", 1500U);
+    (void)ESP8266_Cmd("AT+CIPSTATUS", "STATUS:", "OK", 1500U);
+}
+
+static void esp_store_async_frame_from_rx(void)
+{
+    s_async_frame_len = strEsp8266_Fram_Record.InfBit.FramLength;
+    if (s_async_frame_len >= RX_BUF_MAX_LEN)
+    {
+        s_async_frame_len = RX_BUF_MAX_LEN - 1U;
+    }
+
+    memcpy(s_async_frame_bytes, strEsp8266_Fram_Record.Data_RX_BUF, s_async_frame_len);
+    s_async_frame_bytes[s_async_frame_len] = 0U;
+    memcpy(s_async_frame, s_async_frame_bytes, s_async_frame_len);
+    s_async_frame[s_async_frame_len] = '\0';
+    s_async_frame_seq++;
+    s_async_frame_ready = true;
+
+    if (esp_is_async_payload_text(s_async_frame))
+    {
+        PC_Usart("[ESP][ASYNC %lu] RX len=%u\r\n",
+                 (unsigned long)s_async_frame_seq,
+                 (unsigned int)s_async_frame_len);
+    }
+}
+
+static void esp_store_async_frame_from_text(const char *text)
+{
+    u16 len;
+
+    if ((text == 0) || !esp_is_async_payload_text(text))
+    {
+        return;
+    }
+
+    len = (u16)strlen(text);
+    if (len >= RX_BUF_MAX_LEN)
+    {
+        len = RX_BUF_MAX_LEN - 1U;
+    }
+
+    memcpy(s_async_frame_bytes, text, len);
+    s_async_frame_bytes[len] = 0U;
+    memcpy(s_async_frame, text, len);
+    s_async_frame[len] = '\0';
+    s_async_frame_len = len;
+    s_async_frame_seq++;
+    s_async_frame_ready = true;
+
+    PC_Usart("[ESP][ASYNC %lu] preserved from sync len=%u\r\n",
+             (unsigned long)s_async_frame_seq,
+             (unsigned int)s_async_frame_len);
+}
+
 static void esp_log_command(u32 cmd_id, const char *cmd)
 {
     char preview[ESP8266_MAX_AT_LOG_LEN];
@@ -143,6 +234,12 @@ static bool esp_wait_reply(u32 cmd_id, const char *reply1, const char *reply2, u
 {
     u32 elapsed = 0U;
     char frame[RX_BUF_MAX_LEN];
+    char combined[RX_BUF_MAX_LEN];
+    u16 combined_len = 0U;
+    u16 frame_len;
+
+    combined[0] = '\0';
+    s_last_sync_reply[0] = '\0';
 
     while (elapsed < waittime)
     {
@@ -162,6 +259,20 @@ static bool esp_wait_reply(u32 cmd_id, const char *reply1, const char *reply2, u
 
         esp_copy_current_frame(frame, sizeof(frame));
         ESP8266_ClearRxBuffer();
+        frame_len = (u16)strlen(frame);
+
+        if ((frame_len > 0U) && (combined_len < (u16)(sizeof(combined) - 1U)))
+        {
+            if ((combined_len + frame_len) >= (u16)sizeof(combined))
+            {
+                frame_len = (u16)(sizeof(combined) - 1U - combined_len);
+            }
+
+            memcpy(&combined[combined_len], frame, frame_len);
+            combined_len = (u16)(combined_len + frame_len);
+            combined[combined_len] = '\0';
+            memcpy(s_last_sync_reply, combined, combined_len + 1U);
+        }
 
         if (!sensitive)
         {
@@ -178,16 +289,25 @@ static bool esp_wait_reply(u32 cmd_id, const char *reply1, const char *reply2, u
                      (unsigned int)strlen(frame));
         }
 
+        if (esp_is_async_payload_text(frame) || esp_is_async_payload_text(combined))
+        {
+            esp_store_async_frame_from_text(frame);
+        }
+
         if (((reply1 != 0) && (strstr(frame, reply1) != 0)) ||
             ((reply2 != 0) && (strstr(frame, reply2) != 0)) ||
             ((reply1 != 0) && esp_str_contains_icase(frame, reply1)) ||
-            ((reply2 != 0) && esp_str_contains_icase(frame, reply2)))
+            ((reply2 != 0) && esp_str_contains_icase(frame, reply2)) ||
+            ((reply1 != 0) && (strstr(combined, reply1) != 0)) ||
+            ((reply2 != 0) && (strstr(combined, reply2) != 0)) ||
+            ((reply1 != 0) && esp_str_contains_icase(combined, reply1)) ||
+            ((reply2 != 0) && esp_str_contains_icase(combined, reply2)))
         {
             return true;
         }
 
-        if (esp_str_contains_icase(frame, "ERROR") ||
-            esp_str_contains_icase(frame, "FAIL"))
+        if (esp_str_contains_icase(combined, "ERROR") ||
+            esp_str_contains_icase(combined, "FAIL"))
         {
             return false;
         }
@@ -277,8 +397,7 @@ void ESP8266_Process(void)
         return;
     }
 
-    esp_copy_current_frame(s_async_frame, sizeof(s_async_frame));
-    s_async_frame_ready = true;
+    esp_store_async_frame_from_rx();
     ESP8266_ClearRxBuffer();
 
     if (esp_str_contains_icase(s_async_frame, "WIFI DISCONNECT") ||
@@ -418,6 +537,8 @@ bool ESP8266_JoinAP(const char *pSSID, const char *pPassWord)
     if (!ESP8266_Cmd(cCmd, "WIFI GOT IP", "OK", ESP8266_JOIN_TIMEOUT_MS))
     {
         s_wifi_connected = false;
+        (void)ESP8266_Cmd("AT+CWSTATE?", "+CWSTATE:", "OK", 1500U);
+        (void)ESP8266_Cmd("AT+CIFSR", "OK", "STAIP", 1500U);
         return false;
     }
 
@@ -464,6 +585,8 @@ bool ESP8266_OpenTCP(const char *host, u16 port)
     if (!ESP8266_Cmd(cCmd, "CONNECT", "OK", ESP8266_MQTT_CONN_TIMEOUT_MS))
     {
         s_tcp_connected = false;
+        esp_log_last_reply("[TCP]");
+        esp_query_link_diag();
         return false;
     }
 
@@ -471,11 +594,59 @@ bool ESP8266_OpenTCP(const char *host, u16 port)
     return true;
 }
 
+bool ESP8266_CloseTCP(void)
+{
+    bool ok;
+
+    ok = ESP8266_Cmd("AT+CIPCLOSE", "OK", "CLOSED", 2000U);
+    s_tcp_connected = false;
+    s_mqtt_ready = false;
+    return ok;
+}
+
+bool ESP8266_Ping(const char *host)
+{
+    char cCmd[96];
+    int n;
+
+    if (!esp_has_text(host))
+    {
+        return false;
+    }
+
+    n = snprintf(cCmd, sizeof(cCmd), "AT+PING=\"%s\"", host);
+    if ((n <= 0) || (n >= (int)sizeof(cCmd)))
+    {
+        return false;
+    }
+
+    if (!ESP8266_Cmd(cCmd, "+PING:", "OK", 5000U))
+    {
+        esp_log_last_reply("[PING]");
+        return false;
+    }
+
+    if (esp_str_contains_icase(s_last_sync_reply, "TIMEOUT") ||
+        esp_str_contains_icase(s_last_sync_reply, "ERROR"))
+    {
+        esp_log_last_reply("[PING]");
+        return false;
+    }
+
+    return true;
+}
+
 bool ESP8266_Send(const u8 *data, u16 length)
 {
     char cCmd[32];
+    char frame[RX_BUF_MAX_LEN];
+    char combined[RX_BUF_MAX_LEN];
     int n;
     u32 cmd_id;
+    u32 elapsed = 0U;
+    u16 combined_len = 0U;
+    u16 frame_len;
+    bool recv_bytes_seen = false;
 
     if ((data == 0) || (length == 0U))
     {
@@ -495,11 +666,106 @@ bool ESP8266_Send(const u8 *data, u16 length)
 
     if (!esp_wait_reply(cmd_id, ">", 0, ESP8266_PUBLISH_PROMPT_TIMEOUT, false))
     {
+        esp_log_last_reply("[TCP_SEND]");
+        esp_query_link_diag();
         return false;
     }
 
     esp_send_raw_bytes(data, length);
-    return esp_wait_reply(cmd_id, "SEND OK", "OK", ESP8266_PUBLISH_DONE_TIMEOUT, false);
+
+    s_last_sync_reply[0] = '\0';
+    combined[0] = '\0';
+    while (elapsed < ESP8266_PUBLISH_DONE_TIMEOUT)
+    {
+        delay_ms(ESP8266_REPLY_POLL_MS);
+        elapsed += ESP8266_REPLY_POLL_MS;
+
+        if (g_esp8266_rx_overflow != 0U)
+        {
+            g_esp8266_rx_overflow = 0U;
+            PC_Usart("[ERROR] ESP8266 RX buffer overflow\r\n");
+        }
+
+        if (strEsp8266_Fram_Record.InfBit.FramFinishFlag == 0U)
+        {
+            continue;
+        }
+
+        esp_copy_current_frame(frame, sizeof(frame));
+        frame_len = (u16)strlen(frame);
+        if ((frame_len > 0U) && (combined_len < (u16)(sizeof(combined) - 1U)))
+        {
+            if ((combined_len + frame_len) >= (u16)sizeof(combined))
+            {
+                frame_len = (u16)(sizeof(combined) - 1U - combined_len);
+            }
+
+            memcpy(&combined[combined_len], frame, frame_len);
+            combined_len = (u16)(combined_len + frame_len);
+            combined[combined_len] = '\0';
+            memcpy(s_last_sync_reply, combined, combined_len + 1U);
+        }
+
+        PC_Usart("[ESP_CMD %lu] RX(%lu ms): %s\r\n",
+                 (unsigned long)cmd_id,
+                 (unsigned long)elapsed,
+                 frame);
+
+        if ((strstr(frame, "SEND OK") != 0) || (strstr(combined, "SEND OK") != 0))
+        {
+            ESP8266_ClearRxBuffer();
+            return true;
+        }
+
+        if (esp_str_contains_icase(frame, "ERROR") ||
+            esp_str_contains_icase(frame, "FAIL") ||
+            esp_str_contains_icase(frame, "CLOSED") ||
+            esp_str_contains_icase(combined, "ERROR") ||
+            esp_str_contains_icase(combined, "FAIL") ||
+            esp_str_contains_icase(combined, "CLOSED"))
+        {
+            ESP8266_ClearRxBuffer();
+            break;
+        }
+
+        if ((strstr(frame, "Recv ") != 0) || (strstr(combined, "Recv ") != 0))
+        {
+            recv_bytes_seen = true;
+            ESP8266_ClearRxBuffer();
+            continue;
+        }
+
+        if ((strstr(frame, "+IPD,") != 0) || (strstr(combined, "+IPD,") != 0))
+        {
+            if (esp_is_async_payload_text(frame))
+            {
+                esp_store_async_frame_from_text(frame);
+            }
+            else
+            {
+                esp_store_async_frame_from_rx();
+            }
+            ESP8266_ClearRxBuffer();
+            return true;
+        }
+
+        ESP8266_ClearRxBuffer();
+    }
+
+    if (!s_async_frame_ready)
+    {
+        if (recv_bytes_seen && s_tcp_connected)
+        {
+            PC_Usart("[TCP_SEND] no SEND OK, but Recv bytes seen and TCP still up, assume sent\r\n");
+            return true;
+        }
+
+        esp_log_last_reply("[TCP_SEND]");
+        esp_query_link_diag();
+        return false;
+    }
+
+    return true;
 }
 
 bool ESP8266_Link_MQTT(const char *host, u16 port)
@@ -522,6 +788,8 @@ bool ESP8266_Link_MQTT(const char *host, u16 port)
     if (!ESP8266_Cmd(cCmd, "+MQTTCONNECTED", "OK", ESP8266_MQTT_CONN_TIMEOUT_MS))
     {
         s_mqtt_ready = false;
+        esp_log_last_reply("[MQTT_AT]");
+        esp_query_link_diag();
         return false;
     }
 
@@ -643,6 +911,16 @@ bool ESP8266_Is_MQTT_Ready(void)
     return s_mqtt_ready;
 }
 
+void ESP8266_SetTcpConnected(FunctionalState state)
+{
+    s_tcp_connected = (state != DISABLE) ? true : false;
+}
+
+void ESP8266_SetMqttReady(FunctionalState state)
+{
+    s_mqtt_ready = (state != DISABLE) ? true : false;
+}
+
 bool ESP8266_MQTT_ParseSubFrame(const char *src, char *topic, u16 topic_size, char *payload, u16 payload_size)
 {
     const char *topic_begin;
@@ -749,4 +1027,76 @@ bool ESP8266_MQTT_PollMessage(char *topic, u16 topic_size, char *payload, u16 pa
     }
 
     return ESP8266_MQTT_ParseSubFrame(s_async_frame, topic, topic_size, payload, payload_size);
+}
+
+bool ESP8266_TCP_PollPacket(u8 *data, u16 size, u16 *out_len)
+{
+    const u8 prefix[] = {'+', 'I', 'P', 'D', ','};
+    u16 i;
+    u16 payload_len;
+    u16 payload_offset;
+    u16 copy_len;
+
+    if ((data == 0) || (size == 0U) || (out_len == 0))
+    {
+        return false;
+    }
+
+    *out_len = 0U;
+    if (!s_async_frame_ready)
+    {
+        return false;
+    }
+
+    s_async_frame_ready = false;
+
+    for (i = 0U; (u16)(i + sizeof(prefix)) <= s_async_frame_len; ++i)
+    {
+        if (memcmp(&s_async_frame_bytes[i], prefix, sizeof(prefix)) == 0)
+        {
+            break;
+        }
+    }
+
+    if ((u16)(i + sizeof(prefix)) > s_async_frame_len)
+    {
+        return false;
+    }
+
+    i = (u16)(i + sizeof(prefix));
+    payload_len = 0U;
+    while (i < s_async_frame_len)
+    {
+        if (s_async_frame_bytes[i] == ':')
+        {
+            break;
+        }
+        if ((s_async_frame_bytes[i] < '0') || (s_async_frame_bytes[i] > '9'))
+        {
+            return false;
+        }
+        payload_len = (u16)(payload_len * 10U + (u16)(s_async_frame_bytes[i] - '0'));
+        ++i;
+    }
+
+    if ((i >= s_async_frame_len) || (s_async_frame_bytes[i] != ':'))
+    {
+        return false;
+    }
+
+    payload_offset = (u16)(i + 1U);
+    if ((u16)(payload_offset + payload_len) > s_async_frame_len)
+    {
+        return false;
+    }
+
+    copy_len = payload_len;
+    if (copy_len > size)
+    {
+        copy_len = size;
+    }
+
+    memcpy(data, &s_async_frame_bytes[payload_offset], copy_len);
+    *out_len = copy_len;
+    return true;
 }

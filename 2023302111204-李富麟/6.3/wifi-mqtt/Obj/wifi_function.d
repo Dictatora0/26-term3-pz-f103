@@ -31,8 +31,8 @@
 .\obj\wifi_function.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\obj\wifi_function.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\obj\wifi_function.o: APP\esp8266\wifi_config.h
+.\obj\wifi_function.o: .\User\iot_config.h
 .\obj\wifi_function.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\wifi_function.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\wifi_function.o: .\User\iot_config.h
 .\obj\wifi_function.o: .\Public\SysTick.h
 .\obj\wifi_function.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

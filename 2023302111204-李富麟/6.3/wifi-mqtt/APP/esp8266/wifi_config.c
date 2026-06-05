@@ -1,4 +1,5 @@
 #include "wifi_config.h"
+#include "iot_config.h"
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -48,26 +49,26 @@ void WiFi_Config(void)
     NVIC_InitTypeDef NVIC_InitStructure;
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+    RCC_APB2PeriphClockCmd(ESP8266_UART_GPIO_RCC, ENABLE);
+    RCC_APB2PeriphClockCmd(ESP8266_CTRL_GPIO_RCC, ENABLE);
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
     GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_15;
+    GPIO_InitStructure.GPIO_Pin = ESP8266_CTRL_EN_PIN | ESP8266_CTRL_RST_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-    GPIO_ResetBits(GPIOA, GPIO_Pin_4);
-    GPIO_SetBits(GPIOA, GPIO_Pin_15);
+    GPIO_Init(ESP8266_CTRL_PORT, &GPIO_InitStructure);
+    GPIO_ResetBits(ESP8266_CTRL_PORT, ESP8266_CTRL_EN_PIN);
+    GPIO_SetBits(ESP8266_CTRL_PORT, ESP8266_CTRL_RST_PIN);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Pin = ESP8266_UART_TX_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    GPIO_Init(ESP8266_UART_TX_PORT, &GPIO_InitStructure);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
+    GPIO_InitStructure.GPIO_Pin = ESP8266_UART_RX_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    GPIO_Init(ESP8266_UART_RX_PORT, &GPIO_InitStructure);
 
     USART_InitStructure.USART_BaudRate = 9600U;
     USART_InitStructure.USART_WordLength = USART_WordLength_8b;

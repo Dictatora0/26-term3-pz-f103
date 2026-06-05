@@ -1,0 +1,1521 @@
+09:11:41 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: I/O error on POST request for "http://127.0.0.1:8848/online": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+09:41:12 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780623671676,"path":"/online","status":404,"error":"Not Found","requestId":"12bc601f-1"}"
+09:51:02 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780624262088,"path":"/online","status":404,"error":"Not Found","requestId":"b8954ee6-2"}"
+09:51:07 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+09:51:40 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780624300920,"path":"/online","status":404,"error":"Not Found","requestId":"5871821a-3"}"
+09:52:34 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780624354565,"path":"/online","status":404,"error":"Not Found","requestId":"89365eaf-4"}"
+09:52:39 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+09:53:08 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780624388185,"path":"/online","status":404,"error":"Not Found","requestId":"34a6b07e-5"}"
+09:54:44 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780624484554,"path":"/online","status":404,"error":"Not Found","requestId":"8b9c24c3-6"}"
+10:02:46 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780624966345,"path":"/online","status":404,"error":"Not Found","requestId":"8f672f5c-7"}"
+10:04:11 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625051694,"path":"/online","status":404,"error":"Not Found","requestId":"68625650-8"}"
+10:04:16 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:04:32 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625072502,"path":"/online","status":404,"error":"Not Found","requestId":"c0fef638-9"}"
+10:04:37 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:04:52 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625092804,"path":"/online","status":404,"error":"Not Found","requestId":"a74e4101-10"}"
+10:04:57 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:05:12 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625112893,"path":"/online","status":404,"error":"Not Found","requestId":"7738cacc-11"}"
+10:05:17 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:05:32 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625132949,"path":"/online","status":404,"error":"Not Found","requestId":"f96a0b42-12"}"
+10:05:37 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:05:54 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625154360,"path":"/online","status":404,"error":"Not Found","requestId":"98332a92-13"}"
+10:05:59 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:06:15 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625175404,"path":"/online","status":404,"error":"Not Found","requestId":"3c1a2c40-14"}"
+10:06:20 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:06:36 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625196003,"path":"/online","status":404,"error":"Not Found","requestId":"37edcb28-15"}"
+10:06:40 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:06:59 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625219449,"path":"/online","status":404,"error":"Not Found","requestId":"b2433895-16"}"
+10:07:05 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:07:24 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625244246,"path":"/online","status":404,"error":"Not Found","requestId":"e97d4bba-17"}"
+10:07:29 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:07:46 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625266438,"path":"/online","status":404,"error":"Not Found","requestId":"07eea9e4-18"}"
+10:07:52 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:08:11 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625291167,"path":"/online","status":404,"error":"Not Found","requestId":"66b3905f-19"}"
+10:08:16 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:08:34 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625314442,"path":"/online","status":404,"error":"Not Found","requestId":"98aee441-20"}"
+10:08:39 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:08:57 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625337722,"path":"/online","status":404,"error":"Not Found","requestId":"5b1a6d22-21"}"
+10:09:03 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:09:22 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625362710,"path":"/online","status":404,"error":"Not Found","requestId":"720cc053-22"}"
+10:09:28 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:09:45 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625385059,"path":"/online","status":404,"error":"Not Found","requestId":"93e47dd4-23"}"
+10:09:50 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:10:06 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625406103,"path":"/online","status":404,"error":"Not Found","requestId":"65790972-24"}"
+10:10:10 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:10:26 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625426243,"path":"/online","status":404,"error":"Not Found","requestId":"3960cf3e-25"}"
+10:10:31 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:10:47 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625447326,"path":"/online","status":404,"error":"Not Found","requestId":"fff16e00-26"}"
+10:10:52 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:11:11 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625471362,"path":"/online","status":404,"error":"Not Found","requestId":"40093362-27"}"
+10:11:17 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:11:38 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625498226,"path":"/online","status":404,"error":"Not Found","requestId":"0c14f25c-28"}"
+10:11:43 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:12:00 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625520680,"path":"/online","status":404,"error":"Not Found","requestId":"89a9bdab-29"}"
+10:12:08 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:12:31 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625551603,"path":"/online","status":404,"error":"Not Found","requestId":"4f42b88a-30"}"
+10:12:40 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:12:56 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625575988,"path":"/online","status":404,"error":"Not Found","requestId":"e4feaf34-31"}"
+10:13:01 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:13:19 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625599217,"path":"/online","status":404,"error":"Not Found","requestId":"12f7f44d-32"}"
+10:13:25 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:13:50 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625630642,"path":"/online","status":404,"error":"Not Found","requestId":"796d25a8-33"}"
+10:13:57 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:14:17 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625657346,"path":"/online","status":404,"error":"Not Found","requestId":"f1dd64aa-34"}"
+10:14:23 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:14:40 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625680596,"path":"/online","status":404,"error":"Not Found","requestId":"8fd8de35-35"}"
+10:14:47 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:15:04 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625704174,"path":"/online","status":404,"error":"Not Found","requestId":"2d495331-36"}"
+10:15:09 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:15:24 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625724747,"path":"/online","status":404,"error":"Not Found","requestId":"b5790d80-37"}"
+10:15:29 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:15:49 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625749370,"path":"/online","status":404,"error":"Not Found","requestId":"e0b59508-38"}"
+10:15:55 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:16:10 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625770759,"path":"/online","status":404,"error":"Not Found","requestId":"376b76c3-39"}"
+10:16:16 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:16:34 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625793983,"path":"/online","status":404,"error":"Not Found","requestId":"7bca0e7e-40"}"
+10:16:39 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:16:55 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625815924,"path":"/online","status":404,"error":"Not Found","requestId":"98787e22-41"}"
+10:17:00 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:17:19 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625839784,"path":"/online","status":404,"error":"Not Found","requestId":"e7c8227b-42"}"
+10:17:25 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:17:41 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625861764,"path":"/online","status":404,"error":"Not Found","requestId":"10131fc1-43"}"
+10:17:46 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:18:04 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625884253,"path":"/online","status":404,"error":"Not Found","requestId":"b44ada22-44"}"
+10:18:10 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:18:27 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625907609,"path":"/online","status":404,"error":"Not Found","requestId":"b18c17b1-45"}"
+10:18:33 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:18:49 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625929472,"path":"/online","status":404,"error":"Not Found","requestId":"8ba726bf-46"}"
+10:18:54 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:19:10 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625950507,"path":"/online","status":404,"error":"Not Found","requestId":"ab5dad16-47"}"
+10:19:15 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:19:31 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625971276,"path":"/online","status":404,"error":"Not Found","requestId":"cb74f9aa-48"}"
+10:19:36 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:19:53 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780625993039,"path":"/online","status":404,"error":"Not Found","requestId":"7961839a-49"}"
+10:19:58 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:20:13 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626013394,"path":"/online","status":404,"error":"Not Found","requestId":"e84b01e3-50"}"
+10:20:18 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:20:34 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626034921,"path":"/online","status":404,"error":"Not Found","requestId":"3b539c4a-51"}"
+10:20:39 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:20:53 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626053776,"path":"/online","status":404,"error":"Not Found","requestId":"de65d25e-52"}"
+10:21:01 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:21:18 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626078527,"path":"/online","status":404,"error":"Not Found","requestId":"4802f16a-53"}"
+10:21:23 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:21:39 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626099624,"path":"/online","status":404,"error":"Not Found","requestId":"26d2751f-54"}"
+10:21:44 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:22:02 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626122175,"path":"/online","status":404,"error":"Not Found","requestId":"93eb5685-55"}"
+10:22:07 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:22:23 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626143701,"path":"/online","status":404,"error":"Not Found","requestId":"6e369453-56"}"
+10:22:28 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:22:45 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626165653,"path":"/online","status":404,"error":"Not Found","requestId":"a241c39c-57"}"
+10:22:50 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:23:07 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626187677,"path":"/online","status":404,"error":"Not Found","requestId":"720c44f3-58"}"
+10:23:13 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:23:31 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626211350,"path":"/online","status":404,"error":"Not Found","requestId":"faff6d9b-59"}"
+10:23:37 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:23:53 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626233339,"path":"/online","status":404,"error":"Not Found","requestId":"ec5451b9-60"}"
+10:23:58 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:24:15 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626254996,"path":"/online","status":404,"error":"Not Found","requestId":"f8085681-61"}"
+10:24:20 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:24:36 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626276515,"path":"/online","status":404,"error":"Not Found","requestId":"ad05918b-62"}"
+10:24:41 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:24:58 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626298628,"path":"/online","status":404,"error":"Not Found","requestId":"3c2772bd-63"}"
+10:25:03 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:25:19 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626319877,"path":"/online","status":404,"error":"Not Found","requestId":"744fe540-64"}"
+10:25:24 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:25:42 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626342396,"path":"/online","status":404,"error":"Not Found","requestId":"4a65d2c2-65"}"
+10:25:48 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:26:04 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626364912,"path":"/online","status":404,"error":"Not Found","requestId":"dcf8c4df-66"}"
+10:26:10 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:26:26 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626386696,"path":"/online","status":404,"error":"Not Found","requestId":"d1d59482-67"}"
+10:26:31 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:26:48 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626408348,"path":"/online","status":404,"error":"Not Found","requestId":"0844a878-68"}"
+10:26:53 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:27:09 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626429615,"path":"/online","status":404,"error":"Not Found","requestId":"c918e2b3-69"}"
+10:27:14 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:27:29 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626449750,"path":"/online","status":404,"error":"Not Found","requestId":"5b15db67-70"}"
+10:27:34 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:27:50 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626470842,"path":"/online","status":404,"error":"Not Found","requestId":"e77f9c15-71"}"
+10:27:56 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:28:11 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626491513,"path":"/online","status":404,"error":"Not Found","requestId":"83cfe8d5-72"}"
+10:28:16 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:28:31 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626511642,"path":"/online","status":404,"error":"Not Found","requestId":"2ce2fed7-73"}"
+10:28:39 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:28:53 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626533794,"path":"/online","status":404,"error":"Not Found","requestId":"0edeebd4-74"}"
+10:28:59 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:29:17 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626557490,"path":"/online","status":404,"error":"Not Found","requestId":"0d0d9f51-75"}"
+10:29:23 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:29:43 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626583331,"path":"/online","status":404,"error":"Not Found","requestId":"247e40cb-76"}"
+10:29:48 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:30:09 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626609556,"path":"/online","status":404,"error":"Not Found","requestId":"986626cb-77"}"
+10:30:17 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:30:38 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626638934,"path":"/online","status":404,"error":"Not Found","requestId":"683ee03a-78"}"
+10:30:44 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:31:01 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626661375,"path":"/online","status":404,"error":"Not Found","requestId":"d50b5bca-79"}"
+10:31:07 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:31:23 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626683833,"path":"/online","status":404,"error":"Not Found","requestId":"30bef05d-80"}"
+10:31:28 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:31:45 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626705187,"path":"/online","status":404,"error":"Not Found","requestId":"d596aadb-81"}"
+10:31:51 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:32:09 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626729726,"path":"/online","status":404,"error":"Not Found","requestId":"ec51f860-82"}"
+10:32:15 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:32:32 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626752837,"path":"/online","status":404,"error":"Not Found","requestId":"73c4bd35-83"}"
+10:32:38 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:32:55 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626775237,"path":"/online","status":404,"error":"Not Found","requestId":"5a6ef2f1-84"}"
+10:33:01 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:33:20 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626800967,"path":"/online","status":404,"error":"Not Found","requestId":"a0179e47-85"}"
+10:33:26 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:33:42 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626822554,"path":"/online","status":404,"error":"Not Found","requestId":"b9cf001f-86"}"
+10:33:47 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:34:04 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626844371,"path":"/online","status":404,"error":"Not Found","requestId":"6d1f80f2-87"}"
+10:34:09 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:34:27 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626867831,"path":"/online","status":404,"error":"Not Found","requestId":"b2fc396c-88"}"
+10:34:36 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:34:55 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626895611,"path":"/online","status":404,"error":"Not Found","requestId":"5af2dacc-89"}"
+10:35:00 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:35:15 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626915820,"path":"/online","status":404,"error":"Not Found","requestId":"af696810-90"}"
+10:35:20 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:35:39 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626939820,"path":"/online","status":404,"error":"Not Found","requestId":"602abdca-91"}"
+10:35:47 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:36:02 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626962710,"path":"/online","status":404,"error":"Not Found","requestId":"650c900a-92"}"
+10:36:07 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:36:22 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780626982603,"path":"/online","status":404,"error":"Not Found","requestId":"624d8c19-93"}"
+10:36:27 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:36:45 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627005038,"path":"/online","status":404,"error":"Not Found","requestId":"d1380b39-94"}"
+10:36:50 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:37:07 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627027577,"path":"/online","status":404,"error":"Not Found","requestId":"de45f25e-95"}"
+10:37:13 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:37:31 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627051024,"path":"/online","status":404,"error":"Not Found","requestId":"1cd4ae8a-96"}"
+10:37:37 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:37:57 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627076774,"path":"/online","status":404,"error":"Not Found","requestId":"431e29cc-97"}"
+10:38:04 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:38:24 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627104292,"path":"/online","status":404,"error":"Not Found","requestId":"d09de5cf-98"}"
+10:38:31 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:38:51 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627131050,"path":"/online","status":404,"error":"Not Found","requestId":"794334d5-99"}"
+10:39:00 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:39:23 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627163289,"path":"/online","status":404,"error":"Not Found","requestId":"27a7b14e-100"}"
+10:39:32 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:39:51 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627191455,"path":"/online","status":404,"error":"Not Found","requestId":"7bf6e86c-101"}"
+10:39:56 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:40:12 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627212090,"path":"/online","status":404,"error":"Not Found","requestId":"b6248d1b-102"}"
+10:40:17 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:40:33 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627233443,"path":"/online","status":404,"error":"Not Found","requestId":"9dfefe8f-103"}"
+10:40:38 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:40:54 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627254670,"path":"/online","status":404,"error":"Not Found","requestId":"335a9ec3-104"}"
+10:40:59 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:41:14 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627274521,"path":"/online","status":404,"error":"Not Found","requestId":"b0a01f78-105"}"
+10:41:19 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+
+10:41:41 [main] ERROR me.x1ao.jetlinks.service.JetLinksService - 设备上线失败，原因: 设备上线失败: 404 Not Found: "{"timestamp":1780627301476,"path":"/online","status":404,"error":"Not Found","requestId":"49965ea0-106"}"
+10:41:46 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8085 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8085 or configure this application to listen on another port.
+

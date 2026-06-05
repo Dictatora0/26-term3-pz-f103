@@ -32,7 +32,7 @@ static void dht11_set_output(void)
 
     gpio.GPIO_Pin = DHT11_GPIO_PIN;
     gpio.GPIO_Speed = GPIO_Speed_50MHz;
-    gpio.GPIO_Mode = GPIO_Mode_Out_OD;
+    gpio.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_Init(DHT11_GPIO_PORT, &gpio);
 }
 
@@ -42,7 +42,7 @@ static void dht11_set_input(void)
 
     gpio.GPIO_Pin = DHT11_GPIO_PIN;
     gpio.GPIO_Speed = GPIO_Speed_50MHz;
-    gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    gpio.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(DHT11_GPIO_PORT, &gpio);
 }
 
@@ -145,12 +145,22 @@ bool DHT11_Read(float *temperature_c, float *humidity_rh)
         return false;
     }
 
+    dht11_set_input();
+    delay_us(5U);
+    if (!dht11_wait_level(1U, 200U))
+    {
+        dht11_set_error(DHT11_ERR_RESP_HIGH);
+        dht11_record_fail();
+        return false;
+    }
+
     dht11_set_output();
     GPIO_ResetBits(DHT11_GPIO_PORT, DHT11_GPIO_PIN);
     delay_ms(20U);
     GPIO_SetBits(DHT11_GPIO_PORT, DHT11_GPIO_PIN);
-    delay_us(30U);
+    delay_us(40U);
     dht11_set_input();
+    delay_us(10U);
 
     if (!dht11_wait_level(0U, 120U))
     {

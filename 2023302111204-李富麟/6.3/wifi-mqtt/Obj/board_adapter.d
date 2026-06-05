@@ -32,7 +32,7 @@
 .\obj\board_adapter.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\obj\board_adapter.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\board_adapter.o: .\APP\led\led.h
-.\obj\board_adapter.o: .\APP\dht11\dht11.h
+.\obj\board_adapter.o: .\APP\adc_temp\adc_temp.h
 .\obj\board_adapter.o: .\User\iot_config.h
 .\obj\board_adapter.o: .\Public\SysTick.h
 .\obj\board_adapter.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

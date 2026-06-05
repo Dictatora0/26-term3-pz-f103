@@ -1,6 +1,9 @@
 package com.iteaj.plugin.protocol.mqtt.impl;
 
 import cn.hutool.core.text.StrFormatter;
+import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.iteaj.framework.spi.iot.ProtocolInvokeException;
 import com.iteaj.framework.spi.iot.ProtocolModelApiInvokeParam;
 import com.iteaj.framework.spi.iot.consts.FuncType;
@@ -14,6 +17,7 @@ import com.iteaj.iot.client.mqtt.impl.DefaultMqttPublishProtocol;
 import com.iteaj.iot.consts.ExecStatus;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class DefaultMqttPublishProtocolModelApi extends AbstractFuncProtocolModelApi {
@@ -31,8 +35,45 @@ public class DefaultMqttPublishProtocolModelApi extends AbstractFuncProtocolMode
 
         String topic = arg.getParam().getString("topic");
         topic = StrFormatter.format(topic, arg.getConfig(), true);
-        byte[] msg = arg.getParam().getString("payload").getBytes(StandardCharsets.UTF_8);
+        byte[] msg = buildPayload(arg).getBytes(StandardCharsets.UTF_8);
         return new DefaultMqttPublishProtocol(msg, topic).setClientKey(client.getConfig());
+    }
+
+    private String buildPayload(ProtocolModelApiInvokeParam arg) {
+        String payload = arg.getParam().getString("payload");
+        if(StrUtil.isBlank(payload)) {
+            JSONObject json = new JSONObject();
+            for(Map.Entry<String, Object> entry : arg.getParam().entrySet()) {
+                String key = entry.getKey();
+                if("topic".equals(key) || "payload".equals(key)) {
+                    continue;
+                }
+
+                json.put(key, entry.getValue());
+            }
+
+            if(json.isEmpty()) {
+                throw new ProtocolInvokeException("鍙戝竷payload涓嶈兘涓虹┖");
+            }
+
+            return JSON.toJSONString(json);
+        }
+
+        return normalizePayload(payload);
+    }
+
+    private String normalizePayload(String payload) {
+        String trim = payload.trim();
+        if(trim.startsWith("{") && trim.endsWith("}")) {
+            String normalized = trim.replaceAll("([\\\\{,]\\\\s*)([A-Za-z_][A-Za-z0-9_]*)\\\\s*:", "$1\\\"$2\\\":");
+            try {
+                return JSON.toJSONString(JSON.parse(normalized));
+            } catch (Exception e) {
+                return normalized;
+            }
+        }
+
+        return payload;
     }
 
     @Override

@@ -33,9 +33,10 @@
 .\obj\main.o: .\APP\led\led.h
 .\obj\main.o: .\Public\usart.h
 .\obj\main.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\main.o: .\APP\adc_temp\adc_temp.h
 .\obj\main.o: .\APP\esp8266\wifi_config.h
 .\obj\main.o: .\APP\esp8266\wifi_function.h
+.\obj\main.o: .\User\iot_config.h
 .\obj\main.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\main.o: .\APP\mqtt_app\board_adapter.h
 .\obj\main.o: .\APP\mqtt_app\mqtt_service.h
-.\obj\main.o: User\iot_config.h

@@ -34,7 +34,7 @@
 .\obj\mqtt_service.o: APP\mqtt_app\board_adapter.h
 .\obj\mqtt_service.o: .\APP\esp8266\wifi_function.h
 .\obj\mqtt_service.o: .\APP\esp8266\wifi_config.h
-.\obj\mqtt_service.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\mqtt_service.o: .\User\iot_config.h
+.\obj\mqtt_service.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\mqtt_service.o: .\Public\SysTick.h
 .\obj\mqtt_service.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

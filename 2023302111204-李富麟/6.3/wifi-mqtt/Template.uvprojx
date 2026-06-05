@@ -10,7 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -519,15 +519,10 @@
               <FileType>1</FileType>
               <FilePath>.\APP\led\led.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>DHT11</GroupName>
-          <Files>
             <File>
-              <FileName>dht11.c</FileName>
+              <FileName>adc_temp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\APP\dht11\dht11.c</FilePath>
+              <FilePath>.\APP\adc_temp\adc_temp.c</FilePath>
             </File>
           </Files>
         </Group>

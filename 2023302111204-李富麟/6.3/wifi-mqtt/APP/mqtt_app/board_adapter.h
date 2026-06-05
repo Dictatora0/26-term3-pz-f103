@@ -8,6 +8,7 @@ typedef struct
 {
     float temperature;
     float humidity;
+    float light;
     u8 led;
     bool sensor_valid;
 } board_env_data_t;

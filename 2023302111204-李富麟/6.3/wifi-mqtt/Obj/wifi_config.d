@@ -30,5 +30,6 @@
 .\obj\wifi_config.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\obj\wifi_config.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\obj\wifi_config.o: .\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\obj\wifi_config.o: .\User\iot_config.h
 .\obj\wifi_config.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\wifi_config.o: C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
