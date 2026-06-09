@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.PointGroupMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.PointGroup">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="product_ids" property="productIds"
+                typeHandler="com.iteaj.framework.mybatis.handler.JacksonTypeHandler"/>
+        <result column="product_names" property="productNames" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <resultMap id="DetailResultMap" type="com.iteaj.iboot.module.iot.entity.PointGroup" extends="BaseResultMap">
+        <collection property="signalIds" ofType="java.lang.String" foreignColumn="signal_id">
+            <constructor>
+                <arg column="signal_id" />
+            </constructor>
+        </collection>
+    </resultMap>
+
+    <select id="detailOfPage" resultMap="BaseResultMap">
+        select a.*, group_concat(distinct p.name) product_names from iot_point_group a
+            left join iot_product p on json_contains(a.product_ids, concat('', p.id))
+            left join iot_group_point gp on gp.group_id=a.id
+        <where>
+            <if test="entity.signalId != null">
+                and gp.signal_id=#{entity.signalId}
+            </if>
+            <if test="entity.productId != null">
+                and json_contains(a.product_ids, '${entity.productId}')
+            </if>
+            <if test="entity.productTypeId != null">
+                and p.product_type_id=#{entity.productTypeId}
+            </if>
+            <if test="entity.name != null and entity.name != ''">
+                and a.name like '%${entity.name}%'
+            </if>
+        </where>
+        group by a.id order by a.create_time desc
+    </select>
+
+    <select id="detailById" resultMap="DetailResultMap">
+        select a.id, a.name, a.product_ids, igp.signal_id from iot_point_group a
+#             left join iot_product dm on a.model_id=dm.id
+            left join iot_group_point igp on igp.group_id=a.id
+            left join iot_signal s on s.id = igp.signal_id
+        where a.id=#{id}
+    </select>
+
+    <select id="isBindSignals" resultType="java.lang.Boolean">
+        select a.group_id is not null from iot_group_point a
+        where a.signal_id in (
+            <foreach collection="list" item="id" separator=",">
+                #{id}
+            </foreach>
+        )
+        limit 1
+    </select>
+
+    <select id="isBindCollectTask" resultType="java.lang.Boolean">
+        select count(id) > 0 from iot_collect_detail where point_group_id in (
+            <foreach collection="list" item="id" separator=",">
+                #{id}
+            </foreach>)
+    </select>
+
+    <insert id="batchSaveGroupPoint">
+        insert into iot_group_point (signal_id, group_id) values
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.signalId},#{item.groupId}
+        </foreach>
+    </insert>
+
+</mapper>

@@ -24,6 +24,14 @@ spring:
 # 是否启用集群模式
 framework:
   cluster: false
+  security:
+    enable-jwt: true
+    issuer: ${JWT_ISSUER:iboot-local}
+    jwt-secret: ${JWT_SECRET:PLEASE_CHANGE_THIS_LOCAL_DEVELOPMENT_SECRET_1234567890}
+    access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:1800}
+    authorization-header: Authorization
+    bearer-prefix: "Bearer "
+    allow-legacy-header: true
 
   shiro:
     # 是否启用Redis缓存Session

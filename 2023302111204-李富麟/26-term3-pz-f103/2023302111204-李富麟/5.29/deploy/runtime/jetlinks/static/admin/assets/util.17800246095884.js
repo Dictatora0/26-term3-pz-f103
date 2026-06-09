@@ -1,0 +1,1 @@
+import{i as c}from"./vue-router.1780024609588.js";const{cloneDeep:a,isBoolean:h,isEqual:p}=await c("lodash-es"),d=(o,e,r="name")=>{let t;const l=a(o);if(e===void 0&&e===null)return t;let s=h(e)?String(e):e;for(let i=0;i<o.length;i++){const n=l[i];if(p(n[r],s)){t=l[i];break}else if(n.children&&n.children.length&&(t=d(n.children,e,r),t))break}return t};export{d as g};

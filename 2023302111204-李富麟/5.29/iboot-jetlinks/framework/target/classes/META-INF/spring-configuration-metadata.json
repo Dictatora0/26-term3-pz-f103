@@ -11,6 +11,11 @@
       "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
     },
     {
+      "name": "framework.security",
+      "type": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
       "name": "framework.web",
       "type": "com.iteaj.framework.autoconfigure.FrameworkProperties$Web",
       "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
@@ -57,6 +62,89 @@
       "type": "java.util.Map<java.lang.String,java.lang.Boolean>",
       "description": "启用的模块 配置格式如下：<hr>     framework.profiles.core=true     framework.profiles.framework=true",
       "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.security.access-token-ttl",
+      "type": "java.lang.Long",
+      "description": "Access Token 有效期(秒)",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": 0
+    },
+    {
+      "name": "framework.security.allow-legacy-header",
+      "type": "java.lang.Boolean",
+      "description": "是否允许兼容旧 access_token 请求头",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": true
+    },
+    {
+      "name": "framework.security.authorization-header",
+      "type": "java.lang.String",
+      "description": "Bearer Token 请求头名称",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": "Authorization"
+    },
+    {
+      "name": "framework.security.bearer-prefix",
+      "type": "java.lang.String",
+      "description": "Bearer Token 前缀",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": "Bearer "
+    },
+    {
+      "name": "framework.security.enable-jwt",
+      "type": "java.lang.Boolean",
+      "description": "是否启用 Bearer JWT 认证",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": true
+    },
+    {
+      "name": "framework.security.enable-oauth2",
+      "type": "java.lang.Boolean",
+      "description": "OAuth2\/JWT Access Token 签发开关",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": true
+    },
+    {
+      "name": "framework.security.issuer",
+      "type": "java.lang.String",
+      "description": "JWT 签发者",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": "iboot-local"
+    },
+    {
+      "name": "framework.security.jwt-secret",
+      "type": "java.lang.String",
+      "description": "JWT HMAC 密钥",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security"
+    },
+    {
+      "name": "framework.security.oauth2-auto-approve",
+      "type": "java.lang.Boolean",
+      "description": "本地测试时是否允许授权页自动确认",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": true
+    },
+    {
+      "name": "framework.security.oauth2-issuer",
+      "type": "java.lang.String",
+      "description": "OAuth2 授权服务器 issuer",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": "iboot-oauth2"
+    },
+    {
+      "name": "framework.security.test-bypass-captcha",
+      "type": "java.lang.Boolean",
+      "description": "本地测试时固定验证码开关",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": false
+    },
+    {
+      "name": "framework.security.test-captcha",
+      "type": "java.lang.String",
+      "description": "本地测试时固定验证码值",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Security",
+      "defaultValue": "8888"
     },
     {
       "name": "framework.version",

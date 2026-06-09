@@ -1,2 +1,22 @@
 /view/view.iml
 /service/service.iml
+
+# local environment
+.env
+.env.local
+.env.*.local
+
+# tls / secrets
+*.p12
+*.jks
+*.pem
+*.key
+*.crt
+*.cer
+*.csr
+
+# runtime tokens / logs
+token*.txt
+*.secret
+deploy/iboot/certs/
+scripts/security/*.log

@@ -49,7 +49,7 @@
               v-model:pageSize="searchModel.size"
               :total="total"
               :page-size-options="[12, 24, 48]"
-              style="margin-top: 16px; text-align: right;"
+              style="margin-top: 16px; text-align: right"
             />
           </template>
           <AEmpty v-else description="没有匹配的设备" />
@@ -63,9 +63,7 @@
               <div>
                 <div class="lab-eyebrow">iBOOT 实验面板</div>
                 <div class="lab-title">{{ currentDevice.name || "-" }}</div>
-                <div class="lab-subtitle">
-                  {{ currentDevice.deviceSn || "-" }} / {{ currentProduct.name || "-" }}
-                </div>
+                <div class="lab-subtitle">{{ currentDevice.deviceSn || "-" }} / {{ currentProduct.name || "-" }}</div>
               </div>
               <div class="lab-status" :class="currentDevice.status">
                 {{ currentDevice.status === "online" ? "在线" : "离线" }}
@@ -100,36 +98,28 @@
               v-if="missingFields.length > 0"
               type="warning"
               show-icon
-              style="margin-top: 16px;"
+              style="margin-top: 16px"
               :message="`未自动识别字段：${missingFields.join('、')}。可通过 URL 参数 tempField / humidityField / ledField 指定。`"
             />
 
-            <ACard title="LED 控制" :bordered="false" style="margin-top: 16px;">
+            <ACard title="LED 控制" :bordered="false" style="margin-top: 16px">
               <ASpace wrap>
                 <AButton
                   v-for="option in currentCtrlOptions"
                   :key="option.value"
                   :type="String(currentCtrlValue) === String(option.value) ? 'primary' : 'default'"
-                  :disabled="currentDevice.status !== 'online' || switchLoading"
+                  :disabled="!canControlLed || currentDevice.status !== 'online' || switchLoading"
                   :loading="switchLoading && String(pendingCtrlValue) === String(option.value)"
                   @click="switchLed(option.value)"
                 >
                   {{ option.label }}
                 </AButton>
               </ASpace>
-              <div class="lab-tip">
-                当前实验页默认只实现 LED 开关控制，复用现有 iBOOT 控制接口和实时数据推送。
-              </div>
+              <div class="lab-tip">当前实验页复用现有 iBOOT 控制接口和实时数据推送链路，仅补充了角色级控制。</div>
             </ACard>
 
-            <ACard title="实时属性数据" :bordered="false" style="margin-top: 16px;">
-              <ATable
-                :columns="attrColumns"
-                :data-source="displayAttrs"
-                :pagination="false"
-                row-key="field"
-                size="small"
-              />
+            <ACard title="实时属性数据" :bordered="false" style="margin-top: 16px">
+              <ATable :columns="attrColumns" :data-source="displayAttrs" :pagination="false" row-key="field" size="small" />
             </ACard>
           </template>
           <AEmpty v-else description="请先从左侧选择一个设备" />
@@ -198,6 +188,16 @@ export default {
     ledAttr() {
       return this.getAttrByKind("led");
     },
+    canControlLed() {
+      const roleNames = this.$store.getters["sys/user"]?.roleNames;
+      const roles = Array.isArray(roleNames)
+        ? roleNames
+        : String(roleNames || "")
+            .split(",")
+            .map(item => item.trim())
+            .filter(Boolean);
+      return roles.includes("管理员") || roles.includes("OPERATOR");
+    },
     displayAttrs() {
       const first = [this.temperatureAttr, this.humidityAttr, this.ledAttr].filter(Boolean);
       const used = new Set(first.map(item => item.field));
@@ -250,17 +250,20 @@ export default {
     },
     search() {
       this.loading = true;
-      this.$http.get("/iot/panels/mqtt/devices", { params: this.searchModel }).then(({ code, message, data }) => {
-        if (code === CoreConsts.SuccessCode) {
-          this.total = data?.total || 0;
-          this.devices = data?.records || [];
-          this.ensureSelectedDevice();
-        } else {
-          this.$msg.error(message);
-        }
-      }).finally(() => {
-        this.loading = false;
-      });
+      this.$http
+        .get("/iot/panels/mqtt/devices", { params: this.searchModel })
+        .then(({ code, message, data }) => {
+          if (code === CoreConsts.SuccessCode) {
+            this.total = data?.total || 0;
+            this.devices = data?.records || [];
+            this.ensureSelectedDevice();
+          } else {
+            this.$msg.error(message);
+          }
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     },
     ensureSelectedDevice() {
       if (!(this.devices instanceof Array) || this.devices.length === 0) {
@@ -311,20 +314,23 @@ export default {
     loadDetail(deviceId, uid) {
       this.detailLoading = true;
       this.closeRealtime();
-      this.$http.get("/iot/panels/detail", { params: { deviceId } }).then(({ code, message, data }) => {
-        if (code === CoreConsts.SuccessCode) {
-          this.currentDevice = data.device || this.currentDevice;
-          this.currentProduct = data.product || this.currentProduct;
-          this.detailAttrs = data.attrs || [];
-          this.resolvedFields = this.resolveFields(this.detailAttrs, this.overrideFields);
-          this.syncCtrlValueFromAttr();
-          this.openRealtime(uid);
-        } else {
-          this.$msg.error(message);
-        }
-      }).finally(() => {
-        this.detailLoading = false;
-      });
+      this.$http
+        .get("/iot/panels/detail", { params: { deviceId } })
+        .then(({ code, message, data }) => {
+          if (code === CoreConsts.SuccessCode) {
+            this.currentDevice = data.device || this.currentDevice;
+            this.currentProduct = data.product || this.currentProduct;
+            this.detailAttrs = data.attrs || [];
+            this.resolvedFields = this.resolveFields(this.detailAttrs, this.overrideFields);
+            this.syncCtrlValueFromAttr();
+            this.openRealtime(uid);
+          } else {
+            this.$msg.error(message);
+          }
+        })
+        .finally(() => {
+          this.detailLoading = false;
+        });
     },
     openRealtime(uid) {
       if (!uid) {
@@ -408,32 +414,34 @@ export default {
 
       this.switchLoading = true;
       this.pendingCtrlValue = value;
-      this.$http.post("/iot/panels/switchCtrlStatus", { id: this.currentDevice.uid, status: value }).then(({ code, message }) => {
-        if (code === CoreConsts.SuccessCode) {
-          this.currentCtrlValue = String(value);
-          if (this.ledAttr) {
-            this.ledAttr.value = String(value);
-            this.ledAttr.collectTime = dayjs().format("MM-DD HH:mm:ss");
-          }
+      this.$http
+        .post("/iot/panels/switchCtrlStatus", { id: this.currentDevice.uid, status: value })
+        .then(({ code, message }) => {
+          if (code === CoreConsts.SuccessCode) {
+            this.currentCtrlValue = String(value);
+            if (this.ledAttr) {
+              this.ledAttr.value = String(value);
+              this.ledAttr.collectTime = dayjs().format("MM-DD HH:mm:ss");
+            }
 
-          const record = this.devices.find(item => item.device?.uid === this.currentDevice.uid);
-          if (record) {
-            record.ctrlValue = String(value);
+            const record = this.devices.find(item => item.device?.uid === this.currentDevice.uid);
+            if (record) {
+              record.ctrlValue = String(value);
+            }
+          } else {
+            this.$msg.error(message);
           }
-        } else {
-          this.$msg.error(message);
-        }
-      }).finally(() => {
-        this.switchLoading = false;
-        this.pendingCtrlValue = null;
-      });
+        })
+        .finally(() => {
+          this.switchLoading = false;
+          this.pendingCtrlValue = null;
+        });
     },
     getAttrByKind(kind) {
       const field = this.resolvedFields[kind];
       if (!field) {
         return null;
       }
-
       return this.detailAttrs.find(item => item.field === field) || null;
     },
     resolveFields(attrs, overrideFields) {
@@ -475,7 +483,6 @@ export default {
       if (!attr) {
         return "--";
       }
-
       return `${this.formatValue(attr.value)}${attr.unit || ""}`;
     },
     metricTime(attr) {
@@ -485,7 +492,6 @@ export default {
       if (value === null || value === undefined || value === "") {
         return "--";
       }
-
       return value;
     },
     resolveCtrlLabel(value, options) {

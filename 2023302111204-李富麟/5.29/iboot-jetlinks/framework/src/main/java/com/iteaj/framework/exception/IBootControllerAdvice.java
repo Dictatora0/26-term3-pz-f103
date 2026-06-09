@@ -18,64 +18,49 @@ import java.util.List;
 @RestControllerAdvice
 public class IBootControllerAdvice {
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    /**
-     * 全局未知异常处理
-     * @return
-     */
     @ExceptionHandler(Throwable.class)
     protected <E> Result<E> exceptionHandle(Throwable e) {
-        logger.error("未知错误", e.getMessage(), e);
-
+        logger.error("未知错误", e);
         return Result.fail("系统异常");
     }
 
-    /**
-     * 业务异常处理
-     * @param e
-     * @return
-     */
     @ExceptionHandler(ServiceException.class)
     protected <E> Result<E> serviceHandle(ServiceException e) {
         logger.error("业务执行失败", e);
         return HttpResult.Fail(e.getMessage());
     }
 
-    /**
-     * 认证授权异常处理
-     * @param e
-     * @return
-     */
     @ExceptionHandler(SecurityException.class)
     protected <E> Result<E> securityHandle(SecurityException e) {
         logger.error("安全校验失败", e);
+        int statusCode = e.getStatusCode();
+        if(statusCode == 401 || statusCode == 403) {
+            return HttpResult.StatusCode(null, e.getMessage(), statusCode);
+        }
+
         return HttpResult.Fail(e.getMessage());
     }
 
     @ExceptionHandler(BindException.class)
     public Result bindExceptionHandler(BindException e) {
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
-        logger.error("字段校验失败["+fieldErrors.get(0).getDefaultMessage()+"]", e);
-        // 只返回第一个错误信息
+        logger.error("字段校验失败[{}]", fieldErrors.get(0).getDefaultMessage(), e);
         return HttpResult.Fail(fieldErrors.get(0).getDefaultMessage());
     }
 
-    // 处理 json 请求体调用接口校验失败抛出的异常
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Result methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
-        logger.error("字段校验失败["+fieldErrors.get(0).getDefaultMessage()+"]", e);
-        // 只返回第一个错误信息
+        logger.error("字段校验失败[{}]", fieldErrors.get(0).getDefaultMessage(), e);
         return HttpResult.Fail(fieldErrors.get(0).getDefaultMessage());
     }
 
-    // 处理单个参数校验失败抛出的异常
     @ExceptionHandler(ConstraintViolationException.class)
     public Result constraintViolationExceptionHandler(ConstraintViolationException e) {
-        final ConstraintViolation<?> violation = e.getConstraintViolations().stream().findFirst().get();
-        logger.error("字段校验失败", e.getMessage());
-        // 只返回第一个错误信息
-        return HttpResult.Fail(violation.getMessage());
+        ConstraintViolation<?> violation = e.getConstraintViolations().stream().findFirst().orElse(null);
+        logger.error("字段校验失败", e);
+        return HttpResult.Fail(violation != null ? violation.getMessage() : "参数校验失败");
     }
 }

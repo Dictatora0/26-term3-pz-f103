@@ -50,8 +50,8 @@ api[0].list[1].list.push({
 api[0].list.push({
     alias: 'AdminController',
     order: '3',
-    link: '用户管理',
-    desc: '用户管理',
+    link: '',
+    desc: '',
     list: []
 })
 api[0].list[2].list.push({
@@ -59,77 +59,77 @@ api[0].list[2].list.push({
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/view',
     methodId: 'fddb4167ff2c13ce19deca507801a707',
-    desc: '查询用户管理列表',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/add',
     methodId: 'a69149f8c8b368bb25b183821d94083d',
-    desc: '新增用户及角色',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/edit',
     methodId: '4e93b171a169e685d14de7a692212def',
-    desc: '获取用户详情',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/edit',
     methodId: 'a087469f5d78194b59bb8ba54e35c0ee',
-    desc: '修改用户及角色',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '5',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/detail',
     methodId: '6d9247bfd9fb48e689692375d46af1b3',
-    desc: '获取用户详情',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '6',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/del',
     methodId: '2b70e9029806a53b13180868750cbdc1',
-    desc: '删除用户',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '7',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/import',
     methodId: 'e85e1b080b750ab2b1290bcc5b6efd04',
-    desc: '导入用户',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '8',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/export',
     methodId: '53de77ff8467d1850862159b78146e9f',
-    desc: '导出用户',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '9',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/modUserInfo',
     methodId: '1c23732f2fc30b3eaa8f40cd344c3d80',
-    desc: '修改用户信息',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '10',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/pwd',
     methodId: 'eecde41cd256c7a5e46c3041d014fd86',
-    desc: '设置用户密码',
+    desc: '',
 });
 api[0].list[2].list.push({
     order: '11',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/admin/updateCurrentPwd',
     methodId: 'ac08ebf8323b74b6bc108aeb74e94cde',
-    desc: '设置用户密码',
+    desc: '',
 });
 api[0].list.push({
     alias: 'ConfigController',
@@ -302,8 +302,8 @@ api[0].list[6].list.push({
 api[0].list.push({
     alias: 'LoginController',
     order: '8',
-    link: '用户管理中心接口',
-    desc: '用户管理中心接口',
+    link: '',
+    desc: '',
     list: []
 })
 api[0].list[7].list.push({
@@ -311,14 +311,21 @@ api[0].list[7].list.push({
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/login',
     methodId: '1044b16631907bfeb29433d84b647347',
-    desc: '系统登录',
+    desc: '',
 });
 api[0].list[7].list.push({
     order: '2',
     deprecated: 'false',
+    url: 'http://127.0.0.1:8085/api/auth/token',
+    methodId: '64cb115babb8ac55897cb65110cbb29e',
+    desc: '',
+});
+api[0].list[7].list.push({
+    order: '3',
+    deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/logout',
-    methodId: '7935dbde8aca2940f4c5b81294c82e9c',
-    desc: '系统注销',
+    methodId: '3e2dcaf5bb0fa909de709c800a75fa5f',
+    desc: '',
 });
 api[0].list.push({
     alias: 'MenuController',
@@ -974,14 +981,14 @@ api[1].list[5].list.push({
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/instruct/ctrl/{modelApiCode}',
     methodId: '8aef91933d379602e52f862e47f95ecc',
-    desc: '设备控制',
+    desc: '',
 });
 api[1].list[5].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/instruct/debug/{modelApiCode}',
     methodId: '0d60a1f994b979d606d703a985fcf2f6',
-    desc: '设备调试接口',
+    desc: '',
 });
 api[1].list.push({
     alias: 'DeviceDebugController',
@@ -1686,8 +1693,8 @@ api[1].list[20].list.push({
 api[1].list.push({
     alias: 'PanelsController',
     order: '22',
-    link: '运行展板模块',
-    desc: '运行展板模块',
+    link: '运行展示面板模块',
+    desc: '运行展示面板模块',
     list: []
 })
 api[1].list[21].list.push({
@@ -1695,28 +1702,28 @@ api[1].list[21].list.push({
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/panels/devices',
     methodId: 'e090baebd4eac40f818b2face144bf36',
-    desc: '设备列表',
+    desc: '',
 });
 api[1].list[21].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/panels/detail',
     methodId: 'd826e74c17d6624dcacddf0758166ac9',
-    desc: '调试详情',
+    desc: '',
 });
 api[1].list[21].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/panels/switchCtrlStatus',
     methodId: 'c1b7edcb0ee05e28391360d8222a59e2',
-    desc: '切换控制状态',
+    desc: '',
 });
 api[1].list[21].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/panels/mqtt/devices',
     methodId: '9bde21eeb34889e9de519970b82fe039',
-    desc: '设备列表',
+    desc: '',
 });
 api[1].list.push({
     alias: 'PointGroupController',
@@ -2129,28 +2136,28 @@ api[1].list[29].list.push({
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/realtime/listByDeviceId',
     methodId: 'f288e653f270d73ae0d85e6006cbedfc',
-    desc: '获取指定设备下面的所有事件或者点位数据',
+    desc: '',
 });
 api[1].list[29].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/realtime/listByDevice',
     methodId: '20d893fb7abdb438812b655ae9e60f84',
-    desc: '获取指定设备下面的所有事件或者点位数据',
+    desc: '',
 });
 api[1].list[29].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/realtime/get',
     methodId: 'bf3c47b5986e9b7b4fdd598d0c3650bd',
-    desc: '获取指定设备点位或者字段实时数据',
+    desc: '',
 });
 api[1].list[29].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/iot/realtime/getByDeviceId',
     methodId: '22ab45c2dd8a32c8d49a4a2275ef1fbc',
-    desc: '获取指定设备下某个事件或者点位字段的实时数据',
+    desc: '',
 });
 api[1].list.push({
     alias: 'SignalController',

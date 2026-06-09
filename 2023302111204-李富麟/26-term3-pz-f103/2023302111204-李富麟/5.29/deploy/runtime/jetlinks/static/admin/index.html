@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>self["MonacoEnvironment"] = (function (paths) {
+          return {
+            globalAPI: false,
+            getWorkerUrl : function (moduleId, label) {
+              var result =  paths[label];
+              var _location = window.__MICRO_APP_ENVIRONMENT__ ? window.rawWindow.location : window.location;
+              var currentUrl = String(_location);
+              var currentOrigin = currentUrl.substr(0, currentUrl.length - _location.hash.length - _location.search.length - _location.pathname.length);
+              
+              
+              if (window.__MICRO_APP_ENVIRONMENT__) {
+                result =  currentOrigin + result.replace('./', '/')
+              }
+              
+              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
+                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
+                  var js = '/*' + label + '*/importScripts("' + result + '");';
+                  var blob = new Blob([js], { type: 'application/javascript' });
+                  return URL.createObjectURL(blob);
+                }
+              }
+
+              return result;
+            }
+          };
+        })({
+  "editorWorkerService": "/monacoeditorwork/editor.worker.bundle.js",
+  "json": "/monacoeditorwork/json.worker.bundle.js",
+  "typescript": "/monacoeditorwork/ts.worker.bundle.js",
+  "javascript": "/monacoeditorwork/ts.worker.bundle.js"
+});</script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" crossorigin src="/assets/index.1780024609588.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vue-router.1780024609588.js">
+    <link rel="modulepreload" crossorigin href="/assets/__federation_shared_lodash-es.1780024609588.js">
+    <link rel="modulepreload" crossorigin href="/assets/vue.1780024609588.js">
+    <link rel="modulepreload" crossorigin href="/assets/__federation_shared_pinia.1780024609588.js">
+    <link rel="modulepreload" crossorigin href="/assets/@jetlinks-web/core.1780024609588.js">
+    <link rel="modulepreload" crossorigin href="/assets/echarts.1780024609588.js">
+    <link rel="modulepreload" crossorigin href="/assets/@jetlinks-web/hooks.1780024609588.js">
+    <link rel="stylesheet" crossorigin href="/assets/style.1780025043839.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

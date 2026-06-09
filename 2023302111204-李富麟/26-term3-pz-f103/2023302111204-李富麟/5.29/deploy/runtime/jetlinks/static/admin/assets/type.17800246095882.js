@@ -1,0 +1,1 @@
+import{i as s}from"./vue-router.1780024609588.js";const{defineStore:t}=await s("pinia"),r=t({id:"type",state:()=>({configRef:[],resourcesClusters:{}}),actions:{setConfigRef(e){this.configRef=e},setResourcesClusters(e){this.resourcesClusters=e}}});export{r as u};

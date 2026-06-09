@@ -1,0 +1,20 @@
+server:
+  port: ${HTTPS_PORT:8443}
+  ssl:
+    enabled: true
+    key-store: ${TLS_KEY_STORE:}
+    key-store-password: ${TLS_KEY_STORE_PASSWORD:}
+    key-store-type: PKCS12
+    key-alias: ${TLS_KEY_ALIAS:iboot-local}
+
+framework:
+  security:
+    enable-jwt: true
+    enable-oauth2: true
+    issuer: ${JWT_ISSUER:iboot-local}
+    oauth2-issuer: ${OAUTH2_ISSUER:iboot-oauth2}
+    jwt-secret: ${JWT_SECRET:PLEASE_CHANGE_THIS_LOCAL_DEVELOPMENT_SECRET_1234567890}
+    access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:1800}
+    test-bypass-captcha: true
+    test-captcha: ${TEST_CAPTCHA:8888}
+    oauth2-auto-approve: true

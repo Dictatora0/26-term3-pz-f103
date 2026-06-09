@@ -71,6 +71,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             left join sys_admin_role ar on a.rid=ar.rid
         where ar.aid=#{id}
     </select>
+    <select id="selectRoleNamesById" resultType="java.lang.String">
+        select r.name
+        from sys_admin_role ar
+            left join sys_role r on ar.rid = r.id
+        where ar.aid=#{id} and r.name is not null
+    </select>
     <select id="getAdminCenter" resultType="com.iteaj.iboot.module.core.dto.AdminDto">
         select a.*, o.name orgName, group_concat(r.name) roleNames, p.name postName from sys_admin a
             left join sys_admin_role ar on a.id = ar.aid

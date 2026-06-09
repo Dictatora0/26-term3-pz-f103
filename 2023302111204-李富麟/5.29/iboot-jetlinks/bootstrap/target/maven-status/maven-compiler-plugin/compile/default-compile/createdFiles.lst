@@ -197,6 +197,7 @@ com\iteaj\iboot\module\iot\cache\IotCacheManager.class
 com\iteaj\iboot\module\iot\controller\IotIndexController.class
 com\iteaj\iboot\module\core\controller\MenuController.class
 com\iteaj\iboot\module\core\config\listener\OnlineUserListener.class
+com\iteaj\iboot\module\core\service\impl\AuthTokenServiceImpl.class
 com\iteaj\iboot\module\core\mapper\IMenuDao.class
 com\iteaj\iboot\module\iot\entity\ModelAttr.class
 com\iteaj\iboot\module\iot\service\impl\ProtocolApiConfigServiceImpl.class
@@ -233,6 +234,8 @@ com\iteaj\iboot\module\iot\collect\model\DataLoggerFilter.class
 com\iteaj\iboot\module\iot\dto\DebugDto.class
 com\iteaj\iboot\module\iot\utils\ProtocolInvokeUtil.class
 com\iteaj\iboot\module\iot\dto\ProtocolDto.class
+com\iteaj\iboot\module\core\dto\AuthTokenDto.class
+com\iteaj\iboot\module\core\service\AuthTokenService.class
 com\iteaj\iboot\module\iot\controller\DeviceChildController.class
 com\iteaj\iboot\module\iot\collect\store\RDBMStoreAction.class
 com\iteaj\iboot\module\iot\entity\Protocol.class

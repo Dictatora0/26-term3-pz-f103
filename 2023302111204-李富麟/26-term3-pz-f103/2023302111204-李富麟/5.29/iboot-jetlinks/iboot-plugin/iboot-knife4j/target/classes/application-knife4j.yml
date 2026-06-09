@@ -1,0 +1,9 @@
+knife4j:
+  enable-aggregation: true
+  disk:
+    enable: true
+    routes:
+      - name: 创源物联网关
+        order: 1
+        debugUrl: http://127.0.0.1:8085
+        location: classpath:/static/doc/openapi.json

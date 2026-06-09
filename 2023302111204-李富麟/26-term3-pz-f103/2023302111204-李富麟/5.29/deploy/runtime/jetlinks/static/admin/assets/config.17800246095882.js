@@ -1,0 +1,1 @@
+import{i as t}from"./vue-router.1780024609588.js";const{request:e}=await t("@jetlinks-web/core"),s=()=>e.get("/alarm/config/default/level"),o=a=>e.patch("/alarm/config/default/level",a),l=a=>e.get(`/alarm/config/${a}/data-exchange`),n=a=>e.patch("/alarm/config/data-exchange",a);export{o as a,l as g,s as q,n as s};

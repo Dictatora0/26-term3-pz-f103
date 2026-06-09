@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ModelAttrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.ModelAttr">
+        <result column="id" property="id" />
+        <result column="product_id" property="productId" />
+        <result column="field" property="field" />
+        <result column="name" property="name" />
+        <result column="data_type" property="dataType" />
+        <result column="unit" property="unit" />
+        <result column="gain" property="gain" />
+        <result column="script" property="script" />
+        <result column="resolver" property="resolver" />
+        <result column="enumerate" property="enumerate" />
+        <result column="default_value" property="defaultValue" />
+        <result column="attr_type" property="attrType" />
+        <result column="real_type" property="realType" />
+        <result column="ctrl_status" property="ctrlStatus" />
+        <result column="accuracy" property="accuracy" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <resultMap id="DetailResultMap" type="com.iteaj.iboot.module.iot.entity.ModelAttr" extends="BaseResultMap">
+        <collection property="dicts" ofType="com.iteaj.iboot.module.iot.entity.ModelAttrDict" foreignColumn="model_attr_id">
+            <id column="dict_id" property="id" />
+            <result column="path" property="path" />
+            <result column="dict_name" property="dictName" />
+            <result column="dict_value" property="dictValue" />
+            <result column="model_attr_id" property="modelAttrId" />
+        </collection>
+    </resultMap>
+    <update id="switchCtrlStatus">
+        update iot_model_attr set ctrl_status=false where product_id=#{productId};
+        update iot_model_api set as_status=false where product_id=#{productId} and func_type='W' and as_status=true;
+        <if test="status==true">
+            update iot_model_attr set ctrl_status = true where id=#{id};
+        </if>
+    </update>
+    <delete id="deleteByJoin">
+        delete a, ad from iot_model_attr a left join iot_model_attr_dict ad on ad.model_attr_id=a.id where a.id=#{id};
+        delete a from iot_model_attr_dict a left join iot_model_attr ad on ad.id=a.model_attr_id where a.dict_value='${id}' and ad.data_type='json';
+    </delete>
+
+    <select id="detailById" resultMap="DetailResultMap">
+        select a.*, d.id dict_id, d.dict_name, dict_value, d.model_attr_id, d.path from iot_model_attr a
+            left join iot_model_attr_dict d on a.id = d.model_attr_id
+        where a.id=#{id}
+    </select>
+
+    <select id="listByProductId" resultMap="BaseResultMap">
+        select * from iot_model_attr where product_id=#{productId}
+    </select>
+
+    <select id="listDetailByProductId" resultMap="DetailResultMap">
+        select a.*, d.id dict_id, d.dict_name, dict_value, d.model_attr_id, d.path from iot_model_attr a
+            left join iot_model_attr_dict d on a.id = d.model_attr_id
+        where a.product_id=#{productId} order by d.id
+    </select>
+
+    <select id="hasBinded" resultType="java.lang.Boolean">
+        select count(1) > 0 from iot_model_api_config where model_attr_id in (
+            <foreach collection="list" item="modelAttrId" separator=",">
+                #{modelAttrId}
+            </foreach>
+            )
+    </select>
+    <select id="listDetailDict" resultType="com.iteaj.iboot.module.iot.entity.ModelAttrDict">
+        select a.*, jma.data_type dataType, jma.field attrField from iot_model_attr_dict a
+            left join iot_model_attr ma on ma.id=a.model_attr_id
+            left join iot_model_attr jma on jma.id=a.dict_value and ma.data_type='json'
+        where a.model_attr_id=#{modelAttrId}
+        <if test="dictName != null">and a.dict_name like '%${dictName}%'</if>
+    </select>
+    <select id="isEnabledOfProduct" resultType="java.lang.Boolean">
+        select count(p.id) > 0 from iot_model_attr a
+            inner join iot_product p on a.product_id = p.id
+        where p.status = 'enabled' and a.id=#{id}
+    </select>
+</mapper>

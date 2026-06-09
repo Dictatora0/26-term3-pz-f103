@@ -1,0 +1,1 @@
+import{i as o}from"./vue-router.1780024609588.js";const{request:t}=await o("@jetlinks-web/core"),a=e=>t.post("/device/category/_tree",e),c=e=>t.post("/device/category",e),i=(e,r)=>t.put(`/device/category/${e}`,r),d=e=>t.remove(`/device/category/${e}`);export{d,a as q,c as s,i as u};

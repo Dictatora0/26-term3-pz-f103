@@ -1,0 +1,33 @@
+{
+  "name": "ivzone",
+  "version": "3.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "node --max_old_space_size=4096 ./node_modules/vite/bin/vite.js build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@ant-design/icons-vue": "^6.1.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "ant-design-vue": "^4.0.8",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.10",
+    "echarts": "^5.3.3",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "md-editor-v3": "^4.3.0",
+    "qs": "^6.11.2",
+    "screenfull": "^6.0.1",
+    "vue": "^3.3.6",
+    "vue-cropper": "^1.1.0",
+    "vue-router": "^4.2.4",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "vite": "^4.5.0"
+  }
+}

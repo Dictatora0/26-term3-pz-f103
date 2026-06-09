@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.PlatformCatalogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="type" property="type" />
+        <result column="parent_id" property="parentId" />
+        <result column="civil_code" property="civilCode" />
+        <result column="platform_id" property="platformId" />
+        <result column="children_count" property="childrenCount" />
+        <result column="business_group_id" property="businessGroupId" />
+    </resultMap>
+
+    <delete id="del">
+        DELETE from wvp_platform_catalog WHERE platform_id=#{platformId} and id=#{id}
+    </delete>
+
+    <delete id="delByPlatformId">
+        DELETE from wvp_platform_catalog WHERE platform_id=#{platformId}
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE from wvp_platform_catalog where platform_id=#{platformId} and id in
+        <foreach collection='ids' item='item' open='(' separator=',' close=')'>
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="selectByParentId" resultType="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        SELECT pc.*, count(pc2.id) as children_count from wvp_platform_catalog pc
+            left join wvp_platform_catalog pc2 on pc.id = pc2.parent_id
+        WHERE pc.parent_id=#{parentId} AND pc.platform_id=#{platformId}
+        group by pc.id, pc.name, pc.platform_id, pc.business_group_id, pc.civil_code, pc.parent_id
+    </select>
+
+    <select id="selectByPlatForm" resultType="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        SELECT *, (SELECT COUNT(1) from wvp_platform_catalog where parent_id = pc.id) as children_count  from wvp_platform_catalog pc WHERE pc.platform_id=#{platformId}
+    </select>
+
+    <select id="selectDefaultByPlatFormId" resultType="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        SELECT pc.* FROM  wvp_platform_catalog pc WHERE pc.id = (SELECT pp.catalog_id from wvp_platform pp WHERE pp.server_gb_id=#{platformId})
+    </select>
+
+    <select id="queryCatalogInPlatform" resultType="com.genersoft.iot.vmp.gb28181.bean.DeviceChannel">
+        SELECT pc.id as channel_id, pc.name, pc.civil_code, pc.business_group_id,'1' as parental, pc.parent_id from wvp_platform_catalog pc WHERE pc.platform_id=#{platformId}
+    </select>
+
+    <select id="selectByPlatFormAndCatalogId" resultType="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        SELECT *, (SELECT COUNT(1) from wvp_platform_catalog where parent_id = pc.id) as children_count from wvp_platform_catalog pc
+        WHERE pc.id=#{id} and pc.platform_id=#{platformId}
+    </select>
+    <select id="queryCatalogFromParent" resultType="java.lang.String">
+        SELECT id from wvp_platform_catalog WHERE platform_id=#{platformId} and parent_id = #{id}
+    </select>
+
+</mapper>

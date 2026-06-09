@@ -1,0 +1,125 @@
+package ${package.Controller};
+
+import java.util.List;
+import com.iteaj.framework.result.Result;
+import org.springframework.web.bind.annotation.*;
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
+import com.iteaj.framework.security.CheckPermission;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${package.Entity}.${entity};
+import ${package.Dto}.${dto};
+import ${package.Service}.${table.serviceName};
+#if(${restControllerStyle})
+#else
+import org.springframework.stereotype.Controller;
+#end
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * $!{cfg.moduleName}管理
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+#end
+    private final ${table.serviceName} ${cfg.serviceName};
+
+    public ${table.controllerName}(${table.serviceName} ${cfg.serviceName}) {
+        this.${cfg.serviceName} = ${cfg.serviceName};
+    }
+
+    /**
+    * 列表查询
+    * @param page 分页
+    * @param entity 搜索条件
+    */
+    @GetMapping("/view")
+    @CheckPermission(value = {"${package.ModuleName}:${table.entityPath}:view"})
+    public Result<IPage<${dto}>> list(Page<${dto}> page, ${dto} entity) {
+        return this.${cfg.serviceName}.detailPage(page, entity);
+    }
+
+    /**
+    * 获取编辑记录
+    * @param id 记录id
+    */
+    @GetMapping("/edit")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:edit"})
+    public Result<${dto}> getEditDetail(Long id) {
+        return this.${cfg.serviceName}.detailById(id);
+    }
+
+    /**
+    * 修改记录
+    * @param entity
+    */
+    @PostMapping("/edit")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:edit"})
+    public Result<Boolean> edit(@RequestBody ${entity} entity) {
+        return this.${cfg.serviceName}.updateById(entity);
+    }
+
+    /**
+    * 新增记录
+    * @param entity
+    */
+    @PostMapping("/add")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:add"})
+    public Result<Boolean> add(@RequestBody ${entity} entity) {
+        return this.${cfg.serviceName}.save(entity);
+    }
+
+    /**
+    * 删除指定记录
+    * @param idList
+    */
+    @PostMapping("/del")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:del"})
+    public Result<Boolean> remove(@RequestBody List<Long> idList) {
+        return this.${cfg.serviceName}.removeByIds(idList);
+    }
+
+#if(${table.exportable})
+    /**
+    * 导出记录
+    * @param entity 导出参数
+    */
+    @GetMapping("/export")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:export"})
+    public void exportRecord(Page<${dto}> page, ${dto} entity, HttpServletResponse response) {
+        this.${cfg.serviceName}.detailPage(page, entity);
+        ExcelExportUtil.exportExcel(null, ${dto}.class, page.getRecords());
+    }
+#end
+
+#if(${table.importable})
+    /**
+    * 导入记录
+    * @param entity 导入参数
+    * @param file 导入文件
+    */
+    @PostMapping("/import")
+    @CheckPermission({"${package.ModuleName}:${table.entityPath}:import"})
+    public void importRecord(MultipartFile file, ${dto} entity) throws Exception {
+        ExcelImportUtil.importExcel(file.getInputStream(), ${dto}.class, null);
+    }
+#end
+}

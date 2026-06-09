@@ -1,0 +1,64 @@
+<template>
+  <UView #if(${cfg.moduleName})name="$!{cfg.moduleName}"#end#if(${cfg.rowKey})rowKey="$!{cfg.rowKey}"#end>
+    <UViewSearch v-model="searchModel">
+      <URow col="search">
+        #foreach($vue in ${cfg.vueFields})
+          #if(${vue.searchComponent})
+        ${vue.searchComponent}
+          #end
+        #end
+        <UButton func="query" url="/${package.ModuleName}/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end/view">搜索</UButton>
+        <UButton func="reset">重置</UButton>
+        <UButton func="add" url="/${package.ModuleName}/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end/add" v-auth="'${package.ModuleName}:#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end:add'">新增</UButton>
+      </URow>
+    </UViewSearch>
+    <UViewModal title="${cfg.moduleName}管理" :span="[7, 14]" v-model="editModel" :rules="rules">
+      <template #default="{model}">
+        #foreach($vue in ${cfg.vueFields})
+         #if(${vue.component})
+        ${vue.component}
+         #end
+        #end
+      </template>
+      <template #footer>
+        <UButton func="cancel">取消</UButton>
+        <UButton func="submit" url="/${package.ModuleName}/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end/saveOrUpdate">提交</UButton>
+        <UButton func="reset">重置</UButton>
+      </template>
+    </UViewModal>
+    <UViewTable :columns="columns" :scroll="{x: 1200}">
+      <template #action="{record}">
+        <UTag func="edit" :data="record" url="/${package.ModuleName}/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end/edit" v-auth="'${package.ModuleName}:#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end:edit'">修改</UTag>
+        <UTag func="del" :data="record" url="/${package.ModuleName}/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end/del" v-auth="'${package.ModuleName}:#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end:del'">删除</UTag>
+      </template>
+    </UViewTable>
+  </UView>
+</template>
+<!-- ${cfg.moduleName}功能 -->
+<script>
+import {ref, reactive} from "vue";
+export default {
+  name: "$entity",
+  setup() {
+    let columns = ref([
+        #foreach($field in ${cfg.vueFields})
+          {field: "${field.field}", title: "${field.label}"},
+        #end
+          {field: 'action', title: '操作', type: 'action', fixed: 'right', width: 180},
+      ]);
+
+    let rules = reactive({
+      #foreach($field in ${cfg.vueFields})
+        #if(${field.required})
+        ${field.field}: {required: true, message: '${field.label}必填'},
+        #end
+      #end
+    })
+
+    let editModel = ref({});
+    let searchModel = ref({});
+    return {columns, rules, editModel, searchModel}
+  },
+}
+</script>
+<style scoped> </style>

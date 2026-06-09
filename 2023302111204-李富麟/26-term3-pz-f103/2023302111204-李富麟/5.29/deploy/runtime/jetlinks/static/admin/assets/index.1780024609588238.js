@@ -1,0 +1,1 @@
+import{i as e}from"./vue-router.1780024609588.js";import{_ as o}from"./index.1780024609588.js";const t={},{openBlock:c,createElementBlock:r}=await e("vue");function a(n,_){return c(),r("div")}const i=o(t,[["render",a],["__scopeId","data-v-8aefd132"]]);export{i as default};

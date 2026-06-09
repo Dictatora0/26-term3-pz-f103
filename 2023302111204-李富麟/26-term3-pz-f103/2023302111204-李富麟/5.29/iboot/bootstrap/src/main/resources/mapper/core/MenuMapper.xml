@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.core.mapper.IMenuDao">
+
+    <resultMap type="com.iteaj.iboot.module.core.entity.Menu" id="OriMap">
+        <id property="id"    column="id"  />
+        <result property="name"    column="name"  />
+        <result property="pid"    column="pid"  />
+        <result property="sort"    column="sort"  />
+        <result property="url"    column="url"  />
+        <result property="type"    column="type"  />
+        <result property="icon"    column="icon"  />
+        <result property="perms"    column="perms"  />
+        <result property="remark"    column="remark"  />
+        <result property="target"    column="target"  />
+        <result property="createTime"    column="create_time"  />
+        <result property="updateTime"    column="update_time"  />
+    </resultMap>
+    <select id="selectAdminMenus" resultType="String">
+        select a.id from sys_menu a
+            left join sys_role_menu rm on a.id = rm.mid
+            left join sys_admin_role ar on rm.rid=ar.rid
+            left join sys_role r on ar.rid = r.id and r.status = 'enabled'
+        where a.status != 'disabled' and ar.aid=#{aid} and r.status = 'enabled'
+    </select>
+
+    <select id="selectPermissions" resultType="java.lang.String">
+        select a.perms from sys_menu a
+             left join sys_role_menu rm on a.id = rm.mid
+             left join sys_admin_role ar on rm.rid=ar.rid
+             left join sys_role r on ar.rid = r.id and r.status = 'enabled'
+        where a.status != 'disabled' and a.type != 'M' and a.type != 'G' and ar.aid=#{adminId} and r.status = 'enabled'
+    </select>
+</mapper>

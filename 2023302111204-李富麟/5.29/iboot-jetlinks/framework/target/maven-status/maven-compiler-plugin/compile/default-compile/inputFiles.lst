@@ -27,7 +27,9 @@ D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\auth
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\DeviceLogger.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\listener\IotEventType.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\autoconfigure\AuthConfig.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\JwtTokenClaims.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\SecurityService.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\JwtPrincipal.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spring\SpringUtils.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\captcha\CaptchaType.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\mybatis\handler\FastjsonTypeHandler.java
@@ -154,6 +156,7 @@ D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\admi
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\event\EventPublisher.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\listener\EntityPayload.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\admin\MenuType.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\JwtRevocationService.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\cache\SerializerType.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\protocol\ProtocolModelApiConfigOption.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\auth\SecurityException.java
@@ -173,6 +176,7 @@ D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\InvokeStatusException.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\mybatis\handler\ListOfLongJsonTypeHandler.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\consts\AuthEventType.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\CheckScope.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\message\SendTemplate.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\result\AbstractResult.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\Proxy\TargetInvocationHandler.java
@@ -208,6 +212,7 @@ D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\autoconf
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\mybatis\handler\ArrayTypeHandler.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\message\SendModel.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\consts\CtrlMode.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\JwtAccessTokenService.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spring\boot\FrameworkExceptionReporter.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\event\AsyncPublisher.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\gbs\GbsRealtimeTree.java
@@ -215,7 +220,9 @@ D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\BaseServiceImpl.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\excel\ExcelDictHandle.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\ComponentProperties.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\JwtRequestContext.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\validate\AllGroup.java
+D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\security\PasswordCodec.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\iot\consts\CountCalcType.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\spi\auth\WebAuthAction.java
 D:\Proj\5.29\iboot-jetlinks\framework\src\main\java\com\iteaj\framework\captcha\Captcha.java

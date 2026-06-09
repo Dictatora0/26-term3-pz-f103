@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.ProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.Product">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="remark" property="remark" />
+        <result column="type_name" property="typeName" />
+        <result column="parent_id" property="parentId" />
+        <result column="gateway_id" property="gatewayId" />
+        <result column="config" property="config"
+                typeHandler="com.iteaj.framework.mybatis.handler.FastjsonTypeHandler" />
+        <result column="gateway_name" property="gatewayName" />
+        <result column="gateway_type" property="gatewayType" />
+        <result column="connect_type" property="connectType" />
+        <result column="protocol_id" property="protocolId" />
+        <result column="protocol_name" property="protocolName" />
+        <result column="protocol_code" property="protocolCode" />
+        <result column="create_time" property="createTime" />
+        <result column="product_type_id" property="productTypeId" />
+    </resultMap>
+
+    <resultMap id="BaseResultDtoMap" type="com.iteaj.iboot.module.iot.dto.ProductDto" extends="BaseResultMap">
+        <result property="ctrlMode" column="ctrl_mode" />
+        <result property="deviceCount" column="device_count" />
+        <result property="gatewayStatus" column="gateway_status" />
+        <result property="transportProtocol" column="transport_protocol" />
+    </resultMap>
+    <resultMap id="JoinDetailMap" type="com.iteaj.iboot.module.iot.dto.ProductDto" extends="BaseResultDtoMap">
+        <collection property="funcApis" column="{productId=id}" ofType="ModelApi"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelApiMapper.listFuncByProductId" />
+        <collection property="eventApis" column="{productId=id}" ofType="ModelApi"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelApiMapper.listEventByProductId" />
+        <collection property="attrs" column="{productId=id}" ofType="ModelAttr"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelAttrMapper.listByProductId" />
+    </resultMap>
+    <resultMap id="JoinAttrMap" type="com.iteaj.iboot.module.iot.dto.ProductDto" extends="BaseResultDtoMap">
+        <collection property="attrs" column="{productId=id}" ofType="ModelAttr"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelAttrMapper.listDetailByProductId" />
+    </resultMap>
+    <resultMap id="JoinCtrlStatusApiMap" type="com.iteaj.iboot.module.iot.dto.ProductDto" extends="BaseResultDtoMap">
+        <collection property="funcApis" column="{productId=id}" ofType="ModelApi"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelApiMapper.getCtrlStatusByProductId" />
+        <collection property="attrs" column="{productId=id}" ofType="ModelAttr"
+                    select="com.iteaj.iboot.module.iot.mapper.ModelAttrMapper.listDetailByProductId" />
+    </resultMap>
+    <select id="pageOfDetail" resultMap="BaseResultDtoMap">
+        select a.*, idt.name type_name, ig.name gateway_name, ig.type gateway_type, ip.code protocol_code
+             , ip.name protocol_name, ip.ctrl_mode, ip.type transport_protocol, ig.connect_type, ig.status gateway_status
+        from iot_product a
+            left join iot_product_type idt on a.product_type_id=idt.id
+            left join iot_gateway ig on a.gateway_id=ig.id
+            left join iot_protocol ip on ip.id = a.protocol_id
+        <where>
+            <if test="entity.gatewayId != null">
+                and a.gateway_id=#{entity.gatewayId}
+            </if>
+            <if test="entity.status != null">
+                and a.status=#{entity.status}
+            </if>
+            <if test="entity.protocolId != null">
+                and a.protocol_id=#{entity.protocolId}
+            </if>
+            <if test="entity.deviceType != null">
+                and a.device_type=#{entity.deviceType}
+            </if>
+            <if test="entity.productTypeId != null">
+                and find_in_set(#{entity.productTypeId}, idt.path)
+            </if>
+            <if test="entity.name != null and entity.name != ''">
+                and a.name like '%${entity.name}%'
+            </if>
+            <if test="entity.code != null and entity.code != ''">
+                and a.code like '%${entity.code}%'
+            </if>
+        </where>
+        order by a.device_type desc, a.create_time desc
+    </select>
+    <select id="detailById" resultMap="BaseResultDtoMap">
+        select a.*, idt.name type_name, ig.name gateway_name, ig.type gateway_type, ip.code protocol_code, ig.connect_type
+             , ip.name protocol_name, ip.ctrl_mode, ip.type transport_protocol, ig.status gateway_status from iot_product a
+             left join iot_product_type idt on a.product_type_id=idt.id
+             left join iot_gateway ig on a.gateway_id=ig.id
+             left join iot_protocol ip on ip.id = a.protocol_id
+        where a.id=#{id}
+    </select>
+
+    <select id="hasBind" resultType="java.lang.Boolean">
+        select count(id) > 0 from iot_device where product_id in (
+        <foreach collection="list" item="productId" separator=",">
+            #{productId}
+        </foreach>)
+    </select>
+
+    <select id="listOfDetail" resultMap="BaseResultDtoMap">
+        select a.*, idt.name type_name, ig.name gateway_name, ig.type gateway_type, ip.code protocol_code
+        , ip.name protocol_name, ip.ctrl_mode, ip.type transport_protocol, ig.connect_type, ig.status gateway_status from iot_product a
+            left join iot_product_type idt on a.product_type_id=idt.id
+            left join iot_gateway ig on a.gateway_id=ig.id
+            left join iot_protocol ip on ip.id = a.protocol_id
+        <where>
+            <if test="gatewayId != null">
+                and a.gateway_id=#{gatewayId}
+            </if>
+            <if test="protocolId != null">
+                and a.protocol_id=#{protocolId}
+            </if>
+            <if test="status != null">
+                and a.status=#{status}
+            </if>
+            <if test="deviceType != null">
+                and a.device_type=#{deviceType}
+            </if>
+            <if test="productTypeId != null">
+                and a.product_type_id=#{productTypeId}
+            </if>
+            <if test="name != null and name != ''">
+                and a.name like '%${name}%'
+            </if>
+            <if test="code != null and code != ''">
+                and a.code like '%${code}%'
+            </if>
+        </where>
+    </select>
+
+    <select id="joinDetailById" resultMap="JoinDetailMap">
+        select a.*, ig.id gateway_id, ig.name gateway_name, ip.ctrl_mode, ip.name protocol_name, ip.type transport_protocol
+             , ip.code protocol_code, ig.status gateway_status, ig.type gateway_type from iot_product a
+            left join iot_gateway ig on a.gateway_id=ig.id
+            left join iot_protocol ip on ip.id = a.protocol_id
+        where a.id=#{productId}
+    </select>
+
+    <select id="listByPoint" resultMap="BaseResultMap">
+        select a.* from iot_product a left join iot_protocol p on a.protocol_id=p.id where p.ctrl_mode='POINT'
+    </select>
+    <select id="listJoinDetailByIds" resultMap="JoinDetailMap">
+        select a.* from iot_product a where a.id in (<foreach collection="list" item="id" separator=",">
+        #{id}
+    </foreach>)
+    </select>
+    <select id="hasBindEnabledEventSource" resultType="java.lang.Boolean">
+        select count(p.id) > 0 from iot_event_source a
+            inner join iot_product p on p.id=#{id} and json_contains(a.product_ids, concat('', p.id))
+        where a.status = 'enabled' and p.id=#{id} limit 1
+    </select>
+
+    <select id="listDeviceByProductId" resultMap="com.iteaj.iboot.module.iot.mapper.DeviceMapper.BasicMap">
+        select * from iot_device where product_id = #{id}
+    </select>
+    <select id="listCtrlStatusModelAttrs" resultMap="JoinAttrMap">
+        select a.* from iot_product a
+#             left join iot_model_api ma on a.id=ma.product_id and ma.as_status = true and ma.func_type='W'
+        where a.id in (<foreach collection="list" item="id" separator=",">
+        #{id}
+    </foreach>)
+    </select>
+    <select id="getCtrlStatusModelApi" resultMap="JoinCtrlStatusApiMap">
+        select a.* from iot_product a where a.id = #{productId}
+    </select>
+    <select id="listByProtocolCode" resultMap="JoinDetailMap">
+        select a.* from iot_product a where a.protocol_code=#{protocolCode}
+        <if test="productCode != null and productCode != ''">and a.code = #{productCode}</if>
+    </select>
+    <select id="countStatusProfile" resultType="com.iteaj.iboot.module.iot.dto.FuncStatusProfileDto">
+        select count(1) totalNum, count(if(status='enabled', 1, null)) enabledNum from iot_product
+    </select>
+
+    <select id="countOfDevice" resultType="com.iteaj.iboot.module.iot.consts.NameValueDto">
+        select count(1) value, a.name from iot_product a
+            left join iot_device d on a.id = d.product_id
+        group by a.id order by value desc
+    </select>
+    <select id="listOfProtocolCodes" resultMap="BaseResultMap">
+        select a.* from iot_product a
+            left join iot_gateway g on a.gateway_id = g.id
+        <where>
+            <if test="deviceType != null">
+                and a.device_type=#{deviceType}
+            </if>
+            <if test="protocol != null">
+                and g.protocol_type=#{protocol}
+            </if>
+            <if test="protocolCodes != null">
+                and (<foreach collection="protocolCodes" item="code" separator=" or ">
+                    a.protocol_code=#{code}
+                </foreach>)
+            </if>
+        </where>
+    </select>
+
+    <select id="countOfDeviceType" resultType="com.iteaj.iboot.module.iot.dto.DeviceTypeCountDto">
+        select a.type, count(d.id) total, count(if(d.status='online', 1, null)) online from
+            (select 'Gateway' type union all select 'Child' type union all select 'Direct' type) a
+                left join iot_product p on a.type = p.device_type
+                left join iot_device d on p.id = d.product_id
+        group by a.type;
+    </select>
+
+    <delete id="removeModel">
+        delete from iot_model_api where product_id=#{productId};
+        delete from iot_model_attr_dict where model_attr_id in (select id from iot_model_attr where product_id=#{productId});
+        delete from iot_model_attr where product_id=#{productId};
+        delete from iot_model_api_config where product_id=#{productId};
+    </delete>
+
+</mapper>

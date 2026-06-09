@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAuth Callback</title>
+</head>
+<body>
+<script>
+  (function () {
+    var target = "/#/oauth/callback" + window.location.search + window.location.hash;
+    window.location.replace(target);
+  })();
+</script>
+</body>
+</html>

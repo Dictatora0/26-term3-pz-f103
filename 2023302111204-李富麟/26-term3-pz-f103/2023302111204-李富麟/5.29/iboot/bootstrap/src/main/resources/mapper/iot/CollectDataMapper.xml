@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.CollectDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.CollectData">
+        <result column="id" property="id" />
+        <result column="cid" property="cid" />
+        <result column="uid" property="uid" />
+        <result column="value" property="value" />
+        <result column="status" property="status" />
+        <result column="reason" property="reason" />
+        <result column="address" property="address" />
+        <result column="field" property="field" />
+        <result column="field_name" property="fieldName" />
+        <result column="collect_mode" property="collectMode" />
+        <result column="create_time" property="createTime" />
+        <result column="collect_time" property="collectTime" />
+        <result column="collect_task_id" property="collectTaskId" />
+    </resultMap>
+    <resultMap id="DtoResultMap" type="com.iteaj.iboot.module.iot.dto.CollectDataDto" extends="BaseResultMap">
+        <result property="deviceSn" column="device_sn" />
+        <result property="deviceName" column="device_name" />
+    </resultMap>
+
+    <select id="detailOfPage" resultMap="DtoResultMap">
+        select a.id, a.cid, a.uid, a.signal_id, a.field, a.collect_task_id, a.address, a.value
+             , a.status, a.reason, a.collect_time, a.create_time, d.name device_name, d.device_sn
+             , f.name field_name
+        from iot_collect_data a
+            left join iot_device d on a.uid=d.uid
+        <choose>
+            <when test="entity.collectMode == 'model'">
+                left join iot_model_attr f on f.id = a.signal_id
+            </when>
+            <otherwise>
+                left join iot_signal f on f.id=a.signal_id
+            </otherwise>
+        </choose>
+        <where>
+            <if test="entity.uid != null">
+                and a.uid=#{entity.uid}
+            </if>
+            <if test="entity.cid != null">
+                and a.cid=#{entity.cid}
+            </if>
+            <if test="entity.deviceSn != null and entity.deviceSn != ''">
+                and d.device_sn=#{entity.deviceSn}
+            </if>
+            <if test="entity.collectMode != null">
+                and a.collect_mode = #{entity.collectMode}
+            </if>
+            <if test="entity.productId != null">
+                and d.product_id=#{entity.productId}
+            </if>
+            <if test="entity.signalId != null">
+                and a.signal_id=#{entity.signalId}
+            </if>
+            <if test="entity.collectTaskId != null">
+                and a.collect_task_id=#{entity.collectTaskId}
+            </if>
+            <if test="entity.status != null">
+                and a.status=#{entity.status}
+            </if>
+        </where>
+        order by a.collect_time desc
+    </select>
+    <select id="countLastWeek" resultType="com.iteaj.framework.spi.iot.data.BaseEchartsCount">
+        select count(1) value, date_format(a.collect_time, '%Y-%m-%d') category from iot_collect_data a
+        left join iot_device d on a.uid = d.uid
+        <where>
+            <if test="deviceGroupId != null">
+                and d.device_group_id = #{deviceGroupId}
+            </if>
+            and a.collect_time > date_sub(curdate(), interval 7 day)
+        </where>
+        group by category
+    </select>
+    <select id="countLastByDays" resultType="com.iteaj.framework.spi.iot.data.BaseEchartsCount">
+        select count(1) value, date_format(a.collect_time, '%Y-%m-%d') category from iot_collect_data a
+            left join iot_device d on a.uid = d.uid
+        where a.collect_time > date_sub(curdate(), interval #{days} day) group by category
+    </select>
+    <select id="countOfCommonByTime" resultType="com.iteaj.framework.spi.iot.data.BaseEchartsCount">
+        <if test="calcType == 'count'">
+            select count(1) value, field,
+        </if>
+        <if test="calcType == 'avg'">
+            select avg(value) value, field,
+        </if>
+        <if test="calcType == 'max'">
+            select max(value) value, field,
+        </if>
+        <if test="calcType == 'min'">
+            select min(value) value, field,
+        </if>
+        <if test="timeType == 'year'">
+            date_format(collect_time, '%Y') category
+        </if>
+        <if test="timeType == 'month'">
+            date_format(collect_time, '%Y-%m') category
+        </if>
+        <if test="timeType == 'day'">
+            date_format(collect_time, '%Y-%m-%d') category
+        </if>
+        <if test="timeType == 'hour'">
+            date_format(collect_time, '%y-%m-%d %H') category
+        </if>
+        from iot_collect_data
+        <where>
+            <if test="uid != null and uid !=''">
+                and uid=#{uid}
+            </if>
+            <if test="productCode != null and productCode !=''">
+                and product_code=#{productCode}
+            </if>
+            <if test="fields != null and fields.size() > 0">
+                and (<foreach collection="fields" item="field" separator=" or ">
+                field = #{field}
+            </foreach>)
+            </if>
+            and UNIX_TIMESTAMP(collect_time) * 1000 between #{startTimestamp} and #{endTimestamp}
+        </where>
+        group by category<if test="fields != null and fields.size() > 0">,field</if>
+    </select>
+
+    <select id="listOfCommonByTime" resultMap="DtoResultMap">
+        select * from iot_collect_data
+        <where>
+            <if test="uid != null and uid !=''">
+                and uid=#{uid}
+            </if>
+            <if test="productCode != null and productCode !=''">
+                and product_code=#{productCode}
+            </if>
+            <if test="fields != null and fields.size() > 0">
+                and (<foreach collection="fields" item="field" separator=" or ">
+                field = #{field}
+            </foreach>)
+            </if>
+            and UNIX_TIMESTAMP(collect_time) * 1000 between #{startTimestamp} and #{endTimestamp}
+        </where>
+    </select>
+    <select id="pageOfCommonByTime" resultMap="DtoResultMap">
+        select * from iot_collect_data
+        <where>
+            <if test="uid != null and uid !=''">
+                and uid=#{uid}
+            </if>
+            <if test="productCode != null and productCode !=''">
+                and product_code=#{productCode}
+            </if>
+            <if test="fields != null and fields.size() > 0">
+                and (<foreach collection="fields" item="field" separator=" or ">
+                field = #{field}
+            </foreach>)
+            </if>
+            and UNIX_TIMESTAMP(collect_time) * 1000 between #{startTimestamp} and #{endTimestamp}
+        </where>
+    </select>
+
+</mapper>

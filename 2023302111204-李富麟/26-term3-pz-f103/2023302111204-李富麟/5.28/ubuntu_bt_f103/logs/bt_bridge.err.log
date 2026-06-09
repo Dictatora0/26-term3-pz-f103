@@ -1,0 +1,10 @@
+D:\Proj\5.28\ubuntu_bt_f103\scripts\ubuntu\bt_mqtt_bridge.py:34: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  self.client = mqtt.Client(client_id=args.client_id, clean_session=True, protocol=mqtt.MQTTv311)
+2026-05-28 10:25:10,222 INFO opening serial device COM8 @ 9600
+2026-05-28 10:25:10,278 INFO mqtt connected rc=0
+2026-05-28 10:25:10,405 ERROR open serial failed: could not open port 'COM8': OSError(22, '设备没有连接。', None, 1167)
+2026-05-28 10:25:12,423 INFO opening serial device COM8 @ 9600
+2026-05-28 10:25:12,457 ERROR open serial failed: could not open port 'COM8': PermissionError(13, '拒绝访问。', None, 5)
+2026-05-28 10:25:14,479 INFO opening serial device COM8 @ 9600
+2026-05-28 10:25:19,605 ERROR open serial failed: could not open port 'COM8': OSError(22, '信号灯超时时间已到', None, 121)
+2026-05-28 10:25:21,610 INFO opening serial device COM8 @ 9600

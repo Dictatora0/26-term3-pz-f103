@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.EventSourceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.iteaj.iboot.module.iot.entity.EventSource">
+        <result column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="cron" property="cron" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="has_passive" property="hasPassive" />
+        <result column="create_time" property="createTime" />
+        <result column="product_ids" property="productIds"
+                typeHandler="com.iteaj.framework.mybatis.handler.FastjsonTypeHandler"/>
+        <result column="device_group_ids" property="deviceGroupIds"
+                typeHandler="com.iteaj.framework.mybatis.handler.FastjsonTypeHandler" />
+    </resultMap>
+    <resultMap id="DetailResultMap" type="com.iteaj.iboot.module.iot.entity.EventSource" extends="BaseResultMap">
+        <collection property="modelApiIds" ofType="String">
+            <result column="model_api_id" />
+        </collection>
+    </resultMap>
+    <resultMap id="DetailCollectResultMap" type="com.iteaj.iboot.module.iot.dto.EventSourceDto" extends="BaseResultMap">
+        <collection property="apis" resultMap="com.iteaj.iboot.module.iot.mapper.ModelApiMapper.DetailResultMap"
+                    columnPrefix="ma_" foreignColumn="id"/>
+        <collection property="groups" resultMap="com.iteaj.iboot.module.iot.mapper.DeviceGroupMapper.BaseResultMap" columnPrefix="dg_" />
+    </resultMap>
+    <delete id="removeAllByIds">
+        delete f from iot_event_source f
+        where f.id in (
+        <foreach collection="list" item="eventSourceId" separator=",">
+            #{eventSourceId}
+        </foreach>);
+    </delete>
+    <select id="countStatusProfile" resultType="com.iteaj.iboot.module.iot.dto.FuncStatusProfileDto">
+        select count(1) totalNum, count(if(status='enabled', 1, null)) enabledNum from iot_event_source
+        <where>
+            <if test="groupId!=null">
+                and json_contains(device_group_ids, concat('', #{groupId}))
+            </if>
+            <if test="productId!=null">
+                and json_contains(product_ids, concat('', #{productId}))
+            </if>
+        </where>
+    </select>
+    <select id="detailPage" resultMap="BaseResultMap">
+        select a.* from iot_event_source a
+            left join iot_product p on json_contains(a.product_ids, concat('', p.id))
+        <where>
+            <if test="entity.type != null">
+                and a.type = #{entity.type}
+            </if>
+           <if test="entity.productId != null">
+                and json_contains(a.product_ids, concat('', #{entity.productId}))
+           </if>
+            <if test="entity.deviceGroupId != null">
+                and json_contains(a.device_group_ids, concat('', #{entity.deviceGroupId}))
+            </if>
+            <if test="entity.name != null and entity.name != ''">
+                and a.name like '%${entity.name}%'
+            </if>
+        </where>
+        group by a.id order by a.create_time desc
+    </select>
+
+    <select id="detailById" resultMap="DetailResultMap">
+        select a.*, esd.model_api_id from iot_event_source a
+            left join iot_event_source_detail esd on a.id = esd.event_source_id
+        where a.id=#{id}
+    </select>
+
+    <select id="availableSources" resultType="com.iteaj.framework.IVOption">
+        select a.name label, a.id value, count(l.event_source_id) extra from iot_event_source a
+            left join iot_linkage l on a.id=l.event_source_id
+    </select>
+
+    <select id="collectDetailById" resultMap="DetailCollectResultMap">
+        select a.*, ma.id ma_id, ma.type ma_type, ma.code ma_code, ma.direct ma_direct, ma.product_id ma_product_id
+             , ma.name ma_name, ma.status ma_status, ma.func_type ma_func_type, ma.trigger_mode ma_trigger_mode
+             , dg.id dg_id, dg.name dg_name, dg.pid dg_pid
+        from iot_event_source a
+            left join iot_device_group dg on json_contains(a.device_group_ids, concat('', dg.id))
+            left join iot_model_api ma on ma.func_type='R' and ma.trigger_mode='passive' and json_contains(a.product_ids, concat('', ma.product_id))
+        where a.id=#{id}
+    </select>
+
+    <select id="listProductById" resultType="com.iteaj.iboot.module.iot.entity.Product">
+        select p.* from iot_event_source a
+            left join iot_product p on json_contains(a.product_ids, concat('', p.id))
+        where a.id=#{id} <if test="status != null">and p.status = #{status}</if>
+    </select>
+    <select id="listDeviceGroupById" resultType="com.iteaj.iboot.module.iot.entity.DeviceGroup">
+        select dg.* from iot_event_source a
+            inner join iot_device_group dg on json_contains(a.device_group_ids, concat('', dg.id))
+        where a.id = #{id}
+    </select>
+</mapper>

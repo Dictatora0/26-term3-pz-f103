@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+me.x1ao.jetlinks.cfg.JetLinksAutoConfiguration

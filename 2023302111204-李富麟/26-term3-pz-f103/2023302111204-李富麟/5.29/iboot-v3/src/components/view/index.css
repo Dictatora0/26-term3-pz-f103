@@ -1,0 +1,29 @@
+.u-page-view .u-view,.u-page-view.u-default-view {
+    margin: 3px 0px;
+}
+
+.u-page-view .u-view-drawer, .u-page-view .u-view-modal {
+    padding: 0px 0px!important;
+}
+.u-page-view .ivz-ibt-fun {
+    font-size: 13px;
+    padding: 0px 5px;
+    display: inline-block;
+}
+.u-page-view .ant-table-thead > tr > th {
+    background: #f5f5f5;
+}
+.u-search .ant-form-item {
+    margin-bottom: 10px;
+}
+.u-search .u-row {
+    width: 100%;
+}
+.u-form-drawer .ant-table-title .u-search.u-bs-search
+    ,.u-form-modal .ant-table-title .u-search.u-bs-search {
+    padding: 3px 8px;
+}
+/*表视图组件样式*/
+.iv-func-disabled {
+    cursor: not-allowed;
+}

@@ -1,0 +1,391 @@
+14:42:35 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 5844 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:42:35 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:43:03 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 9276 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:43:03 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:43:32 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 10788 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:43:32 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:44:00 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 22808 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:44:00 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:44:27 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 21768 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:44:27 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:44:56 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 18692 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:44:56 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:45:17 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:45:17 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:45:17 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:45:17 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:45:17 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:45:25 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 23180 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:45:25 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:45:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:45:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:45:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:45:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:45:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:46:01 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 15032 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:46:01 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:46:26 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:46:26 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:46:26 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:46:26 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:46:26 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:46:47 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 16292 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:46:47 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:47:14 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:47:14 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:47:14 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:47:14 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:47:14 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:47:20 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 3056 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:47:20 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:47:35 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:47:35 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:47:35 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:47:35 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:47:35 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:47:41 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 17396 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:47:41 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:47:56 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:47:56 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:47:56 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:47:56 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:47:56 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:48:03 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 21184 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:48:03 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:48:24 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 19700 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:48:24 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:48:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:48:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:48:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:48:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:48:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:48:48 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 3420 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:48:48 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:49:02 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:49:02 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:49:02 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:49:02 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:49:02 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:49:09 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 20376 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:49:09 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:49:25 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:49:25 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:49:25 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:49:25 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:49:25 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:49:31 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 22336 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:49:31 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:49:47 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:49:47 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:49:47 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:49:47 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:49:47 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:49:54 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 1456 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:49:54 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:50:12 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:50:12 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:50:12 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:50:12 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:50:12 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:50:20 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 20880 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:50:20 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:50:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:50:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:50:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:50:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:50:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:50:45 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 11300 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:50:45 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:50:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:50:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:50:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:50:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:50:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:51:06 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 13572 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:51:06 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:51:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:51:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:51:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:51:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:51:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:51:28 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 20824 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:51:28 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:51:53 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:51:53 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:51:53 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:51:53 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:51:53 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:52:03 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 3624 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:52:03 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:52:22 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:52:22 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:52:22 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:52:22 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:52:22 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:52:31 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 1580 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:52:31 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:52:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:52:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:52:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:52:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:52:49 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:53:22 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 8024 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:53:22 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:53:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:53:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:53:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:53:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:53:38 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:53:44 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 11592 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:53:44 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:53:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:53:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:53:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:53:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:53:59 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:54:07 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 2588 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:54:07 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:54:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:54:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:54:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:54:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:54:21 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:54:27 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 8740 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:54:27 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:54:42 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:54:42 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:54:42 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:54:42 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:54:42 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:54:49 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 8016 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:54:49 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:55:03 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:55:03 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:55:03 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:55:03 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:55:03 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:55:09 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 21844 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:55:09 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:55:23 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:55:23 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:55:23 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:55:23 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:55:23 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:55:30 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 18208 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:55:30 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:55:44 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:55:44 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:55:44 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:55:44 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:55:44 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:55:51 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 18480 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:55:51 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:56:06 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:56:06 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:56:06 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:56:06 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:56:06 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:56:12 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 15288 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:56:12 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:56:17 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 3784 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+14:56:17 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+14:56:36 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+14:56:36 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+14:56:36 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+14:56:36 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+14:56:36 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+14:56:41 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 24.28 seconds (JVM running for 25.243)
+14:56:41 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+14:56:41 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+14:56:41 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+14:56:41 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+14:56:41 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+14:56:42 [IWT-5-2] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+15:13:36 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 19776 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+15:13:36 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+15:14:19 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+15:14:19 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+15:14:19 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+15:14:19 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+15:14:19 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+15:14:24 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 57.074 seconds (JVM running for 74.199)
+15:14:24 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+15:14:24 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+15:14:24 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+15:14:24 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+15:14:25 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+15:14:25 [IWT-5-2] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+15:36:56 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 296 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+15:36:56 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+15:37:15 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+15:37:15 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+15:37:15 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+15:37:15 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+15:37:15 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+15:37:19 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 25.048 seconds (JVM running for 29.753)
+15:37:19 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+15:37:19 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+15:37:19 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+15:37:19 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+15:37:19 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+15:37:20 [IWT-5-2] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+15:41:53 [https-jsse-nio-8443-exec-8] ERROR c.iteaj.framework.exception.IBootControllerAdvice - 安全校验失败
+com.iteaj.framework.security.SecurityException: 没有权限访问[iot:device:ctrl]
+	at com.iteaj.framework.security.SecurityInterceptor.checkPermission(SecurityInterceptor.java:35)
+	at com.iteaj.framework.security.SecurityInterceptor.preHandle(SecurityInterceptor.java:20)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.github.xiaoymin.knife4j.aggre.core.filter.Knife4jRouteProxyFilter.doFilter(Knife4jRouteProxyFilter.java:84)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at cn.dev33.satoken.filter.SaServletFilter.doFilter(SaServletFilter.java:157)
+	at com.iteaj.iboot.plugin.satoken.SaTokenAutoConfiguration$1.doFilter(SaTokenAutoConfiguration.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+16:09:51 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 22232 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+16:09:51 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+16:10:27 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+16:10:27 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+16:10:27 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+16:10:27 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+16:10:27 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+16:10:33 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 46.131 seconds (JVM running for 58.516)
+16:10:33 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+16:10:33 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+16:10:33 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+16:10:33 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+16:10:34 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+16:10:34 [IWT-5-2] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+16:16:52 [https-jsse-nio-8443-exec-3] ERROR c.iteaj.framework.exception.IBootControllerAdvice - 未知错误
+org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('\' (code 92)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('\' (code 92)): was expecting double-quote to start field name
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 3]
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:391)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:343)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:185)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:160)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.github.xiaoymin.knife4j.aggre.core.filter.Knife4jRouteProxyFilter.doFilter(Knife4jRouteProxyFilter.java:84)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at cn.dev33.satoken.filter.SaServletFilter.doFilter(SaServletFilter.java:157)
+	at com.iteaj.iboot.plugin.satoken.SaTokenAutoConfiguration$1.doFilter(SaTokenAutoConfiguration.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('\' (code 92)): was expecting double-quote to start field name
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 3]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2391)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:735)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:659)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._handleOddName(UTF8StreamJsonParser.java:2096)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._parseName(UTF8StreamJsonParser.java:1746)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextToken(UTF8StreamJsonParser.java:798)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:180)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3682)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:380)
+	... 58 common frames omitted
+16:36:29 [IWT-5-2] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+16:36:29 [IWT-5-3] WARN  com.iteaj.iot.server.handle.EventManagerHandler - 客户端断线(websocket(Server)) 客户端异常 - 客户端编号: 未注册 - 客户端地址: /127.0.0.1:56212
+16:36:29 [IWT-5-2] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+16:38:07 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 10196 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+16:38:07 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+16:38:51 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+16:38:51 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+16:38:51 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+16:38:51 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+16:38:51 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+16:39:06 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 62.873 seconds (JVM running for 81.997)
+16:39:06 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+16:39:07 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+16:39:07 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+16:39:07 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+16:39:11 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+16:39:13 [IWT-5-2] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+16:43:58 [IWT-5-3] WARN  com.iteaj.iot.server.handle.EventManagerHandler - 客户端断线(websocket(Server)) 连接关闭 - 客户端编号: 44fea2e7 - 客户端地址: /127.0.0.1:57225

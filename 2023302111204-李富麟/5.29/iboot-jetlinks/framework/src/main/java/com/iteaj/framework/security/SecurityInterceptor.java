@@ -13,42 +13,52 @@ public class SecurityInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if(handler instanceof HandlerMethod) {
-            Method method = ((HandlerMethod) handler).getMethod();
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
+            Method method = handlerMethod.getMethod();
 
-            // 开始做权限校验
-            CheckPermission permission = method.getAnnotation(CheckPermission.class);
-            if(permission != null) { // 先检查方法上的权限注解
-                if(!SecurityUtil.hasPermission(permission.logical(), permission.value())) {
-                    throw new SecurityException("没有权限访问["+ Arrays.stream(permission.value()).collect(Collectors.joining())+"]");
-                }
-            } else { // 如果方法上没有使用类级别的注解
-                Class<?> beanType = ((HandlerMethod) handler).getBeanType();
-                CheckPermission annotation = beanType.getAnnotation(CheckPermission.class);
-                if(annotation != null) {
-                    if(!SecurityUtil.hasPermission(annotation.logical(), annotation.value())) {
-                        throw new SecurityException("没有权限访问["+Arrays.stream(annotation.value()).collect(Collectors.joining())+"]");
-                    }
-                }
-            }
-
-            // 做角色校验
-            CheckRole checkRole = method.getAnnotation(CheckRole.class);
-            if(checkRole != null) {// 先检查方法上的角色注解
-                if(!SecurityUtil.hasRole(checkRole.logical(), checkRole.value())) {
-                    throw new SecurityException("没有角色访问["+ Arrays.stream(checkRole.value()).collect(Collectors.joining())+"]");
-                }
-            } else {// 如果方法上没有使用类级别的角色注解
-                Class<?> beanType = ((HandlerMethod) handler).getBeanType();
-                CheckRole annotation = beanType.getAnnotation(CheckRole.class);
-                if(annotation != null) {
-                    if(!SecurityUtil.hasPermission(annotation.logical(), annotation.value())) {
-                        throw new SecurityException("没有权限访问["+Arrays.stream(annotation.value()).collect(Collectors.joining())+"]");
-                    }
-                }
-            }
+            checkPermission(method, handlerMethod.getBeanType());
+            checkRole(method, handlerMethod.getBeanType());
+            checkScope(method, handlerMethod.getBeanType());
         }
 
         return HandlerInterceptor.super.preHandle(request, response, handler);
+    }
+
+    private void checkPermission(Method method, Class<?> beanType) {
+        CheckPermission permission = method.getAnnotation(CheckPermission.class);
+        if (permission == null) {
+            permission = beanType.getAnnotation(CheckPermission.class);
+        }
+
+        if (permission != null && !SecurityUtil.hasPermission(permission.logical(), permission.value())) {
+            throw new SecurityException("没有权限访问[" + join(permission.value()) + "]", 403);
+        }
+    }
+
+    private void checkRole(Method method, Class<?> beanType) {
+        CheckRole role = method.getAnnotation(CheckRole.class);
+        if (role == null) {
+            role = beanType.getAnnotation(CheckRole.class);
+        }
+
+        if (role != null && !SecurityUtil.hasRole(role.logical(), role.value())) {
+            throw new SecurityException("没有角色访问[" + join(role.value()) + "]", 403);
+        }
+    }
+
+    private void checkScope(Method method, Class<?> beanType) {
+        CheckScope scope = method.getAnnotation(CheckScope.class);
+        if (scope == null) {
+            scope = beanType.getAnnotation(CheckScope.class);
+        }
+
+        if (scope != null && !SecurityUtil.hasScope(scope.logical(), scope.value())) {
+            throw new SecurityException("访问令牌缺少授权范围[" + join(scope.value()) + "]", 403);
+        }
+    }
+
+    private String join(String[] values) {
+        return Arrays.stream(values).collect(Collectors.joining(","));
     }
 }

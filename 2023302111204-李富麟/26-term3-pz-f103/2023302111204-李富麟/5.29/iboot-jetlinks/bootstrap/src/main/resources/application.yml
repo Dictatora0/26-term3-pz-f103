@@ -1,0 +1,47 @@
+# 应用名称
+spring:
+  application:
+    name: BootstrapApplication
+
+  # 环境参数 [dev, test, prod]
+  profiles:
+    active: dev  # 当前激活的环境
+    include: iot  # 可选启用的业务模块
+
+  main:
+    # 允许循环引用
+    allow-circular-references: true
+
+  task:
+    scheduling:
+      pool:
+        size: 3  # 调度任务线程池大小
+    execution:
+      pool:
+        core-size: 5  # 执行任务核心线程池大小
+        max-size: 16  # 执行任务最大线程池大小
+
+# 是否启用集群模式
+framework:
+  cluster: false
+
+  shiro:
+    # 是否启用Redis缓存Session
+    redis: false
+
+# 上传文件访问根路径
+msn:
+  upload-root-uri: /img/upload
+
+  core:
+    # 验证码类型
+    captcha-type: math
+
+    # 系统登录地址
+    login-url: /core/login
+
+    # 认证成功后跳转的Url
+    success-url: /
+
+    # 没有权限访问时跳转的Url
+    unauthorized-url: /403

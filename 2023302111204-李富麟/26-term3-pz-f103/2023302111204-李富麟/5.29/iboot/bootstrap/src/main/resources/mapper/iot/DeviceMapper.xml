@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iteaj.iboot.module.iot.mapper.DeviceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.iteaj.iboot.module.iot.entity.Device">
+        <result column="id" property="id" />
+        <result column="ip" property="ip" />
+        <result column="uid" property="uid" />
+        <result column="lat" property="lat" />
+        <result column="lon" property="lon" />
+        <result column="name" property="name" />
+        <result column="port" property="port" />
+        <result column="product_id" property="productId" />
+        <result column="extend" property="extend" />
+        <result column="status" property="status" />
+        <result column="address" property="address" />
+        <result column="account" property="account" />
+        <result column="password" property="password" />
+        <result column="device_sn" property="deviceSn" />
+        <result column="config" property="config"
+            typeHandler="com.iteaj.framework.mybatis.handler.FastjsonTypeHandler" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="product_type_id" property="productTypeId" />
+        <result column="parent_device_sn" property="parentDeviceSn" />
+    </resultMap>
+    <resultMap id="DeviceDtoMap" type="com.iteaj.iboot.module.iot.dto.DeviceDto" extends="BasicMap">
+        <result property="deviceType" column="device_type" />
+        <result property="productName" column="product_name" />
+        <result property="productCode" column="product_code" />
+        <result property="protocolCode" column="protocol_code" />
+        <result property="gatewayId" column="gateway_id" />
+        <result property="connectType" column="connect_type" />
+        <result property="gatewayName" column="gateway_name" />
+        <result property="productTypeName" column="product_type_name" />
+        <result property="deviceGroupName" column="device_group_name" />
+    </resultMap>
+    <resultMap id="DeviceStatusMap" type="com.iteaj.iboot.module.iot.cache.entity.RealtimeStatus">
+        <result property="id" column="id" />
+        <result property="uid" column="uid" />
+        <result property="deviceSn" column="deviceSn" />
+        <result property="deviceName" column="name" />
+        <result property="parentDeviceSn" column="parentDeviceSn" />
+        <result property="type" column="type" />
+        <result property="status" column="status" />
+        <result property="groupId" column="groupId" />
+        <result property="productId" column="productId" />
+        <result property="updateTime" column="updateTime" />
+        <result property="productCode" column="productCode" />
+        <result property="protocolCode" column="protocolCode" />
+        <result property="config" column="config" typeHandler="com.iteaj.framework.mybatis.handler.FastjsonTypeHandler" />
+    </resultMap>
+    <select id="pageOfDetail" resultMap="DeviceDtoMap">
+        select a.*, idm.name product_name, ig.name gateway_name, idm.device_type, idm.code product_code
+             , dg.name device_group_name, pd.device_sn parent_device_sn, ig.connect_type, idm.gateway_id from iot_device a
+            left join iot_product idm on a.product_id=idm.id
+            left join iot_device pd on a.pid = pd.id
+            left join iot_gateway ig on idm.gateway_id=ig.id
+            left join iot_device_group dg on a.device_group_id=dg.id
+        <where>
+             <if test="entity.pid!=null">
+                and a.pid = #{entity.pid}
+            </if>
+            <if test="entity.productId!=null">
+                and a.product_id = #{entity.productId}
+            </if>
+            <if test="entity.deviceType!=null">
+                and idm.device_type = #{entity.deviceType}
+            </if>
+            <if test="entity.protocol != null">
+                and ig.protocol_type = #{entity.protocol}
+            </if>
+            <if test="entity.deviceGroupId!=null">
+                and a.device_group_id = #{entity.deviceGroupId}
+            </if>
+            <if test="entity.productTypeId!=null">
+                and idm.product_type_id = #{entity.productTypeId}
+            </if>
+            <if test="entity.protocolCodes != null">
+                and (
+                    <foreach collection="entity.protocolCodes" item="code" separator=" or ">
+                        idm.protocol_code=#{code}
+                    </foreach>
+                )
+            </if>
+            <if test="entity.status!=null">
+                and a.status = #{entity.status}
+            </if>
+            <if test="entity.productName!=null">
+                and idm.name like '%${entity.productName}%'
+            </if>
+            <if test="entity.deviceSn!=null and entity.deviceSn!=''">
+                and a.device_sn like '%${entity.deviceSn}%'
+            </if>
+            <if test="entity.name!=null and entity.name!=''">
+                and a.name like '%${entity.name}%'
+            </if>
+        </where>
+        order by a.status, a.create_time desc
+    </select>
+
+    <select id="countCurrentDevice" resultType="com.iteaj.iboot.module.iot.dto.CurrentDeviceDto">
+        select count(1) today, count(status='online' or null) online from iot_device
+    </select>
+
+    <select id="getByUid" resultMap="BasicMap">
+        select a.*, pd.device_sn parent_device_sn from iot_device a
+            left join iot_device pd on a.pid = pd.id
+        where a.uid=#{uid}
+    </select>
+    <select id="detailById" resultMap="DeviceDtoMap">
+        select a.*, pd.device_sn parent_device_sn, idm.name product_name, idt.name product_type_name
+             , idm.code product_code, idm.gateway_id, idm.device_type, idm.protocol_code from iot_device a
+            left join iot_device pd on a.pid = pd.id
+            left join iot_product idm on a.product_id=idm.id
+            left join iot_product_type idt on idm.product_type_id=idt.id
+        where a.id=#{id}
+    </select>
+
+    <select id="listOfGateway" resultType="com.iteaj.iboot.module.iot.entity.Device">
+        select a.* from iot_device a
+            left join iot_product ip on a.product_id=ip.id
+        where ip.device_type='Gateway' and ip.gateway_id=#{gatewayId}
+    </select>
+    <select id="listByProductId" resultMap="DeviceDtoMap">
+        select a.* from iot_device a where a.product_id=#{productId}
+    </select>
+
+    <select id="getByDeviceSn" resultMap="BasicMap">
+        <choose>
+            <when test="gatewayDeviceSn != null and gatewayDeviceSn != ''">
+                select a.* from iot_device a
+                    left join iot_device pd on a.pid = pd.id
+                    left join iot_product p on a.product_id = p.id
+                    left join iot_protocol pl on p.protocol_code = pl.code
+                where a.device_sn=#{deviceSn} and pd.device_sn=#{gatewayDeviceSn} and pl.code=#{protocolCode}
+            </when>
+            <otherwise>
+                select a.* from iot_device a
+                    left join iot_product p on a.product_id = p.id
+                    left join iot_protocol pl on p.protocol_code = pl.code
+                where a.device_sn=#{deviceSn} and pl.code=#{protocolCode}
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getDeviceCacheById" resultMap="DeviceStatusMap">
+        select a.id, a.uid, a.device_group_id groupId, p.device_type type, a.status, a.device_sn deviceSn, a.config
+             , pd.device_sn parentDeviceSn, p.code productCode, p.id productId, p.protocol_code protocolCode, a.status, a.name
+        from iot_device a
+            left join iot_device pd on a.pid = pd.id
+            inner join iot_product p on a.product_id = p.id
+        where a.id=#{id}
+    </select>
+    <select id="listDeviceStatusById" resultMap="DeviceStatusMap">
+        select a.id, a.uid, a.device_group_id groupId, p.device_type type, a.status, a.device_sn deviceSn, a.config
+             , pd.device_sn parentDeviceSn, p.code productCode, p.id productId, p.protocol_code protocolCode, a.status, a.name
+        from iot_device a
+            left join iot_device pd on a.pid = pd.id
+            inner join iot_product p on a.product_id = p.id
+        <where>
+            a.id in (<foreach collection="list" item="id" separator=",">
+                #{id}
+        </foreach> )
+        </where>
+    </select>
+
+    <select id="listDeviceCache" resultMap="DeviceStatusMap">
+        select a.id, a.uid, a.device_group_id groupId, p.device_type type, a.status, a.device_sn deviceSn, a.config
+             , pd.device_sn parentDeviceSn, p.code productCode, p.id productId, p.protocol_code protocolCode, a.status, a.name
+        from iot_device a
+             left join iot_device pd on a.pid = pd.id
+             inner join iot_product p on a.product_id = p.id
+    </select>
+
+    <select id="getDeviceStatus" resultMap="DeviceStatusMap">
+        select a.id, a.uid, a.device_group_id groupId, p.device_type type, a.status, a.device_sn deviceSn, a.config
+             , pd.device_sn parentDeviceSn, p.code productCode, p.id productId, p.protocol_code protocolCode, a.status, a.name
+        from iot_device a
+            left join iot_device pd on a.pid = pd.id
+             inner join iot_product p on a.product_id = p.id
+        where p.protocol_code=#{protocolCode} and a.device_sn=#{deviceSn}
+        <if test="parentDeviceSn != null and parentDeviceSn != ''">
+            and pd.device_sn = #{parentDeviceSn}
+        </if>
+    </select>
+    <select id="listDeviceStatus" resultMap="DeviceStatusMap">
+        select a.id, a.uid, a.device_group_id groupId, p.device_type type, a.status, a.device_sn deviceSn, a.config
+            , pd.device_sn parentDeviceSn, p.code productCode, p.id productId, p.protocol_code protocolCode, a.status, a.name
+        from iot_device a
+            left join iot_device pd on a.pid = pd.id
+            inner join iot_product p on a.product_id = p.id
+        where p.protocol_code=#{protocolCode}
+        <if test="parentDeviceSn != null and parentDeviceSn != ''">
+            and pd.device_sn = #{parentDeviceSn}
+        </if>
+        <if test="deviceSns != null and deviceSns.size() > 0">
+            and a.device_sn in (
+            <foreach collection="deviceSns" separator="," item="deviceSn">
+                #{deviceSn}
+            </foreach>)
+        </if>
+
+    </select>
+    <select id="countDeviceStatus" resultType="com.iteaj.iboot.module.iot.dto.DeviceStatusDto">
+        select count(if(status='online', 1, null)) onlineNum, count(if(status='offline', 1, null)) offlineNum from iot_device
+        <where>
+            <if test="groupId!=null">
+                and device_group_id=#{groupId}
+            </if>
+            <if test="productId!=null">
+                and product_id=#{productId}
+            </if>
+        </where>
+    </select>
+
+    <select id="listOfEMap" resultType="com.iteaj.iboot.module.iot.dto.EMapDeviceDto">
+        select a.uid, a.name, a.address, a.lat, a.lon, a.device_sn deviceSn, a.status, p.logo from iot_device a
+            left join iot_product p on a.product_id = p.id
+            left join iot_device_group g on a.device_group_id = g.id
+        <where>
+            <if test="productId!=null">
+                and a.product_id=#{productId}
+            </if>
+            <if test="deviceGroupId!=null">
+                and a.device_group_id=#{deviceGroupId}
+            </if>
+            and a.lat is not null
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.StreamProxyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        <result column="name" property="name" />
+        <result column="app" property="app" />
+        <result column="url" property="url" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="enable" property="enable" />
+        <result column="src_url" property="srcUrl" />
+        <result column="dst_url" property="dstUrl" />
+        <result column="rtp_type" property="rtpType" />
+        <result column="stream" property="stream" />
+        <result column="timeout_ms" property="timeoutMs" />
+        <result column="stream_key" property="streamKey" />
+        <result column="enable_mp4" property="enableMp4" />
+        <result column="create_time" property="createTime" />
+        <result column="enable_audio" property="enableAudio" />
+        <result column="media_server_id" property="mediaServerId" />
+        <result column="ffmpeg_cmd_key" property="ffmpegCmdKey" />
+        <result column="enable_remove_none_reader" property="enableRemoveNoneReader" />
+        <result column="enable_disable_none_reader" property="enableDisableNoneReader" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <update id="updateStatusByMediaServerId">
+        UPDATE wvp_stream_proxy SET status=#{status} WHERE media_server_id=#{mediaServerId}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE wvp_stream_proxy SET status=#{status} WHERE app=#{app} AND stream=#{stream}
+    </update>
+    <delete id="deleteAutoRemoveItemByMediaServerId">
+        DELETE FROM wvp_stream_proxy WHERE enable_remove_none_reader=true AND media_server_id=#{mediaServerId}
+    </delete>
+
+    <select id="listDetailByPage" resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT st.*, pgs.gb_id, pgs.name, pgs.longitude, pgs.latitude FROM wvp_stream_proxy st
+            LEFT join wvp_gb_stream pgs on st.app = pgs.app AND st.stream = pgs.stream
+        order by st.create_time desc
+    </select>
+
+    <select id="selectForEnable" resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT st.*, pgs.gb_id, pgs.name, pgs.longitude, pgs.latitude, 'proxy' as streamType FROM wvp_stream_proxy st
+            LEFT join wvp_gb_stream pgs on st.app = pgs.app AND st.stream = pgs.stream
+        WHERE st.enable=#{enable} order by st.create_time desc
+    </select>
+
+    <select id="getByAppAndStream" resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT st.*, pgs.gb_id, pgs.name, pgs.longitude, pgs.latitude FROM wvp_stream_proxy st
+            LEFT join wvp_gb_stream pgs on st.app = pgs.app AND st.stream = pgs.stream
+        WHERE st.app=#{app} AND st.stream=#{stream} order by st.create_time desc
+    </select>
+
+    <select id="selectForEnableInMediaServer" resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT st.*, pgs.gb_id, pgs.name, pgs.longitude, pgs.latitude FROM wvp_stream_proxy st
+            LEFT join wvp_gb_stream pgs on st.app = pgs.app AND st.stream = pgs.stream
+        WHERE st.enable=#{enable} and st.media_server_id= #{id} order by st.create_time desc
+    </select>
+
+    <select id="selectInMediaServer" resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT st.*, pgs.gb_id, pgs.name, pgs.longitude, pgs.latitude FROM wvp_stream_proxy st
+            LEFT join wvp_gb_stream pgs on st.app = pgs.app AND st.stream = pgs.stream
+            WHERE st.media_server_id= #{id} order by st.create_time desc
+    </select>
+
+    <select id="selectAutoRemoveItemByMediaServerId"
+            resultType="com.genersoft.iot.vmp.media.zlm.dto.StreamProxyItem">
+        SELECT st.*, pgs.gb_id, pgs.name, pgs.longitude, pgs.latitude FROM wvp_stream_proxy st
+            LEFT join wvp_gb_stream pgs on st.app = pgs.app AND st.stream = pgs.stream
+        WHERE st.enable_remove_none_reader=true AND st.media_server_id=#{mediaServerId} order by st.create_time desc
+    </select>
+
+    <select id="getOverview" resultType="com.genersoft.iot.vmp.vmanager.bean.ResourceBaseInfo">
+        select count(1) as total, sum(status) as online from wvp_stream_proxy
+    </select>
+
+</mapper>

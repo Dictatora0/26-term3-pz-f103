@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.PlatformChannelMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.vmanager.gb28181.platform.bean.ChannelReduce">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="sub_count" property="subCount" />
+        <result column="manufacturer" property="manufacturer" />
+        <result column="device_id" property="deviceId" />
+        <result column="catalog_id" property="catalogId" />
+        <result column="channel_id" property="channelId" />
+        <result column="platform_id" property="platformId" />
+        <result column="host_address" property="hostAddress" />
+    </resultMap>
+    <insert id="addChannels">
+        INSERT INTO wvp_platform_gb_channel (platform_id, device_channel_id, catalog_id) VALUES
+        <foreach collection='channelReducesToAdd'  item='item' separator=','>
+            (#{platformId}, #{item.id} , #{item.catalogId})
+        </foreach>
+    </insert>
+
+    <delete id="delChannelForGB">
+        DELETE from wvp_platform_gb_channel WHERE platform_id=#{platformId} AND device_channel_id in
+        <foreach collection='channelReducesToDel'  item='item'  open='(' separator=',' close=')' > #{item.id}</foreach>
+    </delete>
+
+    <delete id="delChannelForDeviceId">
+        DELETE from wvp_platform_gb_channel WHERE device_channel_id in
+            ( select  temp.device_channel_id from
+                (select pgc.device_channel_id from wvp_platform_gb_channel pgc
+                    left join wvp_device_channel dc on dc.id = pgc.device_channel_id where dc.device_id  =#{deviceId}
+            ) temp)
+    </delete>
+
+    <delete id="cleanChannelForGB">
+        DELETE from wvp_platform_gb_channel WHERE platform_id=#{platformId}
+    </delete>
+
+    <delete id="delByCatalogId">
+        DELETE from wvp_platform_gb_channel WHERE platform_id=#{platformId} and catalog_id=#{id}
+    </delete>
+
+    <delete id="delByCatalogIdAndChannelIdAndPlatformId">
+        DELETE from wvp_platform_gb_channel  WHERE catalog_id=#{parentId} AND platform_id=#{platformId} AND channel_id=#{id}
+    </delete>
+
+    <delete id="delByPlatformId">
+        DELETE from wvp_platform_gb_channel WHERE platform_id=#{serverGBId}
+    </delete>
+
+    <delete id="delChannelForGBByCatalogId">
+        DELETE from wvp_platform_gb_channel WHERE platform_id=#{platformId}
+            <if test="catalogId != null" >  and catalog_id=#{catalogId}</if>
+    </delete>
+
+    <select id="findChannelRelatedPlatform" resultType="java.lang.Integer">
+        SELECT device_channel_id from wvp_platform_gb_channel
+        WHERE platform_id=#{platformId} AND device_channel_id in
+        <foreach collection='channelReduces' open='(' item='item' separator=',' close=')'> #{item.id}</foreach>
+    </select>
+
+    <select id="queryChannelInParentPlatform" resultType="com.genersoft.iot.vmp.gb28181.bean.DeviceChannel">
+        SELECT dc.* from wvp_platform_gb_channel pgc
+            left join wvp_device_channel dc on dc.id = pgc.device_channel_id
+        WHERE dc.channel_id=#{channelId} and pgc.platform_id=#{platformId}
+    </select>
+
+    <select id="queryAllChannelInCatalog" resultType="com.genersoft.iot.vmp.gb28181.bean.DeviceChannel">
+        SELECT dc.* from wvp_platform_gb_channel pgc
+            left join wvp_device_channel dc on dc.id = pgc.device_channel_id
+        WHERE pgc.platform_id=#{platformId} and pgc.catalog_id=#{catalogId}
+    </select>
+    <select id="queryChannelInParentPlatformAndCatalog"
+            resultType="com.genersoft.iot.vmp.gb28181.bean.PlatformCatalog">
+        select dc.channel_id as id, dc.name as name, pgc.platform_id as platform_id, pgc.catalog_id as parent_id, 0 as children_count, 1 as type
+            from wvp_device_channel dc left join wvp_platform_gb_channel pgc on dc.id = pgc.device_channel_id
+            where pgc.platform_id=#{platformId} and pgc.catalog_id=#{catalogId}
+    </select>
+
+    <select id="queryVideoDeviceByPlatformIdAndChannelId"
+            resultType="com.genersoft.iot.vmp.gb28181.bean.Device">
+        select d.* from wvp_platform_gb_channel pgc
+             left join wvp_device_channel dc on dc.id = pgc.device_channel_id
+             left join wvp_device d on dc.device_id = d.device_id
+        where dc.channel_id = #{channelId} and pgc.platform_id=#{platformId}
+    </select>
+
+    <select id="queryPlatFormListForGBWithGBId" resultType="com.genersoft.iot.vmp.gb28181.bean.ParentPlatform">
+        SELECT pp.* FROM wvp_platform pp
+            left join wvp_platform_gb_channel pgc on pp.server_gb_id = pgc.platform_id
+            left join wvp_device_channel dc on dc.id = pgc.device_channel_id
+        WHERE dc.channel_id = #{channelId} and pp.status = true AND pp.server_gb_id IN
+        <foreach collection='platforms' item='item'  open='(' separator=',' close=')' > #{item}</foreach>
+    </select>
+    <select id="queryDeviceInfoByPlatformIdAndChannelId"
+            resultType="com.genersoft.iot.vmp.gb28181.bean.Device">
+        select dc.channel_id, dc.device_id, dc.name, d.manufacturer, d.model, d.firmware
+            from wvp_platform_gb_channel pgc
+                 left join wvp_device_channel dc on dc.id = pgc.device_channel_id
+                 left join wvp_device d on dc.device_id = d.device_id
+            where dc.channel_id = #{channelId} and pgc.platform_id=#{platformId}
+    </select>
+
+    <select id="queryParentPlatformByChannelId" resultType="java.lang.String">
+        SELECT pgc.platform_id from wvp_platform_gb_channel pgc
+            left join wvp_device_channel dc on dc.id = pgc.device_channel_id
+        WHERE dc.channel_id = ${channelId}
+    </select>
+
+</mapper>

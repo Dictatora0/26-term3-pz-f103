@@ -34,6 +34,11 @@ public class FrameworkProperties {
     private Web web = new Web();
 
     /**
+     * 安全相关配置
+     */
+    private Security security = new Security();
+
+    /**
      * 启用的模块
      * 配置格式如下：<hr>
      *     framework.profiles.core=true
@@ -63,6 +68,70 @@ public class FrameworkProperties {
          * session配置
          */
         private Session session = new Session();
+    }
+
+    @Data
+    public static class Security {
+
+        /**
+         * 是否启用 Bearer JWT 认证
+         */
+        private boolean enableJwt = true;
+
+        /**
+         * JWT 签发者
+         */
+        private String issuer = "iboot-local";
+
+        /**
+         * JWT HMAC 密钥
+         */
+        private String jwtSecret;
+
+        /**
+         * Access Token 有效期(秒)
+         */
+        private long accessTokenTtl = 30 * 60;
+
+        /**
+         * Bearer Token 请求头名称
+         */
+        private String authorizationHeader = "Authorization";
+
+        /**
+         * Bearer Token 前缀
+         */
+        private String bearerPrefix = "Bearer ";
+
+        /**
+         * 是否允许兼容旧 access_token 请求头
+         */
+        private boolean allowLegacyHeader = true;
+
+        /**
+         * OAuth2/JWT Access Token 签发开关
+         */
+        private boolean enableOauth2 = true;
+
+        /**
+         * OAuth2 授权服务器 issuer
+         */
+        private String oauth2Issuer = "iboot-oauth2";
+
+        /**
+         * 本地测试时固定验证码开关
+         */
+        private boolean testBypassCaptcha = false;
+
+        /**
+         * 本地测试时固定验证码值
+         */
+        private String testCaptcha = "8888";
+
+        /**
+         * 本地测试时是否允许授权页自动确认
+         */
+        private boolean oauth2AutoApprove = true;
     }
 
     /**

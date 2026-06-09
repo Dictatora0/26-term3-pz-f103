@@ -1,0 +1,419 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: xx xx, xx, LIC=PE7DL-04QBD-X71RZ-JCE4D-7YGSF-ZGVIM
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.40.0.3
+Toolchain Path:  C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.40.0.3
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      CMSIS_AGDI.dll V1.33.18.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+D:\Proj\5.26\¶Ô»°¿ò\Template.uvprojx
+Project File Date:  05/26/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Users\admin\AppData\Local\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_it.c...
+compiling stm32f10x_exti.c...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_tim.c...
+compiling main.c...
+compiling stm32f10x_wwdg.c...
+compiling stm32f10x_iwdg.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_dac.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_rtc.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_can.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_flash.c...
+compiling core_cm3.c...
+compiling led.c...
+compiling ctiic.c...
+compiling key.c...
+compiling iic.c...
+compiling 24cxx.c...
+compiling tftlcd.c...
+APP\tftlcd\tftlcd.c(1116): warning:  #177-D: variable "g"  was declared but never referenced
+   	u16 r=0,g=0,b=0;
+APP\tftlcd\tftlcd.c(1116): warning:  #177-D: variable "b"  was declared but never referenced
+   	u16 r=0,g=0,b=0;
+APP\tftlcd\tftlcd.c(1117): warning:  #177-D: variable "r1"  was declared but never referenced
+  	u16 r1,r2,r3;
+APP\tftlcd\tftlcd.c(1117): warning:  #177-D: variable "r2"  was declared but never referenced
+  	u16 r1,r2,r3;
+APP\tftlcd\tftlcd.c(1117): warning:  #177-D: variable "r3"  was declared but never referenced
+  	u16 r1,r2,r3;
+APP\tftlcd\tftlcd.c(1118): warning:  #177-D: variable "value"  was declared but never referenced
+  	u32 value;
+APP\tftlcd\tftlcd.c(4242): warning:  #550-D: variable "num"  was set but never used
+  	long tmp=0,num=0;
+APP\tftlcd\tftlcd.c: 7 warnings, 0 errors
+compiling touch.c...
+compiling lv_disp.c...
+compiling lv_group.c...
+compiling system.c...
+compiling SysTick.c...
+compiling usart.c...
+compiling gt5663.c...
+compiling cst716.c...
+compiling lv_indev.c...
+compiling lv_refr.c...
+compiling lv_draw.c...
+compiling lv_style.c...
+compiling lv_draw_arc.c...
+compiling time.c...
+compiling lv_obj.c...
+compiling lv_draw_basic.c...
+compiling lv_draw_label.c...
+compiling lv_draw_img.c...
+GUI\lvgl\src\lv_draw\lv_draw_img.c(53): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(coords, mask, &lv_style_plain, LV_OPA_COVER, "No\ndata", LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_draw\lv_draw_img.c(53): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(coords, mask, &lv_style_plain, LV_OPA_COVER, "No\ndata", LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_draw\lv_draw_img.c(63): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(coords, mask, &lv_style_plain, LV_OPA_COVER, "No\ndata", LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_draw\lv_draw_img.c(63): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(coords, mask, &lv_style_plain, LV_OPA_COVER, "No\ndata", LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_draw\lv_draw_img.c(496): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(coords, mask, &lv_style_plain, LV_OPA_COVER, cdsc->dec_dsc.error_msg, LV_TXT_FLAG_NONE, NULL, -1,
+GUI\lvgl\src\lv_draw\lv_draw_img.c(497): warning:  #68-D: integer conversion resulted in a change of sign
+                        -1, NULL);
+GUI\lvgl\src\lv_draw\lv_draw_img.c: 6 warnings, 0 errors
+compiling lv_img_cache.c...
+compiling lv_draw_line.c...
+compiling lv_font.c...
+compiling lv_draw_triangle.c...
+compiling lv_img_decoder.c...
+compiling lv_font_fmt_txt.c...
+compiling lv_draw_rect.c...
+compiling lv_font_roboto_12.c...
+compiling lv_hal_disp.c...
+compiling lv_font_unscii_8.c...
+compiling lv_font_roboto_22.c...
+compiling lv_font_roboto_28.c...
+compiling lv_font_roboto_16.c...
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1494): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 82, .adv_w = 149, .box_h = 16, .box_w = 8, .ofs_x = 1, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1495): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 146, .adv_w = 187, .box_h = 13, .box_w = 11, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1496): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 218, .adv_w = 160, .box_h = 13, .box_w = 10, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1498): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 288, .adv_w = 85, .box_h = 17, .box_w = 5, .ofs_x = 1, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1499): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 331, .adv_w = 86, .box_h = 17, .box_w = 5, .ofs_x = 0, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1502): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 436, .adv_w = 57, .box_h = 4, .box_w = 2, .ofs_x = 1, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1505): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 447, .adv_w = 106, .box_h = 13, .box_w = 6, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1506): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 486, .adv_w = 144, .box_h = 13, .box_w = 8, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1509): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 616, .adv_w = 144, .box_h = 13, .box_w = 7, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1511): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 716, .adv_w = 144, .box_h = 13, .box_w = 8, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1512): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 768, .adv_w = 144, .box_h = 13, .box_w = 8, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1514): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 874, .adv_w = 144, .box_h = 13, .box_w = 9, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1515): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 933, .adv_w = 144, .box_h = 13, .box_w = 8, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1517): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 994, .adv_w = 66, .box_h = 11, .box_w = 2, .ofs_x = 1, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1522): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 1121, .adv_w = 229, .box_h = 16, .box_w = 13, .ofs_x = 1, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1525): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 1339, .adv_w = 162, .box_h = 13, .box_w = 9, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1529): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 1548, .adv_w = 173, .box_h = 13, .box_w = 9, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1532): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 1673, .adv_w = 140, .box_h = 13, .box_w = 8, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1537): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 1953, .adv_w = 175, .box_h = 13, .box_w = 9, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1539): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2066, .adv_w = 178, .box_h = 13, .box_w = 10, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1541): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2185, .adv_w = 157, .box_h = 13, .box_w = 8, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1543): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2297, .adv_w = 173, .box_h = 13, .box_w = 9, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1549): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2674, .adv_w = 69, .box_h = 16, .box_w = 4, .ofs_x = 1, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1550): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2706, .adv_w = 106, .box_h = 13, .box_w = 7, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1551): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2752, .adv_w = 69, .box_h = 16, .box_w = 3, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1553): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2797, .adv_w = 116, .box_h = 2, .box_w = 8, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1555): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2811, .adv_w = 141, .box_h = 10, .box_w = 8, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1556): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2851, .adv_w = 146, .box_h = 14, .box_w = 8, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1557): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2907, .adv_w = 134, .box_h = 10, .box_w = 8, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1558): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 2947, .adv_w = 146, .box_h = 14, .box_w = 8, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1559): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3003, .adv_w = 134, .box_h = 10, .box_w = 8, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1561): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3082, .adv_w = 146, .box_h = 13, .box_w = 8, .ofs_x = 0, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1564): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3193, .adv_w = 66, .box_h = 17, .box_w = 4, .ofs_x = -1, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1569): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3372, .adv_w = 146, .box_h = 10, .box_w = 9, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1570): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3417, .adv_w = 146, .box_h = 13, .box_w = 8, .ofs_x = 1, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1571): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3469, .adv_w = 146, .box_h = 13, .box_w = 8, .ofs_x = 0, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1573): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3544, .adv_w = 134, .box_h = 10, .box_w = 7, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1574): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3579, .adv_w = 82, .box_h = 12, .box_w = 5, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1575): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3609, .adv_w = 146, .box_h = 10, .box_w = 7, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1579): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3770, .adv_w = 129, .box_h = 13, .box_w = 8, .ofs_x = 0, .ofs_y = -4},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1581): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3858, .adv_w = 87, .box_h = 16, .box_w = 6, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1582): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3906, .adv_w = 63, .box_h = 14, .box_w = 2, .ofs_x = 1, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1583): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3920, .adv_w = 87, .box_h = 16, .box_w = 5, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1585): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 3978, .adv_w = 219, .box_h = 16, .box_w = 14, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1586): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 4090, .adv_w = 274, .box_h = 16, .box_w = 18, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1589): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 4415, .adv_w = 201, .box_h = 12, .box_w = 11, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1590): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 4481, .adv_w = 219, .box_h = 16, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1591): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 4593, .adv_w = 219, .box_h = 15, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1592): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 4698, .adv_w = 201, .box_h = 15, .box_w = 13, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1596): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5075, .adv_w = 219, .box_h = 15, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1599): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5280, .adv_w = 238, .box_h = 13, .box_w = 15, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1600): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5378, .adv_w = 274, .box_h = 15, .box_w = 18, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1601): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5513, .adv_w = 219, .box_h = 15, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1602): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5618, .adv_w = 146, .box_h = 15, .box_w = 10, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1603): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5693, .adv_w = 201, .box_h = 15, .box_w = 13, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1604): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5791, .adv_w = 219, .box_h = 15, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1605): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 5896, .adv_w = 219, .box_h = 15, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1606): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 6001, .adv_w = 146, .box_h = 15, .box_w = 10, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1608): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 6160, .adv_w = 183, .box_h = 15, .box_w = 10, .ofs_x = 1, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1609): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 6235, .adv_w = 183, .box_h = 15, .box_w = 10, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1612): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 6421, .adv_w = 256, .box_h = 16, .box_w = 16, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1613): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 6549, .adv_w = 256, .box_h = 15, .box_w = 16, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1615): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 6749, .adv_w = 256, .box_h = 10, .box_w = 16, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1618): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7021, .adv_w = 238, .box_h = 16, .box_w = 15, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1620): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7226, .adv_w = 256, .box_h = 14, .box_w = 16, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1621): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7338, .adv_w = 256, .box_h = 17, .box_w = 16, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1622): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7474, .adv_w = 219, .box_h = 15, .box_w = 14, .ofs_x = 0, .ofs_y = -2},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1623): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7579, .adv_w = 128, .box_h = 16, .box_w = 8, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1624): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7643, .adv_w = 256, .box_h = 17, .box_w = 16, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1626): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7878, .adv_w = 201, .box_h = 13, .box_w = 13, .ofs_x = 0, .ofs_y = -1},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1627): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 7963, .adv_w = 219, .box_h = 17, .box_w = 14, .ofs_x = 0, .ofs_y = -3},
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c(1634): warning:  #68-D: integer conversion resulted in a change of sign
+      {.bitmap_index = 8829, .adv_w = 219, .box_h = 17, .box_w = 12, .ofs_x = 1, .ofs_y = -3}
+GUI\lvgl\src\lv_font\lv_font_roboto_16.c: 72 warnings, 0 errors
+compiling lv_hal_indev.c...
+compiling lv_hal_tick.c...
+compiling lv_circ.c...
+compiling lv_async.c...
+compiling lv_area.c...
+compiling lv_anim.c...
+compiling lv_fs.c...
+compiling lv_color.c...
+compiling lv_math.c...
+compiling lv_log.c...
+compiling lv_ll.c...
+compiling lv_gc.c...
+compiling lv_mem.c...
+compiling lv_templ.c...
+compiling lv_task.c...
+compiling lv_utils.c...
+compiling lv_txt.c...
+compiling lv_arc.c...
+compiling lv_btn.c...
+compiling lv_bar.c...
+compiling lv_btnm.c...
+GUI\lvgl\src\lv_objx\lv_btnm.c(696): warning:  #68-D: integer conversion resulted in a change of sign
+              lv_draw_label(&area_tmp, mask, btn_style, opa_scale, ext->map_p[txt_i], txt_flag, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_btnm.c(696): warning:  #68-D: integer conversion resulted in a change of sign
+              lv_draw_label(&area_tmp, mask, btn_style, opa_scale, ext->map_p[txt_i], txt_flag, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_btnm.c: 2 warnings, 0 errors
+compiling lv_calendar.c...
+GUI\lvgl\src\lv_objx\lv_calendar.c(661): warning:  #68-D: integer conversion resulted in a change of sign
+      lv_draw_label(&header_area, mask, ext->style_header, opa_scale, txt_buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(661): warning:  #68-D: integer conversion resulted in a change of sign
+      lv_draw_label(&header_area, mask, ext->style_header, opa_scale, txt_buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(666): warning:  #68-D: integer conversion resulted in a change of sign
+      lv_draw_label(&header_area, mask, arrow_style, opa_scale, LV_SYMBOL_LEFT, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(666): warning:  #68-D: integer conversion resulted in a change of sign
+      lv_draw_label(&header_area, mask, arrow_style, opa_scale, LV_SYMBOL_LEFT, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(673): warning:  #68-D: integer conversion resulted in a change of sign
+      lv_draw_label(&header_area, mask, arrow_style, opa_scale, LV_SYMBOL_RIGHT, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(673): warning:  #68-D: integer conversion resulted in a change of sign
+      lv_draw_label(&header_area, mask, arrow_style, opa_scale, LV_SYMBOL_RIGHT, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(698): warning:  #68-D: integer conversion resulted in a change of sign
+                        NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(698): warning:  #68-D: integer conversion resulted in a change of sign
+                        NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(827): warning:  #68-D: integer conversion resulted in a change of sign
+              lv_draw_label(&label_area, mask, final_style, opa_scale, buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c(827): warning:  #68-D: integer conversion resulted in a change of sign
+              lv_draw_label(&label_area, mask, final_style, opa_scale, buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_calendar.c: 10 warnings, 0 errors
+compiling lv_cb.c...
+compiling lv_canvas.c...
+compiling lv_cont.c...
+compiling lv_ddlist.c...
+GUI\lvgl\src\lv_objx\lv_ddlist.c(422): warning:  #111-D: statement is unreachable
+      return NULL;
+GUI\lvgl\src\lv_objx\lv_ddlist.c(566): warning:  #68-D: integer conversion resulted in a change of sign
+                                flag, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_ddlist.c(566): warning:  #68-D: integer conversion resulted in a change of sign
+                                flag, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_ddlist.c(595): warning:  #68-D: integer conversion resulted in a change of sign
+                                    NULL, -1, -1, NULL); /*Use a down arrow in ddlist, you can replace it with your
+GUI\lvgl\src\lv_objx\lv_ddlist.c(595): warning:  #68-D: integer conversion resulted in a change of sign
+                                    NULL, -1, -1, NULL); /*Use a down arrow in ddlist, you can replace it with your
+GUI\lvgl\src\lv_objx\lv_ddlist.c: 5 warnings, 0 errors
+compiling lv_chart.c...
+GUI\lvgl\src\lv_objx\lv_chart.c(1150): warning:  #68-D: integer conversion resulted in a change of sign
+                      lv_draw_label(&a, mask, style, opa_scale, buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_chart.c(1150): warning:  #68-D: integer conversion resulted in a change of sign
+                      lv_draw_label(&a, mask, style, opa_scale, buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_chart.c(1258): warning:  #68-D: integer conversion resulted in a change of sign
+                      lv_draw_label(&a, mask, style, opa_scale, buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_chart.c(1258): warning:  #68-D: integer conversion resulted in a change of sign
+                      lv_draw_label(&a, mask, style, opa_scale, buf, LV_TXT_FLAG_CENTER, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_chart.c: 4 warnings, 0 errors
+compiling lv_gauge.c...
+GUI\lvgl\src\lv_objx\lv_gauge.c(384): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(&label_cord, mask, style, opa_scale, scale_txt, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_gauge.c(384): warning:  #68-D: integer conversion resulted in a change of sign
+          lv_draw_label(&label_cord, mask, style, opa_scale, scale_txt, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_gauge.c: 2 warnings, 0 errors
+compiling lv_imgbtn.c...
+compiling lv_img.c...
+GUI\lvgl\src\lv_objx\lv_img.c(362): warning:  #68-D: integer conversion resulted in a change of sign
+              lv_draw_label(&coords, mask, &style_mod, opa_scale, ext->src, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_img.c(362): warning:  #68-D: integer conversion resulted in a change of sign
+              lv_draw_label(&coords, mask, &style_mod, opa_scale, ext->src, LV_TXT_FLAG_NONE, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_img.c: 2 warnings, 0 errors
+compiling lv_kb.c...
+compiling lv_led.c...
+compiling lv_line.c...
+compiling lv_objx_templ.c...
+compiling lv_label.c...
+compiling lv_lmeter.c...
+compiling lv_list.c...
+compiling lv_mbox.c...
+compiling lv_preload.c...
+compiling lv_roller.c...
+GUI\lvgl\src\lv_objx\lv_roller.c(296): warning:  #111-D: statement is unreachable
+      return NULL;
+GUI\lvgl\src\lv_objx\lv_roller.c(378): warning:  #68-D: integer conversion resulted in a change of sign
+                            lv_label_get_text(ext->ddlist.label), txt_align, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_roller.c(378): warning:  #68-D: integer conversion resulted in a change of sign
+                            lv_label_get_text(ext->ddlist.label), txt_align, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_roller.c: 3 warnings, 0 errors
+compiling lv_slider.c...
+compiling lv_spinbox.c...
+compiling lv_page.c...
+compiling lv_sw.c...
+compiling lv_table.c...
+GUI\lvgl\src\lv_objx\lv_table.c(694): warning:  #68-D: integer conversion resulted in a change of sign
+                                        txt_flags, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_table.c(694): warning:  #68-D: integer conversion resulted in a change of sign
+                                        txt_flags, NULL, -1, -1, NULL);
+GUI\lvgl\src\lv_objx\lv_table.c: 2 warnings, 0 errors
+compiling lv_theme.c...
+compiling lv_ta.c...
+compiling lv_tileview.c...
+compiling lv_win.c...
+compiling lv_theme_alien.c...
+compiling lv_tabview.c...
+compiling lv_theme_default.c...
+GUI\lvgl\src\lv_themes\lv_theme_default.c(40): warning:  #550-D: variable "_hue"  was set but never used
+  static uint16_t _hue;
+GUI\lvgl\src\lv_themes\lv_theme_default.c(41): warning:  #550-D: variable "_font"  was set but never used
+  static lv_font_t * _font;
+GUI\lvgl\src\lv_themes\lv_theme_default.c: 2 warnings, 0 errors
+compiling lv_theme_mono.c...
+compiling lv_theme_material.c...
+compiling lv_theme_nemo.c...
+compiling lv_theme_night.c...
+compiling lv_theme_templ.c...
+GUI\lvgl\src\lv_themes\lv_theme_templ.c(33): warning:  #550-D: variable "_hue"  was set but never used
+  static uint16_t _hue;
+GUI\lvgl\src\lv_themes\lv_theme_templ.c: 1 warning, 0 errors
+compiling lv_theme_zen.c...
+compiling lv_port_disp.c...
+compiling lv_port_indev.c...
+compiling lv_mbox_test.c...
+linking...
+Program Size: Code=66102 RO-data=31062 RW-data=396 ZI-data=42572  
+FromELF: creating hex file...
+".\Obj\Template.axf" - 0 Error(s), 118 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  C:/Users/admin/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:12
+</pre>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.DeviceAlarmMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.DeviceAlarm">
+        <result column="id" property="id" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="alarm_type" property="alarmType" />
+        <result column="create_time" property="createTime" />
+        <result column="device_id" property="deviceId" />
+        <result column="channel_id" property="channelId" />
+        <result column="alarm_time" property="alarmTime" />
+        <result column="alarm_method" property="alarmMethod" />
+        <result column="alarm_priority" property="alarmPriority" />
+        <result column="alarm_description" property="alarmDescription" />
+    </resultMap>
+    <delete id="clearAlarmBeforeTime">
+        DELETE FROM wvp_device_alarm
+        <where>
+            <if test="deviceIdList != null and id == null " > AND device_id in
+                <foreach collection='deviceIdList'  item='item'  open='(' separator=',' close=')' > #{item}</foreach>
+            </if>
+            <if test="time != null and id == null " > AND alarm_time &lt;= #{time}</if>
+            <if test="id != null" > AND id = #{id}</if>
+        </where>
+    </delete>
+
+    <select id="query" resultType="com.genersoft.iot.vmp.gb28181.bean.DeviceAlarm">
+        SELECT * FROM wvp_device_alarm
+        <where>
+            <if test="deviceId != null" >  AND device_id = #{deviceId}</if>
+            <if test="alarmPriority != null" >  AND alarm_priority = #{alarmPriority} </if>
+            <if test="alarmMethod != null" >  AND alarm_method = #{alarmMethod} </if>
+            <if test="alarmType != null" >  AND alarm_type = #{alarmType} </if>
+            <if test="startTime != null" >  AND alarm_time &gt;= #{startTime} </if>
+            <if test="endTime != null" >  AND alarm_time &lt;= #{endTime} </if>
+        </where>
+        ORDER BY alarm_time ASC
+    </select>
+
+</mapper>

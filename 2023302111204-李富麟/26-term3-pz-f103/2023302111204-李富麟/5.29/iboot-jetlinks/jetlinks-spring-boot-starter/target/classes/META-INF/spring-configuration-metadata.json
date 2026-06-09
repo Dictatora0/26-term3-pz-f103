@@ -1,0 +1,43 @@
+{
+  "groups": [
+    {
+      "name": "jetlinks",
+      "type": "me.x1ao.jetlinks.cfg.JetLinksProperties",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jetlinks.auto-connect",
+      "type": "java.lang.Boolean",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "jetlinks.device-id",
+      "type": "java.lang.String",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties"
+    },
+    {
+      "name": "jetlinks.host",
+      "type": "java.lang.String",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties"
+    },
+    {
+      "name": "jetlinks.port",
+      "type": "java.lang.String",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties"
+    },
+    {
+      "name": "jetlinks.product-id",
+      "type": "java.lang.String",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties"
+    },
+    {
+      "name": "jetlinks.token",
+      "type": "java.lang.String",
+      "sourceType": "me.x1ao.jetlinks.cfg.JetLinksProperties"
+    }
+  ],
+  "hints": []
+}

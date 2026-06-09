@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+springProfile: 使用此元素, 日志配置文件名必须使用logback-spring.xml
+scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。
+        当scan为true时，此属性生效。默认的时间间隔为1分钟。
+debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false
+-->
+
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <contextName>IBootConfig:Core</contextName>
+    <property name="LOGGER_PATH_ROOT" value="./logs" />
+
+    <include resource="logback-wvp.xml" />
+
+    <!--<property>用来定义变量值，定义的值会被插入到logger上下文中，可以使“${}”来使用变量。-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>${STDOUT_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-HH:mm:ss.SSS}}){faint} [%clr(${LOG_LEVEL_PATTERN:-%5p})] [%clr(${PID:- }){magenta}] %clr([%1.15t]){faint} %clr(%-40.40logger{32}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOGGER_PATH_ROOT}/info/%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+        <!--日志级别过滤-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <!--日志文件最大的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>30MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOGGER_PATH_ROOT}/error/%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <!--日志级别过滤-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{HH:mm:ss} [%thread] %-3level %logger{50} - %msg%n</pattern>
+        </encoder>
+        <!--日志文件最大的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>30MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <appender name="WebsocketPush" class="com.iteaj.framework.logger.PushAppender"/>
+    <logger level="warn" name="org.springframework.context.support.PostProcessorRegistrationDelegate">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <!--spring 启动异常日志分析-->
+    <logger level="debug" name="org.springframework.boot.diagnostics">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger level="debug" name="PUSH:LOGGER">
+        <appender-ref ref="WebsocketPush" />
+    </logger>
+    <!--开发环境日志输出级别配置-->
+    <springProfile name="dev">
+        <logger level="debug" name="com.iteaj.framework" additivity="false">
+            <appender-ref ref="STDOUT" />
+        </logger>
+        <logger level="debug" name="com.iteaj.iboot" additivity="false">
+            <appender-ref ref="STDOUT" />
+        </logger>
+        <!--    打印下线事件日志    -->
+        <logger level="debug" name="com.iteaj.iot.server.handle.EventManagerHandler" additivity="false">
+            <appender-ref ref="STDOUT" />
+        </logger>
+        <!-- 打印服务端写出到设备的十六进制报文(TCP协议) -->
+<!--        <logger level="trace" name="com.iteaj.iot.server.codec.DeviceProtocolEncoder" additivity="false">-->
+<!--            <appender-ref ref="STDOUT" />-->
+<!--        </logger>-->
+        <!-- 打印服务端写出到设备的十六进制报文(UDP协议) -->
+<!--        <logger level="trace" name="com.iteaj.iot.server.codec.UdpServerProtocolEncoder" additivity="false">-->
+<!--            <appender-ref ref="STDOUT" />-->
+<!--        </logger>-->
+        <logger level="info" name="org.springframework" additivity="false">
+            <appender-ref ref="STDOUT" />
+        </logger>
+        <root level="info">
+            <appender-ref ref="STDOUT" />
+        </root>
+    </springProfile>
+    <springProfile name="test">
+        <logger level="debug" name="com.iteaj" additivity="false">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE_INFO" />
+        </logger>
+        <root level="info">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE_INFO" />
+        </root>
+    </springProfile>
+    <springProfile name="prod">
+        <logger level="info" name="com.iteaj" additivity="false">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE_INFO" />
+        </logger>
+
+        <root level="warn">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE_ERROR" />
+        </root>
+    </springProfile>
+</configuration>

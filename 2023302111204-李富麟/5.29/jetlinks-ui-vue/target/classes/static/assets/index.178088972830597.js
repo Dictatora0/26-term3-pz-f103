@@ -1,0 +1,1 @@
+import{i as e}from"./vue-router.1780889728305.js";import o from"./index.1780889728305106.js";const{defineComponent:t}=await e("vue"),{openBlock:n,createBlock:r}=await e("vue"),m=t({__name:"index",setup(a){return(c,i)=>(n(),r(o,{provider:"OPC_UA"}))}});export{m as default};

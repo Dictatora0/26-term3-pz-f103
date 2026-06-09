@@ -1,0 +1,81 @@
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.iv-main-border.radius {
+    border-radius: 6px;
+}
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    border-right: unset!important;
+}
+.ivz-layout {
+    background: #f0f2f5;
+}
+
+/*菜单样式*/
+.ant-menu-inline-collapsed .anticon {
+    font-size: 20px!important;
+}
+.u-task-bar .ant-tabs-tab .u-tba-title, .u-sider-menu li .ant-menu-title-content {
+    display: inline-block;
+    -webkit-transition: -webkit-transform .2s ease;
+    -moz-transition: transform .2s ease, -moz-transform .2s ease;
+    -o-transition: -o-transform .2s ease;
+    transition: -webkit-transform .2s ease;
+    transition: transform .2s ease;
+    transition: transform .2s ease, -webkit-transform .2s ease, -moz-transform .2s ease, -o-transform .2s ease;
+}
+.u-sider-menu .ant-menu-submenu .ant-menu-submenu-title:hover .ant-menu-title-content {
+    transform: translateX(2px);
+}
+.u-sider-menu ul>.ant-menu-item-active:hover .ant-menu-title-content {
+    transform: translateX(2px);
+}
+
+/*任务栏样式*/
+.u-task-bar .ant-tabs-tab:hover .u-tba-title {
+    transform: translateX(2px);
+}
+
+/*页级试图样式*/
+.u-page-view {
+    padding: 3px;
+    height: 100%;
+}
+/*搜索栏样式*/
+.u-bs-search .u-search-form {
+    padding: 10px 5px 0px;
+    border-radius: 5px;
+    border: 1px dashed #f9f9f9;
+}
+.u-bread-search {
+    padding: 0px;
+    position: relative;
+}
+.u-bread-search .u-search-form {
+    /*padding: 8px;*/
+    margin-bottom: 8px;
+    background: #ffffff;
+}
+.u-bread-search .u-search-form .u-row {
+    border-radius: 5px;
+    padding: 10px 5px 0px;
+    border: 1px dashed #eeeeee;
+}
+.u-bread-search .u-is-fun {
+    padding: 8px 8px 0px;
+    background: #fefefe;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+/*表格样式*/
+.u-search,.u-bread-search .u-search-form,.u-border-radius {
+    border-radius: 3px;
+}
+.iv-condition-modal .ant-tree-node-selected, .iv-action-modal .ant-tree-node-selected {
+    color: #ffffff;
+    background-color: #19B0FE!important;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/bootstrap/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-SaToken/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-code/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-file/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-knife4j/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-oauth2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-dtu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-modbus/modbus-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-modbus/modbus-rtu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-modbus/modbus-tcp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-modbus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-modbus/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/protocol-mqtt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-protocol/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-quartz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/iboot-shiro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-plugin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-tos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-tos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iboot-tos/wvp-GB28181-pro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jetlinks-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jetlinks-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

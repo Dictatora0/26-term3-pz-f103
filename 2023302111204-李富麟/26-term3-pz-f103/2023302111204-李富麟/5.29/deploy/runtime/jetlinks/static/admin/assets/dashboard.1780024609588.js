@@ -1,0 +1,1 @@
+import{i as e}from"./vue-router.1780024609588.js";const{request:o}=await e("@jetlinks-web/core"),a=t=>o.post("/device-product/_count",t),c=t=>o.get("/device/instance/_count",t),d=t=>o.post("/dashboard/_multi",t);export{d as a,c as d,a as p};

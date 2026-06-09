@@ -18,6 +18,7 @@
         <module>framework</module>
         <!--项目启动SpringBoot入口-->
         <module>bootstrap</module>
+        <module>jetlinks-spring-boot-starter</module>
         <!--iboot插件模块-->
         <module>iboot-plugin</module>
         <!--依赖的第三方开源项目-->

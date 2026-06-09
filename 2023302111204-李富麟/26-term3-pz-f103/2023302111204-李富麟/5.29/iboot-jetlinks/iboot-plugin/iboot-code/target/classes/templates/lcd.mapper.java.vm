@@ -1,0 +1,30 @@
+package ${package.Mapper};
+
+import ${package.Entity}.${entity};
+import ${package.Dto}.${dto};
+import ${superMapperClassPackage};
+import java.io.Serializable;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
+/**
+ * $!{table.comment} Mapper 接口
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${kotlin})
+interface ${table.mapperName} : ${superMapperClass}<${entity}>
+#else
+public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+
+    /**
+    * 获取指定的记录详情
+    */
+    ${dto} detailById(Serializable id);
+
+    /**
+    * 获取详情分页记录
+    */
+    IPage<${dto}> detailPage(IPage<${dto}> page, ${dto} entity);
+}
+#end

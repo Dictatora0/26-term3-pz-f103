@@ -1,3 +1,4 @@
+com\iteaj\framework\security\JwtPrincipal.class
 com\iteaj\framework\spi\iot\UpModelAttr.class
 com\iteaj\framework\captcha\CaptchaMapper.class
 com\iteaj\framework\spi\admin\OrderResource.class
@@ -5,6 +6,7 @@ com\iteaj\framework\spi\iot\listener\RealtimePayload.class
 com\iteaj\framework\spi\auth\AuthToken.class
 com\iteaj\framework\spi\admin\MenuType.class
 com\iteaj\framework\logger\LoggerPushService.class
+com\iteaj\framework\security\CheckScope.class
 com\iteaj\framework\TreeEntity.class
 com\iteaj\framework\spi\event\EventPublisher.class
 com\iteaj\framework\spi\iot\data\BaseCondition$ValueMeta.class
@@ -47,6 +49,7 @@ com\iteaj\framework\validate\AllGroup.class
 com\iteaj\framework\autoconfigure\CacheManagerAutoConfiguration$Ehcache3Configuration.class
 com\iteaj\framework\consts\MenuEventType.class
 com\iteaj\framework\json\JacksonUtils.class
+com\iteaj\framework\security\PasswordCodec.class
 com\iteaj\framework\spi\event\FrameworkListener.class
 com\iteaj\framework\spi\iot\consts\PointProtocolConfig.class
 com\iteaj\framework\spi\iot\protocol\AbstractFuncProtocolModelApi.class
@@ -61,6 +64,7 @@ com\iteaj\framework\spi\iot\listener\RealtimeInfoListener.class
 com\iteaj\framework\spi\file\FileException.class
 com\iteaj\framework\spi\iot\DeviceProtocolSupplier.class
 com\iteaj\framework\spi\iot\StaticServerProtocolSupplier.class
+com\iteaj\framework\autoconfigure\FrameworkProperties$Security.class
 com\iteaj\framework\autoconfigure\PluginAutoConfiguration.class
 com\iteaj\framework\spi\admin\Resource.class
 com\iteaj\framework\spi\iot\data\IModelAttrRealtimeDataService.class
@@ -90,6 +94,7 @@ com\iteaj\framework\spi\iot\data\CollectDataCondition.class
 com\iteaj\framework\Proxy\ProxyUtils.class
 com\iteaj\framework\Proxy\TargetInvocationHandler.class
 com\iteaj\framework\spi\auth\AuthType.class
+com\iteaj\framework\security\JwtAccessTokenService.class
 com\iteaj\framework\spi\iot\consts\CountCalcType.class
 com\iteaj\framework\FrameworkController.class
 com\iteaj\framework\security\AuthenticationService.class
@@ -169,6 +174,7 @@ com\iteaj\framework\spi\amqp\SenderService.class
 com\iteaj\framework\spi\iot\consts\ApiFieldType.class
 com\iteaj\framework\result\Result.class
 com\iteaj\framework\spi\admin\auth\AuthenticationUser.class
+com\iteaj\framework\security\JwtTokenClaims.class
 com\iteaj\framework\autoconfigure\FrameworkProperties$Web.class
 com\iteaj\framework\spi\event\AsyncPublisher.class
 com\iteaj\framework\spi\iot\DeviceLogger.class
@@ -192,6 +198,7 @@ com\iteaj\framework\captcha\CaptchaService.class
 com\iteaj\framework\utils\StringUtils.class
 com\iteaj\framework\spi\iot\consts\TimeCountCondition.class
 com\iteaj\framework\spi\iot\NetworkConfigImpl.class
+com\iteaj\framework\security\JwtRevocationService.class
 com\iteaj\framework\autoconfigure\FrameworkProperties$CaptchaConfig.class
 com\iteaj\framework\mybatis\handler\JacksonTypeHandler.class
 com\iteaj\framework\security\SecurityService.class
@@ -249,5 +256,6 @@ com\iteaj\framework\spi\iot\protocol\ProtocolModelApi.class
 com\iteaj\framework\spi\auth\AuthContext.class
 com\iteaj\framework\spi\iot\data\ModelAttrRealtimeData.class
 com\iteaj\framework\spi\iot\consts\ProtocolCodes.class
+com\iteaj\framework\security\JwtRequestContext.class
 com\iteaj\framework\autoconfigure\CacheManagerAutoConfiguration$RedisConfiguration.class
 com\iteaj\framework\spi\iot\consts\DataType.class

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.StreamPushMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.media.zlm.dto.StreamPushItem">
+        <result column="id" property="id" />
+        <result column="app" property="app" />
+        <result column="self" property="self" />
+        <result column="status" property="status" />
+        <result column="stream" property="stream" />
+        <result column="push_ing" property="pushIng" />
+        <result column="push_time" property="pushTime" />
+        <result column="origin_url" property="originUrl" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="origin_type" property="originType" />
+        <result column="alive_second" property="aliveSecond" />
+        <result column="origin_type_str" property="originTypeStr" />
+        <result column="media_server_id" property="mediaServerId" />
+        <result column="total_reader_count" property="totalReaderCount" />
+    </resultMap>
+    <insert id="addAll" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        Insert INTO wvp_stream_push (app, stream, total_reader_count, origin_type, origin_type_str, create_time, alive_second, media_server_id, status, push_ing)
+        VALUES <foreach collection='streamPushItems' item='item' index='index' separator=','>
+            (#{item.app}, #{item.stream}, #{item.totalReaderCount}, #{item.originType}
+                , #{item.originTypeStr},#{item.createTime}, #{item.aliveSecond}
+                , #{item.mediaServerId}, #{item.status}, #{item.pushIng})
+         </foreach>
+    </insert>
+
+    <update id="updatePushStatus">
+        UPDATE wvp_stream_push SET push_ing=#{pushIng} WHERE app=#{app} AND stream=#{stream}
+    </update>
+
+    <update id="updateStatusByMediaServerId">
+        UPDATE wvp_stream_push SET status=#{status} WHERE media_server_id=#{mediaServerId}
+    </update>
+
+    <update id="offline">
+        UPDATE wvp_stream_push SET status=0  where (app, stream) in (
+        <foreach collection='offlineStreams' item='item' separator=','>
+            (#{item.app}, #{item.stream})
+        </foreach>)
+    </update>
+
+    <update id="online">
+        UPDATE wvp_stream_push SET status=1  where (app, stream) in (
+        <foreach collection='onlineStreams' item='item' separator=','>
+            (#{item.app}, #{item.stream})
+        </foreach>)
+    </update>
+    <update id="setAllStreamOffline">
+        UPDATE wvp_stream_push SET status=0
+    </update>
+
+    <delete id="delAll">
+        DELETE FROM wvp_stream_push where
+        <foreach collection='streamPushItems' item='item' separator='or'>
+            (app=#{item.app} and stream=#{item.stream})
+        </foreach>
+    </delete>
+
+    <delete id="delAllForGbStream">
+        DELETE FROM wvp_stream_push where
+        <foreach collection='gbStreams' item='item' separator='or'>
+            (app=#{item.app} and stream=#{item.stream})
+        </foreach>
+    </delete>
+    <delete id="deleteWithoutGBId">
+        delete from wvp_stream_push where id in (
+            select temp.id from (
+                select wgs.gb_stream_id as id from wvp_gb_stream wgs
+                    left join wvp_stream_push sp on sp.id = wgs.gb_stream_id
+                where wgs.gb_id is null and wgs.media_server_id = #{mediaServerId}) temp
+        )
+    </delete>
+
+    <select id="selectAllForList" resultMap="BasicMap">
+        SELECT st.*, gs.gb_id, gs.name, gs.longitude, gs.latitude, gs.gb_stream_id from wvp_stream_push st
+            LEFT join wvp_gb_stream gs on st.app = gs.app AND st.stream = gs.stream
+        <where>
+            <if test='query != null'> AND (st.app LIKE concat('%',#{query},'%') OR st.stream LIKE concat('%',#{query},'%') OR gs.gb_id LIKE concat('%',#{query},'%') OR gs.name LIKE concat('%',#{query},'%'))</if>
+            <if test='pushing == true' > AND (gs.gb_id is null OR st.push_ing=1)</if>
+            <if test='pushing == false' > AND (st.push_ing is null OR st.push_ing=0) </if>
+            <if test='mediaServerId != null' > AND st.media_server_id=#{mediaServerId} </if>
+        </where>
+        order by st.create_time desc
+    </select>
+
+    <select id="selectAll" resultMap="BasicMap">
+        SELECT st.*, gs.gb_id, gs.name, gs.longitude, gs.latitude FROM wvp_stream_push st
+            LEFT join wvp_gb_stream gs on st.app = gs.app AND st.stream = gs.stream
+        order by st.create_time desc
+    </select>
+
+    <select id="getByAppAndStream" resultMap="BasicMap">
+        SELECT st.*, gs.gb_id, gs.name, gs.longitude, gs.latitude FROM wvp_stream_push st
+            LEFT join wvp_gb_stream gs on st.app = gs.app AND st.stream = gs.stream
+        WHERE st.app=#{app} AND st.stream=#{stream}
+    </select>
+
+    <select id="selectAllByMediaServerIdWithOutGbID" resultMap="BasicMap">
+        SELECT sp.* FROM wvp_stream_push sp
+            left join wvp_gb_stream gs on gs.app = sp.app and gs.stream= sp.stream
+        WHERE sp.media_server_id=#{mediaServerId} and gs.gb_id is null
+    </select>
+    <select id="getOnlinePusherForGbInList" resultType="com.genersoft.iot.vmp.gb28181.bean.GbStream">
+        SELECT gs.* FROM wvp_stream_push sp
+            left join wvp_gb_stream gs on sp.app = gs.app AND sp.stream = gs.stream
+        where sp.status = true and (gs.app, gs.stream) in (
+        <foreach collection='offlineStreams' item='item' separator=','>
+            (#{item.app}, #{item.stream})
+        </foreach>)
+    </select>
+    <select id="getOfflinePusherForGbInList" resultType="com.genersoft.iot.vmp.gb28181.bean.GbStream">
+        SELECT * FROM wvp_stream_push sp
+            left join wvp_gb_stream gs on sp.app = gs.app AND sp.stream = gs.stream
+        where sp.status = 0 and (gs.app, gs.stream) in (
+        <foreach collection='onlineStreams' item='item' separator=','>
+            (#{item.app}, #{item.stream})
+        </foreach>)
+    </select>
+
+    <select id="getOnlinePusherForGb" resultType="com.genersoft.iot.vmp.gb28181.bean.GbStream">
+        SELECT gs.* FROM wvp_stream_push sp left join wvp_gb_stream gs on sp.app = gs.app AND sp.stream = gs.stream where sp.status = true
+    </select>
+
+    <select id="getAllAppAndStream" resultType="java.lang.String">
+        SELECT CONCAT(app,stream) from wvp_gb_stream
+    </select>
+
+    <select id="getAllCount" resultType="java.lang.Integer">
+        select count(1) from wvp_stream_push
+    </select>
+
+    <select id="getAllOnline" resultType="java.lang.Integer">
+        <if test='pushIngAsOnline == true'> select count(1) from wvp_stream_push where push_ing = true </if>
+        <if test='pushIngAsOnline == false'> select count(1)from wvp_stream_push where status = true  </if>
+    </select>
+</mapper>

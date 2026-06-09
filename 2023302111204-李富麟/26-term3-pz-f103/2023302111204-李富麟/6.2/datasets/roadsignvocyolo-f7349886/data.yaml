@@ -1,0 +1,16 @@
+task: detect
+name: roadsign_voc_yolo
+description: ''
+bytes: 42529566
+url: https://platform.ultralytics.com/koala-raven/datasets/roadsignvocyolo
+version: latest
+created_at: '2026-06-02T03:17:29.798Z'
+updated_at: '2026-06-02T03:22:28.108Z'
+names:
+  0: crosswalk
+  1: speedlimit
+  2: stop
+  3: trafficlight
+train: images/train
+val: images/val
+hash: f7349886

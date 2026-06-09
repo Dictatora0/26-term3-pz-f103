@@ -1,22 +1,37 @@
 server:
-  port: 8085
+  port: ${HTTPS_PORT:8443}
   servlet:
     context-path: /api
+  ssl:
+    enabled: true
+    key-store: ${TLS_KEY_STORE:file:D:/Proj/5.29/deploy/iboot/certs/iboot-local.p12}
+    key-store-password: ${TLS_KEY_STORE_PASSWORD:changeit}
+    key-store-type: PKCS12
+    key-alias: ${TLS_KEY_ALIAS:iboot-local}
 
 spring:
   datasource:
-    username: root
-    password: 123456
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:123456}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/iboot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    url: ${DATABASE_URL:jdbc:mysql://127.0.0.1:3306/iboot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai}
   redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
-    database: 0
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: ${REDIS_DATABASE:0}
     timeout: 10000
 
 framework:
+  security:
+    enable-jwt: true
+    issuer: ${JWT_ISSUER:iboot-local}
+    oauth2-issuer: ${OAUTH2_ISSUER:iboot-oauth2}
+    jwt-secret: ${JWT_SECRET:PLEASE_CHANGE_THIS_LOCAL_DEVELOPMENT_SECRET_1234567890}
+    access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:1800}
+    authorization-header: Authorization
+    bearer-prefix: "Bearer "
+    allow-legacy-header: true
   web:
     upload:
       pattern: /file/**

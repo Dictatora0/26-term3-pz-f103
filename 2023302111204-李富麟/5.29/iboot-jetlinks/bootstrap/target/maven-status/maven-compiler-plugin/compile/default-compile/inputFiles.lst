@@ -66,6 +66,7 @@ D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\c
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\debug\websocket\WebsocketDebugListener.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\service\impl\ExcelServiceImpl.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\service\ISerialService.java
+D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\service\AuthTokenService.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\mapper\EventSourceMapper.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\mapper\ProductMapper.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\dto\RoleFuncDto.java
@@ -219,6 +220,7 @@ D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\s
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\collect\model\DeviceStatusModelApiManager.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\collect\CollectListenerManager.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\service\impl\NotifyServiceImpl.java
+D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\service\impl\AuthTokenServiceImpl.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\entity\DictData.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\service\impl\AccessLogServiceImpl.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\dto\CurrentDeviceDto.java
@@ -242,6 +244,7 @@ D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\s
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\mapper\DeviceChildMapper.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\mapper\IAdminDao.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\controller\iiot\DeviceMqttController.java
+D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\core\dto\AuthTokenDto.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\controller\iiot\DeviceModbusController.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\controller\SignalController.java
 D:\Proj\5.29\iboot-jetlinks\bootstrap\src\main\java\com\iteaj\iboot\module\iot\controller\IotIndexController.java

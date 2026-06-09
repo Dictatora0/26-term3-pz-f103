@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.genersoft.iot.vmp.storager.dao.GbStreamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BasicMap" type="com.genersoft.iot.vmp.gb28181.bean.GbStream">
+        <result column="name" property="name" />
+        <result column="app" property="app" />
+        <result column="gb_id" property="gbId" />
+        <result column="status" property="status" />
+        <result column="latitude" property="latitude" />
+        <result column="longitude" property="longitude" />
+        <result column="stream_type" property="streamType" />
+        <result column="catalog_id" property="catalogId" />
+        <result column="platform_id" property="platformId" />
+        <result column="gb_stream_id" property="gbStreamId" />
+        <result column="media_server_id" property="mediaServerId" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+    <insert id="batchAdd" useGeneratedKeys="true" keyProperty="gbStreamId" keyColumn="gb_stream_id">
+        INSERT into wvp_gb_stream (app, stream, gb_id, name, longitude, latitude, stream_type,media_server_id,create_time) values
+        <foreach collection='subList' index='index' item='item' separator=','>
+            (#{item.app}, #{item.stream}, #{item.gbId}, #{item.name}, #{item.longitude}, #{item.latitude}, #{item.streamType}, #{item.mediaServerId}, #{item.createTime})
+        </foreach>
+    </insert>
+    <update id="updateStreamGPS">
+        <foreach collection='gpsMsgInfos' item='item' separator=';'>
+            UPDATE wvp_gb_stream SET longitude=#{item.lng}, latitude=#{item.lat} WHERE gb_id=#{item.id}
+        </foreach>
+    </update>
+    <update id="updateGbIdOrName">
+        <foreach collection='list' item='item' index='index' separator=';'>
+            UPDATE wvp_gb_stream SET name=#{item.name}, gb_id=#{item.gb_id} WHERE app=#{item.app} and stream=#{item.stream}
+        </foreach>
+    </update>
+    <delete id="batchDel">
+        DELETE FROM wvp_gb_stream where
+            <foreach collection='streamProxyItemList' item='item' separator='or'>
+                (app=#{item.app} and stream=#{item.stream})
+            </foreach>
+    </delete>
+    <delete id="batchDelForGbStream">
+        DELETE FROM wvp_gb_stream where
+            <foreach collection='gbStreams' item='item' separator='or'>
+                (app=#{item.app} and stream=#{item.stream})
+            </foreach>
+    </delete>
+
+    <select id="queryStreamInPlatform" resultMap="BasicMap">
+        SELECT gs.*, pgs.platform_id as platform_id, pgs.catalog_id as catalog_id FROM wvp_gb_stream gs
+            LEFT JOIN wvp_platform_gb_stream pgs ON gs.gb_stream_id = pgs.gb_stream_id
+        WHERE gs.gb_id = #{gbId} AND pgs.platform_id = #{platformId}
+    </select>
+
+    <select id="queryGbStreamListInPlatform" resultType="com.genersoft.iot.vmp.gb28181.bean.DeviceChannel">
+        select gt.gb_id as channel_id, gt.name, 'wvp-pro' as manufacture,  st.status, gt.longitude, gt.latitude, pc.id as parent_id,
+        '1' as register_way, pc.civil_code, 'live' as model, 'wvp-pro' as owner, '0' as parental,'0' as secrecy
+        from wvp_gb_stream gt
+        left join (
+            select
+                <if test='usPushingAsStatus != true'> sp.status as status, </if>
+                <if test='usPushingAsStatus == true'> sp.push_ing as status, </if>
+                sp.app, sp.stream from wvp_stream_push sp
+            union all select spxy.status, spxy.app, spxy.stream from wvp_stream_proxy spxy
+        ) st on st.app = gt.app and st.stream = gt.stream
+            left join wvp_platform_gb_stream pgs on gt.gb_stream_id = pgs.gb_stream_id
+            left join wvp_platform_catalog pc on pgs.catalog_id = pc.id and pgs.platform_id = pc.platform_id
+        where pgs.platform_id=#{platformId}
+    </select>
+
+    <select id="selectAllForAppAndStream" resultType="com.genersoft.iot.vmp.gb28181.bean.GbStream">
+        SELECT * FROM wvp_gb_stream where
+            <foreach collection='streamPushItems' item='item' separator='or'>
+                (app=#{item.app} and stream=#{item.stream})
+            </foreach>
+    </select>
+    <select id="selectStatusForProxy" resultType="java.lang.Boolean">
+        SELECT status FROM wvp_stream_proxy WHERE app=#{app} AND stream=#{stream}
+    </select>
+    <select id="selectStatusForPush" resultType="java.lang.Boolean">
+        SELECT status FROM wvp_stream_push WHERE app=#{app} AND stream=#{stream}
+    </select>
+
+    <select id="selectAll" resultMap="BasicMap">
+        SELECT gs.* FROM wvp_gb_stream gs
+        <where>
+            <if test='catalogId != null'> AND gs.gb_stream_id in (select pgs.gb_stream_id from wvp_platform_gb_stream pgs where pgs.platform_id = #{platformId} and pgs.catalog_id=#{catalogId})</if>
+            <if test='catalogId == null'> AND gs.gb_stream_id not in (select pgs.gb_stream_id from wvp_platform_gb_stream pgs where pgs.platform_id = #{platformId}) </if>
+            <if test='query != null'> AND (gs.app LIKE concat('%',#{query},'%') OR gs.stream LIKE concat('%',#{query},'%') OR gs.gb_id LIKE concat('%',#{query},'%') OR gs.name LIKE concat('%',#{query},'%'))</if>
+            <if test='mediaServerId != null' > AND gs.media_server_id=#{mediaServerId} </if>
+        </where>
+        order by gs.gb_stream_id asc
+    </select>
+
+    <select id="selectAllByPage" resultMap="BasicMap">
+        SELECT gs.* FROM wvp_gb_stream gs
+        <where>
+            <if test='dto.catalogId != null'> AND gs.gb_stream_id in (select pgs.gb_stream_id from wvp_platform_gb_stream pgs where pgs.platform_id = #{dto.platformId} and pgs.catalog_id=#{dto.catalogId})</if>
+            <if test='dto.catalogId == null'> AND gs.gb_stream_id not in (select pgs.gb_stream_id from wvp_platform_gb_stream pgs where pgs.platform_id = #{dto.platformId}) </if>
+            <if test='dto.query != null'> AND (gs.app LIKE concat('%',#{dto.query},'%') OR gs.stream LIKE concat('%',#{dto.query},'%') OR gs.gb_id LIKE concat('%',#{dto.query},'%') OR gs.name LIKE concat('%',#{dto.query},'%'))</if>
+            <if test='dto.mediaServerId != null' > AND gs.media_server_id=#{dto.mediaServerId} </if>
+        </where>
+        order by gs.gb_stream_id asc
+    </select>
+
+
+</mapper>

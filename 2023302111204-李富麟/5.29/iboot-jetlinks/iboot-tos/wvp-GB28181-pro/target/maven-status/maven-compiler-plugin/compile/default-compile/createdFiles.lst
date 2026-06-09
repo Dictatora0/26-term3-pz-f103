@@ -184,7 +184,6 @@ com\genersoft\iot\vmp\gb28181\transmit\event\response\SIPResponseProcessorAbstra
 com\genersoft\iot\vmp\media\zlm\ZlmHttpHookSubscribe.class
 com\genersoft\iot\vmp\gb28181\bean\DeviceAlarm.class
 com\genersoft\iot\vmp\gb28181\event\alarm\AlarmEvent.class
-META-INF\spring-configuration-metadata.json
 com\genersoft\iot\vmp\utils\redis\RedisUtil.class
 com\genersoft\iot\vmp\gb28181\bean\DragZoomRequest.class
 com\genersoft\iot\vmp\media\zlm\dto\ZLMRunInfo.class

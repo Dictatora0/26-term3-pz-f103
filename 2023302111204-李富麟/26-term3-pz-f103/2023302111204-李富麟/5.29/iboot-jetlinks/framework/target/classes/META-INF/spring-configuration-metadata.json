@@ -1,0 +1,123 @@
+{
+  "groups": [
+    {
+      "name": "framework",
+      "type": "com.iteaj.framework.autoconfigure.FrameworkProperties",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.captcha",
+      "type": "com.iteaj.framework.autoconfigure.FrameworkProperties$CaptchaConfig",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.web",
+      "type": "com.iteaj.framework.autoconfigure.FrameworkProperties$Web",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.web.session",
+      "type": "com.iteaj.framework.autoconfigure.FrameworkProperties$Session",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Web"
+    },
+    {
+      "name": "framework.web.upload",
+      "type": "com.iteaj.framework.autoconfigure.FrameworkProperties$Upload",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Web"
+    }
+  ],
+  "properties": [
+    {
+      "name": "framework.captcha.expire",
+      "type": "java.lang.Long",
+      "description": "有效期(秒) 默认1分钟",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$CaptchaConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "framework.captcha.type",
+      "type": "com.iteaj.framework.captcha.CaptchaType",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$CaptchaConfig"
+    },
+    {
+      "name": "framework.cluster",
+      "type": "java.lang.Boolean",
+      "description": "是否启用集群模式",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "framework.domain",
+      "type": "java.lang.String",
+      "description": "当前系统访问地址,不包含uri (http:\/\/www.iteaj.com)",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.profiles",
+      "type": "java.util.Map<java.lang.String,java.lang.Boolean>",
+      "description": "启用的模块 配置格式如下：<hr>     framework.profiles.core=true     framework.profiles.framework=true",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.version",
+      "type": "java.lang.String",
+      "description": "版本",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties"
+    },
+    {
+      "name": "framework.web.logger",
+      "type": "java.lang.Boolean",
+      "description": "启用日志记录",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Web",
+      "defaultValue": false
+    },
+    {
+      "name": "framework.web.session.automatic-token",
+      "type": "java.lang.Boolean",
+      "description": "自动选择token(浏览器使用cookie, app使用header)",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Session",
+      "defaultValue": false
+    },
+    {
+      "name": "framework.web.session.name",
+      "type": "java.lang.String",
+      "description": "缓存名称",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Session",
+      "defaultValue": "IBoot:Session"
+    },
+    {
+      "name": "framework.web.session.timeout",
+      "type": "java.lang.Long",
+      "description": "token过期时间(秒)",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Session",
+      "defaultValue": 0
+    },
+    {
+      "name": "framework.web.session.token-name",
+      "type": "java.lang.String",
+      "description": "token名称",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Session",
+      "defaultValue": "access_token"
+    },
+    {
+      "name": "framework.web.session.write-header",
+      "type": "java.lang.Boolean",
+      "description": "token是否写到header(为true优先读取header)",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Session",
+      "defaultValue": false
+    },
+    {
+      "name": "framework.web.upload.location",
+      "type": "java.lang.String",
+      "description": "文件存放路径必须以file: 或 classpath: 开头",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Upload"
+    },
+    {
+      "name": "framework.web.upload.pattern",
+      "type": "java.lang.String",
+      "description": "文件访问pattern如 \/file\/**",
+      "sourceType": "com.iteaj.framework.autoconfigure.FrameworkProperties$Upload"
+    }
+  ],
+  "hints": []
+}

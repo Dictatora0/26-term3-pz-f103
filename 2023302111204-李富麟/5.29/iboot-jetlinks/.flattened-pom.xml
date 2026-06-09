@@ -28,6 +28,7 @@
   <modules>
     <module>framework</module>
     <module>bootstrap</module>
+    <module>jetlinks-spring-boot-starter</module>
     <module>iboot-plugin</module>
     <module>iboot-tos</module>
   </modules>

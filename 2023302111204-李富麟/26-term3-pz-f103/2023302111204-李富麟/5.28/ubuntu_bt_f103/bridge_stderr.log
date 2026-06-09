@@ -1,0 +1,17 @@
+D:\Proj\5.28\ubuntu_bt_f103\scripts\ubuntu\bt_mqtt_bridge.py:36: DeprecationWarning: Callback API version 1 is deprecated, update to latest version
+  self.client = mqtt.Client(client_id=args.client_id, clean_session=True, protocol=mqtt.MQTTv311)
+2026-05-28 12:04:16,695 INFO opening serial device COM8 @ 9600
+2026-05-28 12:04:20,703 INFO serial opened device=COM8
+2026-05-28 12:04:37,732 WARNING mqtt disconnected rc=7
+2026-05-28 12:04:38,786 INFO mqtt connected rc=0
+2026-05-28 12:04:45,855 WARNING mqtt disconnected rc=7
+2026-05-28 12:04:48,923 WARNING mqtt disconnected rc=7
+2026-05-28 12:04:53,002 WARNING mqtt disconnected rc=7
+2026-05-28 12:04:59,084 INFO mqtt connected rc=0
+2026-05-28 12:05:03,327 INFO mqtt->bridge topic=pz103/text/tx payload=Hello, world!
+2026-05-28 12:05:03,392 INFO bridge->bt line=MSG:Hello, world!
+2026-05-28 12:05:24,494 WARNING mqtt disconnected rc=7
+2026-05-28 12:05:27,526 WARNING mqtt disconnected rc=7
+2026-05-28 12:05:31,586 WARNING mqtt disconnected rc=7
+2026-05-28 12:05:35,606 INFO mqtt connected rc=0
+2026-05-28 12:05:36,705 INFO mqtt->bridge topic=pz103/text/tx payload=Hello, world!
