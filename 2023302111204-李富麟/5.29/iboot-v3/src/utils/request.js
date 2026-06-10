@@ -126,7 +126,6 @@ instance.interceptors.request.use(
     let token = localStorage.getItem(CoreConsts.AccessToken);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
-      config.headers[CoreConsts.AccessToken] = token;
     }
     return config;
   },
@@ -151,7 +150,6 @@ instance.interceptors.response.use(
           config._retry = true;
           const newToken = await refreshAccessToken();
           config.headers.Authorization = `Bearer ${newToken}`;
-          config.headers[CoreConsts.AccessToken] = newToken;
           return instance(config);
         } catch (refreshError) {
           clearAuthSession();

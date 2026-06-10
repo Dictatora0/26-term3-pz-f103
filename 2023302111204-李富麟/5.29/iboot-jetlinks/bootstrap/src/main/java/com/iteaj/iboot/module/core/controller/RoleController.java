@@ -13,6 +13,7 @@ import com.iteaj.iboot.module.core.service.IMenuService;
 import com.iteaj.iboot.module.core.service.IRoleService;
 import com.iteaj.framework.result.Result;
 import com.iteaj.framework.security.CheckPermission;
+import com.iteaj.framework.security.CheckScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,6 +44,7 @@ public class RoleController extends BaseController {
     @Logger("查询角色列表")
     @GetMapping("/view")
     @CheckPermission("core:role:view")
+    @CheckScope("user.manage")
     public Result<IPage<Role>> view(Page page, Role role) {
         page.addOrder(OrderItem.asc("sort"));
         return this.roleService.page(page, role);
@@ -54,6 +56,8 @@ public class RoleController extends BaseController {
      * @return
      */
     @GetMapping("/list")
+    @CheckPermission("core:role:view")
+    @CheckScope("user.manage")
     public Result<List<Role>> list(Role role) {
         return this.roleService.list(role);
     }
@@ -63,6 +67,8 @@ public class RoleController extends BaseController {
      * @return
      */
     @GetMapping("allMenus")
+    @CheckPermission("core:menu:view")
+    @CheckScope("user.manage")
     public Result<List<Menu>> allFunc() {
         return this.menuService.selectMenuTrees(new Menu());
     }
@@ -74,7 +80,8 @@ public class RoleController extends BaseController {
      */
     @Logger("新增角色记录")
     @PostMapping("/add")
-    @CheckPermission("core:add:view")
+    @CheckPermission("core:role:add")
+    @CheckScope("user.manage")
     public Result add(@RequestBody RoleDto role) {
         this.roleService.createRoleAndPerms(role);
         return success();
@@ -86,6 +93,8 @@ public class RoleController extends BaseController {
      * @return
      */
     @GetMapping("/edit")
+    @CheckPermission("core:role:edit")
+    @CheckScope("user.manage")
     public Result<Role> edit(Long id) {
         return this.roleService.getById(id);
     }
@@ -98,6 +107,7 @@ public class RoleController extends BaseController {
     @Logger("修改角色记录")
     @PostMapping("/edit")
     @CheckPermission("core:role:edit")
+    @CheckScope("user.manage")
     public Result<Boolean> edit(@RequestBody Role role) {
         return this.roleService.updateById(role);
     }
@@ -108,6 +118,8 @@ public class RoleController extends BaseController {
      * @return
      */
     @GetMapping("/func")
+    @CheckPermission("core:role:view")
+    @CheckScope("user.manage")
     public Result<RoleFuncDto> func(Long id) {
         RoleFuncDto roleFuncDto = new RoleFuncDto(id, this.roleService.listMenusOfRole(id).getData());
         return success(roleFuncDto);
@@ -121,6 +133,7 @@ public class RoleController extends BaseController {
     @Logger("修改角色及权限")
     @PostMapping("/perm")
     @CheckPermission("core:role:perm")
+    @CheckScope("user.manage")
     public Result<Boolean> editFunc(@RequestBody RoleDto role) {
         this.roleService.updateRolePermsById(role);
         return success();
@@ -134,6 +147,7 @@ public class RoleController extends BaseController {
     @Logger("删除角色记录")
     @PostMapping("/del")
     @CheckPermission("core:role:del")
+    @CheckScope("user.manage")
     public Result del(@RequestBody List<Long> list) {
         this.roleService.delRoleAndPermByIds(list);
         return success();

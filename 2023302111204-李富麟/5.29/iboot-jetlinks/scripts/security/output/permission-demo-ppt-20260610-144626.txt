@@ -1,0 +1,32 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260610144626
+Username: DESKTOP-6NM70T0\CodexSandboxOffline
+RunAs User: DESKTOP-6NM70T0\CodexSandboxOffline
+Configuration Name: 
+Machine: DESKTOP-6NM70T0 (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1 -MaskToken
+Process ID: 12404
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+================================================================================================
+1. DEMO TARGET AND OAUTH2 CONFIG
+================================================================================================
+AuthBase                          : https://127.0.0.1:8443/api
+ClientId                          : iboot-local-web
+RedirectUri                       : http://127.0.0.1/oauth/callback.html
+RequestedScopes                   : device.read device.control user.manage
+PS>TerminatingError(Invoke-WebRequest): "基础连接已经关闭: 接收时发生错误。"
+>> TerminatingError(Invoke-WebRequest): "基础连接已经关闭: 接收时发生错误。"
+**********************
+Windows PowerShell transcript end
+End time: 20260610144627
+**********************

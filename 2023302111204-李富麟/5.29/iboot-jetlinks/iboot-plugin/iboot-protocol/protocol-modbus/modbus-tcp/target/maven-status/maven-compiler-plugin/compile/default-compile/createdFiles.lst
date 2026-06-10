@@ -1,0 +1,3 @@
+com\iteaj\iboot\plugin\protocol\modbus\tcp\ModbusTcpEventProtocolModeApi.class
+com\iteaj\iboot\plugin\protocol\modbus\tcp\ModbusTcpFuncProtocolModeApi.class
+com\iteaj\iboot\plugin\protocol\modbus\tcp\ModbusTcpProtocolSupplier.class

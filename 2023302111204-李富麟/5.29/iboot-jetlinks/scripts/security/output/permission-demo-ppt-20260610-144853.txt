@@ -1,0 +1,149 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260610144854
+Username: DESKTOP-6NM70T0\CodexSandboxOffline
+RunAs User: DESKTOP-6NM70T0\CodexSandboxOffline
+Configuration Name: 
+Machine: DESKTOP-6NM70T0 (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1 -MaskToken
+Process ID: 17156
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+================================================================================================
+1. DEMO TARGET AND OAUTH2 CONFIG
+================================================================================================
+AuthBase                          : http://127.0.0.1/api
+ClientId                          : iboot-local-web
+RedirectUri                       : http://127.0.0.1/oauth/callback.html
+RequestedScopes                   : device.read device.control user.manage
+GET /oauth2/config                : HTTP 200
+Issuer                            : iboot-oauth2
+DefaultClientId                   : iboot-local-web
+
+================================================================================================
+2. VIEWER AUTHORIZATION CODE + PKCE + JWT TOKEN
+================================================================================================
+Account                           : viewer
+PKCE                              : S256
+Access Token                      : eyJ0eXAiOiJKV1QiLCJhbGci ... onK904ZHwObrOTEuk2L3CJBI
+Refresh Token                     : NBmUs0kKAMzFqaYR978e8DOE ... nLBch5Dv8k99tZQnbB3T2E2b
+JWT payload:
+{
+    "sub":  "2001",
+    "uid":  2001,
+    "account":  "viewer",
+    "name":  "viewer",
+    "roles":  [
+                  "VIEWER"
+              ],
+    "authorities":  [
+                        "iot:device:view",
+                        "iot:device:view"
+                    ],
+    "jti":  "930581f6aafc4fa0896945f1855aae28",
+    "iss":  "iboot-oauth2",
+    "iat":  1781074134,
+    "exp":  1781075934,
+    "client_id":  "iboot-local-web",
+    "scope":  "device.read",
+    "aud":  "iboot-local-web"
+}
+
+================================================================================================
+3. OPERATOR AUTHORIZATION CODE + PKCE + JWT TOKEN
+================================================================================================
+Account                           : operator
+PKCE                              : S256
+Access Token                      : eyJ0eXAiOiJKV1QiLCJhbGci ... wfqggeqTOAa8TgbDdz3bJqMg
+Refresh Token                     : 91IOnMcf5ZVdLFtS4BlMNpnx ... IyaIwl932gV0iurnNGrEkNgj
+JWT payload:
+{
+    "sub":  "2002",
+    "uid":  2002,
+    "account":  "operator",
+    "name":  "operator",
+    "roles":  [
+                  "OPERATOR"
+              ],
+    "authorities":  [
+                        "iot:device:view",
+                        "iot:device:view",
+                        "iot:device:ctrl"
+                    ],
+    "jti":  "e21fc682636048f69c9916cc048eb6be",
+    "iss":  "iboot-oauth2",
+    "iat":  1781074134,
+    "exp":  1781075934,
+    "client_id":  "iboot-local-web",
+    "scope":  "device.read device.control",
+    "aud":  "iboot-local-web"
+}
+
+================================================================================================
+4. TOKEN REQUIRED: 401 UNAUTHORIZED
+================================================================================================
+PS>TerminatingError(Invoke-WebRequest): "{"code":401,"message":"unauthorized"}"
+PS>TerminatingError(Invoke-WebRequest): "{"code":401,"message":"访问令牌无效"}"
+No token device query             : HTTP 401
+Bad token device query            : HTTP 401
+
+================================================================================================
+5. VIEWER RBAC: READ ALLOWED, ADMIN AND LED CONTROL DENIED
+================================================================================================
+VIEWER device query               : HTTP 200
+VIEWER admin API                  : HTTP 200, BizCode 403
+VIEWER LED control                : HTTP 200, BizCode 403
+VIEWER self center                : HTTP 200, BizCode 200
+
+================================================================================================
+6. OPERATOR RBAC: LED CONTROL PERMISSION PASSES
+================================================================================================
+OPERATOR admin API                : HTTP 200, BizCode 403
+OPERATOR LED control              : HTTP 200, BizCode 200
+LED response body:
+{"data":null,"code":200,"message":"æä½æå"}
+
+================================================================================================
+8. REFRESH TOKEN AND REVOKE
+================================================================================================
+Refresh new access token          : eyJ0eXAiOiJKV1QiLCJhbGci ... Pa2BcG_kshSR7hQWnEGhQtYg
+Revoke response                   : code=200, msg=refresh_token revoked
+Refresh after revoke              : HTTP 200, BizCode 500, Msg refresh_token revoked
+
+================================================================================================
+9. PPT SCREENSHOT SUMMARY
+================================================================================================
+
+Item                                     Result Detail
+----                                     ------ ------
+HTTPS OAuth2 config endpoint             PASS   HTTP 200
+VIEWER token issued                      PASS   scope=device.read
+OPERATOR token issued                    PASS   scope=device.read device.control
+No token rejected                        PASS   HTTP 401
+Bad token rejected                       PASS   HTTP 401
+VIEWER can read device data              PASS   HTTP 200
+VIEWER cannot access admin API           PASS   HTTP 200, BizCode 403
+VIEWER cannot control LED                PASS   HTTP 200, BizCode 403
+VIEWER bearer principal works            PASS   HTTP 200, BizCode 200
+OPERATOR cannot access admin API         PASS   HTTP 200, BizCode 403
+OPERATOR enters LED business path        PASS   HTTP 200, BizCode 200; code 500 means permission passed but board/de...
+ADMIN optional demo                      PASS   Skipped because -AdminPassword was not provided
+Refresh token can issue new access token PASS   refresh success
+Revoked refresh token is rejected        PASS   HTTP 200, Msg refresh_token revoked
+
+
+
+Transcript saved to:
+D:\Proj\5.29\iboot-jetlinks\scripts\security\output\permission-demo-ppt-20260610-144853.txt
+**********************
+Windows PowerShell transcript end
+End time: 20260610144856
+**********************

@@ -29,8 +29,8 @@ api[0].list[0].list.push({
 api[0].list.push({
     alias: 'AdminCenterController',
     order: '2',
-    link: '后台用户管理中心',
-    desc: '后台用户管理中心',
+    link: '后台用户中心',
+    desc: '后台用户中心',
     list: []
 })
 api[0].list[1].list.push({
@@ -38,14 +38,14 @@ api[0].list[1].list.push({
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/center/editUser',
     methodId: 'b161a33588ee441ed6c08d475615c9f3',
-    desc: '修改用户',
+    desc: '只允许修改当前登录用户自己的资料',
 });
 api[0].list[1].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://127.0.0.1:8085/api/core/center/pwd',
     methodId: '9e90f0babc32f929bf2906cc4493a36b',
-    desc: '修改用户密码',
+    desc: '只允许修改当前登录用户自己的密码',
 });
 api[0].list.push({
     alias: 'AdminController',

@@ -9,6 +9,7 @@ import com.iteaj.framework.spi.admin.Module;
 import com.iteaj.iboot.module.core.entity.Menu;
 import com.iteaj.iboot.module.core.service.IMenuService;
 import com.iteaj.framework.security.CheckPermission;
+import com.iteaj.framework.security.CheckScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -38,6 +39,7 @@ public class MenuController extends BaseController {
     @Logger("查询菜单列表")
     @GetMapping("/view")
     @CheckPermission("core:menu:view")
+    @CheckScope("user.manage")
     public Result<List<Menu>> list(Menu menu) {
         return menuService.selectMenuTrees(menu);
     }
@@ -69,6 +71,8 @@ public class MenuController extends BaseController {
      * @return
      */
     @GetMapping("/parent")
+    @CheckPermission("core:menu:view")
+    @CheckScope("user.manage")
     public Result<List<Menu>> parentList() {
         // 不包含菜单类型是权限的菜单
         return menuService.selectParentTrees();
@@ -82,6 +86,7 @@ public class MenuController extends BaseController {
     @Logger("新增菜单记录")
     @PostMapping("/add")
     @CheckPermission("core:menu:add")
+    @CheckScope("user.manage")
     public Result<Boolean> add(@RequestBody Menu menu) {
         return menuService.save(menu);
     }
@@ -94,6 +99,7 @@ public class MenuController extends BaseController {
     @Logger("删除菜单记录")
     @PostMapping("/del")
     @CheckPermission("core:menu:del")
+    @CheckScope("user.manage")
     public Result<Boolean> del(@RequestBody List<Long> idList) {
         return menuService.removeByIds(idList);
     }
@@ -105,6 +111,7 @@ public class MenuController extends BaseController {
      */
     @GetMapping("/edit")
     @CheckPermission("core:menu:edit")
+    @CheckScope("user.manage")
     public Result<Menu> edit(Long id) {
         return menuService.getById(id);
     }
@@ -117,6 +124,7 @@ public class MenuController extends BaseController {
     @Logger("修改菜单记录")
     @PostMapping("/edit")
     @CheckPermission("core:menu:edit")
+    @CheckScope("user.manage")
     public Result<Boolean> edit(@RequestBody Menu menu) {
         return menuService.updateById(menu);
     }
@@ -126,6 +134,8 @@ public class MenuController extends BaseController {
      * @return
      */
     @GetMapping("msn")
+    @CheckPermission("core:menu:view")
+    @CheckScope("user.manage")
     public Result<List<Module>> msn() {
         return success(this.modules);
     }

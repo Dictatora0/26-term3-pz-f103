@@ -8,6 +8,7 @@ import com.iteaj.framework.BaseController;
 import com.iteaj.framework.logger.Logger;
 import com.iteaj.framework.result.PageResult;
 import com.iteaj.framework.result.Result;
+import com.iteaj.framework.security.CheckScope;
 import com.iteaj.framework.security.SecurityUtil;
 import com.iteaj.framework.spi.admin.event.OnlineStatus;
 import com.iteaj.iboot.module.core.dto.OnlineCountDto;
@@ -42,6 +43,7 @@ public class OnlineUserController extends BaseController {
     @Logger("查询在线用户")
     @GetMapping("/view")
     @CheckPermission(value = {"core:online:view"})
+    @CheckScope("user.manage")
     public Result<IPage<OnlineUser>> list(Page<OnlineUser> page, OnlineUser entity) {
         page.addOrder(OrderItem.asc("status"), OrderItem.desc("login_time"));
         return this.onlineUserService.page(page, entity);
@@ -54,6 +56,7 @@ public class OnlineUserController extends BaseController {
     @Logger("删除在线用户记录")
     @PostMapping("/del")
     @CheckPermission(value = {"core:online:del"})
+    @CheckScope("user.manage")
     public Result<Boolean> remove(@RequestBody List<Long> idList) {
         if(idList.size() == 1) {
             this.onlineUserService.getById(idList.get(0)).ofNullable().ifPresent(item -> {
@@ -81,6 +84,7 @@ public class OnlineUserController extends BaseController {
     @Logger("剔除用户下线")
     @PostMapping("offline")
     @CheckPermission(value = {"core:online:offline"})
+    @CheckScope("user.manage")
     public Result<Boolean> offline(@RequestBody OnlineUser entity) {
         if(entity.getStatus() == OnlineStatus.Offline) {
             return fail("此用户不在线");
@@ -99,6 +103,8 @@ public class OnlineUserController extends BaseController {
      * @return
      */
     @GetMapping("countToday")
+    @CheckPermission(value = {"core:online:view"})
+    @CheckScope("user.manage")
     public Result<OnlineCountDto> countToday() {
         OnlineCountDto countDto = onlineUserService.countCurrentOnline();
         return success(countDto);
@@ -109,6 +115,8 @@ public class OnlineUserController extends BaseController {
      * @return
      */
     @GetMapping("countLastMonth")
+    @CheckPermission(value = {"core:online:view"})
+    @CheckScope("user.manage")
     public Result<List> countLastMonth() {
 
         return success();

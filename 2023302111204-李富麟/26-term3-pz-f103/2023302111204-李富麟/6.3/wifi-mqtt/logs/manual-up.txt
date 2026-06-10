@@ -1,1 +1,0 @@
-env_led_node/board001/up {"temperature":30.6,"humidity":74.1,"led":0}

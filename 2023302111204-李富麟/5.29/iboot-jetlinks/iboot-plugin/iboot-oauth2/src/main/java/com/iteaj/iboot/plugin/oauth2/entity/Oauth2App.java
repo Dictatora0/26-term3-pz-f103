@@ -73,4 +73,14 @@ public class Oauth2App extends BaseEntity {
      * 创建时间
      */
     private String createTime;
+
+    /**
+     * 是否公共客户端(1: 是, 0: 否)
+     */
+    private Integer publicClient;
+
+    /**
+     * 是否要求 PKCE(1: 是, 0: 否)
+     */
+    private Integer requirePkce;
 }

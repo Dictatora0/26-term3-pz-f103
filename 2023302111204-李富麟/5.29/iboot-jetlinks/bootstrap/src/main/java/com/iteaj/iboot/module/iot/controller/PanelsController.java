@@ -10,6 +10,10 @@ import com.iteaj.framework.IVOption;
 import com.iteaj.framework.exception.ServiceException;
 import com.iteaj.framework.result.PageResult;
 import com.iteaj.framework.result.Result;
+import com.iteaj.framework.security.CheckPermission;
+import com.iteaj.framework.security.CheckRole;
+import com.iteaj.framework.security.CheckScope;
+import com.iteaj.framework.security.Logical;
 import com.iteaj.framework.spi.iot.DeviceKey;
 import com.iteaj.framework.spi.iot.ProtocolModelApiInvokeParam;
 import com.iteaj.framework.spi.iot.SignalOrFieldValue;
@@ -52,7 +56,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 运行展板模块
+ * 运行展示面板模块
  */
 @RestController
 @RequestMapping("/iot/panels")
@@ -64,9 +68,11 @@ public class PanelsController extends BaseController {
     private final IotCacheManager cacheManager;
     private final RealtimeDataService realtimeDataService;
 
-    public PanelsController(ISignalService signalService, IDeviceService deviceService
-            , IProductService productService, IotCacheManager cacheManager
-            , RealtimeDataService realtimeDataService) {
+    public PanelsController(ISignalService signalService,
+                            IDeviceService deviceService,
+                            IProductService productService,
+                            IotCacheManager cacheManager,
+                            RealtimeDataService realtimeDataService) {
         this.signalService = signalService;
         this.deviceService = deviceService;
         this.productService = productService;
@@ -74,13 +80,10 @@ public class PanelsController extends BaseController {
         this.realtimeDataService = realtimeDataService;
     }
 
-    /**
-     * 设备列表
-     *
-     * @param deviceGroupId 设备分组
-     * @return
-     */
     @GetMapping("/devices")
+    @CheckPermission("iot:device:view")
+    @CheckRole(value = {"管理员", "OPERATOR", "VIEWER"}, logical = Logical.OR)
+    @CheckScope("device.read")
     public Result<IPage<PanelsDeviceDto>> devices(Page page, Long deviceGroupId, Long productId, DeviceType deviceType) {
         DeviceDto device = new DeviceDto();
         device.setProductId(productId);
@@ -96,7 +99,8 @@ public class PanelsController extends BaseController {
         IPage<DeviceDto> data = pageResult.getData();
         if (CollectionUtil.isNotEmpty(data.getRecords())) {
             List<Long> productIds = data.getRecords().stream()
-                    .map(item -> item.getProductId()).distinct()
+                    .map(DeviceDto::getProductId)
+                    .distinct()
                     .collect(Collectors.toList());
             List<ProductDto> list = productService.listCtrlStatusModelAttrs(productIds);
             if (CollectionUtil.isNotEmpty(list)) {
@@ -107,16 +111,14 @@ public class PanelsController extends BaseController {
                     if (CollectionUtil.isNotEmpty(productDto.getAttrs())) {
                         Map<String, String> attrDictMap = new HashMap<>();
                         productDto.getAttrs().forEach(attr -> {
-                            if (attr.getAttrType() != AttrType.W) { // 读和读写
-                                if (!DataType.t_json.getValue().equals(attr.getDataType())) {
-                                    values.add(new PanelsDeviceDto.AttrValue(attr.getField(), attr.getName(), attr.getUnit(), attr.getCtrlStatus()));
-                                }
+                            if (attr.getAttrType() != AttrType.W && !DataType.t_json.getValue().equals(attr.getDataType())) {
+                                values.add(new PanelsDeviceDto.AttrValue(attr.getField(), attr.getName(), attr.getUnit(), attr.getCtrlStatus()));
                             }
 
-                            if (attr.getAttrType() != AttrType.R) { // 写或者读写
-                                if (Boolean.TRUE.equals(attr.getCtrlStatus()) && CollectionUtil.isNotEmpty(attr.getDicts())) {
-                                    attr.getDicts().forEach(dict -> options.add(new IVOption(dict.getDictName(), dict.getDictValue())));
-                                }
+                            if (attr.getAttrType() != AttrType.R
+                                    && Boolean.TRUE.equals(attr.getCtrlStatus())
+                                    && CollectionUtil.isNotEmpty(attr.getDicts())) {
+                                attr.getDicts().forEach(dict -> options.add(new IVOption(dict.getDictName(), dict.getDictValue())));
                             }
 
                             if (CollectionUtil.isNotEmpty(attr.getDicts()) && !DataType.t_json.getValue().equals(attr.getDataType())) {
@@ -137,8 +139,7 @@ public class PanelsController extends BaseController {
                     Map<String, String> dictStringMap = productAttrDictsMap.get(deviceDto.getProductId());
                     List<PanelsDeviceDto.AttrValue> attrValues = productValuesMap.get(deviceDto.getProductId());
 
-                    PanelsDeviceDto panelsDeviceDto = new PanelsDeviceDto(options, Collections.EMPTY_LIST, deviceDto);
-                    // 获取每个属性的实时数据
+                    PanelsDeviceDto panelsDeviceDto = new PanelsDeviceDto(options, Collections.emptyList(), deviceDto);
                     if (CollectionUtil.isNotEmpty(attrValues)) {
                         List<PanelsDeviceDto.AttrValue> copyAttrValues = attrValues.stream()
                                 .map(item -> new PanelsDeviceDto.AttrValue(item.getField(), item.getName(), item.getUnit(), item.getCtrlStatus()))
@@ -146,22 +147,18 @@ public class PanelsController extends BaseController {
 
                         copyAttrValues.forEach(attrValue -> {
                             String protocolCode = productProtocolMap.get(deviceDto.getProductId());
-                            Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(protocolCode
-                                    , DeviceKey.build(deviceDto.getDeviceSn(), deviceDto.getParentDeviceSn()));
+                            Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(
+                                    protocolCode, DeviceKey.build(deviceDto.getDeviceSn(), deviceDto.getParentDeviceSn()));
                             if (CollectionUtil.isNotEmpty(realtimeDataMap)) {
-
-                                // 设置各属性的实时值
                                 RealtimeData realtimeData = realtimeDataMap.get(attrValue.getField());
-                                if (realtimeData != null && realtimeData.getRealtime() != null
+                                if (realtimeData != null
+                                        && realtimeData.getRealtime() != null
                                         && realtimeData.getRealtime().getValue() != null) {
-
                                     String value = realtimeData.getRealtime().getValue().toString();
                                     attrValue.setValue(value);
-
-                                    // 将采集到的值转成字典label
-                                    attrValue.setLabel(dictStringMap.get(attrValue.getField() + "_" + value));
-
-                                    // 设置控制属性的值
+                                    if (dictStringMap != null) {
+                                        attrValue.setLabel(dictStringMap.get(attrValue.getField() + "_" + value));
+                                    }
                                     if (Boolean.TRUE.equals(attrValue.getCtrlStatus())) {
                                         panelsDeviceDto.setCtrlValue(value);
                                     }
@@ -181,76 +178,70 @@ public class PanelsController extends BaseController {
         return success(page);
     }
 
-    /**
-     * 调试详情
-     *
-     * @param deviceId
-     * @return
-     */
     @GetMapping("detail")
+    @CheckPermission("iot:device:view")
+    @CheckRole(value = {"管理员", "OPERATOR", "VIEWER"}, logical = Logical.OR)
+    @CheckScope("device.read")
     public Result<PanelsDetailDto> detail(Long deviceId) {
         PanelsDetailDto debugDto = new PanelsDetailDto();
         deviceService.detailById(deviceId)
-                .ifNotPresentThrow("设备不存在").of().ifPresent(item -> {
+                .ifNotPresentThrow("设备不存在")
+                .of()
+                .ifPresent(item -> {
                     debugDto.setDevice(item);
                     productService.joinDetailById(item.getProductId())
-                            .ifNotPresentThrow("此设备数据不完整[" + item.getName() + "]")
+                            .ifNotPresentThrow("设备数据不完整[" + item.getName() + "]")
                             .ifPresent(productDto -> {
                                 debugDto.setProduct(productDto);
                                 if (!CollectionUtils.isEmpty(productDto.getFuncApis())) {
-                                    // 过滤出被动的功能接口
                                     List<ModelApi> modelApis = productDto.getFuncApis().stream()
                                             .filter(api -> api.getTriggerMode() == TriggerMode.passive && !Boolean.TRUE.equals(api.getAsStatus()))
                                             .collect(Collectors.toList());
                                     if (CollectionUtil.isNotEmpty(modelApis)) {
                                         modelApis.forEach(api -> debugDto.addApiDebugParam(api.getCode(), api.resolveDownApiConfig(productDto.getAttrs())));
                                     }
-
                                     productDto.setFuncApis(modelApis);
                                 }
 
                                 if (!CollectionUtils.isEmpty(productDto.getEventApis())) {
-                                    // 过滤出被动的事件接口
                                     List<ModelApi> modelApis = productDto.getEventApis().stream()
                                             .filter(api -> api.getTriggerMode() == TriggerMode.passive)
                                             .collect(Collectors.toList());
                                     productDto.setEventApis(modelApis);
                                 }
-                                Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(productDto.getProtocolCode()
-                                        , DeviceKey.build(item.getDeviceSn(), item.getParentDeviceSn()));
+
+                                Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(
+                                        productDto.getProtocolCode(), DeviceKey.build(item.getDeviceSn(), item.getParentDeviceSn()));
                                 if (CollectionUtil.isNotEmpty(productDto.getAttrs())) {
-                                    productDto.getAttrs().stream().filter(attr -> (attr.getAttrType() != AttrType.W
-                                                    && !DataType.t_json.getValue().equals(attr.getDataType())))
+                                    productDto.getAttrs().stream()
+                                            .filter(attr -> attr.getAttrType() != AttrType.W && !DataType.t_json.getValue().equals(attr.getDataType()))
                                             .forEach(attr -> {
                                                 if (realtimeDataMap != null) {
                                                     RealtimeData realtimeData = realtimeDataMap.get(attr.getField());
                                                     if (realtimeData != null && realtimeData.getRealtime() != null) {
                                                         SignalOrFieldValue realtime = realtimeData.getRealtime();
-                                                        debugDto.addAttr(attr.getField(), attr.getName(), attr.getUnit(), attr.getAttrType()
-                                                                , realtime.getValue(), realtime.getCollectTime(), realtime.getStatus());
+                                                        debugDto.addAttr(attr.getField(), attr.getName(), attr.getUnit(), attr.getAttrType(),
+                                                                realtime.getValue(), realtime.getCollectTime(), realtime.getStatus());
                                                         return;
                                                     }
                                                 }
-
                                                 debugDto.addAttr(attr.getField(), attr.getName(), attr.getUnit(), attr.getAttrType());
                                             });
                                 }
 
                                 productDto.setAttrs(null);
 
-                                // 处理点位数据
                                 signalService.list(Wrappers.<Signal>lambdaQuery().eq(Signal::getProductId, productDto.getId()))
-                                        .stream().forEach(signal -> {
+                                        .forEach(signal -> {
                                             if (realtimeDataMap != null) {
                                                 RealtimeData realtimeData = realtimeDataMap.get(signal.getAddress());
                                                 if (realtimeData != null && realtimeData.getRealtime() != null) {
                                                     SignalOrFieldValue realtime = realtimeData.getRealtime();
-                                                    debugDto.addSignal(signal.getName(), signal.getAddress(), realtime.getValue()
-                                                            , realtime.getCollectTime(), realtime.getStatus());
+                                                    debugDto.addSignal(signal.getName(), signal.getAddress(), realtime.getValue(),
+                                                            realtime.getCollectTime(), realtime.getStatus());
                                                     return;
                                                 }
                                             }
-
                                             debugDto.addSignal(signal.getName(), signal.getAddress());
                                         });
                             });
@@ -259,84 +250,73 @@ public class PanelsController extends BaseController {
         return success(debugDto);
     }
 
-    /**
-     * 切换控制状态
-     *
-     * @param dto id为设备的uid值
-     * @return
-     */
     @PostMapping("switchCtrlStatus")
+    @CheckPermission("iot:device:ctrl")
+    @CheckRole(value = {"管理员", "OPERATOR"}, logical = Logical.OR)
+    @CheckScope("device.control")
     public Result switchCtrlStatus(@RequestBody StatusSwitchDto dto) {
         this.deviceService.getByUid(dto.getId().toString())
                 .ifNotPresentThrow("设备不存在")
-                .ifPresent(item -> {
-                    this.productService.getCtrlStatusModelApi(item.getProductId())
-                            .ifNotPresentThrow("此设备绑定的产品有误").ifPresent(productDto -> {
-                                if (CollectionUtil.isEmpty(productDto.getFuncApis())) {
-                                    throw new ServiceException("此产品[" + productDto.getName() + "]没有指定状态接口");
-                                }
+                .ifPresent(item -> this.productService.getCtrlStatusModelApi(item.getProductId())
+                        .ifNotPresentThrow("设备绑定的产品有误")
+                        .ifPresent(productDto -> {
+                            if (CollectionUtil.isEmpty(productDto.getFuncApis())) {
+                                throw new ServiceException("产品[" + productDto.getName() + "]没有指定状态接口");
+                            }
+                            if (productDto.getStatus() == FuncStatus.disabled) {
+                                throw new ServiceException("请先启用产品[" + productDto.getName() + "]");
+                            }
 
-                                if (productDto.getStatus() == FuncStatus.disabled) {
-                                    throw new ServiceException("请先启用产品[" + productDto.getName() + "]");
-                                }
+                            ModelApi modelApi = productDto.getFuncApis().get(0);
+                            DeviceKey deviceKey = DeviceKey.build(item.getDeviceSn(), item.getParentDeviceSn());
+                            RealtimeStatus realtimeStatus = cacheManager.get(productDto.getProtocolCode(), deviceKey);
 
-                                ModelApi modelApi = productDto.getFuncApis().get(0);
-                                DeviceKey deviceKey = DeviceKey.build(item.getDeviceSn(), item.getParentDeviceSn());
-                                RealtimeStatus realtimeStatus = cacheManager.get(productDto.getProtocolCode(), deviceKey);
+                            if (CollectionUtil.isEmpty(productDto.getAttrs())) {
+                                throw new ServiceException("产品[" + productDto.getName() + "]没有模型属性");
+                            }
 
-                                if (CollectionUtil.isEmpty(productDto.getAttrs())) {
-                                    throw new ServiceException("此产品[" + productDto.getName() + "]没有模型属性");
-                                }
+                            ModelAttr ctrlStatusAttr = productDto.getAttrs().stream()
+                                    .filter(attr -> Boolean.TRUE.equals(attr.getCtrlStatus()))
+                                    .findFirst()
+                                    .orElse(null);
+                            if (ctrlStatusAttr == null) {
+                                throw new ServiceException("产品[" + productDto.getName() + "]没有设置控制属性");
+                            }
 
-                                ModelAttr ctrlStatusAttr = productDto.getAttrs().stream()
-                                        .filter(attr -> Boolean.TRUE.equals(attr.getCtrlStatus()))
-                                        .findFirst().orElse(null);
-                                if (ctrlStatusAttr == null) {
-                                    throw new ServiceException("此产品[" + productDto.getName() + "]没有设置控制属性");
-                                }
-
-                                JSONObject jsonObject = new JSONObject();
-                                ProtocolModelApiInvokeParam invokeParam = new ProtocolModelApiInvokeParam(realtimeStatus.getUid(), jsonObject);
-                                if (CollectionUtil.isNotEmpty(modelApi.getDownConfig())) {
-                                    modelApi.getDownConfig().forEach(config -> {
-                                        if (config.getModelAttrId() != null) {
-                                            // 控制属性
-                                            if (ctrlStatusAttr.getField().equals(config.getAttrField())) {
-                                                jsonObject.put(config.getProtocolAttrField(), dto.getStatus());
-                                            } else {
-                                                jsonObject.put(config.getProtocolAttrField(), config.getAttrDefaultValue());
-                                            }
+                            JSONObject jsonObject = new JSONObject();
+                            ProtocolModelApiInvokeParam invokeParam = new ProtocolModelApiInvokeParam(realtimeStatus.getUid(), jsonObject);
+                            if (CollectionUtil.isNotEmpty(modelApi.getDownConfig())) {
+                                modelApi.getDownConfig().forEach(config -> {
+                                    if (config.getModelAttrId() != null) {
+                                        if (ctrlStatusAttr.getField().equals(config.getAttrField())) {
+                                            jsonObject.put(config.getProtocolAttrField(), dto.getStatus());
                                         } else {
-                                            jsonObject.put(config.getProtocolAttrField(), config.getValue());
+                                            jsonObject.put(config.getProtocolAttrField(), config.getAttrDefaultValue());
                                         }
-                                    });
-                                }
-
-                                ProtocolInvokeUtil.invoke(modelApi, invokeParam, realtimeStatus, (result) -> {
-                                    if (result.getStatus() != ExecStatus.success) {
-                                        throw new ServiceException("调用设备失败[" + result.getReason() + "]");
                                     } else {
-                                        // 将实时值更新为下发的值
-                                        realtimeDataService.put(realtimeStatus.getProtocolCode(), deviceKey
-                                                , SignalOrFieldValue.build(ctrlStatusAttr.getId(), ctrlStatusAttr.getField(), dto.getStatus()));
-
-                                        // 触发状态更新
-                                        DeviceStatusModelApiManager.getInstance().trigger(realtimeStatus.getProductCode(), realtimeStatus.getUid());
+                                        jsonObject.put(config.getProtocolAttrField(), config.getValue());
                                     }
                                 });
+                            }
+
+                            ProtocolInvokeUtil.invoke(modelApi, invokeParam, realtimeStatus, result -> {
+                                if (result.getStatus() != ExecStatus.success) {
+                                    throw new ServiceException("调用设备失败[" + result.getReason() + "]");
+                                }
+
+                                realtimeDataService.put(realtimeStatus.getProtocolCode(), deviceKey,
+                                        SignalOrFieldValue.build(ctrlStatusAttr.getId(), ctrlStatusAttr.getField(), dto.getStatus()));
+                                DeviceStatusModelApiManager.getInstance().trigger(realtimeStatus.getProductCode(), realtimeStatus.getUid());
                             });
-                });
+                        }));
 
         return success();
     }
 
-    /**
-     * 设备列表
-     *
-     * @param deviceGroupId 设备分组
-     * @return
-     */
     @GetMapping("/mqtt/devices")
+    @CheckPermission("iot:device:view")
+    @CheckRole(value = {"管理员", "OPERATOR", "VIEWER"}, logical = Logical.OR)
+    @CheckScope("device.read")
     public Result<IPage<PanelsDeviceDto>> mqttDevices(Page page, Long deviceGroupId, Long productId, DeviceType deviceType) {
         DeviceDto device = new DeviceDto();
         device.setProductId(productId);
@@ -353,7 +333,8 @@ public class PanelsController extends BaseController {
         IPage<DeviceDto> data = pageResult.getData();
         if (CollectionUtil.isNotEmpty(data.getRecords())) {
             List<Long> productIds = data.getRecords().stream()
-                    .map(item -> item.getProductId()).distinct()
+                    .map(DeviceDto::getProductId)
+                    .distinct()
                     .collect(Collectors.toList());
             List<ProductDto> list = productService.listCtrlStatusModelAttrs(productIds);
             if (CollectionUtil.isNotEmpty(list)) {
@@ -364,16 +345,14 @@ public class PanelsController extends BaseController {
                     if (CollectionUtil.isNotEmpty(productDto.getAttrs())) {
                         Map<String, String> attrDictMap = new HashMap<>();
                         productDto.getAttrs().forEach(attr -> {
-                            if (attr.getAttrType() != AttrType.W) { // 读和读写
-                                if (!DataType.t_json.getValue().equals(attr.getDataType())) {
-                                    values.add(new PanelsDeviceDto.AttrValue(attr.getField(), attr.getName(), attr.getUnit(), attr.getCtrlStatus()));
-                                }
+                            if (attr.getAttrType() != AttrType.W && !DataType.t_json.getValue().equals(attr.getDataType())) {
+                                values.add(new PanelsDeviceDto.AttrValue(attr.getField(), attr.getName(), attr.getUnit(), attr.getCtrlStatus()));
                             }
 
-                            if (attr.getAttrType() != AttrType.R) { // 写或者读写
-                                if (Boolean.TRUE.equals(attr.getCtrlStatus()) && CollectionUtil.isNotEmpty(attr.getDicts())) {
-                                    attr.getDicts().forEach(dict -> options.add(new IVOption(dict.getDictName(), dict.getDictValue())));
-                                }
+                            if (attr.getAttrType() != AttrType.R
+                                    && Boolean.TRUE.equals(attr.getCtrlStatus())
+                                    && CollectionUtil.isNotEmpty(attr.getDicts())) {
+                                attr.getDicts().forEach(dict -> options.add(new IVOption(dict.getDictName(), dict.getDictValue())));
                             }
 
                             if (CollectionUtil.isNotEmpty(attr.getDicts()) && !DataType.t_json.getValue().equals(attr.getDataType())) {
@@ -394,8 +373,7 @@ public class PanelsController extends BaseController {
                     Map<String, String> dictStringMap = productAttrDictsMap.get(deviceDto.getProductId());
                     List<PanelsDeviceDto.AttrValue> attrValues = productValuesMap.get(deviceDto.getProductId());
 
-                    PanelsDeviceDto panelsDeviceDto = new PanelsDeviceDto(options, Collections.EMPTY_LIST, deviceDto);
-                    // 获取每个属性的实时数据
+                    PanelsDeviceDto panelsDeviceDto = new PanelsDeviceDto(options, Collections.emptyList(), deviceDto);
                     if (CollectionUtil.isNotEmpty(attrValues)) {
                         List<PanelsDeviceDto.AttrValue> copyAttrValues = attrValues.stream()
                                 .map(item -> new PanelsDeviceDto.AttrValue(item.getField(), item.getName(), item.getUnit(), item.getCtrlStatus()))
@@ -403,22 +381,18 @@ public class PanelsController extends BaseController {
 
                         copyAttrValues.forEach(attrValue -> {
                             String protocolCode = productProtocolMap.get(deviceDto.getProductId());
-                            Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(protocolCode
-                                    , DeviceKey.build(deviceDto.getDeviceSn(), deviceDto.getParentDeviceSn()));
+                            Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(
+                                    protocolCode, DeviceKey.build(deviceDto.getDeviceSn(), deviceDto.getParentDeviceSn()));
                             if (CollectionUtil.isNotEmpty(realtimeDataMap)) {
-
-                                // 设置各属性的实时值
                                 RealtimeData realtimeData = realtimeDataMap.get(attrValue.getField());
-                                if (realtimeData != null && realtimeData.getRealtime() != null
+                                if (realtimeData != null
+                                        && realtimeData.getRealtime() != null
                                         && realtimeData.getRealtime().getValue() != null) {
-
                                     String value = realtimeData.getRealtime().getValue().toString();
                                     attrValue.setValue(value);
-
-                                    // 将采集到的值转成字典label
-                                    attrValue.setLabel(dictStringMap.get(attrValue.getField() + "_" + value));
-
-                                    // 设置控制属性的值
+                                    if (dictStringMap != null) {
+                                        attrValue.setLabel(dictStringMap.get(attrValue.getField() + "_" + value));
+                                    }
                                     if (Boolean.TRUE.equals(attrValue.getCtrlStatus())) {
                                         panelsDeviceDto.setCtrlValue(value);
                                     }
@@ -430,7 +404,7 @@ public class PanelsController extends BaseController {
                     }
 
                     productService.debugById(deviceDto.getProductId())
-                            .ifNotPresentThrow("此设备数据不完整[" + deviceDto.getName() + "]")
+                            .ifNotPresentThrow("设备数据不完整[" + deviceDto.getName() + "]")
                             .ifPresent(productDto -> {
                                 panelsDeviceDto.setProduct(productDto);
                                 productDto.setAttrs(null);
@@ -444,5 +418,4 @@ public class PanelsController extends BaseController {
         }
         return success(page);
     }
-
 }

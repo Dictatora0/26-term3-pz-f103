@@ -31,7 +31,7 @@ framework:
     access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:1800}
     authorization-header: Authorization
     bearer-prefix: "Bearer "
-    allow-legacy-header: true
+    allow-legacy-header: false
   web:
     upload:
       pattern: /file/**

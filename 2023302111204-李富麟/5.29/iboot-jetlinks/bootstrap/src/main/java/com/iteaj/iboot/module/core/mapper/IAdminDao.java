@@ -27,6 +27,8 @@ public interface IAdminDao extends BaseMapper<Admin> {
 
     List<String> selectPermsById(Serializable id);
 
+    List<String> selectRoleNamesById(Serializable id);
+
     AdminDto getAdminCenter(Serializable id);
 
     String getAdminPassword(Long id);

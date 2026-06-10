@@ -234,15 +234,54 @@ netstat -ano | findstr :1883
 
 ### 5.4 局域网开发板连接参数
 
-当前开发板实际连接的是 Windows 热点网卡 IP：
+当前本机实际联网网卡是 `WLAN`，已通过 `ipconfig` 确认为：
 
-- Broker Host：`192.168.137.1`
+- Windows 局域网 IPv4：`10.128.129.180`
+- MQTT Broker Host：`10.128.129.180`
 - Broker Port：`1883`
+- Username：留空
+- Password：留空
 
-注意：
+开发板、手机或另一台电脑连接 MQTT 时，不要填写 `127.0.0.1`。`127.0.0.1` 只代表客户端自己，开发板填这个地址时会连到开发板自身，不会连到 Windows 电脑上的 Mosquitto。
 
-- 手机、MQTTX、ESP8266、开发板不能用 `127.0.0.1`
-- 必须使用 Windows 当前实际联网或热点网卡的 IPv4 地址
+当前验收建议优先使用同一局域网方式：
+
+```text
+Windows 电脑连接校园网或实验室 Wi-Fi
+开发板 ESP8266 连接同一个 Wi-Fi
+MQTT Broker Host = 10.128.129.180
+MQTT Broker Port = 1883
+```
+
+如果现场改用 Windows 本机热点，再重新执行下面命令确认热点网卡 IP：
+
+```powershell
+ipconfig
+```
+
+查找名称类似 `本地连接*`、`Local Area Connection*`、`移动热点` 或 `Mobile Hotspot` 的无线虚拟网卡。如果该网卡显示：
+
+```text
+IPv4 Address . . . . . . . . . . . : 192.168.137.1
+```
+
+则开发板程序中的 MQTT Broker Host 才改为：
+
+```text
+192.168.137.1
+```
+
+本机当前端口监听状态可用下面命令复核：
+
+```powershell
+netstat -ano | findstr :1883
+```
+
+当前已验证结果：
+
+- `0.0.0.0:1883` 正在监听，说明局域网设备可以访问 MQTT TCP 端口
+- `127.0.0.1:1883` 也可用于本机 MQTTX 或本机脚本测试
+- 当前实际验收连接参数以 `10.128.129.180:1883` 为准
 
 ## 6. iBOOT 本轮实验页面与接口
 
@@ -633,6 +672,65 @@ bash D:\Proj\5.29\iboot-jetlinks\scripts\security\test-security-flow.sh
 - `viewer` 控灯被拒绝
 - `operator` 控灯成功
 
+### 10.6 PPT 截图用权限验证脚本
+
+为了现场验收和 PPT 截图，新增 Windows PowerShell 脚本：
+
+```powershell
+D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1
+```
+
+该脚本默认使用浏览器实际访问入口：
+
+```text
+http://127.0.0.1/api
+```
+
+原因是当前 Windows PowerShell 5 和 Windows 自带 `curl.exe` 直连 `https://127.0.0.1:8443` 时，可能会因为本地自签名证书和 Windows TLS 栈兼容问题报错；而浏览器页面实际也是通过 Nginx 的 `http://127.0.0.1/api` 反代访问后端。因此 PPT 验收脚本默认走 Nginx 入口，更接近页面真实链路。
+
+推荐截图命令：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1 -MaskToken
+```
+
+如果老师要求看到完整 Token，可运行：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1
+```
+
+如果需要每一段停下来单独截图，可运行：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1 -MaskToken -Interactive
+```
+
+脚本截图重点：
+
+- `viewer` 获取 Access Token、Refresh Token 和 JWT Payload
+- `viewer` 的 JWT 中 `roles = VIEWER`、`scope = device.read`
+- `operator` 获取 Access Token、Refresh Token 和 JWT Payload
+- `operator` 的 JWT 中 `roles = OPERATOR`、`scope = device.read device.control`
+- 无 Token 访问设备接口返回 `401`
+- 非法 Token 访问设备接口返回 `401`
+- `viewer` 可以查询设备，但访问管理接口和控制 LED 都返回业务码 `403`
+- `operator` 不能访问管理接口，但可以进入 LED 控制业务链路
+- Refresh Token 可以换新 Access Token
+- Refresh Token 被 Revoke 后再次刷新会失败
+
+本机已实际运行通过：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1 -MaskToken
+```
+
+本次实测输出记录保存到：
+
+```text
+D:\Proj\5.29\iboot-jetlinks\scripts\security\output\permission-demo-ppt-20260610-144917.txt
+```
+
 ## 11. 从停机到完整验收的最短命令
 
 ### 11.1 一键启动
@@ -642,6 +740,14 @@ powershell -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\sec
 ```
 
 ### 11.2 安全验收
+
+适合 PPT 截图的 Windows PowerShell 验证脚本：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\Proj\5.29\iboot-jetlinks\scripts\security\permission-demo-ppt.ps1 -MaskToken
+```
+
+完整自动化安全验证脚本：
 
 ```powershell
 bash D:\Proj\5.29\iboot-jetlinks\scripts\security\test-security-flow.sh

@@ -2,6 +2,10 @@ package com.iteaj.iboot.module.iot.controller;
 
 import com.iteaj.framework.BaseController;
 import com.iteaj.framework.result.Result;
+import com.iteaj.framework.security.CheckPermission;
+import com.iteaj.framework.security.CheckRole;
+import com.iteaj.framework.security.CheckScope;
+import com.iteaj.framework.security.Logical;
 import com.iteaj.framework.spi.iot.DeviceKey;
 import com.iteaj.iboot.module.iot.cache.data.RealtimeData;
 import com.iteaj.iboot.module.iot.cache.data.RealtimeDataService;
@@ -18,10 +22,14 @@ import java.util.Map;
 
 /**
  * 实时数据管理
+ *
  * @see RealtimePushListener websocket实时数据监听
  */
 @RestController
 @RequestMapping("/iot/realtime")
+@CheckPermission("iot:device:view")
+@CheckRole(value = {"管理员", "OPERATOR", "VIEWER"}, logical = Logical.OR)
+@CheckScope("device.read")
 public class RealtimeDataController extends BaseController {
 
     private final IDeviceService deviceService;
@@ -32,70 +40,41 @@ public class RealtimeDataController extends BaseController {
         this.realtimeDataService = realtimeDataService;
     }
 
-    /**
-     * 获取指定设备下面的所有事件或者点位数据
-     * @param deviceId
-     * @return
-     */
     @GetMapping("listByDeviceId")
     public Result<Map<String, Object>> listByDevice(Long deviceId) {
         DeviceDto device = deviceService.detailById(deviceId).ifNotPresentThrow("设备不存在").getData();
-        Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(device.getProductCode(), DeviceKey.build(device.getDeviceSn(), device.getDeviceSn()));
-        if(realtimeDataMap != null) {
+        Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(
+                device.getProductCode(), DeviceKey.build(device.getDeviceSn(), device.getDeviceSn()));
+        if (realtimeDataMap != null) {
             Map<String, Object> result = new HashMap<>();
-            realtimeDataMap.entrySet().forEach(entry -> {
-                result.put(entry.getKey(), entry.getValue().getRealtime());
-            });
+            realtimeDataMap.forEach((key, value) -> result.put(key, value.getRealtime()));
             return success(result);
         }
-
-        return success(Collections.EMPTY_MAP);
+        return success(Collections.emptyMap());
     }
 
-    /**
-     * 获取指定设备下面的所有事件或者点位数据
-     * @param productCode
-     * @param deviceSn
-     * @return
-     */
     @GetMapping("listByDevice")
     public Result<Map<String, Object>> listByDevice(String productCode, String deviceSn) {
         Map<String, RealtimeData> realtimeDataMap = realtimeDataService.listOfDevice(productCode, DeviceKey.build(deviceSn, null));
-        if(realtimeDataMap != null) {
+        if (realtimeDataMap != null) {
             Map<String, Object> result = new HashMap<>();
-            realtimeDataMap.entrySet().forEach(entry -> {
-                result.put(entry.getKey(), entry.getValue().getRealtime());
-            });
+            realtimeDataMap.forEach((key, value) -> result.put(key, value.getRealtime()));
             return success(result);
         }
-
-        return success(Collections.EMPTY_MAP);
+        return success(Collections.emptyMap());
     }
 
-    /**
-     * 获取指定设备点位或者字段实时数据
-     * @param productCode
-     * @param deviceSn
-     * @param eventOrSignalField 事件代码或者点位字段
-     * @return
-     */
     @GetMapping("get")
     public Result<RealtimeData> getByEventOrSignalField(String productCode, String deviceSn, String eventOrSignalField) {
         RealtimeData realtimeData = realtimeDataService.getOfDeviceAndKey(productCode, DeviceKey.build(deviceSn, null), eventOrSignalField);
         return success(realtimeData);
     }
 
-    /**
-     * 获取指定设备下某个事件或者点位字段的实时数据
-     * @param deviceId
-     * @param signalOrField 事件代码或者点位字段
-     * @return
-     */
     @GetMapping("getByDeviceId")
     public Result<RealtimeData> getByEventOrSignalField(Long deviceId, String signalOrField) {
         DeviceDto device = deviceService.detailById(deviceId).ifNotPresentThrow("设备不存在").getData();
-        RealtimeData realtimeData = realtimeDataService.getOfDeviceAndKey(device.getProductCode()
-                , DeviceKey.build(device.getDeviceSn(), device.getDeviceSn()), signalOrField);
+        RealtimeData realtimeData = realtimeDataService.getOfDeviceAndKey(
+                device.getProductCode(), DeviceKey.build(device.getDeviceSn(), device.getDeviceSn()), signalOrField);
         return success(realtimeData);
     }
 }

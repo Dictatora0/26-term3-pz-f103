@@ -1,3 +1,0 @@
-.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerial

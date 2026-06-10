@@ -10,6 +10,7 @@ import com.iteaj.framework.result.ListResult;
 import com.iteaj.framework.security.AuthorizationService;
 import com.iteaj.iboot.module.core.dto.RoleDto;
 import com.iteaj.iboot.module.core.entity.Role;
+import com.iteaj.iboot.module.core.mapper.IAdminDao;
 import com.iteaj.iboot.module.core.mapper.IRoleDao;
 import com.iteaj.iboot.module.core.service.IMenuService;
 import com.iteaj.iboot.module.core.service.IRoleService;
@@ -38,10 +39,12 @@ public class RoleServiceImpl extends BaseServiceImpl<IRoleDao, Role> implements 
 
     private final IMenuService menuService;
     private final CacheManager cacheManager;
+    private final IAdminDao adminDao;
 
-    public RoleServiceImpl(IMenuService menuService, CacheManager cacheManager) {
+    public RoleServiceImpl(IMenuService menuService, CacheManager cacheManager, IAdminDao adminDao) {
         this.menuService = menuService;
         this.cacheManager = cacheManager;
+        this.adminDao = adminDao;
     }
 
     @Override
@@ -141,5 +144,11 @@ public class RoleServiceImpl extends BaseServiceImpl<IRoleDao, Role> implements 
         }
 
         return strings;
+    }
+
+    @Override
+    public List<String> getRoles(Serializable userId) {
+        List<String> roleNames = adminDao.selectRoleNamesById(userId);
+        return roleNames == null ? Collections.emptyList() : roleNames;
     }
 }

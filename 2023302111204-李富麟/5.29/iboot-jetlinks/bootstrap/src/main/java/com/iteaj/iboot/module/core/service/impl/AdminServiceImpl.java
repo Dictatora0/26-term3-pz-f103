@@ -33,6 +33,14 @@ public class AdminServiceImpl extends BaseServiceImpl<IAdminDao, Admin> implemen
                 .eq("account", username));
     }
 
+    @Override
+    public Admin getById(Object id) {
+        if (id == null) {
+            return null;
+        }
+        return super.getById(Long.valueOf(String.valueOf(id))).ofNullable().orElse(null);
+    }
+
     /**
      * 创建管理员
      * @param adminDto
@@ -102,13 +110,27 @@ public class AdminServiceImpl extends BaseServiceImpl<IAdminDao, Admin> implemen
 
     @Override
     public void updateCurrentUserInfo(Admin admin) {
-        this.updateById(admin);
+        Admin currentAdmin = new Admin();
+        currentAdmin.setId(admin.getId());
+        currentAdmin.setAvatar(admin.getAvatar());
+        currentAdmin.setEmail(admin.getEmail());
+        currentAdmin.setPhone(admin.getPhone());
+        currentAdmin.setRemark(admin.getRemark());
+        currentAdmin.setName(admin.getName());
+        currentAdmin.setSex(admin.getSex());
+        this.updateById(currentAdmin);
 
         // 更新当前登录的信息
-        Admin principal = (Admin) SecurityUtil.getLoginUser().get();
-        principal.setAvatar(admin.getAvatar()).setEmail(admin.getEmail())
-                .setPhone(admin.getPhone()).setRemark(admin.getRemark())
-                .setName(admin.getName()).setSex(admin.getSex());
+        SecurityUtil.getLoginUser().ifPresent(principal -> {
+            if (principal instanceof Admin) {
+                ((Admin) principal).setAvatar(currentAdmin.getAvatar())
+                        .setEmail(currentAdmin.getEmail())
+                        .setPhone(currentAdmin.getPhone())
+                        .setRemark(currentAdmin.getRemark())
+                        .setName(currentAdmin.getName())
+                        .setSex(currentAdmin.getSex());
+            }
+        });
     }
 
     @Override

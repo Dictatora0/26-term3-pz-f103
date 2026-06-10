@@ -1,1 +1,0 @@
-const e="/assets/collectorDefaultImage.png",t="/assets/deviceDefaultImage.png",a="/assets/protocolDefaultImage.png",o={collectorDefaultImage:e,deviceDefaultImage:t,protocolDefaultImage:a};export{o as r};

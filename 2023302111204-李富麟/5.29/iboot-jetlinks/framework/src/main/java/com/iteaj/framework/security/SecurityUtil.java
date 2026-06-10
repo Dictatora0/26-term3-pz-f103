@@ -130,7 +130,12 @@ public class SecurityUtil {
     }
 
     public static Optional<Long> getLoginId() {
-        return securityService.getLoginId().map(item -> (Long) item);
+        return securityService.getLoginId().map(item -> {
+            if (item instanceof Long) {
+                return (Long) item;
+            }
+            return Long.valueOf(String.valueOf(item));
+        });
     }
 
     public static void logout(Serializable sessionId) throws SecurityException {

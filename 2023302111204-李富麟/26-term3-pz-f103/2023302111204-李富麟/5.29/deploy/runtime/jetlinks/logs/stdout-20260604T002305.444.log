@@ -1,2 +1,0 @@
-		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326)
-		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsa

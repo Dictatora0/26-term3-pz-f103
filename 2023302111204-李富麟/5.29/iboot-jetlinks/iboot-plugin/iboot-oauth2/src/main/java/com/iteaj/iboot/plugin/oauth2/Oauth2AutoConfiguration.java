@@ -1,10 +1,15 @@
 package com.iteaj.iboot.plugin.oauth2;
 
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Template;
+import com.iteaj.framework.autoconfigure.FrameworkProperties;
 import com.iteaj.framework.plugin.Plugin;
+import com.iteaj.framework.security.AuthenticationService;
+import com.iteaj.framework.security.AuthorizationService;
+import com.iteaj.framework.security.JwtAccessTokenService;
 import com.iteaj.framework.security.OrderFilterChainDefinition;
 import com.iteaj.iboot.plugin.oauth2.sa.SaOAuth2TemplateImpl;
 import com.iteaj.iboot.plugin.oauth2.service.Oauth2AppService;
+import com.iteaj.iboot.plugin.oauth2.service.Oauth2SecurityStore;
 import com.iteaj.iboot.plugin.oauth2.service.Oauth2UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
@@ -28,8 +33,22 @@ public class Oauth2AutoConfiguration implements ApplicationListener<ApplicationE
     }
 
     @Bean
-    public SaOAuth2Template saOAuth2TemplateImpl(Oauth2AppService oauth2AppService, Oauth2UserService oauth2UserService) {
-        return new SaOAuth2TemplateImpl(oauth2AppService, oauth2UserService);
+    public SaOAuth2Template saOAuth2TemplateImpl(Oauth2AppService oauth2AppService,
+                                                 Oauth2UserService oauth2UserService,
+                                                 Oauth2SecurityStore oauth2SecurityStore,
+                                                 AuthenticationService authenticationService,
+                                                 AuthorizationService authorizationService,
+                                                 JwtAccessTokenService jwtAccessTokenService,
+                                                 FrameworkProperties properties) {
+        return new SaOAuth2TemplateImpl(
+                oauth2AppService,
+                oauth2UserService,
+                oauth2SecurityStore,
+                authenticationService,
+                authorizationService,
+                jwtAccessTokenService,
+                properties
+        );
     }
 
     @Override

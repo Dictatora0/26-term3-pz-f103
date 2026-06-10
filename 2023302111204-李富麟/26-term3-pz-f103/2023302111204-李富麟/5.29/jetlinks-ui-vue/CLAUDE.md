@@ -1,2 +1,0 @@
-- 项目技术栈: vue 3.5.x + vite 7.x + ant-design-vue 4.x
-- 使用中文回答
