@@ -1,0 +1,88 @@
+2026-06-16 12:30:07 INFO [CONFIG] loaded sources=.env
+2026-06-16 12:30:07 INFO [CONFIG] serial_port=COM3 baud_rate=115200 serial_timeout=1.0 serial_dtr=False serial_rts=False device_id=f103_01 ha_enabled=True ha_control_enabled=True ha=127.0.0.1:1883 tb_enabled=True tb=127.0.0.1:1884 log_level=INFO
+2026-06-16 12:30:07 INFO [SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-16 12:30:07 INFO [HA-MQTT] connecting host=127.0.0.1 port=1883 client_id=pz103_gateway_ha_f103_01
+2026-06-16 12:30:07 WARNING [WARN] [TB-MQTT] TB_ACCESS_TOKEN is not configured; skipping ThingsBoard publishing
+2026-06-16 12:30:07 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=72.1% light=28% led=0
+2026-06-16 12:30:07 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=72.1% light=28% led=0
+2026-06-16 12:30:07 INFO [HA-MQTT] connected
+2026-06-16 12:30:07 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:28,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:07 INFO [HA-MQTT] subscribe topic=pz103/f103_01/led/set
+2026-06-16 12:30:07 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 28, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:07 INFO [HA-MQTT] subscribe topic=pz103/f103_01/buzzer/set
+2026-06-16 12:30:08 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:08 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=28
+2026-06-16 12:30:08 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:08 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:09 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=72.7% light=28% led=0
+2026-06-16 12:30:09 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=72.7% light=28% led=0
+2026-06-16 12:30:10 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:28,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:10 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 28, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:10 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:10 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=28
+2026-06-16 12:30:10 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:10 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:12 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=73.6% light=26% led=0
+2026-06-16 12:30:12 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=73.6% light=26% led=0
+2026-06-16 12:30:12 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:26,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:12 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 26, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:12 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:12 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=26
+2026-06-16 12:30:12 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:12 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:14 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=73.9% light=28% led=0
+2026-06-16 12:30:14 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=73.9% light=28% led=0
+2026-06-16 12:30:14 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:28,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:14 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 28, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:14 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:14 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=28
+2026-06-16 12:30:14 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:14 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:16 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=74.5% light=28% led=0
+2026-06-16 12:30:16 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=74.5% light=28% led=0
+2026-06-16 12:30:16 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:28,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:16 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 28, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:16 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:16 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=28
+2026-06-16 12:30:16 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:16 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:18 INFO [HA-MQTT] received command topic=pz103/f103_01/led/set payload=ON
+2026-06-16 12:30:18 INFO [SERIAL] wrote command to F103: LED_ON
+2026-06-16 12:30:18 INFO [HA-MQTT] received command topic=pz103/f103_01/led/set payload=OFF
+2026-06-16 12:30:18 INFO [SERIAL] wrote command to F103: LED_OFF
+2026-06-16 12:30:18 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=63.2% light=27% led=0
+2026-06-16 12:30:18 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=63.2% light=27% led=0
+2026-06-16 12:30:18 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:27,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:18 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 27, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:18 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:18 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=27
+2026-06-16 12:30:18 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:18 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:19 INFO [HA-MQTT] received command topic=pz103/f103_01/buzzer/set payload=ON
+2026-06-16 12:30:19 INFO [SERIAL] wrote command to F103: BUZZER_ON
+2026-06-16 12:30:19 INFO [HA-MQTT] received command topic=pz103/f103_01/buzzer/set payload=OFF
+2026-06-16 12:30:19 INFO [SERIAL] wrote command to F103: BUZZER_OFF
+2026-06-16 12:30:21 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=63.7% light=28% led=0
+2026-06-16 12:30:21 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=63.7% light=28% led=0
+2026-06-16 12:30:21 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:28,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:21 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 28, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:21 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:21 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=28
+2026-06-16 12:30:21 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:21 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:23 INFO [SERIAL] received raw line: [SENSOR] temp=30.23C hum(sim)=64.5% light=27% led=0
+2026-06-16 12:30:23 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.23C hum(sim)=64.5% light=27% led=0
+2026-06-16 12:30:23 INFO [SERIAL] received raw line: TEMP:30.2,LIGHT:27,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:23 INFO [SERIAL] parsed data: {'temperature': 30.2, 'light': 27, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:23 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.2
+2026-06-16 12:30:23 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=27
+2026-06-16 12:30:23 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:23 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 12:30:25 INFO [SERIAL] received raw line: [SENSOR] temp=30.42C hum(sim)=64.9% light=28% led=0
+2026-06-16 12:30:25 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.42C hum(sim)=64.9% light=28% led=0
+2026-06-16 12:30:25 INFO [SERIAL] received raw line: TEMP:30.4,LIGHT:28,LED:OFF,BUZZER:OFF
+2026-06-16 12:30:25 INFO [SERIAL] parsed data: {'temperature': 30.4, 'light': 28, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 12:30:25 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.4
+2026-06-16 12:30:25 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=28
+2026-06-16 12:30:25 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 12:30:25 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF

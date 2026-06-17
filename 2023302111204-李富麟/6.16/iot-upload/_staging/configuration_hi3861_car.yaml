@@ -1,0 +1,31 @@
+mqtt:
+  sensor:
+    - name: "Hi3861 Car Status"
+      unique_id: hi3861_car_status
+      state_topic: "iot/hi3861_car_01/status"
+    - name: "Hi3861 Car Direction"
+      unique_id: hi3861_car_direction
+      state_topic: "iot/hi3861_car_01/direction"
+    - name: "Hi3861 Car Motion State"
+      unique_id: hi3861_car_motion_state
+      state_topic: "iot/hi3861_car_01/motion_state"
+    - name: "Hi3861 Car Speed"
+      unique_id: hi3861_car_speed
+      state_topic: "iot/hi3861_car_01/speed"
+      unit_of_measurement: "%"
+      state_class: measurement
+    - name: "Hi3861 Car Distance"
+      unique_id: hi3861_car_distance
+      state_topic: "iot/hi3861_car_01/distance_cm"
+      unit_of_measurement: "cm"
+      state_class: measurement
+    - name: "Hi3861 Car Yaw"
+      unique_id: hi3861_car_yaw
+      state_topic: "iot/hi3861_car_01/yaw_deg"
+      unit_of_measurement: "deg"
+      state_class: measurement
+    - name: "Hi3861 Car Gyro Z"
+      unique_id: hi3861_car_gyro_z_dps
+      state_topic: "iot/hi3861_car_01/gyro_z_dps"
+      unit_of_measurement: "dps"
+      state_class: measurement

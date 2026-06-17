@@ -1,0 +1,11 @@
+type: entities
+title: PZ F103 Board
+entities:
+  - entity: sensor.pz_f103_temperature
+    name: Temperature
+  - entity: sensor.pz_f103_light
+    name: Light
+  - entity: sensor.pz_f103_led_state
+    name: LED State
+  - entity: sensor.pz_f103_buzzer_state
+    name: Buzzer State

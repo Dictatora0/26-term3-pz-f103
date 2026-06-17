@@ -1,0 +1,850 @@
+2026-06-17 10:42:38 INFO [CONFIG] loaded sources=.env
+2026-06-17 10:42:38 WARNING [WARN] [CONFIG] python-dotenv is not installed; using fallback .env loader
+2026-06-17 10:42:38 INFO [CONFIG] f103_enabled=False f103_serial_port=COM3 f103_baud_rate=115200 f103_timeout=1.0 f103_control_serial_port=(same as F103 serial) f103_device_id=f103_01 car_enabled=True car_input_mode=serial car_serial_port=COM3 car_baud_rate=115200 car_timeout=1.0 car_device_id=hi3861_car_01 serial_reconnect_delay=3.0 ha_enabled=True ha_control_enabled=True ha_discovery_enabled=True ha=127.0.0.1:1883 tb_enabled=True tb_rpc_enabled=True tb=127.0.0.1:1884 f103_tb_token=8x8***f0q car_tb_token=(placeholder) mqtt_reconnect_min_delay=1 mqtt_reconnect_max_delay=30 command_confirm_timeout=8.0 log_level=INFO
+2026-06-17 10:42:38 INFO [HA-MQTT] connecting host=127.0.0.1 port=1883 client_id=pz103_gateway_ha_multi_device
+2026-06-17 10:42:38 WARNING [WARN] [TB-MQTT-CAR] CAR_TB_ACCESS_TOKEN is not configured; skipping car ThingsBoard
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:38 INFO [HA-MQTT] connected
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:38 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:38 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:38 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:39 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:39 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [HA-MQTT] connected
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:40 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:40 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:40 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:41 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:41 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [HA-MQTT] connected
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:42 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:42 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:42 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:43 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:43 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [HA-MQTT] connected
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:44 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:44 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:44 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:45 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:45 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [HA-MQTT] connected
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:46 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:46 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:46 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:47 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:47 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [HA-MQTT] connected
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:48 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:48 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:48 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:49 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:49 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [HA-MQTT] connected
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:50 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:50 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:50 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:51 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:51 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [HA-MQTT] connected
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:52 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:52 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:52 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:53 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:53 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [HA-MQTT] connected
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:54 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:54 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:54 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:55 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:55 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [HA-MQTT] connected
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:56 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:56 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:56 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:57 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:57 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [HA-MQTT] connected
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:42:58 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:58 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:58 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:42:59 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:42:59 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [HA-MQTT] connected
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:00 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:00 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:00 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:01 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:01 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:02 INFO [HA-MQTT] connected
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:02 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:43:02 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:02 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:03 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:03 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [HA-MQTT] connected
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:04 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:04 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:04 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:05 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:43:05 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:05 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:06 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:06 INFO [HA-MQTT] connected
+2026-06-17 10:43:06 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:43:06 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:43:06 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:07 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:07 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:07 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:08 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:08 INFO [HA-MQTT] connected
+2026-06-17 10:43:08 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:43:08 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:09 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:09 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:09 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:10 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:10 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [HA-MQTT] connected
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_voltage/config payload= retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/battery_percent/config payload= retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_voltage payload= retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/battery_percent payload= retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/status/config payload={"name":"Hi3861 Car Status","object_id":"hi3861_car_status","unique_id":"hi3861_car_status","state_topic":"iot/hi3861_car_01/status","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/direction/config payload={"name":"Hi3861 Car Direction","object_id":"hi3861_car_direction","unique_id":"hi3861_car_direction","state_topic":"iot/hi3861_car_01/direction","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/speed/config payload={"name":"Hi3861 Car Speed","object_id":"hi3861_car_speed","unique_id":"hi3861_car_speed","state_topic":"iot/hi3861_car_01/speed","unit_of_measurement":"%","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=homeassistant/sensor/hi3861_car_hi3861_car_01/distance_cm/config payload={"name":"Hi3861 Car Distance","object_id":"hi3861_car_distance","unique_id":"hi3861_car_distance","state_topic":"iot/hi3861_car_01/distance_cm","unit_of_measurement":"cm","device_class":"distance","state_class":"measurement","availability_topic":"iot/hi3861_car_01/gateway/status","payload_available":"online","payload_not_available":"offline","device":{"identifiers":["hi3861_car_hi3861_car_01"],"name":"Huawei Hi3861 Car","manufacturer":"Huawei","model":"Hi3861 Smart Car","sw_version":"python-gateway"}} retain=True
+2026-06-17 10:43:11 INFO [HA-MQTT] publish topic=iot/hi3861_car_01/gateway/status payload=online retain=True
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:11 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:11 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 WARNING [HA-MQTT] disconnected reason=Unspecified error; auto reconnect is enabled
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s
+2026-06-17 10:43:12 INFO [CAR-SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-17 10:43:12 WARNING [WARN] [CAR-SERIAL] open failed port=COM3 error=could not open port 'COM3': PermissionError(13, '¾Ü¾ø·ÃÎÊ¡£', None, 5); retry in 3.0s

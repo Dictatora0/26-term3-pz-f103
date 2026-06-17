@@ -1,0 +1,18 @@
+import("//build/lite/config/component/lite_component.gni")
+
+static_library("auto_car_demo") {
+  sources = [
+    "auto_car_demo.c",
+    "car_telemetry_report.c",
+    "//vendor/hisilicon/hispark_pegasus/demo/histreaming_demo/hal_iot_gpio_ex.c",
+    "//vendor/hisilicon/hispark_pegasus/demo/histreaming_demo/motor_control.c",
+  ]
+
+  include_dirs = [
+    "./",
+    "//utils/native/lite/include",
+    "//kernel/liteos_m/kal/cmsis",
+    "//base/iot_hardware/peripheral/interfaces/kits",
+    "//vendor/hisilicon/hispark_pegasus/demo/histreaming_demo",
+  ]
+}

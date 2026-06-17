@@ -1,0 +1,19 @@
+mqtt:
+  sensor:
+    - name: "PZ F103 Temperature"
+      unique_id: pz_f103_temperature
+      state_topic: "pz103/f103_01/temperature"
+      unit_of_measurement: "C"
+      device_class: temperature
+      state_class: measurement
+    - name: "PZ F103 Light"
+      unique_id: pz_f103_light
+      state_topic: "pz103/f103_01/light"
+      unit_of_measurement: "%"
+      state_class: measurement
+    - name: "PZ F103 LED State"
+      unique_id: pz_f103_led_state
+      state_topic: "pz103/f103_01/led/state"
+    - name: "PZ F103 Buzzer State"
+      unique_id: pz_f103_buzzer_state
+      state_topic: "pz103/f103_01/buzzer/state"

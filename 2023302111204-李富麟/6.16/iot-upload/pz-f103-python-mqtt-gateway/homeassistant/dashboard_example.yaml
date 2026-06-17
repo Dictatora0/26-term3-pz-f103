@@ -1,0 +1,13 @@
+views:
+  - title: PZ F103
+    path: pz-f103
+    cards:
+      - type: entities
+        title: PZ F103 UART Gateway
+        entities:
+          - sensor.pz_f103_temperature
+          - sensor.pz_f103_light
+          - sensor.pz_f103_led_state
+          - sensor.pz_f103_buzzer_state
+          - switch.pz_f103_led
+          - switch.pz_f103_buzzer

@@ -43,3 +43,17 @@
 [2026-06-09T16:39:52,689][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
 [2026-06-10T09:22:19,054][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
 [2026-06-10T09:22:43,625][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-13T10:26:58,480][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-13T10:27:14,147][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-14T09:14:04,659][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-14T09:14:45,578][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-14T12:26:08,687][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-14T12:26:38,230][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-15T15:44:18,800][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-15T15:44:47,807][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-16T11:23:20,954][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-16T11:24:32,044][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-16T11:46:53,114][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-16T11:47:24,507][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.
+[2026-06-17T09:04:21,085][WARN ][o.e.d.r.RestController   ] [jetlinks-node-1] [] Legacy index templates are deprecated in favor of composable templates.
+[2026-06-17T09:04:34,334][CRITICAL][o.e.d.a.b.BulkRequestParser] [jetlinks-node-1] [] [types removal] Specifying types in bulk requests is deprecated.

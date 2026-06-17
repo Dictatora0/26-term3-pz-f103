@@ -1,0 +1,7 @@
+iot/hi3861_car_01/gateway/status online
+iot/hi3861_car_01/status RUNNING
+iot/hi3861_car_01/direction FORWARD
+iot/hi3861_car_01/motion_state CRUISE
+iot/hi3861_car_01/speed 50
+iot/hi3861_car_01/yaw_deg 16.1
+iot/hi3861_car_01/gyro_z_dps 0

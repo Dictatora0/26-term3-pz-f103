@@ -1,0 +1,58 @@
+mqtt:
+  sensor:
+    - name: "PZ F103 Temperature"
+      unique_id: pz_f103_temperature
+      state_topic: "pz103/f103_01/temperature"
+      availability_topic: "pz103/f103_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      unit_of_measurement: "C"
+      device_class: temperature
+      state_class: measurement
+    - name: "PZ F103 Light"
+      unique_id: pz_f103_light
+      state_topic: "pz103/f103_01/light"
+      availability_topic: "pz103/f103_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      unit_of_measurement: "%"
+      state_class: measurement
+    - name: "PZ F103 LED State"
+      unique_id: pz_f103_led_state
+      state_topic: "pz103/f103_01/led/state"
+      availability_topic: "pz103/f103_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+    - name: "PZ F103 Buzzer State"
+      unique_id: pz_f103_buzzer_state
+      state_topic: "pz103/f103_01/buzzer/state"
+      availability_topic: "pz103/f103_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+  switch:
+    - name: "PZ F103 LED"
+      unique_id: pz_f103_led_switch
+      command_topic: "pz103/f103_01/led/set"
+      state_topic: "pz103/f103_01/led/state"
+      availability_topic: "pz103/f103_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      payload_on: "ON"
+      payload_off: "OFF"
+      state_on: "ON"
+      state_off: "OFF"
+      optimistic: false
+      retain: false
+    - name: "PZ F103 Buzzer"
+      unique_id: pz_f103_buzzer_switch
+      command_topic: "pz103/f103_01/buzzer/set"
+      state_topic: "pz103/f103_01/buzzer/state"
+      availability_topic: "pz103/f103_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      payload_on: "ON"
+      payload_off: "OFF"
+      state_on: "ON"
+      state_off: "OFF"
+      optimistic: false
+      retain: false

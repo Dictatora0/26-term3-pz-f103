@@ -1,0 +1,50 @@
+2026-06-16 13:01:19 INFO [CONFIG] loaded sources=.env
+2026-06-16 13:01:19 INFO [CONFIG] serial_port=COM3 baud_rate=115200 serial_timeout=1.0 serial_dtr=False serial_rts=False device_id=f103_01 ha_enabled=True ha_control_enabled=True ha=127.0.0.1:1883 tb_enabled=True tb=127.0.0.1:1884 log_level=INFO
+2026-06-16 13:01:19 INFO [SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-16 13:01:19 INFO [HA-MQTT] connecting host=127.0.0.1 port=1883 client_id=pz103_gateway_ha_f103_01
+2026-06-16 13:01:19 WARNING [WARN] [TB-MQTT] TB_ACCESS_TOKEN is not configured; skipping ThingsBoard publishing
+2026-06-16 13:01:19 INFO [HA-MQTT] connected
+2026-06-16 13:01:19 INFO [SERIAL] received raw line: [SENSOR] ADC temp/light init done, light_pin=PF8 (ADC3_CH6) buzzer_pin=PB8
+2026-06-16 13:01:20 INFO [HA-MQTT] subscribe topic=pz103/f103_01/led/set
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: [SENSOR] ADC temp/light init done, light_pin=PF8 (ADC3_CH6) buzzer_pin=PB8
+2026-06-16 13:01:20 INFO [HA-MQTT] subscribe topic=pz103/f103_01/buzzer/set
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: [SENSOR] temp=19.55C hum(sim)=67.1% light=30% led=0
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: [SENSOR] temp=19.55C hum(sim)=67.1% light=30% led=0
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: TEMP:19.5,LIGHT:30,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:20 INFO [SERIAL] parsed data: {'temperature': 19.5, 'light': 30, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:20 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=19.5
+2026-06-16 13:01:20 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=30
+2026-06-16 13:01:20 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 13:01:20 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 13:01:20 INFO [SERIAL] received raw line:  LCD ID:0
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line:  LCD ID:0
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: ====================================
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: ====================================
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: STM32F103 UART + Python MQTT Gateway
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: STM32F103 UART + Python MQTT Gateway
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: UART protocol: TEMP/LIGHT/LED/BUZZER status + LED/BUZZER commands
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: UART protocol: TEMP/LIGHT/LED/BUZZER status + LED/BUZZER commands
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: Debug UART baud: 115200
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: Debug UART baud: 115200
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: Light PIN: PF8 (ADC3_CH6)
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: Light PIN: PF8 (ADC3_CH6)
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: Buzzer PIN: PB8
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: Buzzer PIN: PB8
+2026-06-16 13:01:20 INFO [SERIAL] received raw line: ====================================
+2026-06-16 13:01:20 INFO [SERIAL] ignored serial log line: ====================================
+2026-06-16 13:01:22 INFO [SERIAL] received raw line: [SENSOR] temp=29.85C hum(sim)=64.8% light=26% led=0
+2026-06-16 13:01:22 INFO [SERIAL] ignored serial log line: [SENSOR] temp=29.85C hum(sim)=64.8% light=26% led=0
+2026-06-16 13:01:22 INFO [SERIAL] received raw line: TEMP:29.9,LIGHT:26,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:22 INFO [SERIAL] parsed data: {'temperature': 29.9, 'light': 26, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:22 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=29.9
+2026-06-16 13:01:22 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=26
+2026-06-16 13:01:22 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 13:01:22 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF
+2026-06-16 13:01:24 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=65.4% light=26% led=0
+2026-06-16 13:01:24 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=65.4% light=26% led=0
+2026-06-16 13:01:24 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:26,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:24 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 26, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:24 INFO [HA-MQTT] publish topic=pz103/f103_01/temperature payload=30.0
+2026-06-16 13:01:24 INFO [HA-MQTT] publish topic=pz103/f103_01/light payload=26
+2026-06-16 13:01:24 INFO [HA-MQTT] publish topic=pz103/f103_01/led/state payload=OFF
+2026-06-16 13:01:24 INFO [HA-MQTT] publish topic=pz103/f103_01/buzzer/state payload=OFF

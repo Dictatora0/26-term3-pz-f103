@@ -1,0 +1,31 @@
+mqtt:
+  sensor:
+    - name: "Hi3861 Car Status"
+      unique_id: hi3861_car_status
+      state_topic: "iot/hi3861_car_01/status"
+      availability_topic: "iot/hi3861_car_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+    - name: "Hi3861 Car Direction"
+      unique_id: hi3861_car_direction
+      state_topic: "iot/hi3861_car_01/direction"
+      availability_topic: "iot/hi3861_car_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+    - name: "Hi3861 Car Speed"
+      unique_id: hi3861_car_speed
+      state_topic: "iot/hi3861_car_01/speed"
+      availability_topic: "iot/hi3861_car_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      unit_of_measurement: "%"
+      state_class: measurement
+    - name: "Hi3861 Car Distance"
+      unique_id: hi3861_car_distance
+      state_topic: "iot/hi3861_car_01/distance_cm"
+      availability_topic: "iot/hi3861_car_01/gateway/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      unit_of_measurement: "cm"
+      device_class: distance
+      state_class: measurement

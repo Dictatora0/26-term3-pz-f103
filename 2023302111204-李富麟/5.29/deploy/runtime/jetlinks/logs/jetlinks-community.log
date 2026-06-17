@@ -1,32 +1,36 @@
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [ae1ba568-1, L:/127.0.0.1:50747 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:23.250  WARN 5768 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [4fa12be8-3451, L:/127.0.0.1:52378 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [f2727e6c-1, L:/127.0.0.1:60377 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:25.878  WARN 5768 --- [reactor-http-nio-5] r.netty.http.client.HttpClientConnect    : [2a1fb883-1, L:/127.0.0.1:57557 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [41f3329b-1, L:/127.0.0.1:60393 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:25.086  WARN 5768 --- [reactor-http-nio-4] r.netty.http.client.HttpClientConnect    : [381f6cfe-1, L:/127.0.0.1:57550 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [5a6be751-1, L:/127.0.0.1:60401 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:25.878  WARN 5768 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [6a246f00-1, L:/127.0.0.1:57559 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-3] r.netty.http.client.HttpClientConnect    : [b42d2dd6-1, L:/127.0.0.1:60395 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:25.086  WARN 5768 --- [reactor-http-nio-6] r.netty.http.client.HttpClientConnect    : [c67fe561-1, L:/127.0.0.1:57552 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-5] r.netty.http.client.HttpClientConnect    : [c16c790e-1, L:/127.0.0.1:60400 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:25.076  WARN 5768 --- [reactor-http-nio-3] r.netty.http.client.HttpClientConnect    : [63645af1-1, L:/127.0.0.1:57551 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:13.067  WARN 6196 --- [reactor-http-nio-4] r.netty.http.client.HttpClientConnect    : [dd338d80-1, L:/127.0.0.1:60396 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:05:25.086  WARN 5768 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [86a88f9f-1, L:/127.0.0.1:57556 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:17.580 ERROR 6196 --- [reactor-http-nio-2] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:05:25.782  WARN 5768 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [81ab2e14-1, L:/127.0.0.1:57549 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:06:10.094 ERROR 5768 --- [reactor-http-nio-7] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -76,14 +80,18 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:17.580 ERROR 6196 --- [reactor-http-nio-5] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:06:16.032  WARN 5768 --- [reactor-http-nio-2] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:2,remainder:7.use time: 218181 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:16.032  WARN 5768 --- [reactor-http-nio-3] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:3,remainder:7.use time: 47674 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:16.032  WARN 5768 --- [reactor-http-nio-5] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:1,remainder:7.use time: 57880 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:16.032  WARN 5768 --- [reactor-http-nio-4] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:5,remainder:7.use time: 43613 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:16.809 ERROR 5768 --- [reactor-http-nio-6] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -133,14 +141,14 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:17.580 ERROR 6196 --- [reactor-http-nio-4] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:06:16.809 ERROR 5768 --- [reactor-http-nio-1] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -190,14 +198,14 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:17.580 ERROR 6196 --- [reactor-http-nio-7] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:06:34.349 ERROR 5768 --- [reactor-http-nio-8] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -247,201 +255,33 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:17.580 ERROR 6196 --- [reactor-http-nio-8] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:17.580 ERROR 6196 --- [reactor-http-nio-3] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:19.053 ERROR 6196 --- [reactor-http-nio-1] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:21.077  WARN 6196 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [e9e01c7d-1, L:/127.0.0.1:60385 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:40.189  WARN 5768 --- [reactor-http-nio-6] r.netty.http.client.HttpClientConnect    : [f62f249c-1, L:/127.0.0.1:57564 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.077  WARN 6196 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [ae79443f-2, L:/127.0.0.1:60349 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:40.230  WARN 5768 --- [reactor-http-nio-6] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:2,remainder:19.use time: 85098 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:44.954  WARN 5768 --- [reactor-http-nio-5] r.netty.http.client.HttpClientConnect    : [079e98fc-1, L:/127.0.0.1:57558 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.077  WARN 6196 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [ce26cfe8-1, L:/127.0.0.1:60379 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:45.908  WARN 5768 --- [reactor-http-nio-5] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:4,remainder:1.use time: 95026 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:50.197  WARN 5768 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [183e5955-1, L:/127.0.0.1:57661 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.077  WARN 6196 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [17e7ebd6-2, L:/127.0.0.1:65290 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:50.290  WARN 5768 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [82d6945f-1, L:/127.0.0.1:57662 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.128 ERROR 6196 --- [reactor-http-nio-7] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:06:50.318  WARN 5768 --- [reactor-http-nio-8] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:2,remainder:2.use time: 84424 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:50.618 ERROR 5768 --- [reactor-http-nio-1] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -491,254 +331,149 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.239 ERROR 6196 --- [reactor-http-nio-2] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:21.177 ERROR 6196 --- [reactor-http-nio-8] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:21.262  WARN 6196 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [4bba15c2-1, L:/127.0.0.1:60399 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:54.958  WARN 5768 --- [reactor-http-nio-3] r.netty.http.client.HttpClientConnect    : [96f1895e-1, L:/127.0.0.1:57664 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.177 ERROR 6196 --- [reactor-http-nio-1] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:21.293 ERROR 6196 --- [reactor-http-nio-7] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
-
-org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
-		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
-		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
-		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
-		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
-		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
-		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
-		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
-		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
-		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
-		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
-		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
-		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
-		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
-		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
-		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
-		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
-		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.lang.Thread.run(Thread.java:750)
-Caused by: io.netty.handler.timeout.ReadTimeoutException: null
-
-2026-06-10 14:02:21.309  WARN 6196 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [bf9333ad-1, L:/127.0.0.1:60394 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:54.958  WARN 5768 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [a9e16993-3449, L:/127.0.0.1:52394 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.309  WARN 6196 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [7237cf25-2, L:/127.0.0.1:56670 - R:/127.0.0.1:9200] The connection observed an error
+2026-06-17 12:06:55.016 ERROR 5768 --- [reactor-http-nio-2] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+
+org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.lang.Thread.run(Thread.java:750)
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:06:55.130 ERROR 5768 --- [reactor-http-nio-3] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+
+org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.lang.Thread.run(Thread.java:750)
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:06:56.016  WARN 5768 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [5efc731e-2, L:/127.0.0.1:57574 - R:/127.0.0.1:9200] The connection observed an error
 
 io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.393 ERROR 6196 --- [reactor-http-nio-1] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:06:56.141  WARN 5768 --- [reactor-http-nio-7] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:36,remainder:1.use time: 11187 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:56.253  WARN 5768 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [0b5d9b7a-1, L:/127.0.0.1:57672 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:06:56.436  WARN 5768 --- [reactor-http-nio-4] r.netty.http.client.HttpClientConnect    : [aa3d7049-1, L:/127.0.0.1:57670 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:06:56.436 ERROR 5768 --- [reactor-http-nio-2] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -788,14 +523,19 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
-2026-06-10 14:02:21.544 ERROR 6196 --- [reactor-http-nio-7] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+2026-06-17 12:06:56.478  WARN 5768 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [65d888e7-1, L:/127.0.0.1:57671 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:06:56.437  WARN 5768 --- [reactor-http-nio-4] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:6,remainder:40.use time: 10431 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:06:56.623 ERROR 5768 --- [reactor-http-nio-2] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
 
 org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
 	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
@@ -845,10 +585,278 @@ Original Stack Trace:
 		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
 		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
 		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
 		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
 		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 		at java.lang.Thread.run(Thread.java:750)
 Caused by: io.netty.handler.timeout.ReadTimeoutException: null
 
+2026-06-17 12:07:00.955  WARN 5768 --- [reactor-http-nio-5] r.netty.http.client.HttpClientConnect    : [5ff43624-1, L:/127.0.0.1:57679 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:01.112  WARN 5768 --- [reactor-http-nio-5] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:6,remainder:1.use time: 10172 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:07:06.026  WARN 5768 --- [reactor-http-nio-6] r.netty.http.client.HttpClientConnect    : [7007ed68-1, L:/127.0.0.1:57689 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:06.064  WARN 5768 --- [reactor-http-nio-6] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:4,remainder:1.use time: 10174 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:07:08.018  WARN 5768 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [6deeb228-1, L:/127.0.0.1:57690 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:08.020  WARN 5768 --- [reactor-http-nio-7] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:51,remainder:1.use time: 10129 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:07:11.354  WARN 5768 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [277da69f-1, L:/127.0.0.1:57693 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:11.726 ERROR 5768 --- [reactor-http-nio-8] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+
+org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.lang.Thread.run(Thread.java:750)
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:13.012  WARN 5768 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [de4129f8-1, L:/127.0.0.1:57695 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:13.025  WARN 5768 --- [reactor-http-nio-1] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:8,remainder:1.use time: 10143 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:07:20.060  WARN 5768 --- [reactor-http-nio-3] r.netty.http.client.HttpClientConnect    : [ba2446dd-1, L:/127.0.0.1:57716 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:07:20.183  WARN 5768 --- [reactor-http-nio-3] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:53,remainder:2.use time: 10289 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:25.272  WARN 5768 --- [reactor-http-nio-5] r.netty.http.client.HttpClientConnect    : [3ca66332-287, L:/127.0.0.1:57728 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:25.873  WARN 5768 --- [reactor-http-nio-5] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:3,remainder:1.use time: 10933 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:35.898  WARN 5768 --- [reactor-http-nio-4] r.netty.http.client.HttpClientConnect    : [bfb3390c-286, L:/127.0.0.1:57721 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:35.918  WARN 5768 --- [reactor-http-nio-4] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:1,remainder:1.use time: 10026 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:37.905  WARN 5768 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [f6985bff-288, L:/127.0.0.1:57710 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:37.957  WARN 5768 --- [reactor-http-nio-2] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:4,remainder:1.use time: 10069 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:42.593  WARN 5768 --- [reactor-http-nio-6] r.netty.http.client.HttpClientConnect    : [78139f60-1, L:/127.0.0.1:58991 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:43.680 ERROR 5768 --- [reactor-http-nio-6] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+
+org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.lang.Thread.run(Thread.java:750)
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:47.258  WARN 5768 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [3b39a5a1-1, L:/127.0.0.1:59003 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:47.349  WARN 5768 --- [reactor-http-nio-7] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:3,remainder:1.use time: 10418 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:49.028  WARN 5768 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [501bbe4f-1, L:/127.0.0.1:59004 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:49.902  WARN 5768 --- [reactor-http-nio-8] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:6,remainder:0.use time: 11017 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:54.495  WARN 5768 --- [reactor-http-nio-1] r.netty.http.client.HttpClientConnect    : [ec7fe394-1, L:/127.0.0.1:59010 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:54.730  WARN 5768 --- [reactor-http-nio-1] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:4,remainder:1.use time: 10742 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:30:57.980  WARN 5768 --- [reactor-http-nio-2] r.netty.http.client.HttpClientConnect    : [ea2c9f75-1, L:/127.0.0.1:59015 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:30:57.991  WARN 5768 --- [reactor-http-nio-2] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:5,remainder:1.use time: 10100 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:31:00.744  WARN 5768 --- [reactor-http-nio-3] r.netty.http.client.HttpClientConnect    : [aa91ee57-1, L:/127.0.0.1:59017 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:01.118  WARN 5768 --- [reactor-http-nio-3] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:1,remainder:1.use time: 11236 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:31:01.058  WARN 5768 --- [reactor-http-nio-4] r.netty.http.client.HttpClientConnect    : [eaba9c98-1, L:/127.0.0.1:59018 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:01.201  WARN 5768 --- [reactor-http-nio-4] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:7,remainder:4.use time: 10274 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:31:06.370  WARN 5768 --- [reactor-http-nio-5] r.netty.http.client.HttpClientConnect    : [2041433e-1, L:/127.0.0.1:59021 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:06.655  WARN 5768 --- [reactor-http-nio-5] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:7,remainder:1.use time: 10764 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:31:08.904  WARN 5768 --- [reactor-http-nio-6] r.netty.http.client.HttpClientConnect    : [6cbf6b4b-1, L:/127.0.0.1:59022 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:08.923  WARN 5768 --- [reactor-http-nio-6] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:7,remainder:1.use time: 10028 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+2026-06-17 12:31:11.656  WARN 5768 --- [reactor-http-nio-7] r.netty.http.client.HttpClientConnect    : [ff4b5bfe-1, L:/127.0.0.1:59024 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:12.143 ERROR 5768 --- [reactor-http-nio-7] o.j.c.t.m.TimeSeriesMeterRegistry        : failed to send metrics [jetlinks-metrics]
+
+org.springframework.web.reactive.function.client.WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ? Request to POST http://127.0.0.1:9200/_bulk?timeout=9s [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:141)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4491)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:415)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:251)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.EmitterProcessor.drain(EmitterProcessor.java:537)
+		at reactor.core.publisher.EmitterProcessor.tryEmitNext(EmitterProcessor.java:343)
+		at reactor.core.publisher.SinkManySerialized.tryEmitNext(SinkManySerialized.java:100)
+		at reactor.core.publisher.InternalManySink.emitNext(InternalManySink.java:27)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:190)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:403)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:700)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:211)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:464)
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:247)
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:468)
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:508)
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325)
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317)
+		at io.netty.handler.timeout.ReadTimeoutHandler.readTimedOut(ReadTimeoutHandler.java:98)
+		at io.netty.handler.timeout.ReadTimeoutHandler.channelIdle(ReadTimeoutHandler.java:90)
+		at io.netty.handler.timeout.IdleStateHandler$ReaderIdleTimeoutTask.run(IdleStateHandler.java:525)
+		at io.netty.handler.timeout.IdleStateHandler$AbstractIdleTask.run(IdleStateHandler.java:497)
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.lang.Thread.run(Thread.java:750)
+Caused by: io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:13.309  WARN 5768 --- [reactor-http-nio-8] r.netty.http.client.HttpClientConnect    : [9d395b0b-1, L:/127.0.0.1:59027 - R:/127.0.0.1:9200] The connection observed an error
+
+io.netty.handler.timeout.ReadTimeoutException: null
+
+2026-06-17 12:31:13.495  WARN 5768 --- [reactor-http-nio-8] o.j.c.b.PersistenceBuffer.elasticsearch  : write elasticsearch data failed do retry later,size:12,remainder:2.use time: 10267 ms,error: WebClientRequestException: nested exception is io.netty.handler.timeout.ReadTimeoutException

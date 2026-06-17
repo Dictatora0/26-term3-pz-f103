@@ -1,0 +1,7 @@
+2026-06-17 11:43:55 INFO [CONFIG] loaded .env
+2026-06-17 11:43:55 INFO [CONFIG] serial_port=COM3 baud_rate=115200 serial_timeout=1.0 device_id=hi3861_car_01 ha_enabled=True ha=127.0.0.1:1883 ha_discovery=True:homeassistant tb_enabled=True tb=127.0.0.1:1884 tb_token=configured log_level=INFO
+2026-06-17 11:43:55 INFO [SERIAL] opening COM3 at 115200
+2026-06-17 11:43:55 INFO [HA-MQTT] connecting 127.0.0.1:1883 client_id=iot_gateway_ha_hi3861_car_01
+2026-06-17 11:43:55 INFO [TB-MQTT] connecting 127.0.0.1:1884 client_id=iot_gateway_tb_hi3861_car_01
+2026-06-17 11:43:55 INFO [HA-MQTT] connected
+2026-06-17 11:43:55 INFO [TB-MQTT] connected

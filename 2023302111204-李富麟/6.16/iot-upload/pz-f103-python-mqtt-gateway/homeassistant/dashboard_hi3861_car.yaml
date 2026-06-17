@@ -1,0 +1,12 @@
+title: Hi3861 Car Dashboard
+views:
+  - title: Hi3861 Car
+    path: hi3861-car
+    cards:
+      - type: entities
+        title: Huawei Hi3861 Car
+        entities:
+          - entity: sensor.hi3861_car_status
+          - entity: sensor.hi3861_car_direction
+          - entity: sensor.hi3861_car_speed
+          - entity: sensor.hi3861_car_distance

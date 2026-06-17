@@ -1,0 +1,912 @@
+11:22:01 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 5872 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+11:22:01 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+11:22:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+11:22:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+11:22:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+11:22:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+11:22:41 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+11:23:00 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 63.446 seconds (JVM running for 69.741)
+11:23:00 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+11:23:01 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+11:23:01 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+11:23:01 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+11:23:07 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+11:23:13 [IWT-5-2] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:23:13 [IWT-5-2] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:23:30 [IWT-5-3] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:23:30 [IWT-5-3] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:23:48 [IWT-5-4] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:23:48 [IWT-5-4] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:24:05 [IWT-5-5] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:24:05 [IWT-5-5] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:24:25 [IWT-5-6] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:24:25 [IWT-5-6] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:24:43 [IWT-5-7] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:24:43 [IWT-5-7] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:25:01 [IWT-5-8] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:25:02 [IWT-5-8] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:25:20 [IWT-5-9] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:25:20 [IWT-5-9] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:25:37 [IWT-5-10] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:25:37 [IWT-5-10] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:25:54 [IWT-5-11] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:25:54 [IWT-5-11] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:26:11 [IWT-5-12] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:26:11 [IWT-5-12] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:26:28 [IWT-5-13] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:26:35 [IWT-5-13] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+11:26:35 [IWT-5-13] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:26:51 [IWT-5-14] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:27:22 [IWT-5-14] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+11:27:22 [IWT-5-14] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:27:38 [IWT-5-15] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:27:53 [IWT-5-15] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+11:27:53 [IWT-5-15] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:28:11 [IWT-5-16] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:28:11 [IWT-5-16] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:28:28 [IWT-5-1] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:28:28 [IWT-5-1] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:28:45 [IWT-5-2] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:28:45 [IWT-5-2] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:29:00 [IWT-5-3] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:40:00 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Starting IBootApplication v3.0.0 using Java 1.8.0_492 on DESKTOP-6NM70T0 with PID 6384 (D:\Proj\5.29\iboot-jetlinks\bootstrap\target\bootstrap.jar started by DESKTOP-6NM70T0$ in D:\Proj\5.29\iboot-jetlinks\bootstrap\target)
+11:40:00 [main] INFO  com.iteaj.iboot.boot.IBootApplication - The following 5 profiles are active: "iot", "framework", "satoken", "knife4j", "prod"
+11:43:16 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Rtu协议提供
+11:43:16 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: Modbus Tcp协议提供
+11:43:16 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_TCP - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Tcp协议提供
+11:43:16 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 DTU:MODBUS_RTU - 版本: 1.0.0 - 实现: 系统内置 - 说明: 基于DTU网关的Modbus Rtu协议提供
+11:43:16 [main] INFO  c.iteaj.framework.spi.iot.ProtocolSupplierManager - <<<注册协议提供成功 MQTT_DEFAULT_IMPL - 版本: 1.0.0 - 实现: 系统内置 - 说明: 默认Mqtt协议
+11:43:38 [main] INFO  com.iteaj.iboot.boot.IBootApplication - Started IBootApplication in 221.966 seconds (JVM running for 228.055)
+11:43:38 [main] INFO  com.iteaj.framework.plugin.PluginManagerService - 框架已加载完成所有插件[Oauth2、Knife4j]
+11:43:39 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]前钩子函数[LifeCyclePostProcessor]
+11:43:39 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(websocket(Server)) 主机：0.0.0.0:8170 - 简介：websocket服务端默认实现
+11:43:39 [main] INFO  com.iteaj.iot.boot.LoggerLifeCyclePostProcessor - 执行组件生命周期[start]后钩子函数[LifeCyclePostProcessor]
+11:43:40 [IST-4-1] INFO  com.iteaj.iot.server.IotSocketServer - 监听端口成功(ModbusRtuForDtu) 主机：0.0.0.0:5020 - 简介：使用Dtu连网且设备基于标准Modbus Rtu协议的iot服务端实现
+11:43:42 [IWT-5-2] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+11:43:42 [IWT-5-2] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:43:59 [IWT-5-3] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:44:10 [IWT-5-3] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+11:44:10 [IWT-5-3] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+11:44:25 [IWT-5-4] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:09:07 [IWT-5-4] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+12:09:07 [IWT-5-4] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:09:25 [IWT-5-5] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:09:25 [IWT-5-5] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:09:42 [IWT-5-6] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:09:42 [IWT-5-6] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:09:59 [IWT-5-7] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:09:59 [IWT-5-7] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:10:16 [IWT-5-8] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:10:16 [IWT-5-8] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:10:34 [IWT-5-9] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:10:34 [IWT-5-9] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:10:51 [IWT-5-10] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:10:51 [IWT-5-10] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:11:06 [IWT-5-11] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:11:19 [IWT-5-11] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+12:11:19 [IWT-5-11] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:11:36 [IWT-5-12] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:11:36 [IWT-5-12] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:11:53 [IWT-5-13] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:11:53 [IWT-5-13] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:12:09 [IWT-5-14] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:12:21 [IWT-5-14] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+12:12:21 [IWT-5-14] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:12:36 [IWT-5-15] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:16:43 [IWT-5-15] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+12:16:43 [IWT-5-15] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:17:01 [IWT-5-16] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:17:01 [IWT-5-16] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:17:19 [IWT-5-1] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:17:19 [IWT-5-1] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:17:36 [IWT-5-2] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:17:36 [IWT-5-2] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:17:53 [IWT-5-3] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:17:53 [IWT-5-3] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:18:08 [IWT-5-4] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:53:01 [IWT-5-4] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+12:53:06 [IWT-5-4] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:53:51 [IWT-5-5] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:53:52 [IWT-5-5] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:54:12 [IWT-5-6] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:54:12 [IWT-5-6] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:54:30 [IWT-5-7] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:54:30 [IWT-5-7] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:54:50 [IWT-5-8] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:54:50 [IWT-5-8] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:55:09 [IWT-5-9] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:55:09 [IWT-5-9] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:55:27 [IWT-5-10] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:55:27 [IWT-5-10] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:55:50 [IWT-5-11] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:55:51 [IWT-5-11] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:56:09 [IWT-5-12] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:56:09 [IWT-5-12] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:56:29 [IWT-5-13] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:56:29 [IWT-5-13] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:56:52 [IWT-5-14] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:56:54 [IWT-5-14] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:57:12 [IWT-5-15] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:57:12 [IWT-5-15] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:57:30 [IWT-5-16] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:57:30 [IWT-5-16] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:57:48 [IWT-5-1] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:57:49 [IWT-5-1] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:58:08 [IWT-5-2] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:58:08 [IWT-5-2] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:58:26 [IWT-5-3] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:58:26 [IWT-5-3] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:58:44 [IWT-5-4] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:58:44 [IWT-5-4] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:59:01 [IWT-5-5] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:59:01 [IWT-5-5] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:59:18 [IWT-5-6] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:59:18 [IWT-5-6] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:59:36 [IWT-5-7] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:59:36 [IWT-5-7] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+12:59:53 [IWT-5-8] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+12:59:53 [IWT-5-8] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:00:09 [IWT-5-9] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:00:11 [IWT-5-9] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+13:00:11 [IWT-5-9] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:00:28 [IWT-5-10] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+13:00:28 [IWT-5-10] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:00:45 [IWT-5-11] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+13:00:45 [IWT-5-11] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:01:02 [IWT-5-12] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+13:01:02 [IWT-5-12] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:01:18 [IWT-5-13] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:01:34 [IWT-5-13] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+13:01:34 [IWT-5-13] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:01:51 [IWT-5-14] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+13:01:51 [IWT-5-14] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:02:08 [IWT-5-15] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+13:02:08 [IWT-5-15] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:02:26 [IWT-5-16] ERROR com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器失败 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:1883
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:750)
+13:02:26 [IWT-5-16] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:02:42 [IWT-5-1] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:08:45 [IWT-5-1] WARN  com.iteaj.iot.client.handle.ClientServiceHandler - 客户端关闭(MQTT<默认>) 未知原因 - 客户端: mqtt_gateway_env_led - 远程地址: /127.0.0.1:1883
+13:08:45 [IWT-5-1] WARN  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 断线重连 - 等待重连时间：15(s) - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led
+13:09:00 [IWT-5-2] INFO  com.iteaj.iot.client.mqtt.MqttClient - 客户端(MQTT<默认>) 连接服务器成功 - 远程主机 127.0.0.1:1883 - 客户端标识：mqtt_gateway_env_led

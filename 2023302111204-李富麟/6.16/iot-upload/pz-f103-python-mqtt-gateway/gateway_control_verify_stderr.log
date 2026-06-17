@@ -1,0 +1,70 @@
+2026-06-16 13:01:47 INFO [CONFIG] loaded sources=.env
+2026-06-16 13:01:47 INFO [CONFIG] serial_port=COM3 baud_rate=115200 serial_timeout=1.0 serial_dtr=False serial_rts=False device_id=f103_01 ha_enabled=True ha_control_enabled=True ha=127.0.0.1:1883 tb_enabled=True tb=127.0.0.1:1884 log_level=INFO
+2026-06-16 13:01:47 INFO [SERIAL] opening COM3 baud_rate=115200 timeout=1.0 dtr=False rts=False
+2026-06-16 13:01:47 INFO [HA-MQTT] connecting host=127.0.0.1 port=1883 client_id=pz103_gateway_ha_f103_01
+2026-06-16 13:01:50 ERROR [ERROR] [HA-MQTT] connect failed: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+2026-06-16 13:01:50 WARNING [WARN] [TB-MQTT] TB_ACCESS_TOKEN is not configured; skipping ThingsBoard publishing
+2026-06-16 13:01:50 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=72.1% light=25% led=0
+2026-06-16 13:01:50 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=72.1% light=25% led=0
+2026-06-16 13:01:50 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:25,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:50 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 25, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:50 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:50 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:50 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:50 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:51 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=73.8% light=19% led=0
+2026-06-16 13:01:51 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=73.8% light=19% led=0
+2026-06-16 13:01:51 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:19,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:51 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 19, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:51 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:51 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:51 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:51 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:54 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=73.9% light=22% led=0
+2026-06-16 13:01:54 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=73.9% light=22% led=0
+2026-06-16 13:01:54 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:22,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:54 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 22, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:54 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:54 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:54 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:54 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:56 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=74.5% light=22% led=0
+2026-06-16 13:01:56 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=74.5% light=22% led=0
+2026-06-16 13:01:56 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:22,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:56 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 22, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:56 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:56 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:56 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:56 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:58 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=75.1% light=22% led=0
+2026-06-16 13:01:58 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=75.1% light=22% led=0
+2026-06-16 13:01:58 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:22,LED:OFF,BUZZER:OFF
+2026-06-16 13:01:58 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 22, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:01:58 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:58 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:58 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:01:58 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:00 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=75.5% light=23% led=0
+2026-06-16 13:02:00 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=75.5% light=23% led=0
+2026-06-16 13:02:00 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:23,LED:OFF,BUZZER:OFF
+2026-06-16 13:02:00 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 23, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:02:00 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:00 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:00 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:00 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:03 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=64.1% light=23% led=0
+2026-06-16 13:02:03 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=64.1% light=23% led=0
+2026-06-16 13:02:03 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:23,LED:OFF,BUZZER:OFF
+2026-06-16 13:02:03 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 23, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:02:03 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:03 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:03 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:03 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:05 INFO [SERIAL] received raw line: [SENSOR] temp=30.04C hum(sim)=64.9% light=22% led=0
+2026-06-16 13:02:05 INFO [SERIAL] ignored serial log line: [SENSOR] temp=30.04C hum(sim)=64.9% light=22% led=0
+2026-06-16 13:02:05 INFO [SERIAL] received raw line: TEMP:30.0,LIGHT:22,LED:OFF,BUZZER:OFF
+2026-06-16 13:02:05 INFO [SERIAL] parsed data: {'temperature': 30.0, 'light': 22, 'led': 'OFF', 'buzzer': 'OFF'}
+2026-06-16 13:02:05 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:05 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:05 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available
+2026-06-16 13:02:05 WARNING [WARN] [HA-MQTT] publish skipped; MQTT client is not available

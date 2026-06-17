@@ -1,0 +1,14 @@
+views:
+  - title: "Hi3861 Car"
+    path: "hi3861-car"
+    cards:
+      - type: entities
+        title: "Huawei Hi3861 Car"
+        entities:
+          - sensor.hi3861_car_status
+          - sensor.hi3861_car_direction
+          - sensor.hi3861_car_motion_state
+          - sensor.hi3861_car_speed
+          - sensor.hi3861_car_distance
+          - sensor.hi3861_car_yaw
+          - sensor.hi3861_car_gyro_z
